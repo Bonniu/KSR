@@ -8,21 +8,17 @@ namespace Zadanie1_KSR
     public class FileParser
     {
         //reut2-000.sgm
-        public void readFile(string fileName)
+        public void readFile(string fileName, List<Article> articleList)
         {
             string wholeText = File.ReadAllText(fileName);
             string[] articles = wholeText.Split("<PLACES>");
-            for (int i = 1; i < articles.Length; i++)
-                // for (int i = 1; i < 10; i++) 
+            for (int i = 1; i < articles.Length; i++) // pierwszy to jakies reuters, i inne
             {
-                if (getPlace(articles[i]) == "err")
-                    continue;
                 string place = getPlace(articles[i]);
-                Console.WriteLine(place);
-               // Console.WriteLine(articles[i]);
                 string body = getBody(articles[i]);
-                Console.WriteLine(body);
-                
+                if (place == "err" || body == "err")
+                    continue;
+                articleList.Add(new Article(body, place));
             }
         }
 
@@ -41,7 +37,7 @@ namespace Zadanie1_KSR
                 placesLine = tmp.Substring(3, tmp.Length);
             }
 
-            if (!placesLine.Contains("</D><D>"))
+            if (!placesLine.Contains("</D><D>")) // to znaczy ze sa wiecej niz 1 places
             {
                 return placesLine;
             }
