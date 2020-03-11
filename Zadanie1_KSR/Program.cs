@@ -7,6 +7,8 @@ namespace Zadanie1_KSR
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            FileParser fp = new FileParser();
+            fp.readFile("..//..//..//dane//reut2-000.sgm");
         }
     }
 }

@@ -1,0 +1,11 @@
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\bin\Debug\netcoreapp3.1\Zadanie1_KSR.exe
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\bin\Debug\netcoreapp3.1\Zadanie1_KSR.deps.json
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\bin\Debug\netcoreapp3.1\Zadanie1_KSR.runtimeconfig.json
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\bin\Debug\netcoreapp3.1\Zadanie1_KSR.runtimeconfig.dev.json
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\bin\Debug\netcoreapp3.1\Zadanie1_KSR.dll
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\bin\Debug\netcoreapp3.1\Zadanie1_KSR.pdb
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\obj\Debug\netcoreapp3.1\Zadanie1_KSR.csprojAssemblyReference.cache
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\obj\Debug\netcoreapp3.1\Zadanie1_KSR.AssemblyInfoInputs.cache
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\obj\Debug\netcoreapp3.1\Zadanie1_KSR.AssemblyInfo.cs
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\obj\Debug\netcoreapp3.1\Zadanie1_KSR.dll
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\obj\Debug\netcoreapp3.1\Zadanie1_KSR.pdb

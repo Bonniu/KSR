@@ -4,7 +4,42 @@
     <e p="C:\Users\Radek\.Rider2019.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Radek\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Zadanie1_KSR.1832608527.00" t="ExcludeRecursive" />
     <e p="D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR" t="IncludeRecursive">
+      <e p="Article.cs" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
+      <e p="dane" t="Include">
+        <e p="all-exchanges-strings.lc.txt" t="Include" />
+        <e p="all-orgs-strings.lc.txt" t="Include" />
+        <e p="all-people-strings.lc.txt" t="Include" />
+        <e p="all-places-strings.lc.txt" t="Include" />
+        <e p="all-topics-strings.lc.txt" t="Include" />
+        <e p="cat-descriptions_120396.txt" t="Include" />
+        <e p="feldman-cia-worldfactbook-data.txt" t="Include" />
+        <e p="lewis.dtd" t="Include" />
+        <e p="README.txt" t="Include" />
+        <e p="reut2-000.sgm" t="Include" />
+        <e p="reut2-001.sgm" t="Include" />
+        <e p="reut2-002.sgm" t="Include" />
+        <e p="reut2-003.sgm" t="Include" />
+        <e p="reut2-004.sgm" t="Include" />
+        <e p="reut2-005.sgm" t="Include" />
+        <e p="reut2-006.sgm" t="Include" />
+        <e p="reut2-007.sgm" t="Include" />
+        <e p="reut2-008.sgm" t="Include" />
+        <e p="reut2-009.sgm" t="Include" />
+        <e p="reut2-010.sgm" t="Include" />
+        <e p="reut2-011.sgm" t="Include" />
+        <e p="reut2-012.sgm" t="Include" />
+        <e p="reut2-013.sgm" t="Include" />
+        <e p="reut2-014.sgm" t="Include" />
+        <e p="reut2-015.sgm" t="Include" />
+        <e p="reut2-016.sgm" t="Include" />
+        <e p="reut2-017.sgm" t="Include" />
+        <e p="reut2-018.sgm" t="Include" />
+        <e p="reut2-019.sgm" t="Include" />
+        <e p="reut2-020.sgm" t="Include" />
+        <e p="reut2-021.sgm" t="Include" />
+      </e>
+      <e p="FileParser.cs" t="Include" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.1" t="Include">
