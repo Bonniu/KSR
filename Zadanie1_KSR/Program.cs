@@ -18,6 +18,8 @@ namespace Zadanie1_KSR
             stemmer.xdxdxd("nationalize");
             stemmer.xdxdxd("symbols");
             stemmer.xdxdxd("prices");
+            stemmer.xdxdxd("said");
+            stemmer.xdxdxd("expiring");
         }
     }
 }
