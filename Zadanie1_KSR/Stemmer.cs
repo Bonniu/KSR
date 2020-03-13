@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 // ReSharper disable All
@@ -610,18 +611,24 @@ namespace Zadanie1_KSR
 		 * forcing lower case must be done outside the Stemmer class.
 		 * Usage: Stemmer file-name file-name ...
 		 */
-        public void xdxdxd(string text)
+        public string StemText(string text)
         {
-            
+            char[] delimiters = {' ', '\t', '\n'};
+            string[] tabWords = text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+            string tab = "";
             Stemmer s = new Stemmer();
-            foreach (var charr in text.ToLower())
+            foreach (var tmp in tabWords)
             {
-                s.add(charr);    
+                foreach (var charr in tmp.ToLower())
+                {
+                    s.add(charr);
+                }
+
+                s.stem();
+                tab += s.ToString() + " ";
             }
-            
-            s.stem();
-            Console.WriteLine(s.ToString());
-            
+
+            return tab;
         }
     }
 }

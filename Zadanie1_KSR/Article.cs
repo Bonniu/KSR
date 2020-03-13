@@ -16,6 +16,8 @@ namespace Zadanie1_KSR
             char[] delimiters = {' ', '\t', '\n'};
             this.wordCount = originalText.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
             this.refactoredText = StopwordTool.RemoveStopwords(originalText);
+            Stemmer s = new Stemmer();
+            this.refactoredText = s.StemText(refactoredText);
         }
 
         public string GetOriginalText()

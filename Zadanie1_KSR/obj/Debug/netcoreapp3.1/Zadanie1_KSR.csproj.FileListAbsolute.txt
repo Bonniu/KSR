@@ -9,3 +9,5 @@ D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\obj\D
 D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\obj\Debug\netcoreapp3.1\Zadanie1_KSR.AssemblyInfo.cs
 D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\obj\Debug\netcoreapp3.1\Zadanie1_KSR.dll
 D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\obj\Debug\netcoreapp3.1\Zadanie1_KSR.pdb
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\bin\Debug\netcoreapp3.1\Annytab.Stemmer.dll
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie1_KSR\obj\Debug\netcoreapp3.1\Zadanie1_KSR.csproj.CopyComplete

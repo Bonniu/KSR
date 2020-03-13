@@ -25,6 +25,12 @@
   },
   "frameworks": {
     "netcoreapp3.1": {
+      "dependencies": {
+        "Annytab.Stemmer": {
+          "target": "Package",
+          "version": "[1.2.4, )"
+        }
+      },
       "imports": [
         "net461",
         "net462",

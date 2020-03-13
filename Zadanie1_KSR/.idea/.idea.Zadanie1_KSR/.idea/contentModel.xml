@@ -40,6 +40,7 @@
         <e p="reut2-020.sgm" t="Include" />
         <e p="reut2-021.sgm" t="Include" />
       </e>
+      <e p="Features.cs" t="Include" />
       <e p="FileParser.cs" t="Include" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
@@ -50,7 +51,9 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="Program.cs" t="Include" />
+      <e p="Stemmer.cs" t="Include" />
       <e p="StopwordTool.cs" t="Include" />
+      <e p="WordCounter.cs" t="Include" />
       <e p="Zadanie1_KSR.csproj" t="IncludeRecursive" />
       <e p="Zadanie1_KSR.sln" t="IncludeFlat" />
     </e>

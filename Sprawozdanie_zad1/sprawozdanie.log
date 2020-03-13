@@ -1,0 +1,158 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  13 MAR 2020 09:20
+entering extended mode
+**"D:/xd/inf/6 semestr/Komputerowe systemy rozpoznawania/KSR git/Sprawozdanie_z
+ad1/sprawozdanie.tex"
+
+("D:/xd/inf/6 semestr/Komputerowe systemy rozpoznawania/KSR git/Sprawozdanie_za
+d1/sprawozdanie.tex"
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14>
+("D:/xd/inf/6 semestr/Komputerowe systemy rozpoznawania/KSR git/Sprawozdanie_za
+d1\classrep.cls"
+Document Class: classrep 2009/11/27 ICS Class Assignment Report
+("C:\Program Files\MiKTeX 2.9\tex/latex/mwcls\mwart.cls"
+Document Class: mwart 2017/05/13 v0.75 A LaTeX document class (MW)
+*** Beta version. Formatting may change
+*** in future versions of this class.
+("C:\Program Files\MiKTeX 2.9\tex/latex/mwcls\mw12.clo"
+File: mw12.clo 2017/05/13 v0.75 A document class size option (MW)
+)
+\@parindent=\dimen134
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen135
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/polski\polski.sty"
+Package: polski 2017/05/04 v1.3.4 Polish language package
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\ot4enc.def"
+File: ot4enc.def 2020/02/11 v2.0o Standard LaTeX file
+Now handling font encoding OT4 ...
+... no UTF-8 mapping file for font encoding OT4
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/url\url.sty"
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\inputenc.sty"
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\color.sty"
+Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-def\pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+LaTeX Info: Redefining \@svnurl on input line 20.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
+File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count175
+\l__pdf_internal_box=\box45
+)
+No file sprawozdanie.aux.
+\openout1 = `sprawozdanie.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 22.
+LaTeX Font Info:    Trying to load font information for OT4+cmr on input line 2
+2.
+("C:\Program Files\MiKTeX 2.9\tex/latex/polski\ot4cmr.fd"
+File: ot4cmr.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
+)
+LaTeX Font Info:    ... okay on input line 22.
+
+("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count176
+\scratchdimen=\dimen136
+\scratchbox=\box46
+\nofMPsegments=\count177
+\nofMParguments=\count178
+\everyMPshowfont=\toks16
+\MPscratchCnt=\count179
+\MPscratchDim=\dimen137
+\MPnumerator=\count180
+\makeMPintoPDFobject=\count181
+\everyMPtoPDFconversion=\toks17
+)
+Underfull \hbox (badness 10000) in paragraph at lines 23--23
+
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 23.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 23.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 23.
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--23
+
+ []
+
+LaTeX Font Info:    Trying to load font information for OT4+cmtt on input line 
+23.
+("C:\Program Files\MiKTeX 2.9\tex/latex/polski\ot4cmtt.fd"
+File: ot4cmtt.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <20.74> on input line 23.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 23.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 23.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 23.
+
+Underfull \hbox (badness 3323) in paragraph at lines 23--23
+[]$[]$[]\OT4/cmr/m/n/10 SVN: $\OT4/cmtt/m/n/10 http : / / serce . ics . p . lod
+z . pl / svn / labs / poidObliczeniainteligentne /
+ []
+
+[1
+
+{C:/Users/Radek/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+
+LaTeX Warning: Empty `thebibliography' environment on input line 96.
+
+[3] (sprawozdanie.aux) ) 
+Here is how much of TeX's memory you used:
+ 1407 strings out of 481556
+ 20661 string characters out of 2923635
+ 252495 words of memory out of 3000000
+ 16679 multiletter control sequences out of 15000+200000
+ 542086 words of font info for 51 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 36i,7n,32p,252b,282s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+!pdfTeX error: pdflatex (file pltt10): Font pltt10 at 600 not found
+ ==> Fatal error occurred, no output PDF file produced!

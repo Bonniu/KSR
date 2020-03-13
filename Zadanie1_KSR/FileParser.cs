@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.CompilerServices;
 
 namespace Zadanie1_KSR
 {
@@ -18,6 +19,15 @@ namespace Zadanie1_KSR
                 string body = getBody(articles[i]);
                 if (place == "err" || body == "err")
                     continue;
+                //west-germany, usa, france, uk, canada, japan
+                if (place != "west-germany" &&
+                    place != "usa" &&
+                    place != "france" &&
+                    place != "uk" &&
+                    place != "canada" &&
+                    place != "japan")
+                    continue;
+
                 articleList.Add(new Article(body, place));
             }
         }
