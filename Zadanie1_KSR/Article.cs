@@ -14,10 +14,11 @@ namespace Zadanie1_KSR
             this.originalText = originalText;
             this.place = place;
             char[] delimiters = {' ', '\t', '\n'};
-            this.wordCount = originalText.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
             this.refactoredText = StopwordTool.RemoveStopwords(originalText);
             Stemmer s = new Stemmer();
             this.refactoredText = s.StemText(refactoredText);
+            this.wordCount = refactoredText.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
+
         }
 
         public string GetOriginalText()

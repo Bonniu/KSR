@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 
 // ReSharper disable All
 
@@ -617,18 +615,38 @@ namespace Zadanie1_KSR
             string[] tabWords = text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
             string tab = "";
             Stemmer s = new Stemmer();
-            foreach (var tmp in tabWords)
+            foreach (var word in tabWords)
             {
-                foreach (var charr in tmp.ToLower())
+                foreach (var charr in word.ToLower())
                 {
                     s.add(charr);
                 }
 
                 s.stem();
-                tab += s.ToString() + " ";
+                tab += CheckFirstLastChar(s.ToString()) + " ";
             }
 
             return tab;
+        }
+
+        private string CheckFirstLastChar(string word)
+        {
+            char[] tab = {'\"', '-', '\'', ',', '.', '/', '<', '>', '`'};
+            string tmp = word;
+            foreach (var ch in tab)
+            {
+                if (tmp.StartsWith(ch))
+                {
+                    tmp = tmp.Substring(1);
+                }
+
+                if (tmp.EndsWith(ch))
+                {
+                    tmp = tmp.Substring(0, tmp.Length - 1);
+                }
+            }
+
+            return tmp;
         }
     }
 }
