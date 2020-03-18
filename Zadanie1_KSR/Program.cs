@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Annytab.Stemmer;
+using Zadanie1_KSR.Features;
 
 namespace Zadanie1_KSR
 {
@@ -17,9 +18,26 @@ namespace Zadanie1_KSR
             keyWords.FindKeyWords(list);
             keyWords.PrintKeyWords();
 
-            Console.WriteLine();
-            Features.Feature f = new Features.Feature1(list[^14], keyWords);
-            Console.WriteLine(f.GetValue());
+            foreach (var article in list)
+            {
+                article.GetFeaturesVector().AddFeature(new Feature1(article, keyWords));
+                article.GetFeaturesVector().AddFeature(new Feature2(article, keyWords));
+                article.GetFeaturesVector().AddFeature(new Feature3(article, keyWords));
+                article.GetFeaturesVector().AddFeature(new Feature4(article, keyWords));
+                article.GetFeaturesVector().AddFeature(new Feature5(article, keyWords));
+                article.GetFeaturesVector().AddFeature(new Feature6(article));
+                article.GetFeaturesVector().AddFeature(new Feature7(article));
+                article.GetFeaturesVector().AddFeature(new Feature8(article));
+                article.GetFeaturesVector().AddFeature(new Feature9(article));
+                article.GetFeaturesVector().AddFeature(new Feature10(article));
+            }
+
+            foreach (var f in list[^14].GetFeaturesVector().GetFeatures())
+            {
+                Console.Write(f.GetValue() + " ");
+            }
+            
+            Console.WriteLine("end");
 
             // TmpFunction();
         }

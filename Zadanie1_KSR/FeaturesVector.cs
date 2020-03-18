@@ -1,19 +1,25 @@
 ﻿using System.Collections.Generic;
+using Zadanie1_KSR.Features;
 
 namespace Zadanie1_KSR
 {
     public class FeaturesVector
     {
-        private List<Features.Feature> features;
+        private List<Feature> features;
 
-        public FeaturesVector(int size)
+        public FeaturesVector()
         {
-            this.features = new List<Features.Feature>(size);
+            this.features = new List<Feature>();
         }
 
-        public void AddFeature(string fun, Article article, KeyWords keyWords)
+        public void AddFeature(Feature feature)
         {
-            
+            features.Add(feature);
+        }
+
+        public List<Feature> GetFeatures()
+        {
+            return features;
         }
     }
 }

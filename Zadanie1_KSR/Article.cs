@@ -8,17 +8,28 @@ namespace Zadanie1_KSR
         private string place;
         private int wordCount;
         private string refactoredText;
+        private FeaturesVector _featuresVector;
 
         public Article(string originalText, string place)
         {
             this.originalText = originalText;
             this.place = place;
             char[] delimiters = {' ', '\t', '\n'};
-            this.refactoredText = StopwordTool.RemoveStopwords(originalText);
+            refactoredText = StopwordTool.RemoveStopwords(originalText);
             Stemmer s = new Stemmer();
-            this.refactoredText = s.StemText(refactoredText);
-            this.wordCount = refactoredText.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
+            refactoredText = s.StemText(refactoredText);
+            wordCount = refactoredText.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
+            _featuresVector = new FeaturesVector();
+        }
 
+        public FeaturesVector GetFeaturesVector()
+        {
+            return _featuresVector;
+        }
+
+        public void SetFeaturesVector(FeaturesVector featuresVector)
+        {
+            _featuresVector = featuresVector;
         }
 
         public string GetOriginalText()
@@ -41,6 +52,7 @@ namespace Zadanie1_KSR
             return wordCount;
         }
 
+        //dodac pozniej wektor cech
         public override string ToString()
         {
             return "[place=" + GetPlace() + ", wordCount=" + GetWordCount() + ", originalText=\n" + GetOriginalText() +
