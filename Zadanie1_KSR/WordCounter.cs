@@ -37,6 +37,24 @@ namespace Zadanie1_KSR
 
             return true;
         }
+        // for features to count unique words
+        public static int CountWords(List<string> text)
+        {
+            Dictionary<string, int> dictionary = new Dictionary<string, int>();
+            foreach (var str in text)
+            {
+                if (dictionary.ContainsKey(str))
+                {
+                    dictionary[str] += 1;
+                }
+                else
+                {
+                    dictionary.Add(str, 1);
+                }
+            }
+
+            return dictionary.Count;
+        }
 
         public bool parseText(string text)
         {
