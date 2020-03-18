@@ -12,30 +12,15 @@ namespace Zadanie1_KSR
             ArticleGenerator ag = new ArticleGenerator(22);
             List<Article> list = ag.ReadAllFiles();
             Console.WriteLine(list[^14].ToString());
-            
+
             KeyWords keyWords = new KeyWords(100);
             keyWords.FindKeyWords(list);
             keyWords.PrintKeyWords();
 
-            Features f = new Features();
-             Console.WriteLine();
-             Console.WriteLine(f.F1(list[^14], keyWords));
-             Console.WriteLine(f.F2(list[^14], keyWords));
-             Console.WriteLine(f.F3(list[^14], keyWords));
-             Console.WriteLine(f.F4(list[^14], keyWords));
-             Console.WriteLine(f.F5(list[^14], keyWords));
-             Console.WriteLine(f.F6(list[^14]));
-             Console.WriteLine(f.F7(list[^14]));
-             Console.WriteLine(f.F8(list[^14]));
-             Console.WriteLine(f.F9(list[^14]));
-             Console.WriteLine(f.F10(list[^14]));
+            Console.WriteLine();
+            Features.Feature f = new Features.Feature1(list[^14], keyWords);
+            Console.WriteLine(f.GetValue());
 
-            // foreach (var i in list)
-            // {
-            //     Console.Write(f.F5(i, keyWords) + " ");
-            // }
-
-            
             // TmpFunction();
         }
 

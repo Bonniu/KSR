@@ -40,7 +40,7 @@ namespace Zadanie1_KSR
                 {
                     int y = int.Parse(wc.GetWordCount().ElementAt(i).Key);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     keywords.Add(wc.GetWordCount().ElementAt(i).Key);
                     i++;

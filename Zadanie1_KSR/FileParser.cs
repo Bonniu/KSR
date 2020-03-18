@@ -64,7 +64,7 @@ namespace Zadanie1_KSR
             {
                 text = article.Split("<BODY>")[1].Split("&#3;")[0];
             }
-            catch (Exception ignored)
+            catch (Exception)
             {
                 return "err";
             }

@@ -4,7 +4,6 @@ namespace Zadanie1_KSR
 {
     public class ArticleGenerator
     {
-        private string folderPath;
         private int nrOfFiles;
         public static readonly string FileNameBase = "reut2-";
         public static readonly string FolderPath = "..\\..\\..\\dane\\";
@@ -14,11 +13,7 @@ namespace Zadanie1_KSR
         {
             this.nrOfFiles = nrOfFiles;
         }
-
-        public string GetFolderPath()
-        {
-            return folderPath;
-        }
+        
 
         public List<Article> ReadAllFiles()
         {

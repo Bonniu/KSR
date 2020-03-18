@@ -40,7 +40,20 @@
         <e p="reut2-020.sgm" t="Include" />
         <e p="reut2-021.sgm" t="Include" />
       </e>
-      <e p="Features.cs" t="Include" />
+      <e p="Features" t="Include">
+        <e p="Feature.cs" t="Include" />
+        <e p="Feature1.cs" t="Include" />
+        <e p="Feature10.cs" t="Include" />
+        <e p="Feature2.cs" t="Include" />
+        <e p="Feature3.cs" t="Include" />
+        <e p="Feature4.cs" t="Include" />
+        <e p="Feature5.cs" t="Include" />
+        <e p="Feature6.cs" t="Include" />
+        <e p="Feature7.cs" t="Include" />
+        <e p="Feature8.cs" t="Include" />
+        <e p="Feature9.cs" t="Include" />
+      </e>
+      <e p="FeaturesVector.cs" t="Include" />
       <e p="FileParser.cs" t="Include" />
       <e p="KeyWords.cs" t="Include" />
       <e p="obj" t="ExcludeRecursive">
