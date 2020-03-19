@@ -26,6 +26,11 @@ namespace Zadanie1_KSR.Features
         {
             return value;
         }
+
+        public void SetValue(double value)
+        {
+            this.value = Math.Round(value, 3);
+        }
     }
 }
 
@@ -35,7 +40,7 @@ namespace Zadanie1_KSR.Features
     3. Stosunek słów kluczowych do wszystkich słów w dokumencie
     4. Stosunek słów kluczowych gdzie ilość liter (0,4] do wszystkich słów
     5. Stosunek słów kluczowych do wszystkich słów gdzie ilość liter słów kluczowych 8+
-    6. Stosunek linii do ilości akapitów
+    6. Stosunek ilości linii do ilości akapitów
     7. Stosunek słów o długości >6 do wszystkich słów
     8. Stosunek słów o długości <=6 do wszystkich słów
     9. Ilość słów unikalnych

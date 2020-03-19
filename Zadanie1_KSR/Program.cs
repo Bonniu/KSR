@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Annytab.Stemmer;
 using Zadanie1_KSR.Features;
+using Zadanie1_KSR.Metrics;
 
 namespace Zadanie1_KSR
 {
@@ -9,10 +10,9 @@ namespace Zadanie1_KSR
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
             ArticleGenerator ag = new ArticleGenerator(22);
             List<Article> list = ag.ReadAllFiles();
-            Console.WriteLine(list[^14].ToString());
+           // Console.WriteLine(list[^14].ToString());
 
             KeyWords keyWords = new KeyWords(100);
             keyWords.FindKeyWords(list);
@@ -37,8 +37,9 @@ namespace Zadanie1_KSR
             //     Console.Write(f.GetValue() + " ");
             // }
             //
-            Console.WriteLine("end");
-            OptimzeVector(list, keyWords, 10);
+            Console.WriteLine();
+            NormalizeVectors(list, keyWords);
+            KNN knn = new KNN(3, 30, 70, list, new EuclydeanMetric());
             // TmpFunction();
         }
 
@@ -60,25 +61,39 @@ namespace Zadanie1_KSR
             Console.WriteLine(es.GetSteamWord("december"));
         }
 
-        static void OptimzeVector(List<Article> list, KeyWords keyWords, int featuresNr)
+        static void NormalizeVectors(List<Article> list, KeyWords keyWords)
         {
-            for (int i = 0; i < featuresNr; i++)
+            for (int i = 0; i < list[0].GetFeaturesVector().GetFeatures().Count; i++)
             {
                 double max = 0;
                 double min = 1;
                 foreach (var article in list)
                 {
-
                     if (article.GetFeaturesVector().GetFeatures()[i].GetValue() > max)
                         max = article.GetFeaturesVector().GetFeatures()[i].GetValue();
                     if (article.GetFeaturesVector().GetFeatures()[i].GetValue() < min)
                         min = article.GetFeaturesVector().GetFeatures()[i].GetValue();
                 }
+                //https://en.wikipedia.org/wiki/Unit_vector
+                //https://stackoverflow.com/questions/10011687/c-sharp-normalize-like-a-vector
+                double distance = Math.Round(max - min, 4);
+                foreach (var article in list)
+                {
+                    double currentValue = article.GetFeaturesVector().GetFeatures()[i].GetValue();
+                    article.GetFeaturesVector().GetFeatures()[i].SetValue(currentValue / distance - min / distance);
+                }
 
-                Console.WriteLine("cecha: "+(i + 1));
+                /*max = 0;
+                min = 1;
+                foreach (var article in list)
+                {
+                    if (article.GetFeaturesVector().GetFeatures()[i].GetValue() > max)
+                        max = article.GetFeaturesVector().GetFeatures()[i].GetValue();
+                    if (article.GetFeaturesVector().GetFeatures()[i].GetValue() < min)
+                        min = article.GetFeaturesVector().GetFeatures()[i].GetValue();
+                }
                 Console.WriteLine(min);
-                Console.WriteLine(max);
-                Console.WriteLine();
+                Console.WriteLine(max);*/
             }
         }
     }

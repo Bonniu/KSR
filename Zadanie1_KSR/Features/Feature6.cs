@@ -12,7 +12,7 @@ namespace Zadanie1_KSR.Features
             value = CountValue(article);
         }
 
-        // Stosunek linii do ilości akapitów
+        // Stosunek ilości linii do ilości akapitów
         private double CountValue(Article article)
         {
             var linesCounter = article.GetOriginalText().Split("\n").Length - 1;
