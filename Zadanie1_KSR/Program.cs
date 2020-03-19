@@ -32,13 +32,13 @@ namespace Zadanie1_KSR
                 article.GetFeaturesVector().AddFeature(new Feature10(article));
             }
 
-            foreach (var f in list[^14].GetFeaturesVector().GetFeatures())
-            {
-                Console.Write(f.GetValue() + " ");
-            }
-            
+            // foreach (var f in list[^14].GetFeaturesVector().GetFeatures())
+            // {
+            //     Console.Write(f.GetValue() + " ");
+            // }
+            //
             Console.WriteLine("end");
-
+            OptimzeVector(list, keyWords, 10);
             // TmpFunction();
         }
 
@@ -58,6 +58,28 @@ namespace Zadanie1_KSR
             Console.WriteLine(es.GetSteamWord("expiring"));
             Console.WriteLine(es.GetSteamWord("magnetometer"));
             Console.WriteLine(es.GetSteamWord("december"));
+        }
+
+        static void OptimzeVector(List<Article> list, KeyWords keyWords, int featuresNr)
+        {
+            for (int i = 0; i < featuresNr; i++)
+            {
+                double max = 0;
+                double min = 1;
+                foreach (var article in list)
+                {
+
+                    if (article.GetFeaturesVector().GetFeatures()[i].GetValue() > max)
+                        max = article.GetFeaturesVector().GetFeatures()[i].GetValue();
+                    if (article.GetFeaturesVector().GetFeatures()[i].GetValue() < min)
+                        min = article.GetFeaturesVector().GetFeatures()[i].GetValue();
+                }
+
+                Console.WriteLine("cecha: "+(i + 1));
+                Console.WriteLine(min);
+                Console.WriteLine(max);
+                Console.WriteLine();
+            }
         }
     }
 }

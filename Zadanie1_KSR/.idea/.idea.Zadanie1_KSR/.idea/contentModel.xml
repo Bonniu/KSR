@@ -8,14 +8,6 @@
       <e p="ArticleGenerator.cs" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="dane" t="Include">
-        <e p="all-exchanges-strings.lc.txt" t="Include" />
-        <e p="all-orgs-strings.lc.txt" t="Include" />
-        <e p="all-people-strings.lc.txt" t="Include" />
-        <e p="all-places-strings.lc.txt" t="Include" />
-        <e p="all-topics-strings.lc.txt" t="Include" />
-        <e p="cat-descriptions_120396.txt" t="Include" />
-        <e p="feldman-cia-worldfactbook-data.txt" t="Include" />
-        <e p="lewis.dtd" t="Include" />
         <e p="README.txt" t="Include" />
         <e p="reut2-000.sgm" t="Include" />
         <e p="reut2-001.sgm" t="Include" />

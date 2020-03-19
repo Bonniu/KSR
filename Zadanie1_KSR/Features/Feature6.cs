@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 // ReSharper disable CommentTypo
 
@@ -15,7 +16,7 @@ namespace Zadanie1_KSR.Features
         private double CountValue(Article article)
         {
             var linesCounter = article.GetOriginalText().Split("\n").Length - 1;
-            var paragraphsCounter = article.GetOriginalText().Split("    ").Length;
+            var paragraphsCounter = article.GetOriginalText().Split("\n    ").Length;
             value = (double) linesCounter / paragraphsCounter;
             return value;
         }
