@@ -20,16 +20,16 @@ namespace Zadanie1_KSR
 
             foreach (var article in list)
             {
-                article.GetFeaturesVector().AddFeature(new Feature1(article, keyWords));
-                article.GetFeaturesVector().AddFeature(new Feature2(article, keyWords));
-                article.GetFeaturesVector().AddFeature(new Feature3(article, keyWords));
-                article.GetFeaturesVector().AddFeature(new Feature4(article, keyWords));
-                article.GetFeaturesVector().AddFeature(new Feature5(article, keyWords));
-                article.GetFeaturesVector().AddFeature(new Feature6(article));
-                article.GetFeaturesVector().AddFeature(new Feature7(article));
-                article.GetFeaturesVector().AddFeature(new Feature8(article));
-                article.GetFeaturesVector().AddFeature(new Feature9(article));
-                article.GetFeaturesVector().AddFeature(new Feature10(article));
+                article.GetFeaturesVector().Add(new Feature1(article, keyWords));
+                article.GetFeaturesVector().Add(new Feature2(article, keyWords));
+                article.GetFeaturesVector().Add(new Feature3(article, keyWords));
+                article.GetFeaturesVector().Add(new Feature4(article, keyWords));
+                article.GetFeaturesVector().Add(new Feature5(article, keyWords));
+                article.GetFeaturesVector().Add(new Feature6(article));
+                article.GetFeaturesVector().Add(new Feature7(article));
+                article.GetFeaturesVector().Add(new Feature8(article));
+                article.GetFeaturesVector().Add(new Feature9(article));
+                article.GetFeaturesVector().Add(new Feature10(article));
             }
 
             // foreach (var f in list[^14].GetFeaturesVector().GetFeatures())
@@ -39,7 +39,13 @@ namespace Zadanie1_KSR
             //
             Console.WriteLine();
             NormalizeVectors(list, keyWords);
-            KNN knn = new KNN(3, 30, 70, list, new EuclydeanMetric());
+            KNN knn = new KNN(3, 30, 70, list, new EuclideanMetric());
+            Console.WriteLine(list[^1]);
+            Console.WriteLine(list[^2]);
+            Console.WriteLine(new EuclideanMetric().CountValue(list[^1], list[^2]));
+            Console.WriteLine(new ChebyshewMetric().CountValue(list[^1], list[^2]));
+            Console.WriteLine(new ManhattanMetric().CountValue(list[^1], list[^2]));
+            
             // TmpFunction();
         }
 
@@ -63,24 +69,24 @@ namespace Zadanie1_KSR
 
         static void NormalizeVectors(List<Article> list, KeyWords keyWords)
         {
-            for (int i = 0; i < list[0].GetFeaturesVector().GetFeatures().Count; i++)
+            for (int i = 0; i < list[0].GetFeaturesVector().Count; i++)
             {
                 double max = 0;
                 double min = 1;
                 foreach (var article in list)
                 {
-                    if (article.GetFeaturesVector().GetFeatures()[i].GetValue() > max)
-                        max = article.GetFeaturesVector().GetFeatures()[i].GetValue();
-                    if (article.GetFeaturesVector().GetFeatures()[i].GetValue() < min)
-                        min = article.GetFeaturesVector().GetFeatures()[i].GetValue();
+                    if (article.GetFeaturesVector()[i].GetValue() > max)
+                        max = article.GetFeaturesVector()[i].GetValue();
+                    if (article.GetFeaturesVector()[i].GetValue() < min)
+                        min = article.GetFeaturesVector()[i].GetValue();
                 }
                 //https://en.wikipedia.org/wiki/Unit_vector
                 //https://stackoverflow.com/questions/10011687/c-sharp-normalize-like-a-vector
                 double distance = Math.Round(max - min, 4);
                 foreach (var article in list)
                 {
-                    double currentValue = article.GetFeaturesVector().GetFeatures()[i].GetValue();
-                    article.GetFeaturesVector().GetFeatures()[i].SetValue(currentValue / distance - min / distance);
+                    double currentValue = article.GetFeaturesVector()[i].GetValue();
+                    article.GetFeaturesVector()[i].SetValue(currentValue / distance - min / distance);
                 }
 
                 /*max = 0;

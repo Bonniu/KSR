@@ -45,13 +45,12 @@
         <e p="Feature8.cs" t="Include" />
         <e p="Feature9.cs" t="Include" />
       </e>
-      <e p="FeaturesVector.cs" t="Include" />
       <e p="FileParser.cs" t="Include" />
       <e p="KeyWords.cs" t="Include" />
       <e p="KNN.cs" t="Include" />
       <e p="Metrics" t="Include">
         <e p="ChebyshewMetric.cs" t="Include" />
-        <e p="EuclydeanMetric.cs" t="Include" />
+        <e p="EuclideanMetric.cs" t="Include" />
         <e p="ManhattanMetric.cs" t="Include" />
         <e p="Metric.cs" t="Include" />
       </e>

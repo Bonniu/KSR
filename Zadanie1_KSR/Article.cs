@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Zadanie1_KSR.Features;
 
 namespace Zadanie1_KSR
 {
@@ -8,7 +10,7 @@ namespace Zadanie1_KSR
         private string place;
         private int wordCount;
         private string refactoredText;
-        private FeaturesVector _featuresVector;
+        private List<Feature> featuresVector;
 
         public Article(string originalText, string place)
         {
@@ -19,17 +21,17 @@ namespace Zadanie1_KSR
             Stemmer s = new Stemmer();
             refactoredText = s.StemText(refactoredText);
             wordCount = refactoredText.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
-            _featuresVector = new FeaturesVector();
+            featuresVector = new List<Feature>();
         }
 
-        public FeaturesVector GetFeaturesVector()
+        public List<Feature> GetFeaturesVector()
         {
-            return _featuresVector;
+            return featuresVector;
         }
 
-        public void SetFeaturesVector(FeaturesVector featuresVector)
+        public void SetFeaturesVector(List<Feature> featuresVector)
         {
-            _featuresVector = featuresVector;
+            this.featuresVector = featuresVector;
         }
 
         public string GetOriginalText()
