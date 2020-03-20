@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Zadanie1_KSR.Metrics;
 
 namespace Zadanie1_KSR
@@ -26,16 +27,17 @@ namespace Zadanie1_KSR
 
         private void SplitArticlesAndSave(List<Article> articleList)
         {
-            Console.WriteLine(articleList.Count);
-            for (int i = 0; i < articleList.Count; i++)
+            var articles = articleList.OrderBy(x => Guid.NewGuid()).ToList(); //GUID - globally unique ID
+            for (int i = 0; i < articles.Count; i++)
             {
-                if (i < articleList.Count / 100 * trainingNr)
+                if (i < articles.Count / 100 * trainingNr)
                     trainingArticles.Add(articleList[i]);
                 else
                 {
                     testArticles.Add(articleList[i]);
                 }
             }
+
             Console.WriteLine(trainingArticles.Count);
             Console.WriteLine(testArticles.Count);
         }

@@ -40,8 +40,6 @@ namespace Zadanie1_KSR
             Console.WriteLine();
             NormalizeVectors(list, keyWords);
             KNN knn = new KNN(3, 30, 70, list, new EuclideanMetric());
-            Console.WriteLine(list[^1]);
-            Console.WriteLine(list[^2]);
             Console.WriteLine(new EuclideanMetric().CountValue(list[^1], list[^2]));
             Console.WriteLine(new ChebyshewMetric().CountValue(list[^1], list[^2]));
             Console.WriteLine(new ManhattanMetric().CountValue(list[^1], list[^2]));
