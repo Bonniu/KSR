@@ -8,6 +8,7 @@ namespace Zadanie1_KSR
     {
         private string originalText;
         private string place;
+        private string classifiedPlace = "";
         private int wordCount;
         private string refactoredText;
         private List<Feature> featuresVector;
@@ -29,6 +30,11 @@ namespace Zadanie1_KSR
             return featuresVector;
         }
 
+        public void SetClassifiedPlace(string classifiedPlace)
+        {
+            this.classifiedPlace = classifiedPlace;
+        }
+        
         public void SetFeaturesVector(List<Feature> featuresVector)
         {
             this.featuresVector = featuresVector;

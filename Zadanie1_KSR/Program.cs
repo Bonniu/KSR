@@ -12,7 +12,6 @@ namespace Zadanie1_KSR
         {
             ArticleGenerator ag = new ArticleGenerator(22);
             List<Article> list = ag.ReadAllFiles();
-           // Console.WriteLine(list[^14].ToString());
 
             KeyWords keyWords = new KeyWords(100);
             keyWords.FindKeyWords(list);
@@ -31,23 +30,13 @@ namespace Zadanie1_KSR
                 article.GetFeaturesVector().Add(new Feature9(article));
                 article.GetFeaturesVector().Add(new Feature10(article));
             }
-
-            // foreach (var f in list[^14].GetFeaturesVector().GetFeatures())
-            // {
-            //     Console.Write(f.GetValue() + " ");
-            // }
-            //
             Console.WriteLine();
             NormalizeVectors(list, keyWords);
-            KNN knn = new KNN(3, 30, 70, list, new EuclideanMetric());
-            Console.WriteLine(new EuclideanMetric().CountValue(list[^1], list[^2]));
-            Console.WriteLine(new ChebyshewMetric().CountValue(list[^1], list[^2]));
-            Console.WriteLine(new ManhattanMetric().CountValue(list[^1], list[^2]));
-            
-            // TmpFunction();
+            KNN knn = new KNN(11, 50, 50, list, new ManhattanMetric());
+            knn.Classify();
         }
 
-        static void TmpFunction()
+        static void StemmerTestingTmpFunction()
         {
             Stemmer stemmer = new Stemmer();
             Console.WriteLine(stemmer.StemText("symbols"));

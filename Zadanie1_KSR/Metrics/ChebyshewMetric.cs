@@ -4,13 +4,13 @@ namespace Zadanie1_KSR.Metrics
 {
     public class ChebyshewMetric : Metric
     {
-        public override double CountValue(Article article1, Article article2)
+        public override double CountValue(Article trainArticle, Article testArticle)
         {
             double max = 0;
-            for (int i = 0; i < article1.GetFeaturesVector().Count; i++)
+            for (int i = 0; i < trainArticle.GetFeaturesVector().Count; i++)
             {
-                var tmp = Math.Abs(article1.GetFeaturesVector()[i].GetValue() -
-                                   article2.GetFeaturesVector()[i].GetValue());
+                var tmp = Math.Abs(trainArticle.GetFeaturesVector()[i].GetValue() -
+                                   testArticle.GetFeaturesVector()[i].GetValue());
                 if (tmp > max)
                 {
                     max = tmp;

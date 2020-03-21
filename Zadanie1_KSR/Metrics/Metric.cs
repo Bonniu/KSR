@@ -2,6 +2,6 @@
 {
     public abstract class Metric
     {
-        public abstract double CountValue(Article article1, Article article2);
+        public abstract double CountValue(Article trainArticle, Article testArticle);
     }
 }
