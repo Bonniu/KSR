@@ -1,5 +1,7 @@
 \documentclass{classrep}
 \usepackage{color}
+\usepackage{url}
+\usepackage{hyperref}
 \usepackage[T1]{fontenc}
 \usepackage[polish]{babel}
 \usepackage[utf8]{inputenc}
@@ -30,15 +32,44 @@ Celem naszego zadania było stworzenie aplikacji do klasyfikacji tekstów za pom
 różnych metryk i miar podobieństwa, a następnie porównać kategorie z tymi wygenerowanymi przez aplikację.
 
 \section{Wprowadzenie}
+Głównym zagadnieniem projektowym, z którym mieliśmy do czynienia w ramach zadania 1 była klasyfikacja statystyczna tekstów na podstawie wektora wyekstrahowanych cech. Do przeprowadzenie eksperymentu zaimplementowaliśmy algorytm \textsl{k-najbliższych sąsiadów}.
+
+Algorytm k-najbliższych sąsiadów \textsl{(k-NN - k-nearest neighbors)} to jeden z algorytmów zaliczanych do grupy algorytmów leniwych. Jest to taka grupa algorytmów, która szuka rozwiązania dopiero, gdy pojawia się wzorzec testujący. Przechowuje wzorce uczące, a dopiero później wyznacza się odległość wzorca testowego względem wzorców treningowych. \cite{leniwy}. 
+
+Algorytm ten działa w taki sposób, że dla każdego wzorca testowego obliczana jest odległość za pomocą wybranej wetryki względem wzorców treningowych, a następnie wybierana jest k najbliższych wzorców treningowych. Wynik wyznaczony jest jako najczęstszy element wśród nich. W naszym zadaniu odległość ta jest równa skali podobieństwa tekstów. 
+
+\subsection{Ekstrakcja cech}
+Do ekstrakcji cech charaklterystycznych tekstu utworzyliśmy wektor cech, który opisuje tekst za pomocą 10 cech. Liczba słów zawsze jest liczona po zastosowaniu stop-listy oraz stemizacji, bez znaków przestankowych.
+\begin{itemize}
+\item[•] $C_1$ - Stosunek słów kluczowych do wszystkich słów w pierwszych 10\% tekstu. Obliczona jest za pomocą wzoru:
+\begin{equation} C_1 = s_{k10} / s_{10}  \end{equation} gdzie $s_{k10}$ to liczba słów kluczowych, a $s_{10}$ to liczba wszystkich słów w pierwszych 10\% tekstu.
+\item[•] $C_2$ - Stosunek słów kluczowych do wszystkich słów w ostatnich 10\% tekstu. Obliczona jest za pomocą wzoru:
+\begin{equation} C_2 = s_{k90} / s_{90}  \end{equation} gdzie $s_{k90}$ to liczba słów kluczowych, a $s_{90}$ to liczba wszystkich słów w ostatnich 10\% tekstu.
+\item[•] $C_3$ - Stosunek słów kluczowych do wszystkich słów w dokumencie. Obliczona jest za pomocą wzoru:
+\begin{equation} C_3 = s_k / s  \end{equation} gdzie $s_k$ to liczba słów kluczowych, a $s$ to liczba wszystkich słów w dokumencie.
+\item[•] $C_4$ - Stosunek słów kluczowych, których ilość liter $\in$ (0,4] do wszystkich słów w dokumencie. Obliczona jest za pomocą wzoru:
+\begin{equation} C_4 = s_k / s  \end{equation} gdzie $s_k$ to liczba słów kluczowych,  których ilość liter $\in$ (0,4], a $s$ to liczba wszystkich słów w dokumencie.
+\item[•] $C_5$ - Stosunek słów kluczowych, których ilość liter jest $\geq$8 do wszystkich słów w dokumencie. Obliczona jest za pomocą wzoru:
+\begin{equation} C_5 = s_k / s  \end{equation} gdzie $s_k$ to liczba słów kluczowych, a $s$ to liczba wszystkich słów w dokumencie.
+\end{itemize}
+
+
+%Stosunek słów kluczowych do wszystkich słów w pierwszych 10% tekstu
+%Stosunek słów kluczowych do wszystkich słów w ostatnich 10% tekstu
+%Stosunek słów kluczowych do wszystkich słów w dokumencie
+%Stosunek słów kluczowych gdzie ilość liter (0,4] do wszystkich słów
+%Stosunek słów kluczowych do wszystkich słów gdzie ilość liter słów kluczowych 8+
+%Stosunek linii do ilości akapitów
+%Stosunek słów o długości >6 do wszystkich słów
+%Stosunek słów o długości <=6 do wszystkich słów
+%Ilość słów unikalnych
+%Ilość słów, których długość wynosi [5,8]
+
 {\color{blue}
-We wprowadzeniu należy zaprezentować całą teorię potrzebną do realizacji
-zadania (przy czym należy tu ograniczyć się wyłącznie do tego, co było
-wykorzystane) tak aby osoba, która nigdy wcześniej nie zetknęła się z tą
-tematyką, potrafiła zrozumieć dalszy opis. Część ta powinna wprowadzać
-wszystkie wykorzystywane wzory, oznaczenia itp., do których należy się
-odwoływać w dalszej części niniejszgo sprawozdania. Zamieszczony tu własny
-opis teorii (a nie skopiowany!) należy poprzeć odwołaniami bibliograficznymi
-do literatury zamieszczonej na końcu. }
+- Z jakiego zakresu/zbioru  cecha przyjmuje wartosci przed normalizacją.
+- Czy ,,długość'' oznacza liczbę liter, a może słów? Czy jest obliczana przed czy po stemizacji i/lub zastosowaniu stoplisty? jeśli znaków, to czy znaki przestankowe także są zliczane?
+- W przypadku cech mniej intuicyjnych (a najlepiej wszystkich) - mile widziany przykład jak liczyć (może być jeden tekst dla wszystkich cech pod ich opisem).
+- Jakie znaczenie ma ta cecha tekstu dla jego rozpoznania? Czy np. im tekst dłuższy, tym bardziej związany z etykietą USA lub CANADA? (istotne!)}
 
 \section{Opis implementacji}
 {\color{blue}
@@ -89,10 +120,7 @@ wypunktować. Znów, tak jak poprzednio, najistotniejsze są wnioski o
 charakterze uniwersalnym.}
 
 
-\begin{thebibliography}{0}
+\begin{thebibliography} {0}
+\bibitem{leniwy} \textsl{http://home.agh.edu.pl/~horzyk/lectures/miw/KNN.pdf} [dostęp 17.03.2020]
 \end{thebibliography}
-{\color{blue} 
-Na końcu należy obowiązkowo podać cytowaną w sprawozdaniu
-literaturę, z której grupa korzystała w trakcie prac nad zadaniem (przykład na
-końcu szablonu)}
 \end{document}
