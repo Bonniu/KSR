@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Zadanie1_KSR.Metrics;
+// ReSharper disable CommentTypo
 
 namespace Zadanie1_KSR
 {

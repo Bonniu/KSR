@@ -27,33 +27,17 @@
 \begin{document}
 \maketitle
 
-\section{Cel}
+\section{Cel} % Cel
 Celem naszego zadania było stworzenie aplikacji do klasyfikacji tekstów za pomocą metody k-NN (k najbliższych sąsiadów) oraz
 różnych metryk i miar podobieństwa, a następnie porównać kategorie z tymi wygenerowanymi przez aplikację.
 
-\section{Wprowadzenie}
+\section{Wprowadzenie} % Wprowadzenie
 Głównym zagadnieniem projektowym, z którym mieliśmy do czynienia w ramach zadania 1 była klasyfikacja statystyczna tekstów na podstawie wektora wyekstrahowanych cech. Do przeprowadzenie eksperymentu zaimplementowaliśmy algorytm \textsl{k-najbliższych sąsiadów}.
 
 Algorytm k-najbliższych sąsiadów \textsl{(k-NN - k-nearest neighbors)} to jeden z algorytmów zaliczanych do grupy algorytmów leniwych. Jest to taka grupa algorytmów, która szuka rozwiązania dopiero, gdy pojawia się wzorzec testujący. Przechowuje wzorce uczące, a dopiero później wyznacza się odległość wzorca testowego względem wzorców treningowych. \cite{leniwy}. 
 
 Algorytm ten działa w taki sposób, że dla każdego wzorca testowego obliczana jest odległość za pomocą wybranej wetryki względem wzorców treningowych, a następnie wybierana jest k najbliższych wzorców treningowych. Wynik wyznaczony jest jako najczęstszy element wśród nich. W naszym zadaniu odległość ta jest równa skali podobieństwa tekstów. 
-
-\subsection{Ekstrakcja cech}
-Do ekstrakcji cech charaklterystycznych tekstu utworzyliśmy wektor cech, który opisuje tekst za pomocą 10 cech. Liczba słów zawsze jest liczona po zastosowaniu stop-listy oraz stemizacji, bez znaków przestankowych.
-\begin{itemize}
-\item[•] $C_1$ - Stosunek słów kluczowych do wszystkich słów w pierwszych 10\% tekstu. Obliczona jest za pomocą wzoru:
-\begin{equation} C_1 = s_{k10} / s_{10}  \end{equation} gdzie $s_{k10}$ to liczba słów kluczowych, a $s_{10}$ to liczba wszystkich słów w pierwszych 10\% tekstu.
-\item[•] $C_2$ - Stosunek słów kluczowych do wszystkich słów w ostatnich 10\% tekstu. Obliczona jest za pomocą wzoru:
-\begin{equation} C_2 = s_{k90} / s_{90}  \end{equation} gdzie $s_{k90}$ to liczba słów kluczowych, a $s_{90}$ to liczba wszystkich słów w ostatnich 10\% tekstu.
-\item[•] $C_3$ - Stosunek słów kluczowych do wszystkich słów w dokumencie. Obliczona jest za pomocą wzoru:
-\begin{equation} C_3 = s_k / s  \end{equation} gdzie $s_k$ to liczba słów kluczowych, a $s$ to liczba wszystkich słów w dokumencie.
-\item[•] $C_4$ - Stosunek słów kluczowych, których ilość liter $\in$ (0,4] do wszystkich słów w dokumencie. Obliczona jest za pomocą wzoru:
-\begin{equation} C_4 = s_k / s  \end{equation} gdzie $s_k$ to liczba słów kluczowych,  których ilość liter $\in$ (0,4], a $s$ to liczba wszystkich słów w dokumencie.
-\item[•] $C_5$ - Stosunek słów kluczowych, których ilość liter jest $\geq$8 do wszystkich słów w dokumencie. Obliczona jest za pomocą wzoru:
-\begin{equation} C_5 = s_k / s  \end{equation} gdzie $s_k$ to liczba słów kluczowych, a $s$ to liczba wszystkich słów w dokumencie.
-\end{itemize}
-
-
+% cechy
 %Stosunek słów kluczowych do wszystkich słów w pierwszych 10% tekstu
 %Stosunek słów kluczowych do wszystkich słów w ostatnich 10% tekstu
 %Stosunek słów kluczowych do wszystkich słów w dokumencie
@@ -64,21 +48,64 @@ Do ekstrakcji cech charaklterystycznych tekstu utworzyliśmy wektor cech, który
 %Stosunek słów o długości <=6 do wszystkich słów
 %Ilość słów unikalnych
 %Ilość słów, których długość wynosi [5,8]
+\subsection{Ekstrakcja cech}
+Do ekstrakcji cech charakterystycznych tekstu utworzyliśmy wektor cech, który opisuje tekst za pomocą 10 cech. Liczba słów zawsze jest liczona po zastosowaniu stop-listy oraz stemizacji, bez znaków przestankowych.
+\begin{itemize}
+\item[•] $C_1$ - Stosunek słów kluczowych do wszystkich słów w pierwszych 10\% tekstu. Obliczona jest za pomocą wzoru:
+\begin{equation} C_1 = s_{k10} / s_{10}  \end{equation} gdzie $s_{k10}$ to liczba słów kluczowych, a $s_{10}$ to liczba wszystkich słów w pierwszych 10\% tekstu. Przed normalizacją cecha $C_{1}$ zawierała się w wartościach $\in [0,1]$.
+\item[•] $C_2$ - Stosunek słów kluczowych do wszystkich słów w ostatnich 10\% tekstu. Obliczona jest za pomocą wzoru:
+\begin{equation} C_2 = s_{k90} / s_{90}  \end{equation} gdzie $s_{k90}$ to liczba słów kluczowych, a $s_{90}$ to liczba wszystkich słów w ostatnich 10\% tekstu. Przed normalizacją cecha $C_{2}$ zawierała się w wartościach $\in [0,0.5]$.
+\item[•] $C_3$ - Stosunek słów kluczowych do wszystkich słów w dokumencie. Obliczona jest za pomocą wzoru:
+\begin{equation} C_3 = s_k / s  \end{equation} gdzie $s_k$ to liczba słów kluczowych, a $s$ to liczba wszystkich słów w dokumencie. 
+Przed normalizacją cecha $C_{3}$ zawierała się w wartościach $\in [0,0.155]$.
+\item[•] $C_4$ - Stosunek słów kluczowych, których ilość liter $\in$ (0,4] do wszystkich słów w dokumencie. Obliczona jest za pomocą wzoru:
+\begin{equation} C_4 = s_k / s  \end{equation} gdzie $s_k$ to liczba słów kluczowych,  których ilość liter $\in$ (0,4], a $s$ to liczba wszystkich słów w dokumencie.
+Przed normalizacją cecha $C_{4}$ zawierała się w wartościach $\in [0,0.075]$.
+\item[•] $C_5$ - Stosunek słów kluczowych, których ilość liter jest $\geq$8 do wszystkich słów w dokumencie. Obliczona jest za pomocą wzoru:
+\begin{equation} C_5 = s_k / s  \end{equation} gdzie $s_k$ to liczba słów kluczowych, a $s$ to liczba wszystkich słów w dokumencie.
+Przed normalizacją cecha $C_{5}$ zawierała się w wartościach $\in [0,0.1]$.
+\item[•] $C_6$ - Stosunek linii do ilości akapitów. Obliczona jest za pomocą wzoru:
+\begin{equation} C_6 = l / a  \end{equation} gdzie $l$ to liczba linii, a $a$ to liczba akapitów.
+Przed normalizacją cecha $C_{6}$ zawierała się w wartościach $\in [1,14]$.
+\item[•] $C_7$ - Stosunek słów, których ilość liter jest większa niż 6 do wszystkich słów. Obliczona jest za pomocą wzoru:
+\begin{equation} C_7 = s_6 / s  \end{equation} gdzie $s_6$ to liczba słów których ilość liter jest większa niż 6, a $s$ to liczba wszystkich słów w dokumencie.
+Przed normalizacją cecha $C_{7}$ zawierała się w wartościach $\in [0,0.591]$.
+\item[•] $C_8$ - Stosunek słów kluczowych, których ilość liter jest $\leq$6 do wszystkich słów w dokumencie. Obliczona jest za pomocą wzoru:
+\begin{equation} C_8 = s_{6m} / s  \end{equation} gdzie $s_{6m}$ to liczba słów kluczowych, których ilość liter jest $\leq$6, a $s$ to liczba wszystkich słów w dokumencie. Przed normalizacją cecha $C_{8}$ zawierała się w wartościach $\in [0.409,1]$.
+\item[•] $C_9$ - Ilość słów unikalnych. Jest to liczba słów, które wystąpiły w tekście co najmniej raz. Przykładowo, dla zdania \textsl{,,Być albo nie być''} ilość słów unikalnych jest równa 3 (\textsl{być, albo, nie}).
+Przed normalizacją cecha $C_{9}$ przyjmuje wartości $\in [1,420]$.
+\item[•] $C_{10}$ - Ilość słów, których ilość liter $\in$ [5,8]. Pseudokod obliczający wartość cechy $C_{10}$:
+\textsl{
+\begin{itemize}
+\item $C_{10}$=0
+\item Dla każdego słowa w artykule:
+	\begin{itemize}
+	\item Jeżeli długość słowa>=5 i długość słowa <=8:
+		\begin{itemize}
+		\item $C_{10}$++;
+		\end{itemize}
+	\end{itemize}
+\item Zwróć $C_{10}$
+\end{itemize}
+} 
+Przed normalizacją cecha $C_{10}$ zawierała się w wartościach $\in [1,574]$.
+
+\end{itemize}
+
+
 
 {\color{blue}
-- Z jakiego zakresu/zbioru  cecha przyjmuje wartosci przed normalizacją.
-- Czy ,,długość'' oznacza liczbę liter, a może słów? Czy jest obliczana przed czy po stemizacji i/lub zastosowaniu stoplisty? jeśli znaków, to czy znaki przestankowe także są zliczane?
 - W przypadku cech mniej intuicyjnych (a najlepiej wszystkich) - mile widziany przykład jak liczyć (może być jeden tekst dla wszystkich cech pod ich opisem).
 - Jakie znaczenie ma ta cecha tekstu dla jego rozpoznania? Czy np. im tekst dłuższy, tym bardziej związany z etykietą USA lub CANADA? (istotne!)}
 
-\section{Opis implementacji}
+\section{Opis implementacji} % Opis implementacji
 {\color{blue}
 Należy tu zamieścić krótki i zwięzły opis zaprojektowanych klas oraz powiązań
 między nimi. Powinien się tu również znaleźć diagram UML  (diagram klas)
 prezentujący najistotniejsze elementy stworzonej aplikacji. Należy także
 podać, w jakim języku programowania została stworzona aplikacja. }
 
-\section{Materiały i metody}
+\section{Materiały i metody} % Materiały i metody
 {\color{blue}
 W tym miejscu należy opisać, jak przeprowadzone zostały wszystkie badania,
 których wyniki i dyskusja zamieszczane są w dalszych sekcjach. Opis ten
@@ -92,7 +119,7 @@ opisanych w sekcji drugiej wzorów i oznaczeń, a także w jasny sposób opisać
 cel konkretnego testu. Najlepiej byłoby wyraźnie wyszczególnić (ponumerować)
 poszczególne eksperymenty tak, aby łatwo było się do nich odwoływać dalej.}
 
-\section{Wyniki}
+\section{Wyniki} % Wyniki
 {\color{blue}
 W tej sekcji należy zaprezentować, dla każdego przeprowadzonego eksperymentu,
 kompletny zestaw wyników w postaci tabel, wykresów itp. Powinny być one tak
@@ -103,7 +130,7 @@ wyników, gdyż miejsce na to jest w kolejnej sekcji. Tu również dobrze jest
 wprowadzić oznaczenia (tabel, wykresów) aby móc się do nich odwoływać
 poniżej.}
 
-\section{Dyskusja}
+\section{Dyskusja} % Dyskusja
 {\color{blue}
 Sekcja ta powinna zawierać dokładną interpretację uzyskanych wyników
 eksperymentów wraz ze szczegółowymi wnioskami z nich płynącymi. Najcenniejsze

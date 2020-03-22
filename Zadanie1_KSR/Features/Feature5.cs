@@ -18,7 +18,7 @@ namespace Zadanie1_KSR.Features
             {
                 for (var j = 0; j < keyWords.GetKeywords().Count; j++)
                 {
-                    if (tStr.Equals(keyWords.GetKeywords()[j]) && keyWords.GetKeywords()[j].Length > 8)
+                    if (tStr.Equals(keyWords.GetKeywords()[j]) && keyWords.GetKeywords()[j].Length >= 8)
                     {
                         counter++;
                         break;

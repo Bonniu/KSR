@@ -15,7 +15,7 @@ namespace Zadanie1_KSR
 
             KeyWords keyWords = new KeyWords(100);
             keyWords.FindKeyWords(list);
-            keyWords.PrintKeyWords();
+            //keyWords.PrintKeyWords();
 
             foreach (var article in list)
             {
@@ -30,9 +30,10 @@ namespace Zadanie1_KSR
                 article.GetFeaturesVector().Add(new Feature9(article));
                 article.GetFeaturesVector().Add(new Feature10(article));
             }
-            Console.WriteLine();
+
+            //Console.WriteLine(list[^66]);
             NormalizeVectors(list, keyWords);
-            KNN knn = new KNN(11, 50, 50, list, new ManhattanMetric());
+            KNN knn = new KNN(20, 80, 20, list, new EuclideanMetric());
             knn.Classify();
         }
 
@@ -67,26 +68,16 @@ namespace Zadanie1_KSR
                     if (article.GetFeaturesVector()[i].GetValue() < min)
                         min = article.GetFeaturesVector()[i].GetValue();
                 }
+
+                //Console.WriteLine("cecha " + (i + 1) + ": min=" + min + " max=" + max);
                 //https://en.wikipedia.org/wiki/Unit_vector
                 //https://stackoverflow.com/questions/10011687/c-sharp-normalize-like-a-vector
                 double distance = Math.Round(max - min, 4);
                 foreach (var article in list)
                 {
-                    double currentValue = article.GetFeaturesVector()[i].GetValue();
-                    article.GetFeaturesVector()[i].SetValue(currentValue / distance - min / distance);
+                    var tmp = article.GetFeaturesVector()[i].GetValue();
+                    article.GetFeaturesVector()[i].SetValue(tmp / distance - min / distance);
                 }
-
-                /*max = 0;
-                min = 1;
-                foreach (var article in list)
-                {
-                    if (article.GetFeaturesVector().GetFeatures()[i].GetValue() > max)
-                        max = article.GetFeaturesVector().GetFeatures()[i].GetValue();
-                    if (article.GetFeaturesVector().GetFeatures()[i].GetValue() < min)
-                        min = article.GetFeaturesVector().GetFeatures()[i].GetValue();
-                }
-                Console.WriteLine(min);
-                Console.WriteLine(max);*/
             }
         }
     }
