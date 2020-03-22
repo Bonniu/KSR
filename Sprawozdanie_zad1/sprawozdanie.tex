@@ -2,10 +2,17 @@
 \usepackage{color}
 \usepackage{url}
 \usepackage{hyperref}
+\usepackage{amsmath}
 \usepackage[T1]{fontenc}
 \usepackage[polish]{babel}
 \usepackage[utf8]{inputenc}
 \selectlanguage{polish}
+
+\usepackage{etoolbox}
+\let\bbordermatrix\bordermatrix
+\patchcmd{\bbordermatrix}{8.75}{4.75}{}{}
+\patchcmd{\bbordermatrix}{\left(}{\left[}{}{}
+\patchcmd{\bbordermatrix}{\right)}{\right]}{}{}
 
 \studycycle{Informatyka, studia dzienne, I st.}
 \coursesemester{VI}
@@ -89,14 +96,56 @@ Przed normalizacją cecha $C_{9}$ przyjmuje wartości $\in [1,420]$.
 \end{itemize}
 } 
 Przed normalizacją cecha $C_{10}$ zawierała się w wartościach $\in [1,574]$.
-
 \end{itemize}
-
-
-
 {\color{blue}
 - W przypadku cech mniej intuicyjnych (a najlepiej wszystkich) - mile widziany przykład jak liczyć (może być jeden tekst dla wszystkich cech pod ich opisem).
 - Jakie znaczenie ma ta cecha tekstu dla jego rozpoznania? Czy np. im tekst dłuższy, tym bardziej związany z etykietą USA lub CANADA? (istotne!)}
+\subsection{Metryki i miary}
+Do liczenia odległości pomiędzy artykułami oraz obliczenia miary podobieństwa używaliśmy 3 metryk i 2 miar.
+\begin{enumerate}
+\item Metryka Euklidesowa - aby obliczyć odległość $d_e(x,y)$ między artykułami x i y należy obliczyć pierwiastek kwadratowy z sumy kwadratów różnic wartości współrzędnych wektora o tych samych indeksach. Wzór jest następujący:
+\begin{equation} 
+d_e(x,y)=\sqrt{(x_1-y_1)^2+\ldots+(x_n-y_n)^2}
+\end{equation}
+\item Metryka Manhattan - odległość $d_m(x,y)$ jest równa sumie wartości bezwzględnych z różnic wartości współrzędnych wektora o tych samych indeksach:
+\begin{equation} 
+d_m(x,y)=\sum_{n=1}^{N} |{x_n-y_n}|
+\end{equation}
+\item Metryka Czebyszewa - odległość $d_c(x,y)$ w tej metryce jest równa maksymalnej wartości bezwględnych różnic współrzędnych punktów x oraz y, zgodnie ze wzorem:
+\begin{equation} 
+d_c(x,y)=\max_{i} |{x_i-y_i}|
+\end{equation}
+\item Miara \textsl{Term Frequency Matrix}, czyli po polsku ,,macierz częstości występowania terminów'' podaje wartość podobieństwa dokumentów $d_1$ i $d_2$ ze względu na wybrany zbiór terminów, np. słów kluczowych. Ustawiamy macierz słów kluczowych i dokumentów:
+\begin{equation}
+\bbordermatrix{~ & t_1 & t_2 & \ldots & t_n \cr
+                  d_1 & a_{11} & a_{12} & \ldots & a_{1n} \cr
+                  d_2 & a_{21} & a_{22} & \ldots & a_{2n} \cr}
+\end{equation}
+Następnie podobieństwo otrzymanych wektorów jest obliczone przy pomocy amplitudy kosinusowej: 
+\begin{equation}
+r_{ca}(V_1, V_2)= \textsl{$\frac{|\sum_{i=1}^{n} a_{1i}*a_{2i}|}{\sqrt{\sum_{i=1}^{n} a_{1i}^2 * \sum_{i=1}^{n} a_{2i}^2}}$}
+\end{equation}
+\item Miara \textsl{n-gramów} 
+
+%\item Odległość Minkowskiego \cite{wyklad} - jest to uogólniony wzór odległości euklidesowej, miejskiej oraz Czebyszewa. Odległość
+%$L_m(x,y)$ w tej metryce dla m=3, zgodnie ze wzorem jest równa \cite{minkowski}:
+%\begin{equation} 
+%L_m(x,y)=\sqrt[m]{|x_1-y_1|^m+\ldots+|x_n-y_n|^m}
+%\end{equation}
+%Dla m=3, czyli parametru użytego w naszym programie:
+%\begin{equation} 
+%L_3(x,y)=\sqrt[3]{|x_1-y_1|^3+\ldots+|x_n-y_n|^3}
+%\end{equation}
+%\item \textsl{Canberra distance} \cite{wyklad} - odległość $d_{can}(x,y)$ w tej metryce jest równa sumie ilorazów wartości bezwględnej %różnicy współrzędnych wektorów x oraz y z sumą wartości bezwzględnych współrzędnych wektorów x oraz y, zgodnie ze wzorem: %\cite{canberra}
+%\begin{equation} 
+%d_{can}(x,y)=\sum_{n=1}^{N} \frac{|x_n-y_n|}{|x_n|+|y_n|}
+%\end{equation}
+
+\end{enumerate}
+
+
+
+
 
 \section{Opis implementacji} % Opis implementacji
 {\color{blue}
@@ -148,6 +197,9 @@ charakterze uniwersalnym.}
 
 
 \begin{thebibliography} {0}
-\bibitem{leniwy} \textsl{http://home.agh.edu.pl/~horzyk/lectures/miw/KNN.pdf} [dostęp 17.03.2020]
+\bibitem{leniwy} \textsl{http://home.agh.edu.pl/~horzyk/lectures/miw/KNN.pdf} [dostęp 22.03.2020]
+\bibitem{minkowski} \textsl{https://pl.wikipedia.org/wiki/Odleg\%C5\%82o\%C5\%9B\%C4\%87\_Minkowskiego} [dostęp 22.03.2020]
+\bibitem{canberra} \textsl{https://en.wikipedia.org/wiki/Canberra\_distance} [dostęp 22.03.2020]
+\bibitem{wyklad} \textsl{https://ftims.edu.p.lodz.pl/pluginfile.php/132368/mod\_folder/content/0/ksr-wyklad-2009.pdf?forcedownload=1}
 \end{thebibliography}
 \end{document}
