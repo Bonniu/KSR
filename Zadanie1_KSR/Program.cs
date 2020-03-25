@@ -31,10 +31,36 @@ namespace Zadanie1_KSR
                 article.GetFeaturesVector().Add(new Feature10(article));
             }
 
+
             //Console.WriteLine(list[^66]);
             NormalizeVectors(list, keyWords);
-            KNN knn = new KNN(20, 80, 20, list, new EuclideanMetric());
-            knn.Classify();
+            for (int k = 7; k < 11; k++)
+            {
+                Console.WriteLine(k);
+                if (k == 6 || k == 8 || k == 9)
+                    continue;
+                for (int i = 0; i < 3; i++)
+                {
+                    if (i == 0)
+                    {
+                        Console.WriteLine("Euclides");
+                        KNN knn = new KNN(k, 85, 15, list, new EuclideanMetric());
+                        knn.Classify();
+                    }
+                    else if (i == 1)
+                    {
+                        Console.WriteLine("Chebyshew");
+                        KNN knn = new KNN(k, 85, 15, list, new ChebyshewMetric());
+                        knn.Classify();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Manhattan");
+                        KNN knn = new KNN(k, 85, 15, list, new ManhattanMetric());
+                        knn.Classify();
+                    }
+                }
+            }
         }
 
         static void StemmerTestingTmpFunction()
@@ -57,7 +83,9 @@ namespace Zadanie1_KSR
 
         static void NormalizeVectors(List<Article> list, KeyWords keyWords)
         {
-            for (int i = 0; i < list[0].GetFeaturesVector().Count; i++)
+            for (int i = 0;
+                i < list[0].GetFeaturesVector().Count;
+                i++)
             {
                 double max = 0;
                 double min = 1;

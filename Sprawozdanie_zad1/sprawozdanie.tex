@@ -155,29 +155,34 @@ prezentujący najistotniejsze elementy stworzonej aplikacji. Należy także
 podać, w jakim języku programowania została stworzona aplikacja. }
 
 \section{Materiały i metody} % Materiały i metody
-{\color{blue}
-W tym miejscu należy opisać, jak przeprowadzone zostały wszystkie badania,
-których wyniki i dyskusja zamieszczane są w dalszych sekcjach. Opis ten
-powinien być na tyle dokładny, aby osoba czytająca go potrafiła wszystkie
-przeprowadzone badania samodzielnie powtórzyć w celu zweryfikowania ich
-poprawności (a zatem m.in. należy zamieścić tu opis architektury sieci,
-wartości współczynników użytych w kolejnych eksperymentach, sposób
-inicjalizacji wag, metodę uczenia itp. oraz informacje o danych, na których
-prowadzone były badania). Przy opisie należy odwoływać się i stosować do
-opisanych w sekcji drugiej wzorów i oznaczeń, a także w jasny sposób opisać
-cel konkretnego testu. Najlepiej byłoby wyraźnie wyszczególnić (ponumerować)
-poszczególne eksperymenty tak, aby łatwo było się do nich odwoływać dalej.}
+Wykonana przez nas klasyfikacja została wykonana za pomocą wszystkich trzech metryk. Każdy przypadek testowy był klasyfikowany dla dziesięciu różnych wartości k najbliższych sąsiadów: 2, 3, 5, 6, 10, 13, 15, 17, 20, 25.
+
+Klasyfikacji dokonywaliśmy tylko na tych tekstach, które miały jedną z etykiet: \textsl{west-germany, usa, france, uk, canada, japan} i były to ich jedyne etykiety.
+
+Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
+\begin{itemize}
+\item 10\% dane treningowe, 90\% dane testowe
+\item 30\% dane treningowe, 70\% dane testowe
+\item 50\% dane treningowe, 50\% dane testowe
+\item 70\% dane treningowe, 30\% dane testowe
+\item 85\% dane treningowe, 15\% dane testowe
+\end{itemize}
 
 \section{Wyniki} % Wyniki
-{\color{blue}
-W tej sekcji należy zaprezentować, dla każdego przeprowadzonego eksperymentu,
-kompletny zestaw wyników w postaci tabel, wykresów itp. Powinny być one tak
-ponazywane, aby było wiadomo, do czego się odnoszą. Wszystkie tabele i wykresy
-należy oczywiście opisać (opisać co jest na osiach, w kolumnach itd.) stosując
-się do przyjętych wcześniej oznaczeń. Nie należy tu komentować i interpretować
-wyników, gdyż miejsce na to jest w kolejnej sekcji. Tu również dobrze jest
-wprowadzić oznaczenia (tabel, wykresów) aby móc się do nich odwoływać
-poniżej.}
+\begin{table}[t]
+\caption{podpis do tabeli}
+\begin{center}
+\begin{tabular}{l*{6}{c}r}
+Team              & P & W & D & L & F  & A & Pts \\
+\hline
+Manchester United & 6 & 4 & 0 & 2 & 10 & 5 & 12  \\
+Celtic            & 6 & 3 & 0 & 3 &  8 & 9 &  9  \\
+Benfica           & 6 & 2 & 1 & 3 &  7 & 8 &  7  \\
+FC Copenhagen     & 6 & 2 & 1 & 3 &  5 & 8 &  7  \\
+\end{tabular}
+\end{center}
+\label{nazwa odnośnika, która potem użyjemy do cytowania tabeli}
+\end{table}
 
 \section{Dyskusja} % Dyskusja
 {\color{blue}

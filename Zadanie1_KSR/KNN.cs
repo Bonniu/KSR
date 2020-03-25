@@ -72,15 +72,13 @@ namespace Zadanie1_KSR
                 {
                     counter++;
                 }
-                else
-                {
-                    Console.Write(classifiedPlace);
-                    Console.WriteLine(x + testArticles[x].GetPlace());
-                }
+                // else
+                // {
+                //     Console.Write(classifiedPlace);
+                //     Console.WriteLine(x + testArticles[x].GetPlace());
+                // }
             }
-
-            Console.WriteLine(counter + " poprawnie");
-            Console.WriteLine((double)counter / testArticles.Count + " %");
+            Console.WriteLine((double)counter / testArticles.Count * 100 + " %");
         }
 
         public string GetPlaceFromNeighbors(List<Neighbor> closestNeighbors)
