@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Zadanie1_KSR.Metrics;
+
 // ReSharper disable CommentTypo
 
 namespace Zadanie1_KSR
@@ -26,9 +27,19 @@ namespace Zadanie1_KSR
             SplitArticlesAndSave(articleList);
         }
 
+        public void SetK(int k)
+        {
+            this.k = k;
+        }
+
         private void SplitArticlesAndSave(List<Article> articleList)
         {
-            var articles = articleList.OrderBy(x => Guid.NewGuid()).ToList(); //GUID - globally unique ID
+            List<Article> articles;
+
+            //mieszanie danych
+            //articles = articleList.OrderBy(x => Guid.NewGuid()).ToList(); //GUID - globally unique ID
+
+            articles = articleList;
             for (int i = 0; i < articles.Count; i++)
             {
                 if (i < articles.Count / 100 * trainingNr)
@@ -69,16 +80,10 @@ namespace Zadanie1_KSR
                 string classifiedPlace = GetPlaceFromNeighbors(closestNeighbors);
                 //sprawdzenie jaki place
                 if (classifiedPlace.Equals(testArticles[x].GetPlace()))
-                {
                     counter++;
-                }
-                // else
-                // {
-                //     Console.Write(classifiedPlace);
-                //     Console.WriteLine(x + testArticles[x].GetPlace());
-                // }
             }
-            Console.WriteLine((double)counter / testArticles.Count * 100 + " %");
+
+            Console.WriteLine((double) counter / testArticles.Count * 100 + " %");
         }
 
         public string GetPlaceFromNeighbors(List<Neighbor> closestNeighbors)

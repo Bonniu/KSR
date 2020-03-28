@@ -31,35 +31,16 @@ namespace Zadanie1_KSR
                 article.GetFeaturesVector().Add(new Feature10(article));
             }
 
-
-            //Console.WriteLine(list[^66]);
             NormalizeVectors(list, keyWords);
-            for (int k = 7; k < 11; k++)
+            KNN knn = new KNN(1, 80, 20, list, new EuclideanMetric());
+            for (int k = 2; k < 26; k++)
             {
-                Console.WriteLine(k);
-                if (k == 6 || k == 8 || k == 9)
+                if (k != 2 && k != 3 && k != 4 && k != 5 && k != 7 && k != 10 && k != 13 && k != 15 && k != 20 &&
+                    k != 25)
                     continue;
-                for (int i = 0; i < 3; i++)
-                {
-                    if (i == 0)
-                    {
-                        Console.WriteLine("Euclides");
-                        KNN knn = new KNN(k, 85, 15, list, new EuclideanMetric());
-                        knn.Classify();
-                    }
-                    else if (i == 1)
-                    {
-                        Console.WriteLine("Chebyshew");
-                        KNN knn = new KNN(k, 85, 15, list, new ChebyshewMetric());
-                        knn.Classify();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Manhattan");
-                        KNN knn = new KNN(k, 85, 15, list, new ManhattanMetric());
-                        knn.Classify();
-                    }
-                }
+                Console.WriteLine("k: " + k);
+                knn.SetK(k);
+                knn.Classify();
             }
         }
 
