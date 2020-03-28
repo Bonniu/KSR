@@ -4,9 +4,10 @@
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage[T1]{fontenc}
-\usepackage[polish]{babel}
+\usepackage{polski}
 \usepackage[utf8]{inputenc}
-\selectlanguage{polish}
+\usepackage{graphicx}
+\graphicspath{ {./rys/} }
 
 \usepackage{etoolbox}
 \let\bbordermatrix\bordermatrix
@@ -168,22 +169,152 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
 \item 85\% dane treningowe, 15\% dane testowe
 \end{itemize}
 
+\newpage
 \section{Wyniki} % Wyniki
-\begin{table}[t]
-\caption{podpis do tabeli}
-\begin{center}
-\begin{tabular}{l*{6}{c}r}
-Team              & P & W & D & L & F  & A & Pts \\
-\hline
-Manchester United & 6 & 4 & 0 & 2 & 10 & 5 & 12  \\
-Celtic            & 6 & 3 & 0 & 3 &  8 & 9 &  9  \\
-Benfica           & 6 & 2 & 1 & 3 &  7 & 8 &  7  \\
-FC Copenhagen     & 6 & 2 & 1 & 3 &  5 & 8 &  7  \\
-\end{tabular}
-\end{center}
-\label{nazwa odnośnika, która potem użyjemy do cytowania tabeli}
+\subsection{Badanie podziału na dane treningowe i testowe}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular} {c c c c c c}
+		\hline
+		\textbf{k} & \textbf{Accuracy [\%]} \\ [0.5ex] 
+		\hline
+		\hline 
+		2 & 66,19 \\ 
+		3 & 72,61 \\
+		4 & 73,81 \\
+		5 & 75,87 \\
+		7 & 77,56 \\
+		10 & 77,95  \\
+		13 & 78,71 \\ 
+		15 & 78,98 \\
+		20 & 79,07 \\
+		25 & 79,41 \\
+		\hline
+	\end{tabular}
+	\caption{Skuteczność klasyfikacji dla metryki Euklidesowej dla podziału zbioru 30\% treningowe/70\% testowe. }
 \end{table}
 
+\begin{table}[h!]
+	\centering
+	\begin{tabular} {c c c c c c}
+		\hline
+		\textbf{k} & \textbf{Accuracy [\%]} \\ [0.5ex] 
+		\hline
+		\hline 
+		2 & 67,14 \\ 
+		3 & 72,97 \\
+		4 & 74,25 \\
+		5 & 75,79 \\
+		7 & 77,82 \\
+		10 & 78,74  \\
+		13 & 79,26 \\ 
+		15 & 79,35 \\
+		20 & 79,74 \\
+		25 & 79,81 \\
+		\hline
+	\end{tabular}
+	\caption{Skuteczność klasyfikacji dla metryki Euklidesowej dla podziału zbioru 50\% treningowe/50\% testowe. }
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular} {c c c c c c}
+		\hline
+		\textbf{k} &\textbf{Accuracy [\%]} \\ [0.5ex] 
+		\hline
+		\hline 
+		2 & 67,62 \\ 
+		3 & 73,95 \\
+		4 & 75,52 \\
+		5 & 77,64 \\
+		7 & 79,86 \\
+		10 & 80,77  \\
+		13 & 81,11 \\ 
+		15 & 81,38 \\
+		20 & 81,38 \\
+		25 & 81,48 \\
+		\hline
+	\end{tabular}
+	\caption{Skuteczność klasyfikacji dla metryki Euklidesowej dla podziału zbioru 70\% treningowe/30\% testowe. }
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular} {c c c c c c}
+		\hline
+		\textbf{k} & \textbf{Accuracy [\%]} \\ [0.5ex] 
+		\hline
+		\hline 
+		2 & 70,56 \\ 
+		3 & 76,11 \\
+		4 & 77,47 \\
+		5 & 79,31 \\
+		7 & 81,62 \\
+		10 & 82,10  \\
+		13 & 82,73 \\ 
+		15 & 82,80 \\
+		20 & 83,17 \\
+		25 & 83,09 \\
+		\hline
+	\end{tabular}
+	\caption{Skuteczność klasyfikacji dla metryki Euklidesowej dla podziału zbioru 80\% treningowe/20\% testowe. }
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular} {c c c c c c}
+		\hline
+		\textbf{k} & \textbf{Accuracy [\%]} \\ [0.5ex] 
+		\hline
+		\hline 
+		2 & 72,16 \\ 
+		3 & 76,99 \\
+		4 & 78,60 \\
+		5 & 80,16 \\
+		7 & 82,59 \\
+		10 & 83,13  \\
+		13 & 83,67 \\ 
+		15 & 83,72 \\
+		20 & 84,06 \\
+		25 & 84,30 \\
+		\hline
+	\end{tabular}
+	\caption{Skuteczność klasyfikacji dla metryki Euklidesowej dla podziału zbioru 85\% treningowe/15\% testowe. }
+\end{table}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{testtren.png}
+    \caption{Dane z tabel 1-5 zebrane na wykresie.}
+    \label{testtren}
+\end{figure}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular} {c c c c c c}
+		\hline
+		\textbf{Dane treningowe/testowe} & \textbf{Accuracy [\%]} \\ [0.5ex] 
+		\hline
+		\hline 
+		30/70 & 77,95 \\ 
+		50/50 & 78,74 \\
+		70/30 & 80,77 \\
+		80/20 & 82,10 \\
+		85/15 & 83,13 \\
+		\hline
+	\end{tabular}
+	\caption{Zależność Accuracy od pięciu wartości proporcji podziału zbioru dla k=10. }
+\end{table}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{5podzialk10.png}
+    \caption{Wykres przedstawiający zależność Accuracy od pięciu wartości proporcji podziału zbioru dla k=10.}
+    \label{5podzialk10}
+\end{figure}
+
+\newpage
 \section{Dyskusja} % Dyskusja
 {\color{blue}
 Sekcja ta powinna zawierać dokładną interpretację uzyskanych wyników
@@ -205,6 +336,7 @@ charakterze uniwersalnym.}
 \bibitem{leniwy} \textsl{http://home.agh.edu.pl/~horzyk/lectures/miw/KNN.pdf} [dostęp 22.03.2020]
 \bibitem{minkowski} \textsl{https://pl.wikipedia.org/wiki/Odleg\%C5\%82o\%C5\%9B\%C4\%87\_Minkowskiego} [dostęp 22.03.2020]
 \bibitem{canberra} \textsl{https://en.wikipedia.org/wiki/Canberra\_distance} [dostęp 22.03.2020]
-\bibitem{wyklad} \textsl{https://ftims.edu.p.lodz.pl/pluginfile.php/132368/mod\_folder/content/0/ksr-wyklad-2009.pdf?forcedownload=1}
+\bibitem{wyklad} \textsl{https://ftims.edu.p.lodz.pl/pluginfile.php/132368/mod\_folder/content/0/
+ksr-wyklad-2009.pdf?forcedownload=1} [dostęp 22.03.2020]
 \end{thebibliography}
 \end{document}
