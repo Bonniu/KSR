@@ -175,7 +175,7 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
 
 \begin{table}[h!]
 	\centering
-	\begin{tabular} {c c c c c c}
+	\begin{tabular} {c c}
 		\hline
 		\textbf{k} & \textbf{Accuracy [\%]} \\ [0.5ex] 
 		\hline
@@ -197,7 +197,7 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
 
 \begin{table}[h!]
 	\centering
-	\begin{tabular} {c c c c c c}
+	\begin{tabular} {c c}
 		\hline
 		\textbf{k} & \textbf{Accuracy [\%]} \\ [0.5ex] 
 		\hline
@@ -219,7 +219,7 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
 
 \begin{table}[h!]
 	\centering
-	\begin{tabular} {c c c c c c}
+	\begin{tabular} {c c}
 		\hline
 		\textbf{k} &\textbf{Accuracy [\%]} \\ [0.5ex] 
 		\hline
@@ -241,7 +241,7 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
 
 \begin{table}[h!]
 	\centering
-	\begin{tabular} {c c c c c c}
+	\begin{tabular} {c c}
 		\hline
 		\textbf{k} & \textbf{Accuracy [\%]} \\ [0.5ex] 
 		\hline
@@ -263,7 +263,7 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
 
 \begin{table}[h!]
 	\centering
-	\begin{tabular} {c c c c c c}
+	\begin{tabular} {c c}
 		\hline
 		\textbf{k} & \textbf{Accuracy [\%]} \\ [0.5ex] 
 		\hline
@@ -292,7 +292,7 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
 
 \begin{table}[h!]
 	\centering
-	\begin{tabular} {c c c c c c}
+	\begin{tabular} {c c}
 		\hline
 		\textbf{Dane treningowe/testowe} & \textbf{Accuracy [\%]} \\ [0.5ex] 
 		\hline
@@ -312,6 +312,28 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
     \includegraphics[width=1\textwidth]{5podzialk10.png}
     \caption{Wykres przedstawiający zależność Accuracy od pięciu wartości proporcji podziału zbioru dla k=10.}
     \label{5podzialk10}
+\end{figure}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular} {c c}
+		\hline
+		\textbf{Metryka} & \textbf{Accuracy [\%]} \\ [0.5ex] 
+		\hline
+		\hline 
+		Eulkidesowa & 77,82 \\ 
+		Czebyszewa & 78,18 \\
+		Manhattan &77,72 \\
+		\hline
+	\end{tabular}
+	\caption{Zależność Accuracy od wyboru metryki dla k=7 i podziału 50/50. }
+\end{table}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{metryki.png}
+    \caption{Wykres przedstawiający zależność Accuracy od wyboru metryki dla k=7 i podziału 50/50.}
+    \label{metryki}
 \end{figure}
 
 \newpage

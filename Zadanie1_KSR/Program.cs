@@ -32,14 +32,25 @@ namespace Zadanie1_KSR
             }
 
             NormalizeVectors(list, keyWords);
-            KNN knn = new KNN(1, 80, 20, list, new EuclideanMetric());
-            for (int k = 2; k < 26; k++)
+            KNN knn = new KNN(7, 80, 20, list, new EuclideanMetric());
+            // for (int k = 2; k < 26; k++)
+            // {
+            //     if (k != 2 && k != 3 && k != 4 && k != 5 && k != 7 && k != 10 && k != 13 && k != 15 && k != 20 &&
+            //         k != 25)
+            //         continue;
+            //     Console.WriteLine("k: " + k);
+            //     knn.SetK(k);
+            //     knn.Classify();
+            // }
+            for (int i = 1; i < 4; i++)
             {
-                if (k != 2 && k != 3 && k != 4 && k != 5 && k != 7 && k != 10 && k != 13 && k != 15 && k != 20 &&
-                    k != 25)
-                    continue;
-                Console.WriteLine("k: " + k);
-                knn.SetK(k);
+                Console.WriteLine("i: " + i);
+                if (i == 1)
+                    knn = new KNN(20, 50, 50, list, new EuclideanMetric());
+                else if (i == 2)
+                    knn = new KNN(20, 50, 50, list, new ChebyshewMetric());
+                else
+                    knn = new KNN(20, 50, 50, list, new ManhattanMetric());
                 knn.Classify();
             }
         }
