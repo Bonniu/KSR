@@ -335,6 +335,32 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
     \caption{Wykres przedstawiający zależność Accuracy od wyboru metryki dla k=7 i podziału 50/50.}
     \label{metryki}
 \end{figure}
+% Na podstawie dowolnego wyboru 4-ch podzbiorów cech wskazać, które cechy potencjalnie
+% mają najmniejszy, a które największy wpływ na wyniki klasyfikacji, zwłaszcza na Accuracy
+% (przy innych wartościach stałych).
+\begin{table}[h!]
+	\centering
+	\begin{tabular} {c c}
+		\hline
+		\textbf{Podzbiór cech} & \textbf{Accuracy [\%]} \\ [0.5ex] 
+		\hline
+		\hline 
+		Wszystkie cechy & 77,72 \\ 
+		$C_1, C_3, C_4, C_7, C_8$ & 78,65 \\
+		$C_2, C_5, C_6, C_9, C_10$ & 77,82 \\
+		$C_2, C_4, C_6, C_8, C_10$ & 77,29 \\
+		$C_1, C_3, C_5, C_7, C_9$ & 77,97 \\
+		\hline
+	\end{tabular}
+	\caption{Zależność Accuracy od wyboru podzbioru cech dla k=7 i podziału 50/50. }
+\end{table}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{cechy7manh5050.png}
+    \caption{Wykres przedstawiający zależność Accuracy od wyboru podzbioru cech dla k=7 i podziału 50/50.}
+    \label{cechy}
+\end{figure}
 
 \newpage
 \section{Dyskusja} % Dyskusja
