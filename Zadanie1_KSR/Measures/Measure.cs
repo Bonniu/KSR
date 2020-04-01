@@ -1,7 +1,7 @@
 ﻿namespace Zadanie1_KSR.Measures
 {
-    public class Measure
+    public abstract class Measure
     {
-        
+        public abstract double CountSimilarity(string trainStr, string testStr);
     }
 }

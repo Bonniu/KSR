@@ -11,19 +11,21 @@ namespace Zadanie1_KSR.Features
     {
         public Feature11(Article article, KeyWords keyWords, Measure measure)
         {
-            valueStr = CountValue(article, keyWords, measure);
+            valueStr = CountValue(article, keyWords);
+            value = -1;
+            this.measure = measure;
         }
 
         // Najczęściej występujące słowo kluczowe w artykule
-        public string CountValue(Article article, KeyWords keyWords, Measure measure)
+        private string CountValue(Article article, KeyWords keyWords)
         {
             var tmp = article.GetRefactoredText().Split(" ");
-            var dict = countKeyWordsInArticle(tmp, keyWords);
+            var dict = CountKeyWordsInArticle(tmp, keyWords);
             if (dict.Count == 0)
-                return "null";
-            int max = 0;
-            int index = 0;
-            for (int i = 0; i < dict.Count; i++)
+                return "";
+            var max = 0;
+            var index = 0;
+            for (var i = 0; i < dict.Count; i++)
             {
                 if (i == 0)
                 {
@@ -43,24 +45,18 @@ namespace Zadanie1_KSR.Features
             return dict.ElementAt(index).Key;
         }
 
-        private Dictionary<string, int> countKeyWordsInArticle(string[] tmp, KeyWords keyWords)
+        private static Dictionary<string, int> CountKeyWordsInArticle(IReadOnlyList<string> tmp, KeyWords keyWords)
         {
             Dictionary<string, int> counter = new Dictionary<string, int>();
-            for (int i = 0; i < tmp.Length; i++)
+            for (var i = 0; i < tmp.Count; i++)
             {
-                for (int j = 0; j < keyWords.GetKeywords().Count; j++)
+                for (var j = 0; j < keyWords.GetKeywords().Count; j++)
                 {
-                    if (keyWords.GetKeywords()[j].Equals(tmp[i]))
-                    {
-                        if (counter.ContainsKey(tmp[i]))
-                        {
-                            counter[tmp[i]] += 1;
-                        }
-                        else
-                        {
-                            counter.Add(tmp[i], 1);
-                        }
-                    }
+                    if (!keyWords.GetKeywords()[j].Equals(tmp[i])) continue;
+                    if (counter.ContainsKey(tmp[i]))
+                        counter[tmp[i]] += 1;
+                    else
+                        counter.Add(tmp[i], 1);
                 }
             }
 

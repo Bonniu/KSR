@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using Zadanie1_KSR.Measures;
 
 namespace Zadanie1_KSR.Features
 {
@@ -9,6 +10,7 @@ namespace Zadanie1_KSR.Features
     {
         protected double value;
         protected string valueStr;
+        protected Measure measure;
 
         protected List<string> ConvertTextToArray(string text)
         {
@@ -26,6 +28,14 @@ namespace Zadanie1_KSR.Features
         public double GetValue()
         {
             return value;
+        }
+        public string GetStrValue()
+        {
+            return valueStr;
+        }
+        public Measure GetMeasure()
+        {
+            return measure;
         }
 
         public void SetValue(double value)
@@ -46,4 +56,5 @@ namespace Zadanie1_KSR.Features
     8. Stosunek słów o długości <=6 do wszystkich słów
     9. Ilość słów unikalnych
     10. Ilość słów, których długość wynosi [5,8]
+    11. Najczęściej występuj.ące słowo kluczowe
 */

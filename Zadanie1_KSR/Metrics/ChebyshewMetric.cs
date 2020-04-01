@@ -1,4 +1,6 @@
-﻿using System;
+﻿// ReSharper disable CommentTypo
+
+using System;
 
 namespace Zadanie1_KSR.Metrics
 {
@@ -9,14 +11,21 @@ namespace Zadanie1_KSR.Metrics
             double max = 0;
             for (int i = 0; i < trainArticle.GetFeaturesVector().Count; i++)
             {
-                var tmp = Math.Abs(trainArticle.GetFeaturesVector()[i].GetValue() -
-                                   testArticle.GetFeaturesVector()[i].GetValue());
-                if (tmp > max)
+                double tmp;
+                if (trainArticle.GetFeaturesVector()[i].GetValue() < 0) // jezeli cecha zawiera tekst
                 {
-                    max = tmp;
+                    string trainStrValue = trainArticle.GetFeaturesVector()[i].GetStrValue();
+                    string testStrValue = testArticle.GetFeaturesVector()[i].GetStrValue();
+                    tmp = trainArticle.GetFeaturesVector()[i].GetMeasure().CountSimilarity(trainStrValue, testStrValue);
+                }
+                else
+                {
+                    tmp = Math.Abs(trainArticle.GetFeaturesVector()[i].GetValue() -
+                                   testArticle.GetFeaturesVector()[i].GetValue());
                 }
 
-                //    Console.WriteLine(" cecha " + i + ": " + tmp);
+                if (tmp > max)
+                    max = tmp;
             }
 
             return max;

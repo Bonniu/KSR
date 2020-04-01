@@ -34,7 +34,7 @@ namespace Zadanie1_KSR
             }
 
             NormalizeVectors(list, keyWords);
-            KNN knn = new KNN(20, 85, 15, list, new ManhattanMetric());
+            KNN knn = new KNN(20, 85, 15, list, new EuclideanMetric());
             knn.Classify();
             // for (int k = 2; k < 26; k++)
             // {
@@ -71,6 +71,12 @@ namespace Zadanie1_KSR
                 i < list[0].GetFeaturesVector().Count;
                 i++)
             {
+                if (list[0].GetFeaturesVector()[i].GetValue() < 0) //pomijanie optymalizacji gdy string
+                {
+                    Console.WriteLine(i);
+                    continue;
+                }
+
                 double max = 0;
                 double min = 1;
                 foreach (var article in list)
