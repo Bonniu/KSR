@@ -8,6 +8,7 @@ namespace Zadanie1_KSR.Features
     public abstract class Feature
     {
         protected double value;
+        protected string valueStr;
 
         protected List<string> ConvertTextToArray(string text)
         {

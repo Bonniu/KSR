@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Annytab.Stemmer;
 using Zadanie1_KSR.Features;
+using Zadanie1_KSR.Measures;
 using Zadanie1_KSR.Metrics;
 
 namespace Zadanie1_KSR
@@ -15,20 +16,21 @@ namespace Zadanie1_KSR
 
             KeyWords keyWords = new KeyWords(100);
             keyWords.FindKeyWords(list);
-            //keyWords.PrintKeyWords();
+//            keyWords.PrintKeyWords();
 
             foreach (var article in list)
             {
-                article.GetFeaturesVector().Add(new Feature1(article, keyWords));
-                article.GetFeaturesVector().Add(new Feature2(article, keyWords));
-                article.GetFeaturesVector().Add(new Feature3(article, keyWords));
-                article.GetFeaturesVector().Add(new Feature4(article, keyWords));
-                article.GetFeaturesVector().Add(new Feature5(article, keyWords));
-                article.GetFeaturesVector().Add(new Feature6(article));
-                article.GetFeaturesVector().Add(new Feature7(article));
-                article.GetFeaturesVector().Add(new Feature8(article));
-                article.GetFeaturesVector().Add(new Feature9(article));
-                article.GetFeaturesVector().Add(new Feature10(article));
+                // article.GetFeaturesVector().Add(new Feature1(article, keyWords));
+                // article.GetFeaturesVector().Add(new Feature2(article, keyWords));
+                // article.GetFeaturesVector().Add(new Feature3(article, keyWords));
+                // article.GetFeaturesVector().Add(new Feature4(article, keyWords));
+                // article.GetFeaturesVector().Add(new Feature5(article, keyWords));
+                // article.GetFeaturesVector().Add(new Feature6(article));
+                // article.GetFeaturesVector().Add(new Feature7(article));
+                // article.GetFeaturesVector().Add(new Feature8(article));
+                // article.GetFeaturesVector().Add(new Feature9(article));
+                // article.GetFeaturesVector().Add(new Feature10(article));
+                article.GetFeaturesVector().Add(new Feature11(article, keyWords, new NGramsMeasure()));
             }
 
             NormalizeVectors(list, keyWords);

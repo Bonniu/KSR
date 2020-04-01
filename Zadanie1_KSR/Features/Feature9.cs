@@ -14,7 +14,7 @@ namespace Zadanie1_KSR.Features
         {
             var tmpList = ConvertTextToArray(article.GetRefactoredText());
             
-            value = WordCounter.CountWords(tmpList);
+            value = WordCounter.CountUniqueWords(tmpList);
             return value;
         }
     }

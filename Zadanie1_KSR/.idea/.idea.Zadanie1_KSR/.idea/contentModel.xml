@@ -36,6 +36,7 @@
         <e p="Feature.cs" t="Include" />
         <e p="Feature1.cs" t="Include" />
         <e p="Feature10.cs" t="Include" />
+        <e p="Feature11.cs" t="Include" />
         <e p="Feature2.cs" t="Include" />
         <e p="Feature3.cs" t="Include" />
         <e p="Feature4.cs" t="Include" />
@@ -48,6 +49,11 @@
       <e p="FileParser.cs" t="Include" />
       <e p="KeyWords.cs" t="Include" />
       <e p="KNN.cs" t="Include" />
+      <e p="Measures" t="Include">
+        <e p="GeneralizedNGramsMeasure.cs" t="Include" />
+        <e p="Measure.cs" t="Include" />
+        <e p="NGramsMeasure.cs" t="Include" />
+      </e>
       <e p="Metrics" t="Include">
         <e p="ChebyshewMetric.cs" t="Include" />
         <e p="EuclideanMetric.cs" t="Include" />
