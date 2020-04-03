@@ -14,15 +14,15 @@ namespace Zadanie1_KSR.Metrics
                 {
                     string trainStrValue = trainArticle.GetFeaturesVector()[i].GetStrValue();
                     string testStrValue = testArticle.GetFeaturesVector()[i].GetStrValue();
-                    // sum += new NGramsMeasure().CountSimilarity(trainStrValue, testStrValue);
                     sum += trainArticle.GetFeaturesVector()[i].GetMeasure()
                         .CountSimilarity(trainStrValue, testStrValue);
-                    Console.WriteLine(trainArticle.GetFeaturesVector()[i].GetMeasure()
-                        .CountSimilarity(trainStrValue, testStrValue));
                 }
-
-                sum += Math.Pow(
-                    trainArticle.GetFeaturesVector()[i].GetValue() - testArticle.GetFeaturesVector()[i].GetValue(), 2);
+                else
+                {
+                    sum += Math.Pow(
+                        trainArticle.GetFeaturesVector()[i].GetValue() - testArticle.GetFeaturesVector()[i].GetValue(),
+                        2);
+                }
             }
 
             return Math.Sqrt(sum);

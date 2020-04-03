@@ -16,9 +16,11 @@ namespace Zadanie1_KSR.Metrics
                     sum += trainArticle.GetFeaturesVector()[i].GetMeasure()
                         .CountSimilarity(trainStrValue, testStrValue);
                 }
-
-                sum += Math.Abs(trainArticle.GetFeaturesVector()[i].GetValue() -
-                                testArticle.GetFeaturesVector()[i].GetValue());
+                else
+                {
+                    sum += Math.Abs(trainArticle.GetFeaturesVector()[i].GetValue() -
+                                    testArticle.GetFeaturesVector()[i].GetValue());
+                }
             }
 
             return sum;

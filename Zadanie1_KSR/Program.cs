@@ -20,21 +20,21 @@ namespace Zadanie1_KSR
 
             foreach (var article in list)
             {
-                // article.GetFeaturesVector().Add(new Feature1(article, keyWords));
-                // article.GetFeaturesVector().Add(new Feature2(article, keyWords));
-                // article.GetFeaturesVector().Add(new Feature3(article, keyWords));
-                // article.GetFeaturesVector().Add(new Feature4(article, keyWords));
-                // article.GetFeaturesVector().Add(new Feature5(article, keyWords));
-                // article.GetFeaturesVector().Add(new Feature6(article));
-                // article.GetFeaturesVector().Add(new Feature7(article));
-                // article.GetFeaturesVector().Add(new Feature8(article));
-                // article.GetFeaturesVector().Add(new Feature9(article));
-                // article.GetFeaturesVector().Add(new Feature10(article));
+                article.GetFeaturesVector().Add(new Feature1(article, keyWords));
+                article.GetFeaturesVector().Add(new Feature2(article, keyWords));
+                article.GetFeaturesVector().Add(new Feature3(article, keyWords));
+                article.GetFeaturesVector().Add(new Feature4(article, keyWords));
+                article.GetFeaturesVector().Add(new Feature5(article, keyWords));
+                article.GetFeaturesVector().Add(new Feature6(article));
+                article.GetFeaturesVector().Add(new Feature7(article));
+                article.GetFeaturesVector().Add(new Feature8(article));
+                article.GetFeaturesVector().Add(new Feature9(article));
+                article.GetFeaturesVector().Add(new Feature10(article));
                 article.GetFeaturesVector().Add(new Feature11(article, keyWords, new NGramsMeasure()));
             }
 
             NormalizeVectors(list, keyWords);
-            KNN knn = new KNN(20, 85, 15, list, new EuclideanMetric());
+            KNN knn = new KNN(5, 85, 15, list, new EuclideanMetric());
             knn.Classify();
             // for (int k = 2; k < 26; k++)
             // {
@@ -73,7 +73,6 @@ namespace Zadanie1_KSR
             {
                 if (list[0].GetFeaturesVector()[i].GetValue() < 0) //pomijanie optymalizacji gdy string
                 {
-                    Console.WriteLine(i);
                     continue;
                 }
 
