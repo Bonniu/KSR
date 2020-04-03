@@ -1,16 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace Zadanie1_KSR
 {
     public class WordCounter
     {
-        private Dictionary<string, int> wordCountDictionary;
+        public Dictionary<string, int> wordCountDictionary;
+        public Dictionary<string, int> wordCountDictionaryUSA;
+        public Dictionary<string, int> wordCountDictionaryFrance;
+        public Dictionary<string, int> wordCountDictionaryJapan;
+        public Dictionary<string, int> wordCountDictionaryCanada;
+        public Dictionary<string, int> wordCountDictionaryWestGermany;
+        public Dictionary<string, int> wordCountDictionaryUK;
 
         public WordCounter()
         {
             this.wordCountDictionary = new Dictionary<string, int>();
+            this.wordCountDictionaryUSA = new Dictionary<string, int>();
+            this.wordCountDictionaryFrance = new Dictionary<string, int>();
+            this.wordCountDictionaryJapan = new Dictionary<string, int>();
+            this.wordCountDictionaryCanada = new Dictionary<string, int>();
+            this.wordCountDictionaryWestGermany = new Dictionary<string, int>();
+            this.wordCountDictionaryUK = new Dictionary<string, int>();
         }
 
         public Dictionary<string, int> GetWordCount()
@@ -20,20 +33,19 @@ namespace Zadanie1_KSR
 
         public bool CountWords(List<Article> articleList)
         {
-            this.wordCountDictionary = new Dictionary<string, int>();
             foreach (var article in articleList)
             {
-                parseText(article.GetRefactoredText().ToLower());
+                ParseText(article.GetRefactoredText().ToLower(), article.GetPlace());
             }
 
             SortWordCountDictionary();
-            foreach (var pair in wordCountDictionary)
-            {
-                if (pair.Value < 3)
-                {
-                    wordCountDictionary.Remove(pair.Key);
-                }
-            }
+            // foreach (var pair in wordCountDictionary)
+            // {
+            //     if (pair.Value < 3)
+            //     {
+            //         wordCountDictionary.Remove(pair.Key);
+            //     }
+            // }
 
             return true;
         }
@@ -61,28 +73,42 @@ namespace Zadanie1_KSR
             return dictionary;
         }
 
-        public bool parseText(string text)
+        private void ParseText(string text, string place)
         {
             foreach (var s in text.Split(null))
             {
-                AddWordCount(s);
+                if (place == "usa")
+                    AddWordCount(s, wordCountDictionaryUSA);
+                else if (place == "uk")
+                    AddWordCount(s, wordCountDictionaryUK);
+                else if (place == "west-germany")
+                    AddWordCount(s, wordCountDictionaryWestGermany);
+                else if (place == "france")
+                    AddWordCount(s, wordCountDictionaryFrance);
+                else if (place == "japan")
+                    AddWordCount(s, wordCountDictionaryJapan);
+                else if (place == "canada")
+                    AddWordCount(s, wordCountDictionaryCanada);
+                else throw new EvaluateException("asddddddddddddddddddddddddddddddddddddddddddddd");
             }
-
-            return true;
         }
 
-        public bool AddWordCount(string word)
+        private void AddWordCount(string word, Dictionary<string, int> wordCountDictCountry)
         {
-            if (wordCountDictionary.ContainsKey(word))
+            if (wordCountDictCountry.ContainsKey(word))
             {
+                wordCountDictCountry[word] += 1;
+                wordCountDictionary[word] += 1;
+            }
+            else if (wordCountDictionary.ContainsKey(word))
+            {
+                wordCountDictCountry.Add(word, 1);
                 wordCountDictionary[word] += 1;
             }
             else
             {
                 wordCountDictionary.Add(word, 1);
             }
-
-            return true;
         }
 
         public override string ToString()
@@ -100,9 +126,8 @@ namespace Zadanie1_KSR
         //sortowanie wordCountDictionary od najmniej wystepujacych do najczesciej wystepujacych
         public void SortWordCountDictionary()
         {
-            //var sorted = from entry in wordCount orderby entry.Value descending select entry;
             var sorted = from entry in wordCountDictionary orderby entry.Value select entry;
-            this.wordCountDictionary = new Dictionary<string, int>();
+            wordCountDictionary = new Dictionary<string, int>();
             foreach (var valuePair in sorted)
             {
                 this.wordCountDictionary.Add(valuePair.Key, valuePair.Value);

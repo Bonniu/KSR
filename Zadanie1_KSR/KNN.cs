@@ -15,6 +15,7 @@ namespace Zadanie1_KSR
         private List<Article> testArticles;
         private List<Article> trainingArticles;
         private Metric metric;
+        private double resultPercent;
 
         public KNN(int k, int trainingNr, int testNr, List<Article> articleList, Metric metric)
         {
@@ -30,6 +31,17 @@ namespace Zadanie1_KSR
         public void SetK(int k)
         {
             this.k = k;
+        }
+
+        public double GetResultPercent()
+        {
+            return resultPercent;
+        }
+
+        public void PrintAllProperties()
+        {
+            Console.WriteLine("Settings: k=" + k + " , training=" + trainingNr + "%, test=" + testNr + "%, metric=" +
+                          metric.GetType().ToString().Split(".")[^1]);
         }
 
         private void SplitArticlesAndSave(List<Article> articleList)
@@ -83,7 +95,7 @@ namespace Zadanie1_KSR
                     counter++;
             }
 
-            Console.WriteLine((double) counter / testArticles.Count * 100 + " %");
+            resultPercent = (double) counter / testArticles.Count * 100;
         }
 
         public string GetPlaceFromNeighbors(List<Neighbor> closestNeighbors)

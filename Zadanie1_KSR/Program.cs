@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading;
 using Annytab.Stemmer;
 using Zadanie1_KSR.Features;
 using Zadanie1_KSR.Measures;
@@ -11,31 +13,37 @@ namespace Zadanie1_KSR
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Reading files...");
             ArticleGenerator ag = new ArticleGenerator(22);
             List<Article> list = ag.ReadAllFiles();
 
+            Console.WriteLine("Creating keywords...");
             KeyWords keyWords = new KeyWords(100);
-            keyWords.FindKeyWords(list);
-//            keyWords.PrintKeyWords();
+            keyWords.FindKeyWords2(list);
 
+            Console.WriteLine("Adding features...");
             foreach (var article in list)
             {
-                article.GetFeaturesVector().Add(new Feature1(article, keyWords));
-                article.GetFeaturesVector().Add(new Feature2(article, keyWords));
-                article.GetFeaturesVector().Add(new Feature3(article, keyWords));
-                article.GetFeaturesVector().Add(new Feature4(article, keyWords));
-                article.GetFeaturesVector().Add(new Feature5(article, keyWords));
-                article.GetFeaturesVector().Add(new Feature6(article));
-                article.GetFeaturesVector().Add(new Feature7(article));
-                article.GetFeaturesVector().Add(new Feature8(article));
-                article.GetFeaturesVector().Add(new Feature9(article));
-                article.GetFeaturesVector().Add(new Feature10(article));
-                article.GetFeaturesVector().Add(new Feature11(article, keyWords, new NGramsMeasure()));
+                 article.GetFeaturesVector().Add(new Feature1(article, keyWords));
+                 article.GetFeaturesVector().Add(new Feature2(article, keyWords));
+                 article.GetFeaturesVector().Add(new Feature3(article, keyWords));
+                 article.GetFeaturesVector().Add(new Feature4(article, keyWords));
+                 article.GetFeaturesVector().Add(new Feature5(article, keyWords));
+                 article.GetFeaturesVector().Add(new Feature6(article));
+                 article.GetFeaturesVector().Add(new Feature7(article));
+                 article.GetFeaturesVector().Add(new Feature8(article));
+                 article.GetFeaturesVector().Add(new Feature9(article));
+                 article.GetFeaturesVector().Add(new Feature10(article));
+                 article.GetFeaturesVector().Add(new Feature11(article, keyWords, new NGramsMeasure()));
             }
-
+            Console.WriteLine("Normalizing vectors...");
             NormalizeVectors(list, keyWords);
-            KNN knn = new KNN(5, 85, 15, list, new EuclideanMetric());
+            KNN knn = new KNN(25, 85, 15, list, new EuclideanMetric());
+            Console.WriteLine("Classifying...");
             knn.Classify();
+            knn.PrintAllProperties();
+            Console.WriteLine("Accuracy: " + knn.GetResultPercent() + "%");
+            
             // for (int k = 2; k < 26; k++)
             // {
             //     if (k != 2 && k != 3 && k != 4 && k != 5 && k != 7 && k != 10 && k != 13 && k != 15 && k != 20 &&
@@ -46,25 +54,7 @@ namespace Zadanie1_KSR
             //     knn.Classify();
             // }
         }
-
-        static void StemmerTestingTmpFunction()
-        {
-            Stemmer stemmer = new Stemmer();
-            Console.WriteLine(stemmer.StemText("symbols"));
-            Console.WriteLine(stemmer.StemText("prices"));
-            Console.WriteLine(stemmer.StemText("said"));
-            Console.WriteLine(stemmer.StemText("expiring"));
-            Console.WriteLine(stemmer.StemText("magnetometer"));
-            Console.WriteLine(stemmer.StemText("december"));
-            EnglishStemmer es = new EnglishStemmer();
-            Console.WriteLine(es.GetSteamWord("symbols"));
-            Console.WriteLine(es.GetSteamWord("prices"));
-            Console.WriteLine(es.GetSteamWord("said"));
-            Console.WriteLine(es.GetSteamWord("expiring"));
-            Console.WriteLine(es.GetSteamWord("magnetometer"));
-            Console.WriteLine(es.GetSteamWord("december"));
-        }
-
+        
         static void NormalizeVectors(List<Article> list, KeyWords keyWords)
         {
             for (int i = 0;

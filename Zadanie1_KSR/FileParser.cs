@@ -40,7 +40,7 @@ namespace Zadanie1_KSR
                 return "err";
             if (tmp.Contains("</PLACES>"))
             {
-                placesLine = tmp.Substring(3, tmp.IndexOf("</PLACES>") - 7);
+                placesLine = tmp.Substring(3, tmp.IndexOf("</PLACES>", StringComparison.Ordinal) - 7);
             }
             else
             {

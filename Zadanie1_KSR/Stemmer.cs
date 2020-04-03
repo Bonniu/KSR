@@ -631,7 +631,7 @@ namespace Zadanie1_KSR
 
         private string CheckFirstLastChar(string word)
         {
-            char[] tab = {'\"', '-', '\'', ',', '.', '/', '<', '>', '`'};
+            char[] tab = {'\"', '-', '\'', ',', '.', '/', '<', '>', '`', '(', ')'};
             string tmp = word;
             foreach (var ch in tab)
             {
