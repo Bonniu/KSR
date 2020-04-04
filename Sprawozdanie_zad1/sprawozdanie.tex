@@ -44,7 +44,7 @@ Głównym zagadnieniem projektowym, z którym mieliśmy do czynienia w ramach za
 
 Algorytm k-najbliższych sąsiadów \textsl{(k-NN - k-nearest neighbors)} to jeden z algorytmów zaliczanych do grupy algorytmów leniwych. Jest to taka grupa algorytmów, która szuka rozwiązania dopiero, gdy pojawia się wzorzec testujący. Przechowuje wzorce uczące, a dopiero później wyznacza się odległość wzorca testowego względem wzorców treningowych. \cite{leniwy} 
 
-Algorytm ten działa w taki sposób, że dla każdego wzorca testowego obliczana jest odległość za pomocą wybranej metryki względem wzorców treningowych, a następnie wybierana jest k najbliższych wzorców treningowych. Wynik wyznaczony jest jako najczęstszy element wśród nich. W naszym zadaniu odległość ta jest równa skali podobieństwa tekstów. 
+Algorytm ten działa w taki sposób, że dla każdego wzorca testowego obliczana jest odległość za pomocą wybranej metryki względem wzorców treningowych, a następnie wybierana jest k najbliższych wzorców treningowych. Wynik wyznaczony jest jako najczęstszy element wśród nich. W naszym zadaniu odległość ta jest równa skali podobieństwa tekstów, a im ta odległość jest mniejsza, tym lepiej.
 % cechy
 %Stosunek słów kluczowych do wszystkich słów w pierwszych 10% tekstu
 %Stosunek słów kluczowych do wszystkich słów w ostatnich 10% tekstu
@@ -56,6 +56,7 @@ Algorytm ten działa w taki sposób, że dla każdego wzorca testowego obliczana
 %Stosunek słów o długości <=6 do wszystkich słów
 %Ilość słów unikalnych
 %Ilość słów, których długość wynosi [5,8]
+%Najczęściej występujące słowo kluczowe
 \subsection{Ekstrakcja cech}
 Do ekstrakcji cech charakterystycznych tekstu utworzyliśmy wektor cech, który opisuje tekst za pomocą 11 cech. Liczba słów zawsze jest liczona po zastosowaniu stop-listy oraz stemizacji, bez znaków przestankowych.
 \begin{itemize}
@@ -116,7 +117,7 @@ Przed normalizacją cecha $C_{9}$ przyjmuje wartości $\in [1,420]$.
 \end{itemize}
 } 
 Przed normalizacją cecha $C_{10}$ zawierała się w wartościach $\in [1,574]$.
-\item[•] $C_{11}$ - Najczęściej występujące słowo kluczowe. Jest to cecha tekstowa, której podobieństwo z innym słowem mierzymy jedną z dwóch miar opisanych w sekcji \textsl{Metryki i miary podobieństwa}.
+\item[•] $C_{11}$ - Najczęściej występujące słowo kluczowe. Jest to cecha tekstowa, której podobieństwo z innym słowem mierzymy jedną z dwóch miar podobieństwa ciągów znaków opisanych w sekcji \textsl{Metryki i miary podobieństwa}.
 \end{itemize}
 
 %Czy np. im tekst dłuższy, tym bardziej związany z etykietą USA lub CANADA? (istotne!)}
@@ -238,8 +239,14 @@ Na rysunku \ref{uml} przedstawiony został diagram UML naszego programu.
 	\caption{Diagram UML.}
 	\label{uml}
 \end{figure}
-  
 
+Na rysunku \ref{exampleRun} przedstawiony został wynik z konsoli po przykładowym uruchomieniu programu.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\textwidth]{exampleRun.png}
+	\caption{Wynik z przykładowego uruchomienia programu.}
+	\label{exampleRun}
+\end{figure}
 \section{Materiały i metody} % Materiały i metody
 Wykonana przez nas klasyfikacja została wykonana za pomocą wszystkich trzech metryk oraz dwóch miar podobieństwa. Każdy przypadek testowy był klasyfikowany dla dziesięciu różnych wartości k najbliższych sąsiadów: 2, 3, 4, 5, 7, 10, 13, 15, 20, 25.
 
@@ -254,126 +261,81 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
 \item 85\% dane treningowe, 15\% dane testowe
 \end{itemize}
 
+Poniżej zostały opisane 4 wykonane przez nas eksperymenty.
+
+\subsection{Badanie zależności Accuracy od parametru k}
+
+W tym eksperymencie badaliśmy wpływ doboru parametru k na Accuracy. Program został uruchomiony dla 10 różnych wartości $k\in$ \{2, 3, 4, 5, 7, 10, 13, 15, 20, 25\}.
+
+Klasyfikacja tekstów została wykonana dla stałej wartości podziału zbioru cech na testowe i treningowe. Był to podział 50\% dane treningowe, 50\% dane testowe.
+
+Metryką, jakiej użyliśmy była metryka Euklidesowa.
+
+\subsection{Badanie zależności Accuracy od wartości proporcji podziału zbioru}
+
+W tym eksperymencie badaliśmy wpływ wartości proporcji podziału zbioru na Accuracy. Program został uruchomiony dla k=10.
+
+Badane podziały były następujące:
+\begin{itemize}
+	\item 30\% dane treningowe, 70\% dane testowe
+	\item 50\% dane treningowe, 50\% dane testowe
+	\item 70\% dane treningowe, 30\% dane testowe
+	\item 80\% dane treningowe, 20\% dane testowe
+	\item 85\% dane treningowe, 15\% dane testowe
+\end{itemize}
+
+Metryką, jakiej użyliśmy była metryka Manhattan.
+
+\subsection{Badanie zależności Accuracy od wyboru metryki}
+
+W tym eksperymencie badaliśmy zależność Accuracy od wyboru metryki. Program został uruchomiony dla k=13. Podział na dane treningowe i testowe był stały i wynosił 70\% treningowe i 30\% testowe.
+
+\subsection{Badanie zależności Accuracy od wyboru podzbioru cech}
+
+W tym eksperymencie badaliśmy zależność Accuracy od wyboru podzbioru cech. Program został uruchomiony dla k=20. Metryka, jakiej użyliśmy to metryka Czebyszewa. Podział na dane treningowe i testowe był stały i wynosił 50\% treningowe i 50\% testowe. Podzbiory cech jakie badaliśmy były następujące:
+\begin{itemize}
+	\item Wszystkie cechy
+	\item $C_1, C_2, C_3, C_4, C_5, C_{11}$
+	\item $C_6, C_7, C_8, C_9, C_{10}$ 
+	\item $C_1, C_2, C_3, C_8, C_9, C_{10}$
+	\item $C_4, C_5, C_6, C_7, C_{11}$
+\end{itemize}
+
+
+\newpage
 \section{Wyniki} % Wyniki
-\subsection{Badanie podziału na dane treningowe i testowe}
-
+\subsection{Badanie wyników klasyfikacji w zależności od parametru k}
 \begin{table}[h!]
 	\centering
 	\begin{tabular} {c c}
 		\hline
-		\textbf{k} & \textbf{Accuracy [\%]} \\ [0.5ex] 
+		\textbf{Parametr k} & \textbf{Accuracy [\%]} \\ [0.5ex] 
 		\hline
 		\hline 
-		2 & 66,19 \\ 
-		3 & 72,61 \\
-		4 & 73,81 \\
-		5 & 75,87 \\
-		7 & 77,56 \\
-		10 & 77,95  \\
-		13 & 78,71 \\ 
-		15 & 78,98 \\
-		20 & 79,07 \\
-		25 & 79,41 \\
+		2 & 67,705 \\ 
+		3 & 73,921 \\
+		4 & 74,900 \\
+		5 & 76,799 \\
+		7 & 78,312 \\
+		10 & 79,024 \\
+		13 & 79,365 \\
+		15 & 79,410 \\
+		20 & 79,632 \\
+		25 & 79,795 \\
 		\hline
 	\end{tabular}
-	\caption{Skuteczność klasyfikacji dla metryki Euklidesowej dla podziału zbioru 30\% treningowe/70\% testowe. }
+	\caption{Zależność Accuracy od wartości k. }
 \end{table}
 
-\begin{table}[h!]
-	\centering
-	\begin{tabular} {c c}
-		\hline
-		\textbf{k} & \textbf{Accuracy [\%]} \\ [0.5ex] 
-		\hline
-		\hline 
-		2 & 67,14 \\ 
-		3 & 72,97 \\
-		4 & 74,25 \\
-		5 & 75,79 \\
-		7 & 77,82 \\
-		10 & 78,74  \\
-		13 & 79,26 \\ 
-		15 & 79,35 \\
-		20 & 79,74 \\
-		25 & 79,81 \\
-		\hline
-	\end{tabular}
-	\caption{Skuteczność klasyfikacji dla metryki Euklidesowej dla podziału zbioru 50\% treningowe/50\% testowe. }
-\end{table}
-
-\begin{table}[h!]
-	\centering
-	\begin{tabular} {c c}
-		\hline
-		\textbf{k} &\textbf{Accuracy [\%]} \\ [0.5ex] 
-		\hline
-		\hline 
-		2 & 67,62 \\ 
-		3 & 73,95 \\
-		4 & 75,52 \\
-		5 & 77,64 \\
-		7 & 79,86 \\
-		10 & 80,77  \\
-		13 & 81,11 \\ 
-		15 & 81,38 \\
-		20 & 81,38 \\
-		25 & 81,48 \\
-		\hline
-	\end{tabular}
-	\caption{Skuteczność klasyfikacji dla metryki Euklidesowej dla podziału zbioru 70\% treningowe/30\% testowe. }
-\end{table}
-
-\begin{table}[h!]
-	\centering
-	\begin{tabular} {c c}
-		\hline
-		\textbf{k} & \textbf{Accuracy [\%]} \\ [0.5ex] 
-		\hline
-		\hline 
-		2 & 70,56 \\ 
-		3 & 76,11 \\
-		4 & 77,47 \\
-		5 & 79,31 \\
-		7 & 81,62 \\
-		10 & 82,10  \\
-		13 & 82,73 \\ 
-		15 & 82,80 \\
-		20 & 83,17 \\
-		25 & 83,09 \\
-		\hline
-	\end{tabular}
-	\caption{Skuteczność klasyfikacji dla metryki Euklidesowej dla podziału zbioru 80\% treningowe/20\% testowe. }
-\end{table}
-\newpage
-\begin{table}[h!]
-	\centering
-	\begin{tabular} {c c}
-		\hline
-		\textbf{k} & \textbf{Accuracy [\%]} \\ [0.5ex] 
-		\hline
-		\hline 
-		2 & 72,16 \\ 
-		3 & 76,99 \\
-		4 & 78,60 \\
-		5 & 80,16 \\
-		7 & 82,59 \\
-		10 & 83,13  \\
-		13 & 83,67 \\ 
-		15 & 83,72 \\
-		20 & 84,06 \\
-		25 & 84,30 \\
-		\hline
-	\end{tabular}
-	\caption{Skuteczność klasyfikacji dla metryki Euklidesowej dla podziału zbioru 85\% treningowe/15\% testowe. }
-\end{table}
-\newpage
 \begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{testtren.png}
-    \caption{Dane z tabel 1-5 zebrane na wykresie.}
-    \label{testtren}
+	\centering
+	\includegraphics[width=1\textwidth]{accuracyK.png}
+	\caption{Wykres przedstawiający zależność Accuracy od wartości k (dane treningowe/testowe 50\%/50\%, Metryka Euklidesowa).}
+	\label{accuracyK}
 \end{figure}
 
+\newpage
+\subsection{Badanie wyników klasyfikacji w zależności od podziału na dane treningowe i testowe}
 \begin{table}[h!]
 	\centering
 	\begin{tabular} {c c}
@@ -381,11 +343,11 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
 		\textbf{Dane treningowe/testowe} & \textbf{Accuracy [\%]} \\ [0.5ex] 
 		\hline
 		\hline 
-		30/70 & 77,95 \\ 
-		50/50 & 78,74 \\
-		70/30 & 80,77 \\
-		80/20 & 82,10 \\
-		85/15 & 83,13 \\
+		30/70 & 78,325 \\ 
+		50/50 & 78,979 \\
+		70/30 & 81,409 \\
+		80/20 & 82,911 \\
+		85/15 & 83,667 \\
 		\hline
 	\end{tabular}
 	\caption{Zależność Accuracy od pięciu wartości proporcji podziału zbioru dla k=10. }
@@ -393,13 +355,13 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\textwidth]{5podzialk10.png}
-    \caption{Wykres przedstawiający zależność Accuracy od pięciu wartości proporcji podziału zbioru dla k=10.}
-    \label{5podzialk10}
+    \includegraphics[width=1\textwidth]{accuracyTT.png}
+    \caption{Wykres przedstawiający zależność Accuracy od pięciu wartości proporcji podziału zbioru, k=10, metryka Manhattan.}
+    \label{accuracyTT}
 \end{figure}
 
 \newpage
-\subsection{Badanie różnic w metrykach}
+\subsection{Badanie zależności Accuracy od wyboru metryki}
 
 \begin{table}[h!]
 	\centering
@@ -408,26 +370,23 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
 		\textbf{Metryka} & \textbf{Accuracy [\%]} \\ [0.5ex] 
 		\hline
 		\hline 
-		Eulkidesowa & 77,82 \\ 
-		Czebyszewa & 78,18 \\
-		Manhattan &77,72 \\
+		Euklidesowa & 81,409 \\ 
+		Czebyszewa & 81,335 \\
+		Manhattan & 81,384 \\
 		\hline
 	\end{tabular}
-	\caption{Zależność Accuracy od wyboru metryki dla k=7 i podziału 50/50. }
+	\caption{Zależność Accuracy od wyboru metryki dla k=13 i podziału 70/30. }
 \end{table}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1\textwidth]{metryki.png}
-    \caption{Wykres przedstawiający zależność Accuracy od wyboru metryki dla k=7 i podziału 50/50.}
-    \label{metryki}
+    \includegraphics[width=1\textwidth]{accuracyMetric.png}
+    \caption{Wykres przedstawiający zależność Accuracy od wyboru metryki dla k=13 i podziału 70/30.}
+    \label{accuracyMetric}
 \end{figure}
 
 \newpage
 \subsection{Badanie różnic w wyborze podzbioru cech}
-% Na podstawie dowolnego wyboru 4-ch podzbiorów cech wskazać, które cechy potencjalnie
-% mają najmniejszy, a które największy wpływ na wyniki klasyfikacji, zwłaszcza na Accuracy
-% (przy innych wartościach stałych).
 \begin{table}[h!]
 	\centering
 	\begin{tabular} {c c}
@@ -435,25 +394,24 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
 		\textbf{Podzbiór cech} & \textbf{Accuracy [\%]} \\ [0.5ex] 
 		\hline
 		\hline 
-		Wszystkie cechy & 77,72 \\ 
-		$C_1, C_3, C_4, C_7, C_8$ & 78,65 \\
-		$C_2, C_5, C_6, C_9, C_10$ & 77,82 \\
-		$C_2, C_4, C_6, C_8, C_10$ & 77,29 \\
-		$C_1, C_3, C_5, C_7, C_9$ & 77,97 \\
+		Wszystkie cechy & 79,573 \\ 
+		$C_1, C_2, C_3, C_4, C_5, C_{11}$ & 79,81 \\
+		$C_6, C_7, C_8, C_9, C_{10}$ & 79,558 \\
+		$C_1, C_2, C_3, C_8, C_9, C_{10}$ & 79,662 \\
+		$C_4, C_5, C_6, C_7, C_{11}$ & 79,78 \\
 		\hline
 	\end{tabular}
-	\caption{Zależność Accuracy od wyboru podzbioru cech dla k=7 i podziału 50/50. }
+	\caption{Zależność Accuracy od wyboru podzbioru cech dla k=20, podziału 50/50 i metryki Czebyszewa. }
 \end{table}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1\textwidth]{cechy7manh5050.png}
-    \caption{Wykres przedstawiający zależność Accuracy od wyboru podzbioru cech dla k=7 i podziału 50/50.}
-    \label{cechy}
+    \includegraphics[width=1\textwidth]{accuracyFeatures.png}
+    \caption{Wykres przedstawiający zależność Accuracy od wyboru podzbioru cech, k=20, podział 50/50, metryka Czebyszewa.}
+    \label{accuracyFeatures}
 \end{figure}
 
-%\par
-%\vspace*{120ex}
+\newpage
 \section{Dyskusja} % Dyskusja
 {\color{blue}
 Sekcja ta powinna zawierać dokładną interpretację uzyskanych wyników

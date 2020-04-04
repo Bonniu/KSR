@@ -6,10 +6,15 @@
 \BOOKMARK [2][-]{subsection.2.4}{Miary jakosci}{section.2}% 6
 \BOOKMARK [1][-]{section.3}{Opis implementacji}{}% 7
 \BOOKMARK [1][-]{section.4}{Materia\233y i metody}{}% 8
-\BOOKMARK [1][-]{section.5}{Wyniki}{}% 9
-\BOOKMARK [2][-]{subsection.5.1}{Badanie podzia\233u na dane treningowe i testowe}{section.5}% 10
-\BOOKMARK [2][-]{subsection.5.2}{Badanie r\363znic w metrykach}{section.5}% 11
-\BOOKMARK [2][-]{subsection.5.3}{Badanie r\363znic w wyborze podzbioru cech}{section.5}% 12
-\BOOKMARK [1][-]{section.6}{Dyskusja}{}% 13
-\BOOKMARK [1][-]{section.7}{Wnioski}{}% 14
-\BOOKMARK [1][-]{section*.1}{Literatura}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{Badanie zaleznosci Accuracy od parametru k}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.2}{Badanie zaleznosci Accuracy od wartosci proporcji podzia\233u zbioru}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.3}{Badanie zaleznosci Accuracy od wyboru metryki}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.4}{Badanie zaleznosci Accuracy od wyboru podzbioru cech}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Wyniki}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{Badanie wynik\363w klasyfikacji w zaleznosci od parametru k}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.2}{Badanie wynik\363w klasyfikacji w zaleznosci od podzia\233u na dane treningowe i testowe}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.3}{Badanie zaleznosci Accuracy od wyboru metryki}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.4}{Badanie r\363znic w wyborze podzbioru cech}{section.5}% 17
+\BOOKMARK [1][-]{section.6}{Dyskusja}{}% 18
+\BOOKMARK [1][-]{section.7}{Wnioski}{}% 19
+\BOOKMARK [1][-]{section*.1}{Literatura}{}% 20

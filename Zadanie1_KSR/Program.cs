@@ -16,7 +16,6 @@ namespace Zadanie1_KSR
             Console.WriteLine("Reading files...");
             FileReader ag = new FileReader(22);
             List<Article> list = ag.ReadAllFiles();
-
             Console.WriteLine("Creating keywords...");
             KeyWords keyWords = new KeyWords();
             keyWords.FindKeyWords(list);
@@ -25,38 +24,41 @@ namespace Zadanie1_KSR
             Console.WriteLine("Adding features...");
             foreach (var article in list)
             {
-                 article.GetFeaturesVector().Add(new Feature1(article, keyWords));
-                 article.GetFeaturesVector().Add(new Feature2(article, keyWords));
-                 article.GetFeaturesVector().Add(new Feature3(article, keyWords));
-                 article.GetFeaturesVector().Add(new Feature4(article, keyWords));
-                 article.GetFeaturesVector().Add(new Feature5(article, keyWords));
-                 article.GetFeaturesVector().Add(new Feature6(article));
-                 article.GetFeaturesVector().Add(new Feature7(article));
-                 article.GetFeaturesVector().Add(new Feature8(article));
-                 article.GetFeaturesVector().Add(new Feature9(article));
-                 article.GetFeaturesVector().Add(new Feature10(article));
-                 article.GetFeaturesVector().Add(new Feature11(article, keyWords, new NGramsMeasure()));
+                article.GetFeaturesVector().Add(new Feature1(article, keyWords));
+                article.GetFeaturesVector().Add(new Feature2(article, keyWords));
+                article.GetFeaturesVector().Add(new Feature3(article, keyWords));
+                article.GetFeaturesVector().Add(new Feature4(article, keyWords));
+                article.GetFeaturesVector().Add(new Feature5(article, keyWords));
+                article.GetFeaturesVector().Add(new Feature6(article));
+                article.GetFeaturesVector().Add(new Feature7(article));
+                article.GetFeaturesVector().Add(new Feature8(article));
+                article.GetFeaturesVector().Add(new Feature9(article));
+                article.GetFeaturesVector().Add(new Feature10(article));
+                article.GetFeaturesVector().Add(new Feature11(article, keyWords, new NGramsMeasure()));
             }
+
             Console.WriteLine("Normalizing vectors...");
             NormalizeVectors(list, keyWords);
-            KNN knn = new KNN(25, 50, 50, list, new EuclideanMetric());
+
+            KNN knn = new KNN(20, 50, 50, list, new ChebyshewMetric());
             Console.WriteLine("Classifying...");
-            // knn.Classify();
-            // knn.PrintAllProperties();
-            // Console.WriteLine("Accuracy: " + knn.GetResultPercent() + "%");
-            
-            for (int k = 2; k < 26; k++)
-            {
-                if (k != 2 && k != 3 && k != 4 && k != 5 && k != 7 && k != 10 && k != 13 && k != 15 && k != 20 &&
-                    k != 25)
-                    continue;
-                knn.SetK(k);
-                knn.PrintAllProperties();
-                knn.Classify();
-                Console.WriteLine("Accuracy: " + knn.GetResultPercent() + "%");
-            }
+            knn.Classify();
+            knn.PrintAllProperties();
+            //knn.PrintMatrix();
+            knn.PrintAccPreRec();
+
+            // for (int k = 2; k < 26; k++)
+            // {
+            //     if (k != 2 && k != 3 && k != 4 && k != 5 && k != 7 && k != 10 && k != 13 && k != 15 && k != 20 &&
+            //         k != 25)
+            //         continue;
+            //     knn.SetK(k);
+            //     knn.Classify();
+            //     knn.PrintAllProperties();
+            //     knn.PrintAccPreRec();
+            // }
         }
-        
+
         static void NormalizeVectors(List<Article> list, KeyWords keyWords)
         {
             for (int i = 0;
