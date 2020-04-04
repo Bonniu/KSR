@@ -14,12 +14,13 @@ namespace Zadanie1_KSR
         static void Main(string[] args)
         {
             Console.WriteLine("Reading files...");
-            ArticleGenerator ag = new ArticleGenerator(22);
+            FileReader ag = new FileReader(22);
             List<Article> list = ag.ReadAllFiles();
 
             Console.WriteLine("Creating keywords...");
-            KeyWords keyWords = new KeyWords(100);
-            keyWords.FindKeyWords2(list);
+            KeyWords keyWords = new KeyWords();
+            keyWords.FindKeyWords(list);
+            //keyWords.PrintKeyWords();
 
             Console.WriteLine("Adding features...");
             foreach (var article in list)
@@ -38,21 +39,22 @@ namespace Zadanie1_KSR
             }
             Console.WriteLine("Normalizing vectors...");
             NormalizeVectors(list, keyWords);
-            KNN knn = new KNN(25, 85, 15, list, new EuclideanMetric());
+            KNN knn = new KNN(25, 50, 50, list, new EuclideanMetric());
             Console.WriteLine("Classifying...");
-            knn.Classify();
-            knn.PrintAllProperties();
-            Console.WriteLine("Accuracy: " + knn.GetResultPercent() + "%");
+            // knn.Classify();
+            // knn.PrintAllProperties();
+            // Console.WriteLine("Accuracy: " + knn.GetResultPercent() + "%");
             
-            // for (int k = 2; k < 26; k++)
-            // {
-            //     if (k != 2 && k != 3 && k != 4 && k != 5 && k != 7 && k != 10 && k != 13 && k != 15 && k != 20 &&
-            //         k != 25)
-            //         continue;
-            //     Console.WriteLine("k: " + k);
-            //     knn.SetK(k);
-            //     knn.Classify();
-            // }
+            for (int k = 2; k < 26; k++)
+            {
+                if (k != 2 && k != 3 && k != 4 && k != 5 && k != 7 && k != 10 && k != 13 && k != 15 && k != 20 &&
+                    k != 25)
+                    continue;
+                knn.SetK(k);
+                knn.PrintAllProperties();
+                knn.Classify();
+                Console.WriteLine("Accuracy: " + knn.GetResultPercent() + "%");
+            }
         }
         
         static void NormalizeVectors(List<Article> list, KeyWords keyWords)

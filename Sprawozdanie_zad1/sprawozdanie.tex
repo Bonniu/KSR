@@ -116,30 +116,29 @@ Przed normalizacją cecha $C_{9}$ przyjmuje wartości $\in [1,420]$.
 \end{itemize}
 } 
 Przed normalizacją cecha $C_{10}$ zawierała się w wartościach $\in [1,574]$.
-\item[•] $C_{11}$ - Najczęściej występujące słowo kluczowe. Jest to cecha tekstowa, której podobieństwo z innymi cechami mierzymi dwoma miarami opisanymi w sekcji \textsl{Metryki i miary podobieństwa}.
+\item[•] $C_{11}$ - Najczęściej występujące słowo kluczowe. Jest to cecha tekstowa, której podobieństwo z innym słowem mierzymy jedną z dwóch miar opisanych w sekcji \textsl{Metryki i miary podobieństwa}.
 \end{itemize}
 
 %Czy np. im tekst dłuższy, tym bardziej związany z etykietą USA lub CANADA? (istotne!)}
 
 \subsection{Wyznaczanie słów kluczowych}
-Wyznaczenie słów kluczowych polega na zliczeniu wszystkich słów we wszystkich artykułach. Dokonuje się to już po stemizacji oraz po zastosowaniu stoplisty. Następnie, lista słów jest sortowana wg liczności tych słów. Po posortowaniu pomijane jest 25\% najczęściej występujących słów i od tego momentu wybrane jest 100 słów. Dodatkowo, pomijamy liczby oraz słowa, których ilość liter jest mniejsza niż 3 litery.
-
+Wyznaczenie słów kluczowych przebiega w następujący sposób: na początek za pomocą klasy WordCounter zliczane są wszystkie słowa w artykułach oraz jednocześnie dodawane do odpowiednich list w tej klasie. Każda zmienna jest listą stringów o nazwie wordCountDictionary + nazwa kraju. Dodatkowo, przechowywany jest słownik typu \textsl{<string, int>}, którego kluczem jest słowo, a wartość to ilość wystąpień tego słowa we wszystkich artykułach. Po podliczeniu wszystkich słów oraz przydzieleniu do odpowiednich list wybieramy po 18 najpopularniejszych słów dla każdego kraju, które występują tylko w tym jednym konkretnym kraju. Na koniec $18*6 = 108$ słów zostaje słowami kluczowymi. Cały proces wyznaczania słów kluczoywch jest dokonywany po zastosowaniu stop-listy oraz po stemizacji. Ponadto, proces wybierania słów kluczowych pomija 20\% wszystkich podliczonych słów, aby proces dopasowywania słów kluczowych do krajów nie trwał zbyt długo.
 \subsection{Metryki i miary podobieństwa}
 Do liczenia odległości pomiędzy artykułami oraz obliczenia miary podobieństwa używaliśmy 3 metryk i 2 miar podobieństwa ciągów tekstowych.
 \begin{enumerate}
-\item Metryka Euklidesowa - aby obliczyć odległość $d_e(x,y)$ między artykułami x i y należy obliczyć pierwiastek kwadratowy z sumy kwadratów różnic wartości współrzędnych wektora o tych samych indeksach. Wzór jest następujący \cite{euc}:
+\item Metryka Euklidesowa - aby obliczyć odległość $d_e(x,y)$ między wektorami x i y należy obliczyć pierwiastek kwadratowy z sumy kwadratów różnic wartości współrzędnych wektora o tych samych indeksach. Wzór jest następujący \cite{euc}:
 \begin{equation} 
 d_e(x,y)=\sqrt{(x_1-y_1)^2+\ldots+(x_n-y_n)^2}
-\end{equation}
+\end{equation} gdzie $x_i$ i $y_i$ to cechy wektora.
 \item Metryka Manhattan - odległość $d_m(x,y)$ jest równa sumie wartości bezwzględnych z różnic wartości współrzędnych wektora o tych samych indeksach \cite{manh}:
 \begin{equation} 
 d_m(x,y)=\sum_{n=1}^{N} |{x_n-y_n}|
-\end{equation}
+\end{equation} gdzie $x_i$ i $y_i$ to cechy wektora.
 \item Metryka Czebyszewa - odległość $d_c(x,y)$ w tej metryce jest równa maksymalnej wartości bezwględnych różnic współrzędnych punktów x oraz y, zgodnie ze wzorem \cite{cze}:
 \begin{equation} 
 d_c(x,y)=\max_{i} |{x_i-y_i}|
-\end{equation}
-\item Miara \textsl{n-gramów} - metoda ta określa podobieństwo łańcuchów tekstowych $s_1$, $s_2$ w oparciu o ilość wspólnych podciągów n-elementowych, czyli n-gramów \cite{wyklad}:
+\end{equation} gdzie $x_i$ i $y_i$ to cechy wektora.
+\item Miara \textsl{n}-gramów - metoda ta określa podobieństwo łańcuchów tekstowych $s_1$, $s_2$ w oparciu o ilość wspólnych podciągów n-elementowych, czyli \textsl{n}-gramów \cite{wyklad}:
 \begin{equation}
 sim_n(s_1, s_2) = \frac{1}{N-n+1} \sum_{i=1}^{N-n+1} h(i)
 \end{equation} gdzie 
@@ -189,44 +188,69 @@ $\frac{N^2+N}{2}$ - ilość możliwych podciągów od 1-elementowych do $N$-elem
 \subsection{Miary jakości}
 W wynikach klasyfikacji używamy następujących miar jakości \cite{apr}:
 \begin{itemize}
-\item Accuracy
-\item Precision
-\item Recall
+\item[•] Accuracy:
+\begin{equation}
+ACC = \frac{TP + TN}{TP + TN + FP + FN}
+\end{equation}
+\item[•] Precision
+\begin{equation}
+PPV = \frac{TP}{TP + FP}
+\end{equation}
+\item[•] Recall
+\begin{equation}
+TPR = \frac{TP}{TP + FN}
+\end{equation}
 \end{itemize}
+Oznaczenia użytych symboli:
+
+TP - miara prawdziwie pozytywna (\textsl{true positive})
+
+TN - miara prawdziwie negatywna (\textsl{true negative})
+
+FP - miara fałszywie pozytywna (\textsl{false positive})
+
+FN - miara fałszywie negatywna (\textsl{false negative})
 
 
 
 \section{Opis implementacji} % Opis implementacji
-Nasza aplikacja została utworzona w języku C\#. Nie zawiera ona GUI, lecz jest to aplikacja konsolowa. Poniżej opisujemy wszystkie klasy oraz dane zawarte w naszym projekcie.
+Nasza aplikacja została utworzona w języku C\# i jest to aplikacja konsolowa. Poniżej opisane zostały wszystkie klasy oraz dane zawarte w naszym projekcie:
 \begin{itemize}
 \item Klasa Program to klasa główna naszego programu. Jest swego rodzaju kontrolerem dla pozostałych klas. Znajduje się tutaj funkcja \textsl{main}, która rozpoczyna wykonywanie programu.
 \item W katalogu \textsl{dane} znajdują się wszystkie pliki z artyukłami, które są wykorzystywane do badań.
 \item Klasa Metric jest klasą abstrakcyjną. Odpowiada za obliczenia odległości tekstów. Po tej klasie dziedziczą klasy: EuclideanMetric, ChebyshewMetric oraz ManhattanMetric.
+\item Klasa Measure jest klasą abstrakcyjną. Po niej dziedziczą klasy \textsl{GeneralizedNGramsMeasure} i \textsl{NGramsMeasure}, które odpowiadają za obliczanie miar podobieństwa łańcuchów tekstowych.
 \item Klasa Feature jest klasą abstrakcyjną. Po niej dziedziczy 10 klas: Feature 1-10, które reprezentują każdą z 10 wyekstrahowanych przez nas cech.
 \item Klasa Stemmer to klasa, która odpowiada za stemizację tekstów. Została ona zapożyczona z \cite{stemmer}
 \item Klasa StopwordTool jest klasą odpowiedzialną za usuwanie słów znajdujących się na stopliście. Również została znaleziona i zapożyczona z Internetu ze strony \cite{stopword}
-\item WordCounter jest używany do zliczania słów wszystkich artykułów i podania ich liczności. Będzie przydatny do  wyznaczenia słów kluczowych.
+\item WordCounter jest używany do zliczania słów wszystkich artykułów i podania ich liczności. Potrzebny głównie do  wyznaczenia słów kluczowych.
 \item Klasa KeyWords odpowiada za wyznaczenie 100 słów kluczowych. Metoda wyznaczania słów kluczowych została opisana w sekcji 2.
-\item FileParser (w trakcie opisywania)
-\item Article (w trakcie opisywania)
-\item ArticleGenerator (w trakcie opisywania)
-\item KNN (w trakcie opisywania)
+\item Klasa FileReader odpowiada za otwieranie każdego pliku z artykułami
+\item FileParser to klasa odpowiedzialna za parsowanie danych z konkretnego pliku.
+\item Article to klasa reprezentująca artykuł. Zawiera takie cechy jak: tekst oryginalny, tekst przetworzony, \textsl{place}, \textsl{classifiedPlace}, wektor cech.
+\item Klasa Neighbor to klasa, która przechowuje artykuł oraz obliczoną wartość algorytmu k-NN dla konkretnego, obecnie sprawdzanego artykułu w algorytmie. Wykorzystujemy ją, aby znaleźć najbliższych k sąsiadów.
+\item KNN to klasa odpowiedzialna za algorytm k najbliższych sąsiadów. 
 \end{itemize}
-Poniżej zostanie wklejony rysunek z diagramem UML
-
+Na rysunku \ref{uml} przedstawiony został diagram UML naszego programu.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\textwidth]{uml.png}
+	\caption{Diagram UML.}
+	\label{uml}
+\end{figure}
   
 
 \section{Materiały i metody} % Materiały i metody
-Wykonana przez nas klasyfikacja została wykonana za pomocą wszystkich trzech metryk. Każdy przypadek testowy był klasyfikowany dla dziesięciu różnych wartości k najbliższych sąsiadów: 2, 3, 4, 5, 7, 10, 13, 15, 20, 25.
+Wykonana przez nas klasyfikacja została wykonana za pomocą wszystkich trzech metryk oraz dwóch miar podobieństwa. Każdy przypadek testowy był klasyfikowany dla dziesięciu różnych wartości k najbliższych sąsiadów: 2, 3, 4, 5, 7, 10, 13, 15, 20, 25.
 
 Klasyfikacji dokonywaliśmy tylko na tych tekstach, które miały jedną z etykiet: \textsl{west-germany, usa, france, uk, canada, japan} i były to ich jedyne etykiety.
 
 Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
 \begin{itemize}
-\item 10\% dane treningowe, 90\% dane testowe
 \item 30\% dane treningowe, 70\% dane testowe
 \item 50\% dane treningowe, 50\% dane testowe
 \item 70\% dane treningowe, 30\% dane testowe
+\item 80\% dane treningowe, 20\% dane testowe
 \item 85\% dane treningowe, 15\% dane testowe
 \end{itemize}
 
@@ -320,7 +344,7 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
 	\end{tabular}
 	\caption{Skuteczność klasyfikacji dla metryki Euklidesowej dla podziału zbioru 80\% treningowe/20\% testowe. }
 \end{table}
-
+\newpage
 \begin{table}[h!]
 	\centering
 	\begin{tabular} {c c}
@@ -342,10 +366,10 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
 	\end{tabular}
 	\caption{Skuteczność klasyfikacji dla metryki Euklidesowej dla podziału zbioru 85\% treningowe/15\% testowe. }
 \end{table}
-
+\newpage
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1\textwidth]{testtren.png}
+    \includegraphics[width=0.8\textwidth]{testtren.png}
     \caption{Dane z tabel 1-5 zebrane na wykresie.}
     \label{testtren}
 \end{figure}
@@ -369,10 +393,13 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1.1\textwidth]{5podzialk10.png}
+    \includegraphics[width=0.8\textwidth]{5podzialk10.png}
     \caption{Wykres przedstawiający zależność Accuracy od pięciu wartości proporcji podziału zbioru dla k=10.}
     \label{5podzialk10}
 \end{figure}
+
+\newpage
+\subsection{Badanie różnic w metrykach}
 
 \begin{table}[h!]
 	\centering
@@ -395,6 +422,9 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
     \caption{Wykres przedstawiający zależność Accuracy od wyboru metryki dla k=7 i podziału 50/50.}
     \label{metryki}
 \end{figure}
+
+\newpage
+\subsection{Badanie różnic w wyborze podzbioru cech}
 % Na podstawie dowolnego wyboru 4-ch podzbiorów cech wskazać, które cechy potencjalnie
 % mają najmniejszy, a które największy wpływ na wyniki klasyfikacji, zwłaszcza na Accuracy
 % (przy innych wartościach stałych).
@@ -422,9 +452,8 @@ Dokonaliśmy pięciu różnych podziałów na dane testowe oraz treningowe:
     \label{cechy}
 \end{figure}
 
-\newpage
-\newpage
-\newpage
+%\par
+%\vspace*{120ex}
 \section{Dyskusja} % Dyskusja
 {\color{blue}
 Sekcja ta powinna zawierać dokładną interpretację uzyskanych wyników

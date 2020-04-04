@@ -2,16 +2,16 @@
 
 namespace Zadanie1_KSR
 {
-    public class ArticleGenerator
+    public class FileReader
     {
-        private int nrOfFiles;
-        public static readonly string FileNameBase = "reut2-";
-        public static readonly string FolderPath = "..\\..\\..\\dane\\";
-        public static readonly string FileNameExtension = ".sgm";
+        private readonly int _nrOfFiles;
+        private const string FileNameBase = "reut2-";
+        private const string FolderPath = "..\\..\\..\\dane\\";
+        private const string FileNameExtension = ".sgm";
 
-        public ArticleGenerator(int nrOfFiles)
+        public FileReader(int nrOfFiles)
         {
-            this.nrOfFiles = nrOfFiles;
+            _nrOfFiles = nrOfFiles;
         }
         
 
@@ -19,7 +19,7 @@ namespace Zadanie1_KSR
         {
             List<Article> articles = new List<Article>();
             FileParser fp = new FileParser();
-            for (int i = 0; i < nrOfFiles; i++)
+            for (int i = 0; i < _nrOfFiles; i++)
             {
                 if (i < 10)
                 {

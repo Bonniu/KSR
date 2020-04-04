@@ -1,4 +1,5 @@
-﻿using System;
+﻿//źródło: https://tartarus.org/martin/PorterStemmer/csharp.txt
+using System;
 
 // ReSharper disable All
 

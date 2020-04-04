@@ -21,13 +21,19 @@ namespace Zadanie1_KSR
             keywords = new List<string>();
             this._nrOfKeywords = nrOfKeywords;
         }
+        
+        public KeyWords()
+        {
+            keywords = new List<string>();
+            this._nrOfKeywords = 100;
+        }
 
         /**
          * Znajduje słowa kluczowe
          * Z listy wszystich artykułów zlicza wszystkie słowa, a następonie bierze 100 słów, które nie są liczbami
          * pomijając pierwsze 25% listy najczęściej występującychn słów
          */
-        public void FindKeyWords(List<Article> articles)
+        public void FindKeyWordsOld(List<Article> articles)
         {
             WordCounter wc = new WordCounter();
             wc.CountWords(articles);
@@ -56,7 +62,7 @@ namespace Zadanie1_KSR
             // }
         }
 
-        public void FindKeyWords2(List<Article> articles)
+        public void FindKeyWords(List<Article> articles)
         {
             WordCounter wc = new WordCounter();
             wc.CountWords(articles);
@@ -127,27 +133,27 @@ namespace Zadanie1_KSR
             //                   wc.wordCountDictionary.ElementAt(i).Value);
 
             int counter = 0;
-            if (wc.wordCountDictionaryCanada.ContainsKey(wc.wordCountDictionary.ElementAt(i).Key))
+            if (wc.wordCountDictionaryCanada.Contains(wc.wordCountDictionary.ElementAt(i).Key))
             {
                 counter += 1;
             }
-            if (wc.wordCountDictionaryUSA.ContainsKey(wc.wordCountDictionary.ElementAt(i).Key))
+            if (wc.wordCountDictionaryUSA.Contains(wc.wordCountDictionary.ElementAt(i).Key))
             {
                 counter += 10;
             }
-            if (wc.wordCountDictionaryUK.ContainsKey(wc.wordCountDictionary.ElementAt(i).Key))
+            if (wc.wordCountDictionaryUK.Contains(wc.wordCountDictionary.ElementAt(i).Key))
             {
                 counter += 100;
             }
-            if (wc.wordCountDictionaryWestGermany.ContainsKey(wc.wordCountDictionary.ElementAt(i).Key))
+            if (wc.wordCountDictionaryWestGermany.Contains(wc.wordCountDictionary.ElementAt(i).Key))
             {
                 counter += 1000;
             }
-            if (wc.wordCountDictionaryJapan.ContainsKey(wc.wordCountDictionary.ElementAt(i).Key))
+            if (wc.wordCountDictionaryJapan.Contains(wc.wordCountDictionary.ElementAt(i).Key))
             {
                 counter += 10000;
             }
-            if (wc.wordCountDictionaryFrance.ContainsKey(wc.wordCountDictionary.ElementAt(i).Key))
+            if (wc.wordCountDictionaryFrance.Contains(wc.wordCountDictionary.ElementAt(i).Key))
             {
                 counter += 100000;
             }

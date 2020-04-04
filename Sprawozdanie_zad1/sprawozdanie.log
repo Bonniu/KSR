@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  2 APR 2020 12:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  4 APR 2020 14:39
 entering extended mode
 **./sprawozdanie.tex
 (sprawozdanie.tex
@@ -348,101 +348,77 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) [1
 
 {C:/Users/Radek/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3]
-Overfull \hbox (1.67093pt too wide) in paragraph at lines 152--153
+Overfull \hbox (1.67093pt too wide) in paragraph at lines 151--152
 \T1/cmr/m/n/12 ulep-szo-n¡ wer-sj¡ mia-ry n-gramów. Ba-da ona po-do-bie«-stwo p
 o-przez spraw-
  []
 
-
-Overfull \hbox (2.49979pt too wide) in paragraph at lines 163--164
+[4]
+Overfull \hbox (2.49979pt too wide) in paragraph at lines 162--163
 []$[]$ \T1/cmr/m/n/12 - ilo±¢ mo»-li-wych pod-ci¡-gów od 1-elementowych do $\OM
 L/cmm/m/it/12 N$\T1/cmr/m/n/12 -elementowych
  []
 
-[4] [5]
+[5]
+<./rys/uml.png, id=140, 714.41907pt x 382.42876pt>
+File: ./rys/uml.png Graphic file (type png)
+<use ./rys/uml.png>
+Package pdftex.def Info: ./rys/uml.png  used on input line 237.
+(pdftex.def)             Requested size: 390.0pt x 208.76674pt.
+ [6 <./rys/uml.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<./rys/testtren.png, id=130, 714.41907pt x 382.42876pt>
+[7] [8]
+<./rys/testtren.png, id=165, 714.41907pt x 382.42876pt>
 File: ./rys/testtren.png Graphic file (type png)
 <use ./rys/testtren.png>
-Package pdftex.def Info: ./rys/testtren.png  used on input line 348.
-(pdftex.def)             Requested size: 390.0pt x 208.76674pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<./rys/5podzialk10.png, id=132, 718.18312pt x 389.20406pt>
+Package pdftex.def Info: ./rys/testtren.png  used on input line 372.
+(pdftex.def)             Requested size: 312.00119pt x 167.01456pt.
+<./rys/5podzialk10.png, id=166, 718.18312pt x 389.20406pt>
 File: ./rys/5podzialk10.png Graphic file (type png)
 <use ./rys/5podzialk10.png>
-Package pdftex.def Info: ./rys/5podzialk10.png  used on input line 372.
-(pdftex.def)             Requested size: 429.00238pt x 232.49683pt.
-
-Overfull \hbox (39.00238pt too wide) in paragraph at lines 372--373
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<./rys/metryki.png, id=133, 725.71124pt x 389.95688pt>
+Package pdftex.def Info: ./rys/5podzialk10.png  used on input line 396.
+(pdftex.def)             Requested size: 312.00119pt x 169.08266pt.
+ [9 <./rys/testtren.png> <./rys/5podzialk10.png>]
+<./rys/metryki.png, id=176, 725.71124pt x 389.95688pt>
 File: ./rys/metryki.png Graphic file (type png)
 <use ./rys/metryki.png>
-Package pdftex.def Info: ./rys/metryki.png  used on input line 394.
+Package pdftex.def Info: ./rys/metryki.png  used on input line 421.
 (pdftex.def)             Requested size: 390.0pt x 209.56798pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<./rys/cechy7manh5050.png, id=134, 728.7225pt x 390.70969pt>
+ [10 <./rys/metryki.png>]
+<./rys/cechy7manh5050.png, id=184, 728.7225pt x 390.70969pt>
 File: ./rys/cechy7manh5050.png Graphic file (type png)
 <use ./rys/cechy7manh5050.png>
-Package pdftex.def Info: ./rys/cechy7manh5050.png  used on input line 420.
+Package pdftex.def Info: ./rys/cechy7manh5050.png  used on input line 450.
 (pdftex.def)             Requested size: 390.0pt x 209.09618pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[6] [7]
-
-LaTeX Warning: Text page 8 contains only floats.
-
-[8 <./rys/testtren.png> <./rys/5podzialk10.png>] [9 <./rys/metryki.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 448--449
+ [11 <./rys/cechy7manh5050.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 477--478
 []\T1/cmr/m/sl/10.95 https://ftims.edu.p.lodz.pl/pluginfile.php/132368/mod_fold
 er/content/0/
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 457.
-[10 <./rys/cechy7manh5050.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 457.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 486.
+[12]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 486.
  (sprawozdanie.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 457.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 457.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 486.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 486.
 Package rerunfilecheck Info: File `sprawozdanie.out' has not changed.
-(rerunfilecheck)             Checksum: C090C3F5DBEC653D81364E03EFD61C2E;752.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 457.
+(rerunfilecheck)             Checksum: 1EA4E16D85244DA87F62EBA8B3069139;923.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 486.
  ) 
 Here is how much of TeX's memory you used:
- 6855 strings out of 481556
- 100247 string characters out of 2923635
- 373196 words of memory out of 3000000
- 21906 multiletter control sequences out of 15000+200000
+ 6872 strings out of 481556
+ 100458 string characters out of 2923635
+ 367230 words of memory out of 3000000
+ 21914 multiletter control sequences out of 15000+200000
  547850 words of font info for 61 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,9n,32p,926b,394s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,9n,32p,1026b,413s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 ecsl1095.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
 ec/dpi600\ecrm1095.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
@@ -464,9 +440,9 @@ C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
 e1/public/amsfonts/cm/cmsy8.pfb>
-Output written on sprawozdanie.pdf (10 pages, 309174 bytes).
+Output written on sprawozdanie.pdf (12 pages, 335100 bytes).
 PDF statistics:
- 651 PDF objects out of 1000 (max. 8388607)
- 63 named destinations out of 1000 (max. 500000)
- 125 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 682 PDF objects out of 1000 (max. 8388607)
+ 71 named destinations out of 1000 (max. 500000)
+ 146 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -8,27 +8,27 @@ namespace Zadanie1_KSR
     public class WordCounter
     {
         public Dictionary<string, int> wordCountDictionary;
-        public Dictionary<string, int> wordCountDictionaryUSA;
-        public Dictionary<string, int> wordCountDictionaryFrance;
-        public Dictionary<string, int> wordCountDictionaryJapan;
-        public Dictionary<string, int> wordCountDictionaryCanada;
-        public Dictionary<string, int> wordCountDictionaryWestGermany;
-        public Dictionary<string, int> wordCountDictionaryUK;
+        public List<string> wordCountDictionaryUSA;
+        public List<string> wordCountDictionaryFrance;
+        public List<string> wordCountDictionaryJapan;
+        public List<string> wordCountDictionaryCanada;
+        public List<string> wordCountDictionaryWestGermany;
+        public List<string> wordCountDictionaryUK;
 
         public WordCounter()
         {
-            this.wordCountDictionary = new Dictionary<string, int>();
-            this.wordCountDictionaryUSA = new Dictionary<string, int>();
-            this.wordCountDictionaryFrance = new Dictionary<string, int>();
-            this.wordCountDictionaryJapan = new Dictionary<string, int>();
-            this.wordCountDictionaryCanada = new Dictionary<string, int>();
-            this.wordCountDictionaryWestGermany = new Dictionary<string, int>();
-            this.wordCountDictionaryUK = new Dictionary<string, int>();
+            wordCountDictionary = new Dictionary<string, int>();
+            wordCountDictionaryUSA = new List<string>();
+            wordCountDictionaryFrance = new List<string>();
+            wordCountDictionaryJapan = new List<string>();
+            wordCountDictionaryCanada = new List<string>();
+            wordCountDictionaryWestGermany = new List<string>();
+            wordCountDictionaryUK = new List<string>();
         }
 
         public Dictionary<string, int> GetWordCount()
         {
-            return this.wordCountDictionary;
+            return wordCountDictionary;
         }
 
         public bool CountWords(List<Article> articleList)
@@ -93,16 +93,15 @@ namespace Zadanie1_KSR
             }
         }
 
-        private void AddWordCount(string word, Dictionary<string, int> wordCountDictCountry)
+        private void AddWordCount(string word, List<string> wordCountDictCountry)
         {
-            if (wordCountDictCountry.ContainsKey(word))
+            if (wordCountDictCountry.Contains(word))
             {
-                wordCountDictCountry[word] += 1;
                 wordCountDictionary[word] += 1;
             }
             else if (wordCountDictionary.ContainsKey(word))
             {
-                wordCountDictCountry.Add(word, 1);
+                wordCountDictCountry.Add(word);
                 wordCountDictionary[word] += 1;
             }
             else
