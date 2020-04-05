@@ -1,7 +1,6 @@
 ﻿//źródło: https://tartarus.org/martin/PorterStemmer/csharp.txt
 using System;
-
-// ReSharper disable All
+// ReSharper disable InconsistentNaming
 
 namespace Zadanie1_KSR
 {
@@ -9,8 +8,8 @@ namespace Zadanie1_KSR
 	  * Stemmer, implementing the Porter Stemming Algorithm
 	  *
 	  * The Stemmer class transforms a word into its root form.  The input
-	  * word can be provided a character at time (by calling add()), or at once
-	  * by calling one of the various stem(something) methods.
+	  * word can be provided a character at time (by calling Add()), or at once
+	  * by calling one of the various Stem(something) methods.
 	  */
     class Stemmer
     {
@@ -33,9 +32,9 @@ namespace Zadanie1_KSR
 
         /**
 		 * Add a character to the word being stemmed.  When you are finished
-		 * adding characters, you can call stem(void) to stem the word.
+		 * adding characters, you can call Stem(void) to Stem the word.
 		 */
-        public void add(char ch)
+        public void Add(char ch)
         {
             if (i == b.Length)
             {
@@ -49,24 +48,6 @@ namespace Zadanie1_KSR
         }
 
 
-        /** Adds wLen characters to the word being stemmed contained in a portion
-		 * of a char[] array. This is like repeated calls of add(char ch), but
-		 * faster.
-		 */
-        public void add(char[] w, int wLen)
-        {
-            if (i + wLen >= b.Length)
-            {
-                char[] new_b = new char[i + wLen + INC];
-                for (int c = 0; c < i; c++)
-                    new_b[c] = b[c];
-                b = new_b;
-            }
-
-            for (int c = 0; c < wLen; c++)
-                b[i++] = w[c];
-        }
-
         /**
 		 * After a word has been stemmed, it can be retrieved by toString(),
 		 * or a reference to the internal buffer can be retrieved by getResultBuffer
@@ -77,26 +58,8 @@ namespace Zadanie1_KSR
             return new String(b, 0, i_end);
         }
 
-        /**
-		 * Returns the length of the word resulting from the stemming process.
-		 */
-        public int getResultLength()
-        {
-            return i_end;
-        }
-
-        /**
-		 * Returns a reference to a character buffer containing the results of
-		 * the stemming process.  You also need to consult getResultLength()
-		 * to determine the length of the result.
-		 */
-        public char[] getResultBuffer()
-        {
-            return b;
-        }
-
-        /* cons(i) is true <=> b[i] is a consonant. */
-        private bool cons(int i)
+        /* Cons(i) is true <=> b[i] is a consonant. */
+        private bool Cons(int i)
         {
             switch (b[i])
             {
@@ -105,12 +68,12 @@ namespace Zadanie1_KSR
                 case 'i':
                 case 'o':
                 case 'u': return false;
-                case 'y': return (i == 0) ? true : !cons(i - 1);
+                case 'y': return (i == 0) ? true : !Cons(i - 1);
                 default: return true;
             }
         }
 
-        /* m() measures the number of consonant sequences between 0 and j. if c is
+        /* M() measures the number of consonant sequences between 0 and j. if c is
            a consonant sequence and v a vowel sequence, and <..> indicates arbitrary
            presence,
 
@@ -120,14 +83,14 @@ namespace Zadanie1_KSR
               <c>vcvcvc<v> gives 3
               ....
         */
-        private int m()
+        private int M()
         {
             int n = 0;
             int i = 0;
             while (true)
             {
                 if (i > j) return n;
-                if (!cons(i)) break;
+                if (!Cons(i)) break;
                 i++;
             }
 
@@ -137,7 +100,7 @@ namespace Zadanie1_KSR
                 while (true)
                 {
                     if (i > j) return n;
-                    if (cons(i)) break;
+                    if (Cons(i)) break;
                     i++;
                 }
 
@@ -146,7 +109,7 @@ namespace Zadanie1_KSR
                 while (true)
                 {
                     if (i > j) return n;
-                    if (!cons(i)) break;
+                    if (!Cons(i)) break;
                     i++;
                 }
 
@@ -154,27 +117,27 @@ namespace Zadanie1_KSR
             }
         }
 
-        /* vowelinstem() is true <=> 0,...j contains a vowel */
-        private bool vowelinstem()
+        /* Vowelinstem() is true <=> 0,...j contains a vowel */
+        private bool Vowelinstem()
         {
             int i;
             for (i = 0; i <= j; i++)
-                if (!cons(i))
+                if (!Cons(i))
                     return true;
             return false;
         }
 
-        /* doublec(j) is true <=> j,(j-1) contain a double consonant. */
-        private bool doublec(int j)
+        /* Doublec(j) is true <=> j,(j-1) contain a double consonant. */
+        private bool Doublec(int j)
         {
             if (j < 1)
                 return false;
             if (b[j] != b[j - 1])
                 return false;
-            return cons(j);
+            return Cons(j);
         }
 
-        /* cvc(i) is true <=> i-2,i-1,i has the form consonant - vowel - consonant
+        /* Cvc(i) is true <=> i-2,i-1,i has the form consonant - vowel - consonant
            and also if the second c is not w,x or y. this is used when trying to
            restore an e at the end of a short word. e.g.
 
@@ -182,9 +145,9 @@ namespace Zadanie1_KSR
               snow, box, tray.
 
         */
-        private bool cvc(int i)
+        private bool Cvc(int i)
         {
-            if (i < 2 || !cons(i) || cons(i - 1) || !cons(i - 2))
+            if (i < 2 || !Cons(i) || Cons(i - 1) || !Cons(i - 2))
                 return false;
             int ch = b[i];
             if (ch == 'w' || ch == 'x' || ch == 'y')
@@ -192,7 +155,7 @@ namespace Zadanie1_KSR
             return true;
         }
 
-        private bool ends(String s)
+        private bool Ends(String s)
         {
             int l = s.Length;
             int o = k - l + 1;
@@ -206,9 +169,9 @@ namespace Zadanie1_KSR
             return true;
         }
 
-        /* setto(s) sets (j+1),...k to the characters in the string s, readjusting
+        /* Setto(s) sets (j+1),...k to the characters in the string s, readjusting
            k. */
-        private void setto(String s)
+        private void Setto(String s)
         {
             int l = s.Length;
             int o = j + 1;
@@ -218,14 +181,14 @@ namespace Zadanie1_KSR
             k = j + l;
         }
 
-        /* r(s) is used further down. */
-        private void r(String s)
+        /* R(s) is used further down. */
+        private void R(String s)
         {
-            if (m() > 0)
-                setto(s);
+            if (M() > 0)
+                Setto(s);
         }
 
-        /* step1() gets rid of plurals and -ed or -ing. e.g.
+        /* Step1() gets rid of plurals and -ed or -ing. e.g.
                caresses  ->  caress
                ponies    ->  poni
                ties      ->  ti
@@ -246,54 +209,54 @@ namespace Zadanie1_KSR
 
         */
 
-        private void step1()
+        private void Step1()
         {
             if (b[k] == 's')
             {
-                if (ends("sses"))
+                if (Ends("sses"))
                     k -= 2;
-                else if (ends("ies"))
-                    setto("i");
+                else if (Ends("ies"))
+                    Setto("i");
                 else if (b[k - 1] != 's')
                     k--;
             }
 
-            if (ends("eed"))
+            if (Ends("eed"))
             {
-                if (m() > 0)
+                if (M() > 0)
                     k--;
             }
-            else if ((ends("ed") || ends("ing")) && vowelinstem())
+            else if ((Ends("ed") || Ends("ing")) && Vowelinstem())
             {
                 k = j;
-                if (ends("at"))
-                    setto("ate");
-                else if (ends("bl"))
-                    setto("ble");
-                else if (ends("iz"))
-                    setto("ize");
-                else if (doublec(k))
+                if (Ends("at"))
+                    Setto("ate");
+                else if (Ends("bl"))
+                    Setto("ble");
+                else if (Ends("iz"))
+                    Setto("ize");
+                else if (Doublec(k))
                 {
                     k--;
                     int ch = b[k];
                     if (ch == 'l' || ch == 's' || ch == 'z')
                         k++;
                 }
-                else if (m() == 1 && cvc(k)) setto("e");
+                else if (M() == 1 && Cvc(k)) Setto("e");
             }
         }
 
-        /* step2() turns terminal y to i when there is another vowel in the stem. */
-        private void step2()
+        /* Step2() turns terminal y to i when there is another vowel in the Stem. */
+        private void Step2()
         {
-            if (ends("y") && vowelinstem())
+            if (Ends("y") && Vowelinstem())
                 b[k] = 'i';
         }
 
-        /* step3() maps double suffices to single ones. so -ization ( = -ize plus
+        /* Step3() maps double suffices to single ones. so -ization ( = -ize plus
            -ation) maps to -ize etc. note that the string before the suffix must give
-           m() > 0. */
-        private void step3()
+           M() > 0. */
+        private void Step3()
         {
             if (k == 0)
                 return;
@@ -301,143 +264,143 @@ namespace Zadanie1_KSR
             switch (b[k - 1])
             {
                 case 'a':
-                    if (ends("ational"))
+                    if (Ends("ational"))
                     {
-                        r("ate");
+                        R("ate");
                         break;
                     }
 
-                    if (ends("tional"))
+                    if (Ends("tional"))
                     {
-                        r("tion");
+                        R("tion");
                         break;
                     }
 
                     break;
                 case 'c':
-                    if (ends("enci"))
+                    if (Ends("enci"))
                     {
-                        r("ence");
+                        R("ence");
                         break;
                     }
 
-                    if (ends("anci"))
+                    if (Ends("anci"))
                     {
-                        r("ance");
+                        R("ance");
                         break;
                     }
 
                     break;
                 case 'e':
-                    if (ends("izer"))
+                    if (Ends("izer"))
                     {
-                        r("ize");
+                        R("ize");
                         break;
                     }
 
                     break;
                 case 'l':
-                    if (ends("bli"))
+                    if (Ends("bli"))
                     {
-                        r("ble");
+                        R("ble");
                         break;
                     }
 
-                    if (ends("alli"))
+                    if (Ends("alli"))
                     {
-                        r("al");
+                        R("al");
                         break;
                     }
 
-                    if (ends("entli"))
+                    if (Ends("entli"))
                     {
-                        r("ent");
+                        R("ent");
                         break;
                     }
 
-                    if (ends("eli"))
+                    if (Ends("eli"))
                     {
-                        r("e");
+                        R("e");
                         break;
                     }
 
-                    if (ends("ousli"))
+                    if (Ends("ousli"))
                     {
-                        r("ous");
+                        R("ous");
                         break;
                     }
 
                     break;
                 case 'o':
-                    if (ends("ization"))
+                    if (Ends("ization"))
                     {
-                        r("ize");
+                        R("ize");
                         break;
                     }
 
-                    if (ends("ation"))
+                    if (Ends("ation"))
                     {
-                        r("ate");
+                        R("ate");
                         break;
                     }
 
-                    if (ends("ator"))
+                    if (Ends("ator"))
                     {
-                        r("ate");
+                        R("ate");
                         break;
                     }
 
                     break;
                 case 's':
-                    if (ends("alism"))
+                    if (Ends("alism"))
                     {
-                        r("al");
+                        R("al");
                         break;
                     }
 
-                    if (ends("iveness"))
+                    if (Ends("iveness"))
                     {
-                        r("ive");
+                        R("ive");
                         break;
                     }
 
-                    if (ends("fulness"))
+                    if (Ends("fulness"))
                     {
-                        r("ful");
+                        R("ful");
                         break;
                     }
 
-                    if (ends("ousness"))
+                    if (Ends("ousness"))
                     {
-                        r("ous");
+                        R("ous");
                         break;
                     }
 
                     break;
                 case 't':
-                    if (ends("aliti"))
+                    if (Ends("aliti"))
                     {
-                        r("al");
+                        R("al");
                         break;
                     }
 
-                    if (ends("iviti"))
+                    if (Ends("iviti"))
                     {
-                        r("ive");
+                        R("ive");
                         break;
                     }
 
-                    if (ends("biliti"))
+                    if (Ends("biliti"))
                     {
-                        r("ble");
+                        R("ble");
                         break;
                     }
 
                     break;
                 case 'g':
-                    if (ends("logi"))
+                    if (Ends("logi"))
                     {
-                        r("log");
+                        R("log");
                         break;
                     }
 
@@ -447,57 +410,57 @@ namespace Zadanie1_KSR
             }
         }
 
-        /* step4() deals with -ic-, -full, -ness etc. similar strategy to step3. */
-        private void step4()
+        /* Step4() deals with -ic-, -full, -ness etc. similar strategy to Step3. */
+        private void Step4()
         {
             switch (b[k])
             {
                 case 'e':
-                    if (ends("icate"))
+                    if (Ends("icate"))
                     {
-                        r("ic");
+                        R("ic");
                         break;
                     }
 
-                    if (ends("ative"))
+                    if (Ends("ative"))
                     {
-                        r("");
+                        R("");
                         break;
                     }
 
-                    if (ends("alize"))
+                    if (Ends("alize"))
                     {
-                        r("al");
+                        R("al");
                         break;
                     }
 
                     break;
                 case 'i':
-                    if (ends("iciti"))
+                    if (Ends("iciti"))
                     {
-                        r("ic");
+                        R("ic");
                         break;
                     }
 
                     break;
                 case 'l':
-                    if (ends("ical"))
+                    if (Ends("ical"))
                     {
-                        r("ic");
+                        R("ic");
                         break;
                     }
 
-                    if (ends("ful"))
+                    if (Ends("ful"))
                     {
-                        r("");
+                        R("");
                         break;
                     }
 
                     break;
                 case 's':
-                    if (ends("ness"))
+                    if (Ends("ness"))
                     {
-                        r("");
+                        R("");
                         break;
                     }
 
@@ -505,8 +468,8 @@ namespace Zadanie1_KSR
             }
         }
 
-        /* step5() takes off -ant, -ence etc., in context <c>vcvc<v>. */
-        private void step5()
+        /* Step5() takes off -ant, -ence etc., in context <c>vcvc<v>. */
+        private void Step5()
         {
             if (k == 0)
                 return;
@@ -514,90 +477,90 @@ namespace Zadanie1_KSR
             switch (b[k - 1])
             {
                 case 'a':
-                    if (ends("al")) break;
+                    if (Ends("al")) break;
                     return;
                 case 'c':
-                    if (ends("ance")) break;
-                    if (ends("ence")) break;
+                    if (Ends("ance")) break;
+                    if (Ends("ence")) break;
                     return;
                 case 'e':
-                    if (ends("er")) break;
+                    if (Ends("er")) break;
                     return;
                 case 'i':
-                    if (ends("ic")) break;
+                    if (Ends("ic")) break;
                     return;
                 case 'l':
-                    if (ends("able")) break;
-                    if (ends("ible")) break;
+                    if (Ends("able")) break;
+                    if (Ends("ible")) break;
                     return;
                 case 'n':
-                    if (ends("ant")) break;
-                    if (ends("ement")) break;
-                    if (ends("ment")) break;
-                    /* element etc. not stripped before the m */
-                    if (ends("ent")) break;
+                    if (Ends("ant")) break;
+                    if (Ends("ement")) break;
+                    if (Ends("ment")) break;
+                    /* element etc. not stripped before the M */
+                    if (Ends("ent")) break;
                     return;
                 case 'o':
-                    if (ends("ion") && j >= 0 && (b[j] == 's' || b[j] == 't')) break;
-                    if (ends("ou")) break;
+                    if (Ends("ion") && j >= 0 && (b[j] == 's' || b[j] == 't')) break;
+                    if (Ends("ou")) break;
                     return;
                 /* takes care of -ous */
                 case 's':
-                    if (ends("ism")) break;
+                    if (Ends("ism")) break;
                     return;
                 case 't':
-                    if (ends("ate")) break;
-                    if (ends("iti")) break;
+                    if (Ends("ate")) break;
+                    if (Ends("iti")) break;
                     return;
                 case 'u':
-                    if (ends("ous")) break;
+                    if (Ends("ous")) break;
                     return;
                 case 'v':
-                    if (ends("ive")) break;
+                    if (Ends("ive")) break;
                     return;
                 case 'z':
-                    if (ends("ize")) break;
+                    if (Ends("ize")) break;
                     return;
                 default:
                     return;
             }
 
-            if (m() > 1)
+            if (M() > 1)
                 k = j;
         }
 
-        /* step6() removes a final -e if m() > 1. */
-        private void step6()
+        /* Step6() removes a final -e if M() > 1. */
+        private void Step6()
         {
             j = k;
 
             if (b[k] == 'e')
             {
-                int a = m();
-                if (a > 1 || a == 1 && !cvc(k - 1))
+                int a = M();
+                if (a > 1 || a == 1 && !Cvc(k - 1))
                     k--;
             }
 
-            if (b[k] == 'l' && doublec(k) && m() > 1)
+            if (b[k] == 'l' && Doublec(k) && M() > 1)
                 k--;
         }
 
-        /** Stem the word placed into the Stemmer buffer through calls to add().
+        /** Stem the word placed into the Stemmer buffer through calls to Add().
 		 * Returns true if the stemming process resulted in a word different
 		 * from the input.  You can retrieve the result with
 		 * getResultLength()/getResultBuffer() or toString().
 		 */
-        public void stem()
+        public void Stem()
         {
             k = i - 1;
             if (k > 1)
             {
-                step1();
-                step2();
-                step3();
-                step4();
-                step5();
-                step6();
+                Step1();
+                Step2();
+                Step3();
+                Step4();
+                Step5();
+                Step6();
             }
 
             i_end = k + 1;
@@ -620,10 +583,10 @@ namespace Zadanie1_KSR
             {
                 foreach (var charr in word.ToLower())
                 {
-                    s.add(charr);
+                    s.Add(charr);
                 }
 
-                s.stem();
+                s.Stem();
                 tab += CheckFirstLastChar(s.ToString()) + " ";
             }
 

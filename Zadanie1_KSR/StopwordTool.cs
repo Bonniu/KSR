@@ -353,7 +353,7 @@ namespace Zadanie1_KSR
             {
                 // Convert to lowercase
                 string lowerWord = currentWord.ToLower();
-                // If this is a usable word, add it
+                // If this is a usable word, Add it
                 if (!Stops.ContainsKey(lowerWord))
                 {
                     builder.Append(currentWord).Append(' ');
