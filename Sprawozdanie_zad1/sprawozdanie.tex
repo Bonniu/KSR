@@ -131,7 +131,7 @@ Do liczenia odległości pomiędzy artykułami oraz obliczenia miary podobieńst
 \begin{equation} 
 d_e(x,y)=\sqrt{(x_1-y_1)^2+\ldots+(x_n-y_n)^2}
 \end{equation} gdzie $x_i$ i $y_i$ to cechy wektora.
-\item Metryka Manhattan - odległość $d_m(x,y)$ jest równa sumie wartości bezwzględnych z różnic wartości współrzędnych wektora o tych samych indeksach \cite{manh}:
+\item Metryka uliczna - odległość $d_m(x,y)$ jest równa sumie wartości bezwzględnych z różnic wartości współrzędnych wektora o tych samych indeksach \cite{manh}:
 \begin{equation} 
 d_m(x,y)=\sum_{n=1}^{N} |{x_n-y_n}|
 \end{equation} gdzie $x_i$ i $y_i$ to cechy wektora.
@@ -262,9 +262,9 @@ W tym eksperymencie badaliśmy wpływ doboru parametru k na Accuracy. Program zo
 
 Klasyfikacja tekstów została wykonana dla stałej wartości podziału zbioru cech na testowe i treningowe. Był to podział 50\% dane treningowe, 50\% dane testowe.
 
-Metryką, jakiej użyliśmy była metryka Euklidesowa.
+Metryką, jakiej użyliśmy była metryka euklidesowa.
 
-\subsection{Badanie zależności Accuracy od wartości proporcji podziału zbioru}
+\subsection{Badanie wyników klasyfikacji w zależności od wartości proporcji podziału zbioru}
 
 W tym eksperymencie badaliśmy wpływ wartości proporcji podziału zbioru na Accuracy. Program został uruchomiony dla k=10.
 
@@ -277,7 +277,7 @@ Badane podziały były następujące:
 	\item 85\% dane treningowe, 15\% dane testowe
 \end{itemize}
 
-Metryką, jakiej użyliśmy była metryka Manhattan.
+Metryką, jakiej użyliśmy była metryka uliczna.
 
 \subsection{Badanie zależności Accuracy od wyboru metryki}
 
@@ -317,12 +317,13 @@ W tym eksperymencie badaliśmy zależność Accuracy od wyboru podzbioru cech. P
 		\hline
 	\end{tabular}
 	\caption{Zależność Accuracy od wartości k. }
+	\label{tabelaK}
 \end{table}
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.9\textwidth]{accuracyK.png}
-	\caption{Wykres przedstawiający zależność Accuracy od wartości k (dane treningowe/testowe 50\%/50\%, Metryka Euklidesowa).}
+	\caption{Wykres przedstawiający zależność Accuracy od wartości k (dane treningowe/testowe 50\%/50\%, Metryka euklidesowa).}
 	\label{accuracyK}
 \end{figure}
 
@@ -342,13 +343,14 @@ W tym eksperymencie badaliśmy zależność Accuracy od wyboru podzbioru cech. P
 		85/15 & 83,667 \\
 		\hline
 	\end{tabular}
-	\caption{Zależność Accuracy od pięciu wartości proporcji podziału zbioru dla k=10. }
+	\caption{Zależność Accuracy od pięciu wartości proporcji podziału zbioru dla k=10, metryka uliczna. }
+	\label{tabelaTT}
 \end{table}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=1\textwidth]{accuracyTT.png}
-    \caption{Wykres przedstawiający zależność Accuracy od pięciu wartości proporcji podziału zbioru, k=10, metryka Manhattan.}
+    \caption{Wykres przedstawiający zależność Accuracy od pięciu wartości proporcji podziału zbioru, k=10, metryka uliczna.}
     \label{accuracyTT}
 \end{figure}
 
@@ -362,12 +364,13 @@ W tym eksperymencie badaliśmy zależność Accuracy od wyboru podzbioru cech. P
 		\textbf{Metryka} & \textbf{Accuracy [\%]} \\ [0.5ex] 
 		\hline
 		\hline 
-		Euklidesowa & 81,409 \\ 
+		euklidesowa & 81,409 \\ 
 		Czebyszewa & 81,335 \\
-		Manhattan & 81,384 \\
+		uliczna & 81,384 \\
 		\hline
 	\end{tabular}
 	\caption{Zależność Accuracy od wyboru metryki dla k=13 i podziału 70/30. }
+	\label{tabelaMetric}
 \end{table}
 
 \begin{figure}[h!]
@@ -394,6 +397,7 @@ W tym eksperymencie badaliśmy zależność Accuracy od wyboru podzbioru cech. P
 		\hline
 	\end{tabular}
 	\caption{Zależność Accuracy od wyboru podzbioru cech dla k=20, podziału 50/50 i metryki Czebyszewa. }
+	\label{tabelaFeatures}
 \end{table}
 
 \begin{figure}[h!]
@@ -405,20 +409,27 @@ W tym eksperymencie badaliśmy zależność Accuracy od wyboru podzbioru cech. P
 
 \newpage
 \section{Dyskusja} % Dyskusja
-{\color{blue}
-Sekcja ta powinna zawierać dokładną interpretację uzyskanych wyników
-eksperymentów wraz ze szczegółowymi wnioskami z nich płynącymi. Najcenniejsze
-są, rzecz jasna, wnioski o charakterze uniwersalnym, które mogą być istotne
-przy innych, podobnych zadaniach. Należy również omówić i wyjaśnić wszystkie
-napotakane problemy (jeśli takie były). Każdy wniosek powinien mieć poparcie
-we wcześniej przeprowadzonych eksperymentach (odwołania do konkretnych
-wyników). Jest to jedna z najważniejszych sekcji tego sprawozdania, gdyż
-prezentuje poziom zrozumienia badanego problemu.}
+\subsection{Wyniki klasyfikacji w zależności od parametru k}
+Dobór odpowiedniej wartości parametru k ma duży wpływ na wynik klasyfikacji. Im większa wartość k, tym większa skuteczność klasyfikacji. Można to zauważyć na rysunku \ref{accuracyK}, jak i również tabeli \ref{tabelaK}. Największy skok widać między $k=2$ a $k=3$. Natomiast przy wartościach wyższych niż 10 różnica jest bardzo niewielka. Najlepsze wyniki klasyfikacji były osiągane, gdy $k=25$ - ok. 80\%, natomiast najgorsze, gdy $k=2$ - ok. 68\%. 
+\subsection{Wyniki klasyfikacji w zależności od podziału na dane treningowe i testowe}
+W przypadku podziału na dane testowe i treningowe, dla większej ilości danych treningowych algorytm był w stanie lepiej zaklasyfikować teksty i skuteczność klasyfikacji była wyższa. Dla badanych przez nas podziałów największą skuteczność osiągnął podział 85\% dane treningowe i 15\% dane testowe. Najgorsza jakość klasyfikacji została osiągnięta dla podziału 30\% treningowe / 70\% testowe. 
+
+Analizując rysunek \ref{accuracyTT} oraz tabelę \ref{tabelaTT} największy skok wystąpił między podziałami 50/50 a 70/30. W przypadku tego drugiego podziału algorytm był w stanie się lepiej nauczyć.
+\subsection{Zależność Accuracy od wyboru metryki}
+Wybór metryki w przypadku klasyfikowania artykułów wg kategorii \textsl{places} miał bardzo mały wpływ na wyniki klasyfikacji. Widać to na rysunku \ref{accuracyMetric}, a najlepiej w tabeli \ref{tabelaMetric}. Pomiędzy najlepszym wynikiem dla metryki euklidesowej, a najgorszym dla metryki Czebyszewa różnica była mniejsza niż 0.1 p.p. Możemy więc powiedzieć, że w przypadku algorytmu k-NN wybór metryki ma minimalny wpływ na wyniki klasyfikacji, jednak najlepszą metryką jest metryka euklidesowa.
+\subsection{Różnice w wyborze podzbioru cech}
+Jak można zauważyć na rysunku \ref{accuracyFeatures} oraz tabeli \ref{tabelaFeatures}, najlepszą wartość klasyfikacji (79.81\%) osiągnął podzbiór składający się z cech: $C_1, C_2, C_3, C_4, C_5, C_{11}$. Są to cechy zależne od słów kluczowych. Natomiast cechy niezależące od słów kluczowych, tj. $C_6, C_7, C_8, C_9, C_{10}$ osiągnęły wynik najgorszy (79.558\%). Dla wszystkich cech ten wynik był podobny do wyniku dla cech 6-10. Różnice w skuteczności są niewielkie, lecz zauważalne. 
+
+\newpage
 \section{Wnioski}
-{\color{blue}W tej, przedostatniej, sekcji należy zamieścić podsumowanie
-najważniejszych wniosków z sekcji poprzedniej. Najlepiej jest je po prostu
-wypunktować. Znów, tak jak poprzednio, najistotniejsze są wnioski o
-charakterze uniwersalnym.}
+\begin{itemize}
+	\item Liczba k sąsiadów ma spory wpływ na skuteczność klasyfikacji. Jednakże, zmiana metryki, bądź podziału na dane testowe i treningowe również ma wpływ na wynik klasyfikacji.
+	\item Również istotny jest podział artykułów na dane testowe i treningowe. 
+	\item W przypadku zbyt małej ilości danych treningowych wystąpi zjawisko niedouczenia.
+	\item W przypadku zbyt dużej ilości danych treningowych wystąpi zjawisko przeuczenia.
+	\item Wybór metryki ma minimalny, bliski zeru wpływ na wyniki klasyfikacji.
+	\item Najlepszymi cechami do klasyfikacji tekstów będą te cechy, które zależą od słów kluczowych, ale tylko wtedy, gdy te zostaną wybrane równomiernie dla każdej kategorii.
+\end{itemize}
 
 
 \begin{thebibliography} {0}
