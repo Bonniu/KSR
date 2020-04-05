@@ -9,23 +9,15 @@ namespace Zadanie1_KSR
     public class KeyWords
     {
         private List<string> keywords;
-        private readonly int _nrOfKeywords;
 
         public List<string> GetKeywords()
         {
             return keywords;
         }
-
-        public KeyWords(int nrOfKeywords)
-        {
-            keywords = new List<string>();
-            this._nrOfKeywords = nrOfKeywords;
-        }
         
         public KeyWords()
         {
             keywords = new List<string>();
-            this._nrOfKeywords = 100;
         }
 
         /**
@@ -33,34 +25,34 @@ namespace Zadanie1_KSR
          * Z listy wszystich artykułów zlicza wszystkie słowa, a następonie bierze 100 słów, które nie są liczbami
          * pomijając pierwsze 25% listy najczęściej występującychn słów
          */
-        public void FindKeyWordsOld(List<Article> articles)
-        {
-            WordCounter wc = new WordCounter();
-            wc.CountWords(articles);
-
-            int index = wc.GetWordCount().Count * 3 / 4;
-            int i = index;
-            while (keywords.Count < 100)
-            {
-                try
-                {
-                    int y = int.Parse(wc.GetWordCount().ElementAt(i).Key);
-                }
-                catch (Exception)
-                {
-                    keywords.Add(wc.GetWordCount().ElementAt(i).Key);
-                    i++;
-                    continue;
-                }
-
-                i++;
-            }
-            Console.WriteLine(wc.wordCountDictionary.Count);
-            // foreach (var VARIABLE in wc.wordCountDictionary)
-            // {
-            //     Console.WriteLine(VARIABLE.Key + " " +  VARIABLE.Value);
-            // }
-        }
+        // public void FindKeyWordsOld(List<Article> articles)
+        // {
+        //     WordCounter wc = new WordCounter();
+        //     wc.CountWords(articles);
+        //
+        //     int index = wc.GetWordCount().Count * 3 / 4;
+        //     int i = index;
+        //     while (keywords.Count < 100)
+        //     {
+        //         try
+        //         {
+        //             int y = int.Parse(wc.GetWordCount().ElementAt(i).Key);
+        //         }
+        //         catch (Exception)
+        //         {
+        //             keywords.Add(wc.GetWordCount().ElementAt(i).Key);
+        //             i++;
+        //             continue;
+        //         }
+        //
+        //         i++;
+        //     }
+        //     Console.WriteLine(wc.wordCountDictionary.Count);
+        //     // foreach (var VARIABLE in wc.wordCountDictionary)
+        //     // {
+        //     //     Console.WriteLine(VARIABLE.Key + " " +  VARIABLE.Value);
+        //     // }
+        // }
 
         public void FindKeyWords(List<Article> articles)
         {
@@ -76,19 +68,19 @@ namespace Zadanie1_KSR
             wordListDict.Add("canada", new List<string>());
             foreach (var key in wordListDict.Keys)
             {
-                int startIndex = wc.GetWordCount().Count * 8 / 10;
+                int startIndex = wc.GetWordCountDictionary().Count * 8 / 10;
                 int i = startIndex;
                 while (wordListDict[key].Count < 18)
                 {
                     try
                     {
-                        int y = int.Parse(wc.GetWordCount().ElementAt(i).Key);
+                        int y = int.Parse(wc.GetWordCountDictionary().ElementAt(i).Key);
                     }
                     catch (Exception)
                     {
-                        if (AddOrNot(wc, i, key))
+                        if (DecideIfAdd(wc, i, key))
                         {
-                            wordListDict[key].Add(wc.GetWordCount().ElementAt(i).Key);
+                            wordListDict[key].Add(wc.GetWordCountDictionary().ElementAt(i).Key);
                             i--;
                             continue;
                         }
@@ -127,33 +119,33 @@ namespace Zadanie1_KSR
             // Console.WriteLine(tmpList.Count);
         }
 
-        private bool AddOrNot(WordCounter wc, int i, string key)
+        private bool DecideIfAdd(WordCounter wc, int i, string key)
         {
             // Console.WriteLine(wc.wordCountDictionary.ElementAt(i).Key + " " +
             //                   wc.wordCountDictionary.ElementAt(i).Value);
 
             int counter = 0;
-            if (wc.wordCountDictionaryCanada.Contains(wc.wordCountDictionary.ElementAt(i).Key))
+            if (wc.WordCountCanada.Contains(wc.GetWordCountDictionary().ElementAt(i).Key))
             {
                 counter += 1;
             }
-            if (wc.wordCountDictionaryUSA.Contains(wc.wordCountDictionary.ElementAt(i).Key))
+            if (wc.WordCountUsa.Contains(wc.GetWordCountDictionary().ElementAt(i).Key))
             {
                 counter += 10;
             }
-            if (wc.wordCountDictionaryUK.Contains(wc.wordCountDictionary.ElementAt(i).Key))
+            if (wc.WordCountUk.Contains(wc.GetWordCountDictionary().ElementAt(i).Key))
             {
                 counter += 100;
             }
-            if (wc.wordCountDictionaryWestGermany.Contains(wc.wordCountDictionary.ElementAt(i).Key))
+            if (wc.WordCountWestGermany.Contains(wc.GetWordCountDictionary().ElementAt(i).Key))
             {
                 counter += 1000;
             }
-            if (wc.wordCountDictionaryJapan.Contains(wc.wordCountDictionary.ElementAt(i).Key))
+            if (wc.WordCountJapan.Contains(wc.GetWordCountDictionary().ElementAt(i).Key))
             {
                 counter += 10000;
             }
-            if (wc.wordCountDictionaryFrance.Contains(wc.wordCountDictionary.ElementAt(i).Key))
+            if (wc.WordCountFrance.Contains(wc.GetWordCountDictionary().ElementAt(i).Key))
             {
                 counter += 100000;
             }

@@ -2,43 +2,33 @@
 {
     public class Neighbor
     {
-        private Article article;
-        private double knnValue;
+        private string _place;
+        private double _knnValue;
 
-        public Neighbor(Article article, double knnValue)
+        public Neighbor(string place, double knnValue)
         {
-            this.article = article;
-            this.knnValue = knnValue;
+            _place = place;
+            _knnValue = knnValue;
         }
 
         public string GetPlace()
         {
-            return article.GetPlace();
-        }
-
-        public Article GetArticle()
-        {
-            return article;
-        }
-
-        public void SetArticle(Article article)
-        {
-            this.article = article;
+            return _place;
         }
 
         public double GetKnnValue()
         {
-            return knnValue;
+            return _knnValue;
         }
 
         public void SetPlace(string place)
         {
-            this.article.SetClassifiedPlace(place);
+            _place = place;
         }
 
         public void SetKnnValue(double knnValue)
         {
-            this.knnValue = knnValue;
+            _knnValue = knnValue;
         }
     }
 }

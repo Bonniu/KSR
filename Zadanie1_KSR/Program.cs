@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Threading;
-using Annytab.Stemmer;
 using Zadanie1_KSR.Features;
 using Zadanie1_KSR.Measures;
 using Zadanie1_KSR.Metrics;
@@ -14,8 +11,8 @@ namespace Zadanie1_KSR
         static void Main(string[] args)
         {
             Console.WriteLine("Reading files...");
-            FileReader ag = new FileReader(22);
-            List<Article> list = ag.ReadAllFiles();
+            FileReader ag = new FileReader();
+            List<Article> list = FileReader.ReadAllFiles();
             Console.WriteLine("Creating keywords...");
             KeyWords keyWords = new KeyWords();
             keyWords.FindKeyWords(list);
@@ -44,7 +41,7 @@ namespace Zadanie1_KSR
             Console.WriteLine("Classifying...");
             knn.Classify();
             knn.PrintAllProperties();
-            //knn.PrintMatrix();
+            knn.PrintMatrix();
             knn.PrintAccPreRec();
 
             // for (int k = 2; k < 26; k++)

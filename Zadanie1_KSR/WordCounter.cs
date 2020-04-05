@@ -7,55 +7,45 @@ namespace Zadanie1_KSR
 {
     public class WordCounter
     {
-        public Dictionary<string, int> wordCountDictionary;
-        public List<string> wordCountDictionaryUSA;
-        public List<string> wordCountDictionaryFrance;
-        public List<string> wordCountDictionaryJapan;
-        public List<string> wordCountDictionaryCanada;
-        public List<string> wordCountDictionaryWestGermany;
-        public List<string> wordCountDictionaryUK;
+        private Dictionary<string, int> wordCountDictionary;
+        public readonly List<string> WordCountUsa;
+        public readonly List<string> WordCountFrance;
+        public readonly List<string> WordCountJapan;
+        public readonly List<string> WordCountCanada;
+        public readonly List<string> WordCountWestGermany;
+        public readonly List<string> WordCountUk;
 
         public WordCounter()
         {
             wordCountDictionary = new Dictionary<string, int>();
-            wordCountDictionaryUSA = new List<string>();
-            wordCountDictionaryFrance = new List<string>();
-            wordCountDictionaryJapan = new List<string>();
-            wordCountDictionaryCanada = new List<string>();
-            wordCountDictionaryWestGermany = new List<string>();
-            wordCountDictionaryUK = new List<string>();
+            WordCountUsa = new List<string>();
+            WordCountFrance = new List<string>();
+            WordCountJapan = new List<string>();
+            WordCountCanada = new List<string>();
+            WordCountWestGermany = new List<string>();
+            WordCountUk = new List<string>();
         }
-
-        public Dictionary<string, int> GetWordCount()
+        
+        public Dictionary<string, int> GetWordCountDictionary()
         {
             return wordCountDictionary;
         }
-
-        public bool CountWords(List<Article> articleList)
+        public void CountWords(List<Article> articleList)
         {
             foreach (var article in articleList)
             {
-                ParseText(article.GetRefactoredText().ToLower(), article.GetPlace());
+                CountWordsFromText(article.GetRefactoredText().ToLower(), article.GetPlace());
             }
-
             SortWordCountDictionary();
-            // foreach (var pair in wordCountDictionary)
-            // {
-            //     if (pair.Value < 3)
-            //     {
-            //         wordCountDictionary.Remove(pair.Key);
-            //     }
-            // }
-
-            return true;
         }
+
         // for features to count unique words
         public static int CountUniqueWords(List<string> text)
         {
             return CountWords(text).Count;
         }
 
-        public static Dictionary<string, int> CountWords(List<string> text)
+        private static Dictionary<string, int> CountWords(List<string> text)
         {
             Dictionary<string, int> dictionary = new Dictionary<string, int>();
             foreach (var str in text)
@@ -73,35 +63,45 @@ namespace Zadanie1_KSR
             return dictionary;
         }
 
-        private void ParseText(string text, string place)
+        private void CountWordsFromText(string text, string place)
         {
             foreach (var s in text.Split(null))
             {
-                if (place == "usa")
-                    AddWordCount(s, wordCountDictionaryUSA);
-                else if (place == "uk")
-                    AddWordCount(s, wordCountDictionaryUK);
-                else if (place == "west-germany")
-                    AddWordCount(s, wordCountDictionaryWestGermany);
-                else if (place == "france")
-                    AddWordCount(s, wordCountDictionaryFrance);
-                else if (place == "japan")
-                    AddWordCount(s, wordCountDictionaryJapan);
-                else if (place == "canada")
-                    AddWordCount(s, wordCountDictionaryCanada);
-                else throw new EvaluateException("asddddddddddddddddddddddddddddddddddddddddddddd");
+                switch (place)
+                {
+                    case "usa":
+                        AddToPlace(s, WordCountUsa);
+                        break;
+                    case "uk":
+                        AddToPlace(s, WordCountUk);
+                        break;
+                    case "west-germany":
+                        AddToPlace(s, WordCountWestGermany);
+                        break;
+                    case "france":
+                        AddToPlace(s, WordCountFrance);
+                        break;
+                    case "japan":
+                        AddToPlace(s, WordCountJapan);
+                        break;
+                    case "canada":
+                        AddToPlace(s, WordCountCanada);
+                        break;
+                    default:
+                        throw new EvaluateException("asddddddddddddddddddddddddddddddddddddddddddddd");
+                }
             }
         }
 
-        private void AddWordCount(string word, List<string> wordCountDictCountry)
+        private void AddToPlace(string word, List<string> wordCountPlace)
         {
-            if (wordCountDictCountry.Contains(word))
+            if (wordCountPlace.Contains(word))
             {
                 wordCountDictionary[word] += 1;
             }
             else if (wordCountDictionary.ContainsKey(word))
             {
-                wordCountDictCountry.Add(word);
+                wordCountPlace.Add(word);
                 wordCountDictionary[word] += 1;
             }
             else
@@ -112,18 +112,16 @@ namespace Zadanie1_KSR
 
         public override string ToString()
         {
-            string tmp = "";
+            var tmp = "";
             foreach (var value in wordCountDictionary)
             {
                 tmp += value.Key + " " + value.Value + "\n";
             }
-
-
             return tmp;
         }
 
         //sortowanie wordCountDictionary od najmniej wystepujacych do najczesciej wystepujacych
-        public void SortWordCountDictionary()
+        private void SortWordCountDictionary()
         {
             var sorted = from entry in wordCountDictionary orderby entry.Value select entry;
             wordCountDictionary = new Dictionary<string, int>();

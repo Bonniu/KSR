@@ -6,11 +6,10 @@ namespace Zadanie1_KSR
     using System.Collections.Generic;
     using System.Text;
 
-    
+
     static class StopwordTool
     {
-        
-        static Dictionary<string, bool> _stops = new Dictionary<string, bool>
+        private static readonly Dictionary<string, bool> Stops = new Dictionary<string, bool>
         {
             {"a", true},
             {"about", true},
@@ -355,7 +354,7 @@ namespace Zadanie1_KSR
                 // Convert to lowercase
                 string lowerWord = currentWord.ToLower();
                 // If this is a usable word, add it
-                if (!_stops.ContainsKey(lowerWord))
+                if (!Stops.ContainsKey(lowerWord))
                 {
                     builder.Append(currentWord).Append(' ');
                 }

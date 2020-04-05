@@ -34,11 +34,6 @@ namespace Zadanie1_KSR
         {
             this.classifiedPlace = classifiedPlace;
         }
-        
-        public void SetFeaturesVector(List<Feature> featuresVector)
-        {
-            this.featuresVector = featuresVector;
-        }
 
         public string GetOriginalText()
         {
