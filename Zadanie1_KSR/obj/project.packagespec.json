@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie1_KSR\\Zadanie1_KSR.csproj",
+    "projectUniqueName": "C:\\Users\\HP\\Desktop\\STUDIA\\6SEMESTR\\KSR\\Zadanie_1_git\\KSR\\Zadanie1_KSR\\Zadanie1_KSR.csproj",
     "projectName": "Zadanie1_KSR",
-    "projectPath": "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie1_KSR\\Zadanie1_KSR.csproj",
-    "outputPath": "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie1_KSR\\obj\\",
+    "projectPath": "C:\\Users\\HP\\Desktop\\STUDIA\\6SEMESTR\\KSR\\Zadanie_1_git\\KSR\\Zadanie1_KSR\\Zadanie1_KSR.csproj",
+    "outputPath": "C:\\Users\\HP\\Desktop\\STUDIA\\6SEMESTR\\KSR\\Zadanie_1_git\\KSR\\Zadanie1_KSR\\obj\\",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netcoreapp3.1"
@@ -46,7 +46,7 @@
           "privateAssets": "all"
         }
       },
-      "runtimeIdentifierGraphPath": "C:\\Users\\Radek\\.dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
+      "runtimeIdentifierGraphPath": "C:\\Users\\HP\\.dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
     }
   }
 }

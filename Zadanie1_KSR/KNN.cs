@@ -9,38 +9,39 @@ namespace Zadanie1_KSR
 {
     public class KNN
     {
-        private readonly int _trainingNr;
-        private readonly int _testNr;
-        private int _k;
-        private readonly List<Article> _testArticles;
-        private readonly List<Article> _trainingArticles;
-        private readonly Metric _metric;
-        private double _accuracy;
-        private List<List<int>> _matrix;
+        private readonly int trainingNr;
+        private readonly int testNr;
+        private int k;
+        private readonly List<Article> testArticles;
+        private readonly List<Article> trainingArticles;
+        private readonly Metric metric;
+        private double accuracy;
+        private List<List<int>> matrix;
 
         public KNN(int k, int trainingNr, int testNr, List<Article> articleList, Metric metric)
         {
-            this._k = k;
-            this._trainingNr = trainingNr;
-            this._testNr = testNr;
-            this._metric = metric;
-            _testArticles = new List<Article>();
-            _trainingArticles = new List<Article>();
+            this.k = k;
+            this.trainingNr = trainingNr;
+            this.testNr = testNr;
+            this.metric = metric;
+            testArticles = new List<Article>();
+            trainingArticles = new List<Article>();
             SplitArticlesAndSave(articleList);
         }
 
+        //klasyfikacja tkestu do jego kraju
         public void Classify()
         {
             ResetMatrix();
-            for (int x = 0; x < _testArticles.Count; x++)
+            for (int x = 0; x < testArticles.Count; x++)
             {
                 List<Neighbor> closestNeighbors = new List<Neighbor>();
-                for (int i = 0; i < _trainingArticles.Count; i++)
+                for (int i = 0; i < trainingArticles.Count; i++)
                 {
-                    double tmp = _metric.CountValue(_trainingArticles[i], _testArticles[x]);
-                    if (closestNeighbors.Count < _k)
+                    double tmp = metric.CountValue(trainingArticles[i], testArticles[x]);
+                    if (closestNeighbors.Count < k)
                     {
-                        closestNeighbors.Add(new Neighbor(_trainingArticles[i].GetPlace(), tmp));
+                        closestNeighbors.Add(new Neighbor(trainingArticles[i].GetPlace(), tmp));
                         continue;
                     }
 
@@ -50,39 +51,40 @@ namespace Zadanie1_KSR
                     // wstarczy sprawdzic ostatni - jezeli ostatni jest mniejszy to zamiana
                     if (closestNeighbors[^1].GetKnnValue() > tmp)
                     {
-                        closestNeighbors[^1].SetPlace(_trainingArticles[i].GetPlace());
+                        closestNeighbors[^1].SetPlace(trainingArticles[i].GetPlace());
                         closestNeighbors[^1].SetKnnValue(tmp);
                     }
                 }
 
                 var classifiedPlace = GetPlaceFromNeighbors(closestNeighbors);
                 //sprawdzenie jaki place
-                AddToMatrix(_matrix, _testArticles[x].GetPlace(), classifiedPlace);
+                AddToMatrix(matrix, testArticles[x].GetPlace(), classifiedPlace);
             }
 
-            double correctSum = _matrix[0][0] + _matrix[1][1] + _matrix[2][2] + _matrix[3][3] + _matrix[4][4] +
-                                _matrix[5][5];
-            _accuracy = correctSum / _testArticles.Count * 100;
+            double correctSum = matrix[0][0] + matrix[1][1] + matrix[2][2] + matrix[3][3] + matrix[4][4] +
+                                matrix[5][5];
+            accuracy = correctSum / testArticles.Count * 100;
         }
 
         public void SetK(int k)
         {
-            this._k = k;
+            this.k = k;
         }
 
         private void ResetMatrix()
         {
-            _matrix = new List<List<int>>(6);
+            matrix = new List<List<int>>(6);
             for (int i = 0; i < 6; i++)
             {
-                _matrix.Add(new List<int>(6));
+                matrix.Add(new List<int>(6));
                 for (int j = 0; j < 6; j++)
                 {
-                    _matrix[i].Add(0);
+                    matrix[i].Add(0);
                 }
             }
         }
 
+        //dodanie do macierzy pomylek
         private void AddToMatrix(List<List<int>> matrix, string realPlace, string classifiedPlace)
         {
             matrix[GetIndexFromString(classifiedPlace)][GetIndexFromString(realPlace)]++;
@@ -93,11 +95,11 @@ namespace Zadanie1_KSR
             var articles = articleList;
             for (int i = 0; i < articles.Count; i++)
             {
-                if (i < articles.Count / 100 * _trainingNr)
-                    _trainingArticles.Add(articles[i]);
+                if (i < articles.Count / 100 * trainingNr)
+                    trainingArticles.Add(articles[i]);
                 else
                 {
-                    _testArticles.Add(articles[i]);
+                    testArticles.Add(articles[i]);
                 }
             }
         }
@@ -130,6 +132,7 @@ namespace Zadanie1_KSR
             };
         }
 
+        //zwraca kraj do ktorego zakwalifikowal dany tekst
         private string GetPlaceFromNeighbors(List<Neighbor> closestNeighbors)
         {
             var neighborsMap = new Dictionary<string, double>();
@@ -143,7 +146,7 @@ namespace Zadanie1_KSR
                 }
             }
 
-            //zwróć ten, którego jest najwięcej
+            //zwróć ten, którego jest najwięcej czyli ten do ktorego przypisujemy tekst
             var max = new KeyValuePair<double, string>();
             foreach (var (place, counter) in neighborsMap)
             {
@@ -156,17 +159,17 @@ namespace Zadanie1_KSR
 
         public double GetAccuracy()
         {
-            return _accuracy;
+            return accuracy;
         }
 
         public void PrintMatrix()
         {
             Console.WriteLine("\nusa canada france japan west-germany uk");
             // ReSharper disable once ForCanBeConvertedToForeach
-            for (var i = 0; i < _matrix.Count; i++)
+            for (var i = 0; i < matrix.Count; i++)
             {
-                for (var j = 0; j < _matrix[i].Count; j++)
-                    Console.Write(_matrix[i][j] + " ");
+                for (var j = 0; j < matrix[i].Count; j++)
+                    Console.Write(matrix[i][j] + " ");
                 Console.WriteLine();
             }
 
@@ -182,22 +185,22 @@ namespace Zadanie1_KSR
                 var sumRow = 0;
                 for (var j = 0; j < 6; j++)
                 {
-                    sumCol += _matrix[i][j];
-                    sumRow += _matrix[j][i];
+                    sumCol += matrix[i][j];
+                    sumRow += matrix[j][i];
                 }
 
-                var recall = sumCol == 0 ? 0 : Math.Round((double) _matrix[i][i] / sumCol * 100000) / 1000;
-                var precision = sumRow == 0 ? 0 : Math.Round((double) _matrix[i][i] / sumRow * 100000) / 1000;
+                var recall = sumCol == 0 ? 0 : Math.Round((double) matrix[i][i] / sumCol * 100000) / 1000;
+                var precision = sumRow == 0 ? 0 : Math.Round((double) matrix[i][i] / sumRow * 100000) / 1000;
                 Console.WriteLine(GetStringFromIndex(i) + "  " + recall + "  " + precision);
             }
 
-            Console.WriteLine("Accuracy: " + Math.Round(_accuracy * 1000) / 1000);
+            Console.WriteLine("Accuracy: " + Math.Round(accuracy * 1000) / 1000);
         }
 
         public void PrintAllProperties()
         {
-            Console.WriteLine("Settings: k=" + _k + " , training=" + _trainingNr + "%, test=" + _testNr + "%, metric=" +
-                              _metric.GetType().ToString().Split(".")[^1]);
+            Console.WriteLine("Settings: k=" + k + " , training=" + trainingNr + "%, test=" + testNr + "%, metric=" +
+                              metric.GetType().ToString().Split(".")[^1]);
         }
     }
 }
@@ -209,7 +212,12 @@ namespace Zadanie1_KSR
                         japan       192     10     13    21           10  19
                         west-germany 95      8      5    13           14  13
                         uk          450     30     15    44           18  80
-                                    |
-                                    V
-                                    recall
+                                    |                                       a
+                                    V                                        c    
+                                    recall                                    c
+                                                                               u
+                                                                                r
+                                                                                 a 
+                                                                                  c
+                                                                                   y
  */

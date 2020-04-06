@@ -39,7 +39,7 @@ namespace Zadanie1_KSR
             SortWordCountDictionary();
         }
 
-        // for features to count unique words
+        // zlicza slowa unikalne
         public static int CountUniqueWords(List<string> text)
         {
             return CountWords(text).Count;
@@ -63,6 +63,7 @@ namespace Zadanie1_KSR
             return dictionary;
         }
 
+        // zlicza wszystkie slowa
         private void CountWordsFromText(string text, string place)
         {
             foreach (var s in text.Split(null))
@@ -88,11 +89,12 @@ namespace Zadanie1_KSR
                         AddToPlace(s, WordCountCanada);
                         break;
                     default:
-                        throw new EvaluateException("asddddddddddddddddddddddddddddddddddddddddddddd");
+                        throw new EvaluateException("Nieprawidlowa dana place!");
                 }
             }
         }
 
+        // zliczanie slow dla konkretnych krajow
         private void AddToPlace(string word, List<string> wordCountPlace)
         {
             if (wordCountPlace.Contains(word))

@@ -57,10 +57,10 @@ namespace Zadanie1_KSR
         public void FindKeyWords(List<Article> articles)
         {
             WordCounter wc = new WordCounter();
-            wc.CountWords(articles);
+            wc.CountWords(articles); //zlicza slowa
             
-            Dictionary<string, List<string>> wordListDict = new Dictionary<string, List<string>>();
-            wordListDict.Add("usa", new List<string>());
+            Dictionary<string, List<string>> wordListDict = new Dictionary<string, List<string>>(); // slowink do wpisywania klucz wartosc (kraj, lista slow kluczowych)
+            wordListDict.Add("usa", new List<string>()); 
             wordListDict.Add("japan", new List<string>());
             wordListDict.Add("france", new List<string>());
             wordListDict.Add("west-germany", new List<string>());
@@ -68,17 +68,18 @@ namespace Zadanie1_KSR
             wordListDict.Add("canada", new List<string>());
             foreach (var key in wordListDict.Keys)
             {
-                int startIndex = wc.GetWordCountDictionary().Count * 8 / 10;
+                int startIndex = wc.GetWordCountDictionary().Count * 8 / 10; //ustala poczatkowy index aby wybierac slowa kluczowe od 80% ze wszystkich slow kluczowych ulozonych wg ilosci wystapien
                 int i = startIndex;
+                //kluczem jest kraj 
                 while (wordListDict[key].Count < 18)
                 {
                     try
                     {
-                        int y = int.Parse(wc.GetWordCountDictionary().ElementAt(i).Key);
+                        int y = int.Parse(wc.GetWordCountDictionary().ElementAt(i).Key); //pomija liczby 
                     }
                     catch (Exception)
                     {
-                        if (DecideIfAdd(wc, i, key))
+                        if (DecideIfAdd(wc, i, key)) // sprawdza czy dane slowo kluczowe wystepuje tylko w jedynm kraju i dopiero wtedy moze je dodac
                         {
                             wordListDict[key].Add(wc.GetWordCountDictionary().ElementAt(i).Key);
                             i--;
@@ -92,10 +93,9 @@ namespace Zadanie1_KSR
 
             foreach (var v in wordListDict.Keys)
             {
-               // Console.WriteLine(v);
                 foreach (var word in wordListDict[v])
                 {
-                   // Console.WriteLine(word);  
+                    //wpisanie wszystkich slow kluczowych
                     keywords.Add(word);
                 }
                 
@@ -114,16 +114,12 @@ namespace Zadanie1_KSR
             // Console.WriteLine(wordListDict["west-germany"].Count);
             // Console.WriteLine(wordListDict["japan"].Count);
             // Console.WriteLine(wordListDict["canada"].Count);
-            
-            //
             // Console.WriteLine(tmpList.Count);
         }
 
+        //metoda do sprawdzenia czy mozna przypisać danemu krajowi słowo kluczowe
         private bool DecideIfAdd(WordCounter wc, int i, string key)
         {
-            // Console.WriteLine(wc.wordCountDictionary.ElementAt(i).Key + " " +
-            //                   wc.wordCountDictionary.ElementAt(i).Value);
-
             int counter = 0;
             if (wc.WordCountCanada.Contains(wc.GetWordCountDictionary().ElementAt(i).Key))
             {
@@ -149,12 +145,11 @@ namespace Zadanie1_KSR
             {
                 counter += 100000;
             }
-
-            // Console.Write(counter + " ");
+            
             switch (key)
             {
                 case "canada":
-                    return counter == 1;
+                    return counter == 1; // counter to co zliczy
                 case "usa":
                     return counter == 10;
                 case "uk":

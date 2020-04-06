@@ -35,19 +35,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Radek\\.nuget\\packages\\": {}
+    "C:\\Users\\HP\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie1_KSR\\Zadanie1_KSR.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\Desktop\\STUDIA\\6SEMESTR\\KSR\\Zadanie_1_git\\KSR\\Zadanie1_KSR\\Zadanie1_KSR.csproj",
       "projectName": "Zadanie1_KSR",
-      "projectPath": "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie1_KSR\\Zadanie1_KSR.csproj",
-      "packagesPath": "C:\\Users\\Radek\\.nuget\\packages\\",
-      "outputPath": "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie1_KSR\\obj\\",
+      "projectPath": "C:\\Users\\HP\\Desktop\\STUDIA\\6SEMESTR\\KSR\\Zadanie_1_git\\KSR\\Zadanie1_KSR\\Zadanie1_KSR.csproj",
+      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\HP\\Desktop\\STUDIA\\6SEMESTR\\KSR\\Zadanie_1_git\\KSR\\Zadanie1_KSR\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Radek\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -89,7 +89,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\Radek\\.dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\HP\\.dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

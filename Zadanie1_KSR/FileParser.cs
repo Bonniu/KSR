@@ -6,6 +6,8 @@ namespace Zadanie1_KSR
 {
     public class FileParser
     {
+        //odczytanie danych i pozdzial separatorem <PLACES> i dodanie na liste artykulow kazdego artykulu z dwoma
+        // parametrami (cialo tekstu, kraj)
         //reut2-000.sgm
         public void ReadFile(string fileName, List<Article> articleList)
         {
@@ -30,6 +32,7 @@ namespace Zadanie1_KSR
             }
         }
 
+        //pobiera z danych kraj i zwraca jego nazwe
         private string GetPlace(string text)
         {
             string tmp = text.Split("\n")[0];
@@ -38,7 +41,14 @@ namespace Zadanie1_KSR
                 return "err";
             if (tmp.Contains("</PLACES>"))
             {
-                placesLine = tmp.Substring(3, tmp.IndexOf("</PLACES>", StringComparison.Ordinal) - 7);
+                try
+                {
+                    placesLine = tmp.Substring(3, tmp.IndexOf("</PLACES>", StringComparison.Ordinal) - 7);
+                }
+                catch (Exception e)
+                {
+                    return "err" + e;
+                }
             }
             else
             {
@@ -55,6 +65,7 @@ namespace Zadanie1_KSR
             }
         }
 
+        //pobiera cialo dla danego kraju
         private string GetBody(string article)
         {
             string text;
