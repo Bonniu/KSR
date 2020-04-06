@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  5 APR 2020 20:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  6 APR 2020 11:10
 entering extended mode
 **./sprawozdanie.tex
 (sprawozdanie.tex
@@ -257,8 +257,6 @@ Package graphics Info: Driver file: pdftex.def on input line 105.
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count197
 )
-LaTeX Info: Redefining \@svnurl on input line 33.
-
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count198
@@ -360,37 +358,37 @@ L/cmm/m/it/12 N$\T1/cmr/m/n/12 -elementowych
  []
 
 [5]
-<./rys/exampleRun.png, id=177, 335.00156pt x 152.82094pt>
+<./rys/exampleRun.png, id=173, 335.00156pt x 152.82094pt>
 File: ./rys/exampleRun.png Graphic file (type png)
 <use ./rys/exampleRun.png>
 Package pdftex.def Info: ./rys/exampleRun.png  used on input line 228.
 (pdftex.def)             Requested size: 390.0pt x 177.90898pt.
  [6 <./rys/exampleRun.png>]
-<./rys/uml.png, id=189, 1142.2675pt x 1681.28125pt>
+<./rys/uml.png, id=185, 1142.2675pt x 1681.28125pt>
 File: ./rys/uml.png Graphic file (type png)
 <use ./rys/uml.png>
 Package pdftex.def Info: ./rys/uml.png  used on input line 236.
 (pdftex.def)             Requested size: 390.0pt x 574.03958pt.
  [7 <./rys/uml.png>] [8]
-<./rys/accuracyK.png, id=200, 547.2947pt x 313.9228pt>
+<./rys/accuracyK.png, id=196, 547.2947pt x 313.9228pt>
 File: ./rys/accuracyK.png Graphic file (type png)
 <use ./rys/accuracyK.png>
 Package pdftex.def Info: ./rys/accuracyK.png  used on input line 325.
 (pdftex.def)             Requested size: 350.99762pt x 201.33142pt.
  [9 <./rys/accuracyK.png>]
-<./rys/accuracyTT.png, id=208, 545.03625pt x 313.9228pt>
+<./rys/accuracyTT.png, id=204, 545.03625pt x 313.9228pt>
 File: ./rys/accuracyTT.png Graphic file (type png)
 <use ./rys/accuracyTT.png>
 Package pdftex.def Info: ./rys/accuracyTT.png  used on input line 352.
 (pdftex.def)             Requested size: 390.0pt x 224.62553pt.
  [10 <./rys/accuracyTT.png>]
-<./rys/accuracyMetric.png, id=216, 549.55313pt x 309.40594pt>
+<./rys/accuracyMetric.png, id=212, 549.55313pt x 309.40594pt>
 File: ./rys/accuracyMetric.png Graphic file (type png)
 <use ./rys/accuracyMetric.png>
 Package pdftex.def Info: ./rys/accuracyMetric.png  used on input line 378.
 (pdftex.def)             Requested size: 390.0pt x 219.58061pt.
  [11 <./rys/accuracyMetric.png>]
-<./rys/accuracyFeatures.png, id=224, 553.31718pt x 310.15875pt>
+<./rys/accuracyFeatures.png, id=220, 553.31718pt x 310.15875pt>
 File: ./rys/accuracyFeatures.png Graphic file (type png)
 <use ./rys/accuracyFeatures.png>
 Package pdftex.def Info: ./rys/accuracyFeatures.png  used on input line 405.
@@ -412,11 +410,11 @@ Package rerunfilecheck Info: File `sprawozdanie.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 447.
  ) 
 Here is how much of TeX's memory you used:
- 6900 strings out of 481556
- 100982 string characters out of 2923635
- 366784 words of memory out of 3000000
- 21933 multiletter control sequences out of 15000+200000
- 547850 words of font info for 61 fonts, out of 3000000 for 9000
+ 6882 strings out of 481556
+ 100740 string characters out of 2923635
+ 366743 words of memory out of 3000000
+ 21919 multiletter control sequences out of 15000+200000
+ 543277 words of font info for 48 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,10n,32p,1026b,413s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
@@ -424,25 +422,22 @@ ecsl1095.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
 ec/dpi600\ecrm1095.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
 /jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts
 /pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Radek\AppData\Local\MiKTeX
-\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Radek\AppData\Lo
-cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Radek\
-AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl1200.pk> <C:\Us
-ers\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.
+\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl1200.pk> <C:\Users\Radek\AppData\Lo
+cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk> <C:\Users\Radek\
+AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Us
+ers\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.
 pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600
-\ecrm1440.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen
-/ec/dpi600\ecbx1440.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfou
-r/jknappen/ec/dpi600\ecrm1200.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-mi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmsy8.pfb>
-Output written on sprawozdanie.pdf (14 pages, 417108 bytes).
+\ecrm1200.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmsy8.pfb>
+Output written on sprawozdanie.pdf (14 pages, 400051 bytes).
 PDF statistics:
- 749 PDF objects out of 1000 (max. 8388607)
+ 710 PDF objects out of 1000 (max. 8388607)
  79 named destinations out of 1000 (max. 500000)
  223 words of extra memory for PDF output out of 10000 (max. 10000000)
 

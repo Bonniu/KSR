@@ -2,33 +2,33 @@
 {
     public class Neighbor
     {
-        private string _place;
-        private double _knnValue;
+        private string place;
+        private double knnValue;
 
         public Neighbor(string place, double knnValue)
         {
-            _place = place;
-            _knnValue = knnValue;
+            this.place = place;
+            this.knnValue = knnValue;
         }
 
         public string GetPlace()
         {
-            return _place;
+            return place;
         }
 
         public double GetKnnValue()
         {
-            return _knnValue;
+            return knnValue;
         }
 
         public void SetPlace(string place)
         {
-            _place = place;
+            this.place = place;
         }
 
         public void SetKnnValue(double knnValue)
         {
-            _knnValue = knnValue;
+            this.knnValue = knnValue;
         }
     }
 }
