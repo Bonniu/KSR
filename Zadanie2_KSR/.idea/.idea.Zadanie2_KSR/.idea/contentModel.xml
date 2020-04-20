@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Radek\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Radek\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Zadanie2_KSR.-2012902225.00" t="ExcludeRecursive" />
+    <e p="D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR" t="IncludeRecursive">
+      <e p="App.xaml" t="Include" />
+      <e p="App.xaml.cs" t="Include" />
+      <e p="AssemblyInfo.cs" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="data" t="Include">
+        <e p="fifa players.csv" t="Include" />
+        <e p="fifa players.xlsx" t="Include" />
+        <e p="players_20.csv" t="Include" />
+      </e>
+      <e p="MainWindow.xaml" t="Include" />
+      <e p="MainWindow.xaml.cs" t="Include" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp3.1" t="Include">
+            <e p="App.g.cs" t="Include" />
+            <e p="MainWindow.g.cs" t="Include" />
+            <e p="Zadanie2_KSR.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Zadanie2_KSR.csproj" t="IncludeRecursive" />
+      <e p="Zadanie2_KSR.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>

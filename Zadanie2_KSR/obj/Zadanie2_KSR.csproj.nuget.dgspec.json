@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\Zadanie2_KSR.csproj": {}
+  },
+  "projects": {
+    "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\Zadanie2_KSR.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\Zadanie2_KSR.csproj",
+        "projectName": "Zadanie2_KSR",
+        "projectPath": "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\Zadanie2_KSR.csproj",
+        "packagesPath": "C:\\Users\\Radek\\.nuget\\packages\\",
+        "outputPath": "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Radek\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\Radek\\.dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

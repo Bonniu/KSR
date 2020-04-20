@@ -1,0 +1,17 @@
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\bin\Debug\netcoreapp3.1\Zadanie2_KSR.exe
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\bin\Debug\netcoreapp3.1\Zadanie2_KSR.deps.json
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\bin\Debug\netcoreapp3.1\Zadanie2_KSR.runtimeconfig.json
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\bin\Debug\netcoreapp3.1\Zadanie2_KSR.runtimeconfig.dev.json
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\bin\Debug\netcoreapp3.1\Zadanie2_KSR.dll
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\bin\Debug\netcoreapp3.1\Zadanie2_KSR.pdb
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\obj\Debug\netcoreapp3.1\Zadanie2_KSR.csprojAssemblyReference.cache
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\obj\Debug\netcoreapp3.1\App.g.cs
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\obj\Debug\netcoreapp3.1\Zadanie2_KSR_MarkupCompile.cache
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\obj\Debug\netcoreapp3.1\Zadanie2_KSR_MarkupCompile.lref
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\obj\Debug\netcoreapp3.1\MainWindow.baml
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\obj\Debug\netcoreapp3.1\Zadanie2_KSR.g.resources
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\obj\Debug\netcoreapp3.1\Zadanie2_KSR.AssemblyInfoInputs.cache
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\obj\Debug\netcoreapp3.1\Zadanie2_KSR.AssemblyInfo.cs
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\obj\Debug\netcoreapp3.1\Zadanie2_KSR.dll
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\obj\Debug\netcoreapp3.1\Zadanie2_KSR.pdb

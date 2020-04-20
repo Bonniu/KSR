@@ -1,0 +1,79 @@
+\documentclass{classrep}
+\usepackage{color}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{ {./rys/} }
+
+\usepackage{etoolbox}
+\let\bbordermatrix\bordermatrix
+\patchcmd{\bbordermatrix}{8.75}{4.75}{}{}
+\patchcmd{\bbordermatrix}{\left(}{\left[}{}{}
+\patchcmd{\bbordermatrix}{\right)}{\right]}{}{}
+
+\studycycle{Informatyka, studia dzienne, I st.}
+\coursesemester{VI}
+
+\coursename{Komputerowe systemy rozpoznawania}
+\courseyear{2019/2020}
+
+\courseteacher{dr inż. Marcin Kacprowicz}
+\coursegroup{poniedziałek, 12:00}
+
+\author{
+	\studentinfo{Radosław Grela}{216769} \and
+	\studentinfo{Jakub Wąchała}{216914} 
+}
+
+\title{Zadanie 2: Lingwistyczne podsumowania baz danych}
+
+
+\begin{document}
+	\maketitle
+	
+	\section{Cel} % Cel
+	
+	
+	\section{Wprowadzenie} % Wprowadzenie
+	
+	\section{Opis implementacji} % Opis implementacji
+	Program został stworzony w języku C\#. Graficzny interfejs użytkownika został stworzony przy wykorzystaniu Windows Presentation Foundation. \ldots 
+	
+	\section{Materiały i metody} % Materiały i metody
+	\subsection{Baza danych}
+	Do przeprowadzania badań oraz do generowania podsumowań wykorzystaliśmy bazę danych dotyczącą piłkarzy z gry FIFA 20. Pochodzi ona ze źródła \cite{baza}. Składa się ona z 18278 rekordów posiadających 104 atrybuty. Do naszego projektu skorzystamy z 11. Są to następujące atrybuty:
+	
+	\begin{enumerate}
+		\item Wiek - \textsl{age} - wartość z przedziału [16, 42]
+		\item Wzrost (w cm) - \textsl{height\_cm} - wartość z przedziału [156, 205]
+		\item Waga (w kg) - \textsl{weight\_kg} - wartość z przedziału [50, 110]
+		\item Ocena ogólna - \textsl{overall} - wartość z przedziału [48, 94]
+		\item Wartość zawodnika (w EUR) - \textsl{value\_eur} - wartość z przedziału [0, 106 000 000]
+		\item Wykończenie - \textsl{attacking\_finishing} - wartość z przedziału [2, 95]
+		\item Dribbling - \textsl{skill\_dribbling} - wartość z przedziału [4, 97]
+		\item Podkręcenie piłki - \textsl{skill\_curve} - wartość z przedziału [6, 94]
+		\item Długie podania - \textsl{skill\_long\_passing} - wartość z przedziału [8, 92]
+		\item Sprint - \textsl{movement\_sprint\_speed} - wartość z przedziału [11, 96]
+		\item Siła strzału - \textsl{power\_shot\_power} - wartość z przedziału [14, 95]
+	\end{enumerate}
+
+	Każda z kolumn jest typu całkowitego.
+	
+	
+	\section{Wyniki} % Wyniki
+	
+	\section{Dyskusja} % Dyskusja
+	
+	\section{Wnioski}
+		
+	
+	\begin{thebibliography} {0}
+		\bibitem{anbook} Niewiadomski, Adam. Methods for the Linguistic Summarization of Data: Applications of Fuzzy Sets and Their Extensions. Akademicka Oficyna Wydawnicza EXIT. Warszawa, 2008. ISBN 978-83-60434-40-6
+		\bibitem{baza} https://www.kaggle.com/stefanoleone992/fifa-20-complete-player-dataset
+		
+	\end{thebibliography}
+\end{document}
