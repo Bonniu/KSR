@@ -9,10 +9,12 @@
       <e p="AssemblyInfo.cs" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="data" t="Include">
-        <e p="fifa players.csv" t="Include" />
-        <e p="fifa players.xlsx" t="Include" />
-        <e p="players_20.csv" t="Include" />
+        <e p="players_104.csv" t="Include" />
+        <e p="players_11.csv" t="Include" />
+        <e p="players_11.xlsx" t="Include" />
       </e>
+      <e p="FifaPlayer.cs" t="Include" />
+      <e p="FifaPlayerBuilder.cs" t="Include" />
       <e p="MainWindow.xaml" t="Include" />
       <e p="MainWindow.xaml.cs" t="Include" />
       <e p="obj" t="ExcludeRecursive">

@@ -10,6 +10,10 @@ namespace Zadanie2_KSR
     {
         public MainWindow()
         {
+            FifaPlayerBuilder fpb = new FifaPlayerBuilder();
+            fpb.addCurve(22);
+            Console.WriteLine(fpb.ToString());
+            Console.WriteLine(fpb.build().ToString());
             InitializeComponent();
             Console.WriteLine("Hello world!");
         }
