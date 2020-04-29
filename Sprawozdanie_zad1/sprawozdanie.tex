@@ -61,54 +61,77 @@ Algorytm ten działa w taki sposób, że dla każdego wzorca testowego obliczana
 Do ekstrakcji cech charakterystycznych tekstu utworzyliśmy wektor cech, który opisuje tekst za pomocą 11 cech. Liczba słów zawsze jest liczona po zastosowaniu stop-listy oraz stemizacji, bez znaków przestankowych.
 \begin{itemize}
 \item[•] $C_1$ - Stosunek słów kluczowych do wszystkich słów w pierwszych 10\% tekstu. Obliczona jest za pomocą wzoru:
-\begin{equation} C_1 = s_{k10} / s_{10}  \end{equation} gdzie \\
-$s_{k10}$ - liczba słów kluczowych, \\
-$s_{10}$ - liczba wszystkich słów w pierwszych 10\% tekstu. \\
-Przed normalizacją cecha $C_{1}$ zawierała się w wartościach $\in [0,1]$.
+\begin{equation} S_{k10} = S_{10} \cap S_k  \end{equation}
+\begin{equation} C_1 = \frac{|S_{k10}|}{|S_{10}|}   \end{equation} gdzie \\
+$S_k$ - zbiór wszystkich słów kluczowych, \\
+$S_{10}$ - zbiór słów w pierwszych 10\% tekstu, \\
+$S_{k10}$ - zbiór słów kluczowych w pierwszych 10\% tekstu, \\
+$|S_{k10}|$ - liczba słów kluczowych w pierwszych 10\% tekstu, \\
+$|S_{10}|$ - liczba wszystkich słów w dokumencie w pierwszych 10\% tekstu. \\
+
 \item[•] $C_2$ - Stosunek słów kluczowych do wszystkich słów w ostatnich 10\% tekstu. Obliczona jest za pomocą wzoru:
-\begin{equation} C_2 = s_{k90} / s_{90}  \end{equation} gdzie \\
-$s_{k90}$ - liczba słów kluczowych, \\
-$s_{90}$ - liczba wszystkich słów w ostatnich 10\% tekstu.\\
-Przed normalizacją cecha $C_{2}$ zawierała się w wartościach $\in [0,0.5]$.
+\begin{equation} S_{k90} = S_{90} \cap S_k  \end{equation}
+\begin{equation} C_2 = \frac{|S_{k90}|}{|S_{90}|}   \end{equation}
+ gdzie \\
+$S_{90}$ - zbiór słów w ostatnich 10\% tekstu, \\
+$S_{k90}$ - zbiór słów kluczowych w ostatnich 10\% tekstu, \\
+$|S_{k90}|$ - liczba słów kluczowych w ostatnich 10\% tekstu, \\
+$|S_{90}|$ - liczba wszystkich słów w dokumencie w ostatnich 10\% tekstu. \\
+
 \item[•] $C_3$ - Stosunek słów kluczowych do wszystkich słów w dokumencie. Obliczona jest za pomocą wzoru:
-\begin{equation} C_3 = s_k / s  \end{equation} gdzie \\
-$s_k$ - liczba słów kluczowych,\\
-$s$ - liczba wszystkich słów w dokumencie. \\
-Przed normalizacją cecha $C_{3}$ zawierała się w wartościach $\in [0,0.155]$.
+\begin{equation} S_{k3} = S \cap S_k  \end{equation}
+\begin{equation} C_3 = \frac{|S_{k3}|}{|S|}  \end{equation} gdzie \\
+$S_{k3}$ - zbiór wszystkich słów kluczowych znajdujących się w dokumencie, \\
+$|S_{k3}|$ - liczba wszystkich słów kluczowych znajdujących się w dokumencie, \\
+$S$ - zbiór wszystkich słów w dokumencie, \\
+$|S|$ - liczba wszystkich słów w dokumencie. \\
+
 \item[•] $C_4$ - Stosunek słów kluczowych, których ilość liter $\in$ (0,4] do wszystkich słów w dokumencie. Obliczona jest za pomocą wzoru:
-\begin{equation} C_4 = s_k / s  \end{equation} gdzie \\
-$s_k$ - liczba słów kluczowych, których ilość liter $\in$ (0,4], \\
-$s$ - liczba wszystkich słów w dokumencie.\\
-Przed normalizacją cecha $C_{4}$ zawierała się w wartościach $\in [0,0.075]$.
+
+\begin{equation} S_{k_{4}} = S \cap S_{k_{04}}  \end{equation}
+\begin{equation} C_4 = \frac{|S_{k_{4}}|}{|S|}  \end{equation} gdzie \\
+$S_{k_{04}}$ - zbiór słów kluczowych, których ilość liter $\in$ (0,4], \\
+$S_{k_{4}}$ - zbiór słów kluczowych znajdujących się w dokumencie, których ilość liter $\in$ (0,4], \\
+$|S_{k_{4}}|$ - liczba słów kluczowych znajdujących się w dokumencie, których ilość liter $\in$ (0,4]. \\
+
 \item[•] $C_5$ - Stosunek słów kluczowych, których ilość liter jest $\geq$8 do wszystkich słów w dokumencie. Obliczona jest za pomocą wzoru:
-\begin{equation} C_5 = s_k / s  \end{equation} gdzie \\
-$s_k$ - liczba słów kluczowych, \\
-$s$ - liczba wszystkich słów w dokumencie. \\
-Przed normalizacją cecha $C_{5}$ zawierała się w wartościach $\in [0,0.1]$.
+\begin{equation} S_{k_{5}} = S \cap S_{k_{8+}}  \end{equation}
+\begin{equation} C_5 = \frac{|S_{k_{5}}|}{|S|}  \end{equation} gdzie \\
+$S_{k_{8+}}$ - zbiór słów kluczowych, których ilość liter $\geq$8, \\
+$S_{k_{5}}$ - zbiór słów kluczowych znajdujących się w dokumencie, których ilość liter $\geq$8, \\
+$|S_{k_{5}}|$ - liczba słów kluczowych znajdujących się w dokumencie, których ilość liter $\geq$8. \\
+
 \item[•] $C_6$ - Stosunek linii do ilości akapitów. Obliczona jest za pomocą wzoru:
-\begin{equation} C_6 = l / a  \end{equation} gdzie \\
-$l$ - liczba linii,\\
-$a$ - liczba akapitów.\\
-Przed normalizacją cecha $C_{6}$ zawierała się w wartościach $\in [1,14]$.
-\item[•] $C_7$ - Stosunek słów, których ilość liter jest większa niż 6 do wszystkich słów. Obliczona jest za pomocą wzoru:
-\begin{equation} C_7 = s_6 / s  \end{equation} gdzie \\
-$s_6$ - liczba słów których ilość liter jest większa niż 6, \\
-$s$ - liczba wszystkich słów w dokumencie.\\
-Przed normalizacją cecha $C_{7}$ zawierała się w wartościach $\in [0,0.591]$.
-\item[•] $C_8$ - Stosunek słów kluczowych, których ilość liter jest $\leq$6 do wszystkich słów w dokumencie. Obliczona jest za pomocą wzoru:
-\begin{equation} C_8 = s_{6m} / s  \end{equation} gdzie \\
-$s_{6m}$ - liczba słów kluczowych, których ilość liter jest $\leq$6, \\
-$s$ - liczba wszystkich słów w dokumencie. \\
-Przed normalizacją cecha $C_{8}$ zawierała się w wartościach $\in [0.409,1]$.
+\begin{equation} C_{6} = \frac{|l|}{|a|}  \end{equation} gdzie \\
+$|l|$ - liczba linii,\\
+$|a|$ - liczba akapitów.\\
+Na rysunku \ref{c6png} został zamieszczony przykładowy artykuł. Dla tego przykładu, $|l| = 24$, a $|a| = 8$. \\
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{c6.png}
+	\caption{Przykładowy artykuł.}
+	\label{c6png}
+\end{figure}
+
+\item[•] $C_7$ - Stosunek słów, których ilość liter jest większa niż 6 do wszystkich słów w dokumencie. Obliczona jest za pomocą wzoru:
+\begin{equation} C_7 = \frac{|S_{k_{6+}}|}{|S|}  \end{equation} gdzie \\
+$S_{k_{6+}}$ - zbiór słów w dokumencie, których ilość liter jest większa niż 6, \\
+$|S_{k_{6+}}|$ - liczba słów w dokumencie, których ilość liter jest większa niż 6. \\
+
+\item[•] $C_8$ - Stosunek słów, których ilość liter jest $\leq$6 do wszystkich słów w dokumencie. Obliczona jest za pomocą wzoru:
+\begin{equation} C_8 = \frac{|S_{k_{06}}|}{|S|}  \end{equation} gdzie \\
+$S_{k_{06}}$ - zbiór słów w dokumencie, których ilość liter jest $\leq$ 6, \\
+$|S_{k_{06}}|$ - liczba słów w dokumencie, których ilość liter jest $\leq$ 6. \\
+
 \item[•] $C_9$ - Ilość słów unikalnych. Jest to liczba słów, które wystąpiły w tekście co najmniej raz. Przykładowo, dla zdania \textsl{,,Być albo nie być''} ilość słów unikalnych jest równa 3 (\textsl{być, albo, nie}).\\
-Przed normalizacją cecha $C_{9}$ przyjmuje wartości $\in [1,420]$.
-\item[•] $C_{10}$ - Ilość słów, których ilość liter $\in$ [5,8]. Pseudokod obliczający wartość cechy $C_{10}$:
+
+\item[•] $C_{10}$ - Ilość słów w dokumencie, których ilość liter $\in$ [5,8]. Pseudokod obliczający wartość cechy $C_{10}$:
 \textsl{
 \begin{itemize}
 \item $C_{10}$=0
 \item Dla każdego słowa w artykule:
 	\begin{itemize}
-	\item Jeżeli długość słowa>=5 i długość słowa <=8:
+	\item Jeżeli długość słowa $\geq$5 i długość słowa $\leq$8:
 		\begin{itemize}
 		\item $C_{10}$++;
 		\end{itemize}
@@ -116,8 +139,9 @@ Przed normalizacją cecha $C_{9}$ przyjmuje wartości $\in [1,420]$.
 \item Zwróć $C_{10}$
 \end{itemize}
 } 
-Przed normalizacją cecha $C_{10}$ zawierała się w wartościach $\in [1,574]$.
-\item[•] $C_{11}$ - Najczęściej występujące słowo kluczowe. Jest to cecha tekstowa, której podobieństwo z innym słowem mierzymy jedną z dwóch miar podobieństwa ciągów znaków opisanych w sekcji \textsl{Metryki i miary podobieństwa}.
+
+
+\item[•] $C_{11}$ - Najczęściej występujące słowo kluczowe. Przykładowo, dla tekstu na rysunku \ref{c6png} i zbioru słów kluczowych \textsl{\{Inco, pressure, against, year\}} najczęściej występującym słowem kluczowych jest słowo \textsl{Inco}. Jest to cecha tekstowa, której podobieństwo z innym słowem mierzymy jedną z dwóch miar podobieństwa ciągów znaków opisanych w sekcji \textsl{Metryki i miary podobieństwa}.
 \end{itemize}
 
 %Czy np. im tekst dłuższy, tym bardziej związany z etykietą USA lub CANADA? (istotne!)}
@@ -154,11 +178,11 @@ W naszym programie n jest stałe i wynosi 3.
 \mu_N(s_1, s_2) = \frac{2}{N^2+N} \sum_{i=1}^{N(s_1)} \sum_{j=1}^{N(s_1)-i+1} h(i,j)
 \end{equation} gdzie
 
-$h(i,j) = 1$, jeśli $i$-elementowy podciąg w słowie $s_1$ zaczynający się od $j$-tej pozycji w słowie $s_1$ pojawia się co najmniej raz w  słowie $s_2$, w przeciwnym razie $h(i,j) = 0$
+$h(i,j) = 1$, jeśli $i$-elementowy podciąg w słowie $s_1$ zaczynający się od $j$-tej pozycji w słowie $s_1$ pojawia się co najmniej raz w  słowie $s_2$, w przeciwnym razie $h(i,j) = 0$,
 
-$N(s_1), N(s_2)$ – ilość liter w słowach $s_1$ i $s_2$;
+$N(s_1), N(s_2)$ – ilość liter w słowach $s_1$ i $s_2$,
 
-$N = max\{(s_1), N(s_2)\}$
+$N = max\{(s_1), N(s_2)\}$,
 
 $\frac{N^2+N}{2}$ - ilość możliwych podciągów od 1-elementowych do $N$-elementowych w słowie o długości $N$.
 \end{enumerate}
@@ -201,8 +225,10 @@ FP - miara fałszywie pozytywna (\textsl{false positive})
 
 FN - miara fałszywie negatywna (\textsl{false negative})
 
-
-
+\subsection{Normalizacja wektorów cech}
+Wszystkie wartości wektora cech zostaną znormalizowane za pomocą wzoru (\ref{norm_}) \cite{norm}:
+\begin{equation} \label{norm_} x_{scaled} = \frac{x - x_{min}}{x_{max} - x_{min}}  \end{equation}
+Dzięki temu, wektor będzie zawierał tylko wartości z przedziału $[0,1]$.
 \section{Opis implementacji} % Opis implementacji
 Nasza aplikacja została utworzona w języku C\# i jest to aplikacja konsolowa. Poniżej opisane zostały wszystkie klasy oraz dane zawarte w naszym projekcie:
 \begin{itemize}
@@ -223,14 +249,16 @@ Nasza aplikacja została utworzona w języku C\# i jest to aplikacja konsolowa. 
 \end{itemize}
 Na rysunku \ref{exampleRun} przedstawiony został wynik z konsoli po przykładowym uruchomieniu programu, natomiast na rysunku \ref{uml} przedstawiony został diagram UML naszego programu. 
 
+
+% ????????????????????????????????
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=1\textwidth]{exampleRun.png}
+	\includegraphics[width=0.4\textwidth]{exampleRun.png}
 	\caption{Wynik z przykładowego uruchomienia programu.}
 	\label{exampleRun}
 \end{figure}
+% ????????????????????????????????
 
-\newpage
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{uml.png}
@@ -296,6 +324,23 @@ W tym eksperymencie badaliśmy zależność Accuracy od wyboru podzbioru cech. P
 
 
 \section{Wyniki} % Wyniki
+\subsection{Wartości wektorów cech przed normalizacją}
+\begin{itemize}
+	\item Cecha $C_{1}$ zawierała się w wartościach $\in [0,1]$
+	\item Cecha $C_{2}$ zawierała się w wartościach $\in [0,0.5]$
+	\item Cecha $C_{3}$ zawierała się w wartościach $\in [0,0.155]$
+	\item Cecha $C_{4}$ zawierała się w wartościach $\in [0,0.075]$
+	\item Cecha $C_{5}$ zawierała się w wartościach $\in [0,0.1]$
+	\item Cecha $C_{6}$ zawierała się w wartościach $\in [1,14]$
+	\item Cecha $C_{7}$ zawierała się w wartościach $\in [0,0.591]$
+	\item Cecha $C_{8}$ zawierała się w wartościach $\in [0.409,1]$
+	\item Cecha $C_{9}$ zawierała się w wartościach $\in [1,420]$
+	\item Cecha $C_{10}$ zawierała się w wartościach $\in [1,574]$
+	\item Cecha $C_{11}$ jest cechą tekstową i nie trzeba jej było normalizować, gdyż po użyciu miary $n$-gramów przyjmuje wartości $[0,1]$.
+\end{itemize}
+
+
+
 \subsection{Badanie wyników klasyfikacji w zależności od parametru k}
 \begin{table}[h!]
 	\centering
@@ -434,6 +479,7 @@ Jak można zauważyć na rysunku \ref{accuracyFeatures} oraz tabeli \ref{tabelaF
 
 \begin{thebibliography} {0}
 \bibitem{anbook} Niewiadomski, Adam. Methods for the Linguistic Summarization of Data: Applications of Fuzzy Sets and Their Extensions. Akademicka Oficyna Wydawnicza EXIT. Warszawa, 2008. ISBN 978-83-60434-40-6
+\bibitem{norm} Ciaburro, Giuseppe. Regression Analysis with R. Packt Publishing, 2018. ISBN 978-1-78862-730-6
 \bibitem{wyklad} \textsl{https://ftims.edu.p.lodz.pl/pluginfile.php/132368/mod\_folder/content/0/
 ksr-wyklad-2009.pdf?forcedownload=1} [dostęp 22.03.2020]
 \bibitem{manh} \textsl{https://en.wikipedia.org/wiki/Taxicab\_geometry} [dostęp 01.04.2020]
@@ -443,5 +489,6 @@ ksr-wyklad-2009.pdf?forcedownload=1} [dostęp 22.03.2020]
 \bibitem{stopword} \textsl{https://www.dotnetperls.com/stopword-dictionary} [dostęp 22.03.2020]
 \bibitem{leniwy} \textsl{http://home.agh.edu.pl/~horzyk/lectures/miw/KNN.pdf} [dostęp 22.03.2020]
 \bibitem{apr} \textsl{https://pl.wikipedia.org/wiki/Tablica\_pomy\%C5\%82ek} [dostęp 01.04.2020]
+
 \end{thebibliography}
 \end{document}
