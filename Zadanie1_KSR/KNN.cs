@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using Zadanie1_KSR.Metrics;
 
 // ReSharper disable CommentTypo
@@ -16,6 +17,8 @@ namespace Zadanie1_KSR
         private readonly List<Article> trainingArticles;
         private readonly Metric metric;
         private double accuracy;
+        private double precision;
+        private double recall;
         private List<List<int>> matrix;
 
         public KNN(int k, int trainingNr, int testNr, List<Article> articleList, Metric metric)
@@ -61,9 +64,12 @@ namespace Zadanie1_KSR
                 AddToMatrix(matrix, testArticles[x].GetPlace(), classifiedPlace);
             }
 
-            double correctSum = matrix[0][0] + matrix[1][1] + matrix[2][2] + matrix[3][3] + matrix[4][4] +
-                                matrix[5][5];
-            accuracy = correctSum / testArticles.Count * 100;
+            countAccuracyPrecisionRecall();
+
+            // double correctSum = matrix[0][0] + matrix[1][1] + matrix[2][2] + matrix[3][3] + matrix[4][4] +
+            //                     matrix[5][5];
+            // accuracy = Math.Round((double) correctSum / testArticles.Count * 100000) / 1000; 
+            // correctSum / testArticles.Count * 100;
         }
 
         public void SetK(int k)
@@ -176,7 +182,7 @@ namespace Zadanie1_KSR
             Console.WriteLine();
         }
 
-        public void PrintAccPreRec()
+        public void PrintAccPreRecAllClasses()
         {
             Console.WriteLine("\n Place  Precision  Recall");
             for (int i = 0; i < 6; i++)
@@ -189,18 +195,47 @@ namespace Zadanie1_KSR
                     sumRow += matrix[j][i];
                 }
 
-                var recall = sumCol == 0 ? 0 : Math.Round((double) matrix[i][i] / sumCol * 100000) / 1000;
-                var precision = sumRow == 0 ? 0 : Math.Round((double) matrix[i][i] / sumRow * 100000) / 1000;
+                recall = sumCol == 0 ? 0 : Math.Round((double) matrix[i][i] / sumCol * 100000) / 1000;
+                precision = sumRow == 0 ? 0 : Math.Round((double) matrix[i][i] / sumRow * 100000) / 1000;
                 Console.WriteLine(GetStringFromIndex(i) + "  " + recall + "  " + precision);
             }
 
             Console.WriteLine("Accuracy: " + Math.Round(accuracy * 1000) / 1000);
         }
 
+        public void countAccuracyPrecisionRecall()
+        {
+            var tp = matrix[0][0];
+            var tn = matrix[1][1] + matrix[2][2] + matrix[3][3] + matrix[4][4] + matrix[5][5];
+            var fp = 0;
+            var fn = 0;
+            // var tn = matrix[0][0];
+            // var tp = matrix[1][1] + matrix[2][2] + matrix[3][3] + matrix[4][4] + matrix[5][5];
+            // var fn = 0;
+            // var fp = 0;
+            for (var i = 0; i < 6; i++)
+            {
+                for (var j = i + 1; j < 6; j++)
+                {
+                    fp += matrix[i][j];
+                    fn += matrix[j][i];
+                }
+            }
+
+            Console.WriteLine("tp: " + tp + " tn: " + tn + " fp: " + fp + " fn: " + fn);
+            recall = tp + fn == 0 ? 0 : Math.Round((double) tp / (tp + fn) * 100000) / 1000;
+            precision = tp + fp == 0 ? 0 : Math.Round((double) tp / (tp + fp) * 100000) / 1000;
+            accuracy = tn + tp + fn + fp == 0
+                ? 0
+                : Math.Round((double) (tn + tp) / (tn + tp + fn + fp) * 100000) / 1000;
+            // Console.WriteLine(accuracy + "  " + precision + "  " + recall);
+        }
+
         public void PrintAllProperties()
         {
-            Console.WriteLine("Settings: k=" + k + " , training=" + trainingNr + "%, test=" + testNr + "%, metric=" +
+            Console.WriteLine("{Settings: k=" + k + " , training=" + trainingNr + "%, test=" + testNr + "%, metric=" +
                               metric.GetType().ToString().Split(".")[^1]);
+            Console.WriteLine("a: " + accuracy + " p: " + precision + " r: " + recall + "    }");
         }
     }
 }
@@ -213,11 +248,19 @@ namespace Zadanie1_KSR
                         west-germany 95      8      5    13           14  13
                         uk          450     30     15    44           18  80
                                     |                                       a
-                                    V                                        c    
-                                    recall                                    c
-                                                                               u
-                                                                                r
-                                                                                 a 
-                                                                                  c
-                                                                                   y
+                                    V                                          c    
+                                    recall                                        c
+                                                                                     u
+                                                                                        r
+                                                                                           a 
+                                                                                              c
+                                                                                                 y
+                  real                              
+ p               usa     i 
+ r   usa        6079    1235         tn fn 
+ e   i           555     62          fp tp
+ d   
+               recall = 62 / 62+1235
+               precision = 62 / 62+555
+               accuracy = 6079+62 / 1235+555
  */

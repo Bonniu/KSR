@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  29 APR 2020 13:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  1 MAY 2020 13:27
 entering extended mode
 **./sprawozdanie.tex
 (sprawozdanie.tex
@@ -411,19 +411,19 @@ File: ./rys/exampleRun.png Graphic file (type png)
 <use ./rys/exampleRun.png>
 Package pdftex.def Info: ./rys/exampleRun.png  used on input line 256.
 (pdftex.def)             Requested size: 155.99762pt x 71.16125pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 <./rys/uml.png, id=202, 1142.2675pt x 1681.28125pt>
 File: ./rys/uml.png Graphic file (type png)
 <use ./rys/uml.png>
 Package pdftex.def Info: ./rys/uml.png  used on input line 264.
 (pdftex.def)             Requested size: 390.0pt x 574.03958pt.
 
-
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7 <./rys/exampleRun.png>]
-Underfull \vbox (badness 4832) has occurred while \output is active []
-
- [8 <./rys/uml.png>] [9]
+[7] [8 <./rys/exampleRun.png>] [9 <./rys/uml.png>]
 <./rys/accuracyK.png, id=222, 547.2947pt x 313.9228pt>
 File: ./rys/accuracyK.png Graphic file (type png)
 <use ./rys/accuracyK.png>
@@ -505,7 +505,7 @@ TeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cm/cmsy8.pfb>
-Output written on sprawozdanie.pdf (16 pages, 429717 bytes).
+Output written on sprawozdanie.pdf (16 pages, 430184 bytes).
 PDF statistics:
  748 PDF objects out of 1000 (max. 8388607)
  91 named destinations out of 1000 (max. 500000)
