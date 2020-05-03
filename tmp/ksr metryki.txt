@@ -1,0 +1,34 @@
+{Settings: k=13 , training=70%, test=30%, metric=ManhattanMetric
+
+ Place  Precision  Recall
+usa  81,843  99,367
+canada  33,333  0,877
+france  0  0
+japan  16,667  0,599
+west-germany  100  1,042
+uk  27,273  3,03
+Accuracy: 81,384
+
+
+{Settings: k=13 , training=70%, test=30%, metric=ChebyshewMetric
+
+ Place  Precision  Recall
+usa  81,771  99,156
+canada  30  1,316
+france  0  0
+japan  16,667  0,599
+west-germany  33,333  1,042
+uk  9,524  1,01
+Accuracy: 81,138
+
+
+{Settings: k=13 , training=70%, test=30%, metric=EuclideanMetric
+
+ Place  Precision  Recall
+usa  81,825  99,246
+canada  33,333  0,877
+france  0  0
+japan  33,333  0,599
+west-germany  100  1,042
+uk  21,429  3,03
+Accuracy: 81,285

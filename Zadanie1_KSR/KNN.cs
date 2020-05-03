@@ -64,12 +64,11 @@ namespace Zadanie1_KSR
                 AddToMatrix(matrix, testArticles[x].GetPlace(), classifiedPlace);
             }
 
-            countAccuracyPrecisionRecall();
+            //countAccuracyPrecisionRecall();
 
-            // double correctSum = matrix[0][0] + matrix[1][1] + matrix[2][2] + matrix[3][3] + matrix[4][4] +
-            //                     matrix[5][5];
-            // accuracy = Math.Round((double) correctSum / testArticles.Count * 100000) / 1000; 
-            // correctSum / testArticles.Count * 100;
+            double correctSum = matrix[0][0] + matrix[1][1] + matrix[2][2] + matrix[3][3] + matrix[4][4] +
+                                matrix[5][5];
+            accuracy = Math.Round((double) correctSum / testArticles.Count * 100000) / 1000; 
         }
 
         public void SetK(int k)
@@ -222,7 +221,7 @@ namespace Zadanie1_KSR
                 }
             }
 
-            Console.WriteLine("tp: " + tp + " tn: " + tn + " fp: " + fp + " fn: " + fn);
+            // Console.WriteLine("tp: " + tp + " tn: " + tn + " fp: " + fp + " fn: " + fn);
             recall = tp + fn == 0 ? 0 : Math.Round((double) tp / (tp + fn) * 100000) / 1000;
             precision = tp + fp == 0 ? 0 : Math.Round((double) tp / (tp + fp) * 100000) / 1000;
             accuracy = tn + tp + fn + fp == 0
@@ -235,7 +234,7 @@ namespace Zadanie1_KSR
         {
             Console.WriteLine("{Settings: k=" + k + " , training=" + trainingNr + "%, test=" + testNr + "%, metric=" +
                               metric.GetType().ToString().Split(".")[^1]);
-            Console.WriteLine("a: " + accuracy + " p: " + precision + " r: " + recall + "    }");
+            //  Console.WriteLine("a: " + accuracy + " p: " + precision + " r: " + recall + "    }");
         }
     }
 }

@@ -37,14 +37,14 @@ namespace Zadanie1_KSR
             Console.WriteLine("Normalizing vectors...");
             NormalizeVectors(list, keyWords);
 
-            KNN knn = new KNN(5, 50, 50, list, new ChebyshewMetric());
+            KNN knn = new KNN(20, 50, 50, list, new ChebyshewMetric());
             Console.WriteLine("Classifying...");
             knn.Classify();
             knn.PrintAllProperties();
             knn.PrintMatrix();
             knn.PrintAccPreRecAllClasses();
 
-            // for (int k = 25; k < 26; k++)
+            // for (int k = 2; k < 26; k++)
             // {
             //     if (k != 2 && k != 3 && k != 4 && k != 5 && k != 7 && k != 10 && k != 13 && k != 15 && k != 20 &&
             //         k != 25)
@@ -52,7 +52,7 @@ namespace Zadanie1_KSR
             //     knn.SetK(k);
             //     knn.Classify();
             //     knn.PrintAllProperties();
-            //     knn.PrintMatrix();
+            //     knn.PrintAccPreRecAllClasses();
             //
             // }
         }
