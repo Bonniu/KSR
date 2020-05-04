@@ -606,25 +606,35 @@ W tym eksperymencie badaliśmy zależność Accuracy od wyboru podzbioru cech. P
 \newpage
 \section{Dyskusja} % Dyskusja
 \subsection{Wyniki klasyfikacji w zależności od parametru k}
-Dobór odpowiedniej wartości parametru k ma duży wpływ na wynik klasyfikacji. Im większa wartość k, tym większa skuteczność klasyfikacji. Można to zauważyć na rysunku \ref{accuracyK}, jak i również tabeli \ref{tabelaK}. Największy skok widać między $k=2$ a $k=3$. Natomiast przy wartościach wyższych niż 10 różnica jest bardzo niewielka. Najlepsze wyniki klasyfikacji były osiągane, gdy $k=25$ - ok. 80\%, natomiast najgorsze, gdy $k=2$ - ok. 68\%. 
+Dobór odpowiedniej wartości parametru k ma duży wpływ na wynik klasyfikacji. Im większa wartość k, tym większa skuteczność klasyfikacji. Można to zauważyć na rysunku \ref{accuracyK}, jak i również tabeli \ref{tabelaK}. Największy skok widać między $k=2$ a $k=3$. Natomiast przy wartościach wyższych niż 10 różnica jest bardzo niewielka. Najlepsze wyniki klasyfikacji były osiągane, gdy $k=25$ - ok. 80\%, natomiast najgorsze, gdy $k=2$ - ok. 68\%.
+
+Porównując miarę Recall na etykiecie USA można zauważyć, że rośnie ona wraz ze wzrostem k, natomiast Precision maleje. Dzieje się tak, ponieważ im większe zostało wybrane k, tym coraz więcej artykułów zostaje zakwalifikowanych jako USA - dla k = 25 dla etykiet $Canada, France, Japan$ oraz $West-Germany$ wyniki zarówno dla Recall oraz Precision wyniosły 0.
 \subsection{Wyniki klasyfikacji w zależności od podziału na dane treningowe i testowe}
 W przypadku podziału na dane testowe i treningowe, dla większej ilości danych treningowych algorytm był w stanie lepiej zaklasyfikować teksty i skuteczność klasyfikacji była wyższa. Dla badanych przez nas podziałów największą skuteczność osiągnął podział 85\% dane treningowe i 15\% dane testowe. Najgorsza jakość klasyfikacji została osiągnięta dla podziału 30\% treningowe / 70\% testowe. 
 
 Analizując rysunek \ref{accuracyTT} oraz tabelę \ref{tabelaTT} największy skok wystąpił między podziałami 50/50 a 70/30. W przypadku tego drugiego podziału algorytm był w stanie się lepiej nauczyć.
+
+Dla małej ilości danych treningowych dla etykiety $west-germany$ Precision i Recall wyniosło 0\%, a dla dużej ilości danych treningowych Precision wyniosło 100\%, a Recall 2,5\%. Dla pozostałych etykiet wyniki były do siebie zbliżone.
 \subsection{Zależność Accuracy od wyboru metryki}
-Wybór metryki w przypadku klasyfikowania artykułów wg kategorii \textsl{places} miał bardzo mały wpływ na wyniki klasyfikacji. Widać to na rysunku \ref{accuracyMetric}, a najlepiej w tabeli \ref{tabelaMetric}. Pomiędzy najlepszym wynikiem dla metryki euklidesowej, a najgorszym dla metryki Czebyszewa różnica była mniejsza niż 0.1 p.p. Możemy więc powiedzieć, że w przypadku algorytmu k-NN wybór metryki ma minimalny wpływ na wyniki klasyfikacji, jednak najlepszą metryką jest metryka euklidesowa.
+Wybór metryki w przypadku klasyfikowania artykułów wg kategorii \textsl{places} miał bardzo mały wpływ na wyniki klasyfikacji. Widać to na rysunku \ref{accuracyMetric}, a najlepiej w tabeli \ref{tabelaMetric}. Pomiędzy najlepszym wynikiem dla metryki euklidesowej, a najgorszym dla metryki Czebyszewa różnica była mniejsza niż 0.1 p.p. 
+
+Wyniki Precision oraz Recall dla poszczególnych etykiet również są bardzo do siebie zbliżone, jednak np. w przypadku Canada dla metryki euklidesowej Precision wyniosło 25\%, a dla metryki ulicznej - 100\%. W przypadku algorytmu k-NN wybór metryki ma minimalny wpływ na wyniki klasyfikacji, jednak najlepszą metryką jest metryka euklidesowa.
 \subsection{Różnice w wyborze podzbioru cech}
 Jak można zauważyć na rysunku \ref{accuracyFeatures} oraz tabeli \ref{tabelaFeatures}, najlepszą wartość klasyfikacji (79.81\%) osiągnął podzbiór składający się z cech: $C_1, C_2, C_3, C_4, C_5, C_{11}$. Są to cechy zależne od słów kluczowych. Natomiast cechy niezależące od słów kluczowych, tj. $C_6, C_7, C_8, C_9, C_{10}$ osiągnęły wynik najgorszy (79.558\%). Dla wszystkich cech ten wynik był podobny do wyniku dla cech 6-10. Różnice w skuteczności są niewielkie, lecz zauważalne. 
+
+Dla etykiet $France, Japan, West-Germany$ tylko w jednym przypadku wartości Precision i Recall nie wyniosły 0\% - był to przypadek testowy dla podzbioru cech: $C_6, C_7, C_8, C_9, C_{10}$.
 
 \newpage
 \section{Wnioski}
 \begin{itemize}
 	\item Liczba k sąsiadów ma spory wpływ na skuteczność klasyfikacji. Jednakże, zmiana metryki, bądź podziału na dane testowe i treningowe również ma wpływ na wynik klasyfikacji.
-	\item Również istotny jest podział artykułów na dane testowe i treningowe. 
+	\item Im większe k, tym więcej artykułów zostanie przypisanych do klasy dominującej.
+	\item Również istotny jest podział artykułów na dane testowe i treningowe zarówno dla Accuracy, jak i Precision i Recall. 
 	\item W przypadku zbyt małej ilości danych treningowych wystąpi zjawisko niedouczenia.
 	\item W przypadku zbyt dużej ilości danych treningowych wystąpi zjawisko przeuczenia.
 	\item Wybór metryki ma minimalny, bliski zeru wpływ na wyniki klasyfikacji.
-	\item Najlepszymi cechami do klasyfikacji tekstów będą te cechy, które zależą od słów kluczowych, ale tylko wtedy, gdy te zostaną wybrane równomiernie dla każdej kategorii.
+	\item Wartość Accuracy jest największa dla cech, które zależą od słów kluczowych.
+
 \end{itemize}
 
 
