@@ -48,8 +48,23 @@
 	Do przeprowadzania badań oraz do generowania podsumowań wykorzystaliśmy bazę danych dotyczącą piłkarzy z gry FIFA 20. Pochodzi ona ze źródła \cite{baza}. Składa się ona z 18278 rekordów posiadających 104 atrybuty. Do naszego projektu skorzystamy z 11. Są to następujące atrybuty:
 	
 	\begin{enumerate}
-		\item Wiek - \textsl{age} - wartość z przedziału [16, 42]
-		\item Wzrost (w cm) - \textsl{height\_cm} - wartość z przedziału [156, 205]
+		\item Wiek - \textsl{age} - wartość z przedziału [16, 42] \\
+		Przykładowe zmienne lingwistyczne dla wieku: 
+		\begin{itemize}
+			\item \textsl{(16-21) bardzo młody}
+			\item \textsl{(22-25) młody}
+			\item \textsl{(26-32) średni}
+			\item \textsl{(33-42) stary}
+		\end{itemize}
+		Należy zauważyć, że wiek w przypadku zawodnika piłki nożnej oceniany jest w inny sposób niż wiek przeciętnego człowieka.
+		\item Wzrost (w cm) - \textsl{height\_cm} - wartość z przedziału [156, 205] \\
+		Przykładowe zmienne lingwistyczne dla wzrostu: 
+		\begin{itemize}
+			\item \textsl{(156-166) niski}
+			\item \textsl{(167-177) średni}
+			\item \textsl{(178-188) wysoki}
+			\item \textsl{(189-205) bardzo wysoki}
+		\end{itemize}
 		\item Waga (w kg) - \textsl{weight\_kg} - wartość z przedziału [50, 110]
 		\item Ocena ogólna - \textsl{overall} - wartość z przedziału [48, 94]
 		\item Wartość zawodnika (w EUR) - \textsl{value\_eur} - wartość z przedziału [0, 106 000 000]
@@ -57,7 +72,15 @@
 		\item Dribbling - \textsl{skill\_dribbling} - wartość z przedziału [4, 97]
 		\item Podkręcenie piłki - \textsl{skill\_curve} - wartość z przedziału [6, 94]
 		\item Długie podania - \textsl{skill\_long\_passing} - wartość z przedziału [8, 92]
-		\item Sprint - \textsl{movement\_sprint\_speed} - wartość z przedziału [11, 96]
+		\item Sprint - \textsl{movement\_sprint\_speed} - wartość z przedziału [11, 96] \\
+		Przykładowe zmienne lingwistyczne dla sprintu: 
+		\begin{itemize}
+			\item \textsl{(11-30) bardzo wolny}
+			\item \textsl{(31-55) wolny}
+			\item \textsl{(56-70) średni}
+			\item \textsl{(71-85) szybki}
+			\item \textsl{(86-96) bardzo szybki}
+		\end{itemize}
 		\item Siła strzału - \textsl{power\_shot\_power} - wartość z przedziału [14, 95]
 	\end{enumerate}
 
