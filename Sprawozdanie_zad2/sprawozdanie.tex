@@ -40,6 +40,35 @@
 	
 	\section{Wprowadzenie} % Wprowadzenie
 	
+	\subsection{Funkcja trójkątna}
+	
+
+\[\mu_A(x) = \begin{cases}
+\frac{x-a}{b-a} & \mbox{gdy } x \in (a,\, b), \\
+1                 & \mbox{gdy } x = b, \\
+\frac{c-x}{c-b} & \mbox{gdy } x \in (b,\, c), \\
+0                 & \mbox{w przeciwnym razie}.
+\end{cases}\]
+	\subsection{Funkcja trapezoidalna}
+
+\[\mu_A(x) = \begin{cases}
+(x - a) / (b - a) & \mbox{gdy } x \in (a,\, b), \\
+1                 & \mbox{gdy } x \in [b,\, c], \\
+(d - x) / (d - c) & \mbox{gdy } x \in (c,\, d), \\
+0                 & \mbox{w przeciwnym razie}.
+\end{cases}\]
+	
+	
+	\subsection{Funkcja Gaussowska \cite{kul}} 
+\begin{equation}
+	\mu_A(x) = e^{-\frac{x - \bar{x}}{\sigma}^2}
+\end{equation}
+gdzie 
+\begin{itemize}
+	\item $\bar{x}$ jest środkiem funkcji,
+	\item $\sigma$ określa szerokość krzywej Gaussowskiej. 
+\end{itemize}
+	
 	\section{Opis implementacji} % Opis implementacji
 	Program został stworzony w języku C\#. Graficzny interfejs użytkownika został stworzony przy wykorzystaniu Windows Presentation Foundation. \ldots 
 	
@@ -96,7 +125,8 @@
 	
 	\begin{thebibliography} {0}
 		\bibitem{anbook} Niewiadomski, Adam. Methods for the Linguistic Summarization of Data: Applications of Fuzzy Sets and Their Extensions. Akademicka Oficyna Wydawnicza EXIT. Warszawa, 2008. ISBN 978-83-60434-40-6
-		\bibitem{baza} https://www.kaggle.com/stefanoleone992/fifa-20-complete-player-dataset
+		\bibitem{baza} https://www.kaggle.com/stefanoleone992/fifa-20-complete-player-dataset 
+		\bibitem{kul} https://pracownik.kul.pl/files/31717/public/Funkcje\_przynaleznosci.pdf [dostęp 07.05.2020]
 		
 	\end{thebibliography}
 \end{document}
