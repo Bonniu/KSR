@@ -40,34 +40,43 @@
 	
 	\section{Wprowadzenie} % Wprowadzenie
 	
-	\subsection{Funkcja trójkątna}
-	
-
-\[\mu_A(x) = \begin{cases}
-\frac{x-a}{b-a} & \mbox{gdy } x \in (a,\, b), \\
-1                 & \mbox{gdy } x = b, \\
-\frac{c-x}{c-b} & \mbox{gdy } x \in (b,\, c), \\
-0                 & \mbox{w przeciwnym razie}.
-\end{cases}\]
 	\subsection{Funkcja trapezoidalna}
-
-\[\mu_A(x) = \begin{cases}
-(x - a) / (b - a) & \mbox{gdy } x \in (a,\, b), \\
-1                 & \mbox{gdy } x \in [b,\, c], \\
-(d - x) / (d - c) & \mbox{gdy } x \in (c,\, d), \\
-0                 & \mbox{w przeciwnym razie}.
-\end{cases}\]
+	Funkcja trapezoidalna przyjmuje 4 parametry a, b, c, d, dla których spełniony jest warunek a $\leq$ b $\leq$ c $\leq$ d. Jej wzór jest następujący \cite{anbook}: 
+	
+	\begin{equation}
+	\mu_A(x) = \begin{cases}
+	\frac{x-a}{b-a} & \mbox{gdy } x \in (a,\, b), \\
+	1                 & \mbox{gdy } x \in [b,\, c], \\
+	\frac{d-x}{d-c} & \mbox{gdy } x \in (c,\, d), \\
+	0                 & \mbox{w przeciwnym razie}.
+	\end{cases}
+	\end{equation}
 	
 	
-	\subsection{Funkcja Gaussowska \cite{kul}} 
-\begin{equation}
-	\mu_A(x) = e^{(-(\frac{x - \bar{x}}{\sigma})^2)}
-\end{equation}
-gdzie 
-\begin{itemize}
-	\item $\bar{x}$ jest środkiem funkcji,
-	\item $\sigma$ określa szerokość krzywej Gaussowskiej. 
-\end{itemize}
+	\subsection{Funkcja trójkątna}
+	Funkcja trójkątna jest szczególnym przypadkiem funkcji trapezoidalnej. Przyjmuje ona trzy parametry a, b, c, dla których zachodzi warunek a $\leq$ b $\leq$ c. Te parametry określają punkty ,,załamania'' tej funkcji. Jej wzór jest następujący \cite{funkcje}: 
+	\begin{equation}
+	\mu_A(x) = \begin{cases}
+	\frac{x-a}{b-a} & \mbox{gdy } x \in (a,\, b), \\
+	1                 & \mbox{gdy } x = b, \\
+	\frac{c-x}{c-b} & \mbox{gdy } x \in (b,\, c), \\
+	0                 & \mbox{w przeciwnym razie}.
+	\end{cases}
+	\end{equation}
+	
+	
+	
+	
+	\subsection{Funkcja Gaussowska} 
+	Funkcja Gaussowska jest definiowana przez 2 parametry które określają środek funkcji oraz jej szerokość. Wzór jest następujący \cite{kul}:
+	\begin{equation}
+		\mu_A(x) = e^{(-(\frac{x - \bar{x}}{\sigma})^2)}
+	\end{equation}
+	gdzie 
+	\begin{itemize}
+		\item $\bar{x}$ jest środkiem funkcji,
+		\item $\sigma$ określa szerokość krzywej Gaussowskiej. 
+	\end{itemize}
 	
 	\section{Opis implementacji} % Opis implementacji
 	Program został stworzony w języku C\#. Graficzny interfejs użytkownika został stworzony przy wykorzystaniu Windows Presentation Foundation. \ldots 
@@ -454,6 +463,6 @@ gdzie
 		\bibitem{anbook} Niewiadomski, Adam. Methods for the Linguistic Summarization of Data: Applications of Fuzzy Sets and Their Extensions. Akademicka Oficyna Wydawnicza EXIT. Warszawa, 2008. ISBN 978-83-60434-40-6
 		\bibitem{baza} https://www.kaggle.com/stefanoleone992/fifa-20-complete-player-dataset 
 		\bibitem{kul} https://pracownik.kul.pl/files/31717/public/Funkcje\_przynaleznosci.pdf [dostęp 07.05.2020]
-		
+		\bibitem{funkcje} http://ii.uwb.edu.pl/rudnicki/wp-content/uploads/2016/02/P07.pdf [dostęp 08.05.2020]
 	\end{thebibliography}
 \end{document}
