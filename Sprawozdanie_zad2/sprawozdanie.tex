@@ -77,23 +77,15 @@ gdzie
 	Do przeprowadzania badań oraz do generowania podsumowań wykorzystaliśmy bazę danych dotyczącą piłkarzy z gry FIFA 20. Pochodzi ona ze źródła \cite{baza}. Składa się ona z 18278 rekordów posiadających 104 atrybuty. Do naszego projektu skorzystamy z 11. Są to następujące atrybuty:
 	
 	\begin{enumerate}
-		\item Wiek - \textsl{age} - wartość z przedziału [16, 42] \\
-		\item Wzrost (w cm) - \textsl{height\_cm} - wartość z przedziału [156, 205] \\
+		\item Wiek - \textsl{age} - wartość z przedziału [16, 42]
+		\item Wzrost (w cm) - \textsl{height\_cm} - wartość z przedziału [156, 205]
 		\item Waga (w kg) - \textsl{weight\_kg} - wartość z przedziału [50, 110]
 		\item Ocena ogólna - \textsl{overall} - wartość z przedziału [48, 94]
 		\item Wykończenie - \textsl{attacking\_finishing} - wartość z przedziału [2, 95]
 		\item Dribbling - \textsl{skill\_dribbling} - wartość z przedziału [4, 97]
 		\item Podkręcenie piłki - \textsl{skill\_curve} - wartość z przedziału [6, 94]
 		\item Długie podania - \textsl{skill\_long\_passing} - wartość z przedziału [8, 92]
-		\item Sprint - \textsl{movement\_sprint\_speed} - wartość z przedziału [11, 96] \\
-		Przykładowe zmienne lingwistyczne dla sprintu: 
-		\begin{itemize}
-			\item \textsl{(11-30) bardzo wolny}
-			\item \textsl{(31-55) wolny}
-			\item \textsl{(56-70) średni}
-			\item \textsl{(71-85) szybki}
-			\item \textsl{(86-96) bardzo szybki}
-		\end{itemize}
+		\item Sprint - \textsl{movement\_sprint\_speed} - wartość z przedziału [11, 96]
 		\item Siła strzału - \textsl{power\_shot\_power} - wartość z przedziału [14, 95]
 	\end{enumerate}
 
@@ -123,7 +115,7 @@ gdzie
 			stary & 31 & 34 & 42 & 42  \\
 			\hline
 		\end{tabular}
-		\caption{Funkcja przynależności (trapezoidalna) dla atrybutu Wiek. }
+		\caption{Przyporządkowane parametry funkcji trapezoidalnej dla atrybutu  Wiek. }
 		\label{tabelaWiek}
 	\end{table}
 
@@ -157,7 +149,7 @@ gdzie
 			bardzo wysoki & 186 & 205 & 205  \\
 			\hline
 		\end{tabular}
-		\caption{Funkcja przynależności (trójkątna) dla atrybutu Wzrost. }
+		\caption{Przyporządkowane parametry funkcji trójkątnej dla atrybutu Wzrost. }
 		\label{tabelaWzrost}
 	\end{table}
 	
@@ -191,7 +183,7 @@ gdzie
 			gruby & 110 & 8  \\
 			\hline
 		\end{tabular}
-		\caption{Funkcja przynależności (gaussowska) dla atrybutu Waga. }
+		\caption{Przyporządkowane parametry funkcji gaussowskiej dla atrybutu  Waga. }
 		\label{tabelaWaga}
 	\end{table}
 	
@@ -225,7 +217,7 @@ gdzie
 			bardzo dobry & 85 & 90 & 94 & 94  \\
 			\hline
 		\end{tabular}
-		\caption{Funkcja przynależności (trapezoidalna) dla atrybutu Ocena ogólna. }
+		\caption{Przyporządkowane parametry funkcji trapezoidalnej dla atrybutu  Ocena ogólna. }
 		\label{tabelaOverall}
 	\end{table}
 	
@@ -241,10 +233,11 @@ gdzie
 	\newpage
 	\subsubsection{Wykończenie}
 	\begin{itemize}
-		\item \textsl{(48-65) słaby} 222222222222222222222222222222222222222222222222222
-		\item \textsl{(60-75) średni}222222222222222222222222222222222222222222222222222
-		\item \textsl{(70-87) dobry}222222222222222222222222222222222222222222222222222
-		\item \textsl{(85-94) bardzo dobry}222222222222222222222222222222222222222222222222222
+		\item \textsl{(2-35) bardzo słabe}
+		\item \textsl{(30-60) słabe}
+		\item \textsl{(50-80) średnie}
+		\item \textsl{(75-87) dobre}
+		\item \textsl{(85-95) bardzo dobre}
 	\end{itemize}
 	
 	\begin{table}[h!]
@@ -254,22 +247,201 @@ gdzie
 			\textbf{Etykieta} & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} \\ [0.5ex] 
 			\hline	
 			\hline 
-			słaby & 48 & 48 & 59 & 62222222222222222222222222222222222222222222222222225  \\
-			średni & 60 & 65 & 70 & 72222222222222222222222222222222222222222222222222225  \\
-			dobry & 70 & 78 & 85 & 82222222222222222222222222222222222222222222222222227  \\
-			bardzo dobry & 85 & 90 & 94 & 92222222222222222222222222222222222222222222222222224  \\
+			bardzo słabe & 2 & 2 & 25 & 35  \\
+			słabe & 30 & 35 & 50 & 60  \\
+			średnie & 50 & 55 & 75 & 80  \\
+			dobre & 75 & 80 & 85 & 87  \\
+			bardzo dobre & 85 & 90 & 95 & 95  \\			
 			\hline
 		\end{tabular}
-		\caption{Funkcja przynależności (trapezoid222222222222222222222222222222222222222222222222222alna) dla atrybutu Wykończenie. }
-		\label{tabelaOverall}
+		\caption{Przyporządkowane parametry funkcji trapezoidalnej dla atrybutu  Wykończenie. }
+		\label{tabelaWykonczenie}
 	\end{table}
 	
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.9\textwidth]{zmienne/4.png}
-		\caption{Funkcja przynależności (trapezoid222222222222222222222222222222222222222222222222222alna) dla atrybutu Wykończenie.}
-		\label{wykresOverall}
+		\includegraphics[width=0.9\textwidth]{zmienne/5.png}
+		\caption{Funkcja przynależności (trapezoidalna) dla atrybutu Wykończenie.}
+		\label{wykresWykonczenie}
 	\end{figure}
+
+	
+	% Dribbling -------------------------------
+	\newpage
+	\subsubsection{Dribbling}
+	\begin{itemize}
+		\item \textsl{(4-35) bardzo słaby}
+		\item \textsl{(30-60) słaby}
+		\item \textsl{(50-70) średni}
+		\item \textsl{(68-87) dobry}
+		\item \textsl{(85-97) bardzo dobry}
+	\end{itemize}
+	
+	\begin{table}[h!]
+		\centering
+		\begin{tabular} {c c c c c}
+			\hline
+			\textbf{Etykieta} & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} \\ [0.5ex] 
+			\hline	
+			\hline 
+			bardzo słaby & 4 & 4 & 25 &	35 \\
+			słaby & 30 & 35 & 50 & 60  \\
+			średni & 50 & 55 & 68 & 70  \\
+			dobry & 68 & 73 & 85 & 87  \\
+			bardzo dobry & 85 & 90 & 97 & 97  \\		
+			\hline
+		\end{tabular}
+		\caption{Przyporządkowane parametry funkcji trapezoidalnej dla atrybutu Dribbling. }
+		\label{tabelaDribbling}
+	\end{table}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\textwidth]{zmienne/6.png}
+		\caption{Funkcja przynależności (trapezoidalna) dla atrybutu Dribbling.}
+		\label{wykresDribbling}
+	\end{figure}
+	
+	
+	% Podkręcenie piłki -------------------------------
+	\newpage
+	\subsubsection{Podkręcenie piłki}
+	\begin{itemize}
+		\item \textsl{(6-35) bardzo słabe}
+		\item \textsl{(30-60) słabe}
+		\item \textsl{(50-70) średnie}
+		\item \textsl{(68-87) dobre}
+		\item \textsl{(85-94) bardzo dobre}
+	\end{itemize}
+	
+	\begin{table}[h!]
+		\centering
+		\begin{tabular} {c c c c}
+			\hline
+			\textbf{Etykieta} & \textbf{a} & \textbf{b} & \textbf{c} \\ [0.5ex] 
+			\hline	
+			\hline 
+			bardzo słabe & 6 & 6 & 35 \\
+			słabe & 20 & 35 & 60   \\
+			średnie & 50 & 60 & 70  \\
+			dobre & 68 & 75 & 87   \\
+			bardzo dobre & 85 & 94 & 94  \\					
+			\hline
+		\end{tabular}
+		\caption{Przyporządkowane parametry funkcji trójkątnej dla atrybutu Podkręcenie piłki. }
+		\label{tabelaPodkrecenie}
+	\end{table}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\textwidth]{zmienne/7.png}
+		\caption{Funkcja przynależności (trójkątna) dla atrybutu Podkręcenie piłki.}
+		\label{wykresPodkrecenie}
+	\end{figure}
+	
+	
+	% Długie podania -------------------------------
+	\newpage
+	\subsubsection{Długie podania}
+	\begin{itemize}
+		\item \textsl{(8-35) bardzo słabe}
+		\item \textsl{(30-60) słabe}
+		\item \textsl{(50-70) średnie}
+		\item \textsl{(68-85) dobre}
+		\item \textsl{(82-92) bardzo dobre}
+	\end{itemize}
+	\begin{table}[h!]
+		\centering
+		\begin{tabular} {c c c c c}
+			\hline
+			\textbf{Etykieta} & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} \\ [0.5ex] 
+			\hline	
+			\hline 
+			bardzo słabe & 8 & 8 & 25 &	35 \\
+			słabe & 30 & 35 & 50 & 60  \\
+			średnie & 50 & 55 & 68 & 70  \\
+			dobre & 68 & 73 & 80 & 85  \\
+			bardzo dobre & 82 & 85 & 92 & 92  \\	
+			\hline
+		\end{tabular}
+		\caption{Przyporządkowane parametry funkcji trapezoidalnej dla atrybutu Długie podania. }
+		\label{tabelaPodania}
+	\end{table}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\textwidth]{zmienne/8.png}
+		\caption{Funkcja przynależności (trapezoidalna) dla atrybutu Długie podania.}
+		\label{wykresPodania}
+	\end{figure}
+
+	% Sprint -------------------------------
+	\newpage
+	\subsubsection{Sprint}
+	\begin{itemize}
+		\item \textsl{(11-30) bardzo wolny}
+		\item \textsl{(31-55) wolny}
+		\item \textsl{(56-70) średni}
+		\item \textsl{(71-85) szybki}
+		\item \textsl{(86-96) bardzo szybki}
+	\end{itemize}
+	\begin{table}[h!]
+		\centering
+		\begin{tabular} {c c c c c}
+			\hline
+			\textbf{Etykieta} & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} \\ [0.5ex] 
+			\hline	
+			\hline 
+			bardzo wolny & 11 & 11 & 25 &	35 \\
+			wolny & 30 & 35 & 48 & 55  \\
+			średni & 50 & 55 & 68 & 70  \\
+			szybki & 68 & 73 & 80 & 86  \\
+			bardzo szybki & 84 & 90 & 96 & 96  \\	
+			\hline
+		\end{tabular}
+		\caption{Przyporządkowane parametry funkcji trapezoidalnej dla atrybutu Sprint. }
+		\label{tabelaSprint}
+	\end{table}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\textwidth]{zmienne/9.png}
+		\caption{Funkcja przynależności (trapezoidalna) dla atrybutu Sprint.}
+		\label{wykresSprint}
+	\end{figure}
+
+
+	% Siła strzału -------------------------------
+	\newpage
+	\subsubsection{Siła strzału}
+	\begin{itemize}
+		\item \textsl{(31-55) słaba}
+		\item \textsl{(56-70) średnia}
+		\item \textsl{(71-85) duża}
+		\item \textsl{(86-95) bardzo duża}
+	\end{itemize}
+	\begin{table}[h!]
+		\centering
+		\begin{tabular} {c c c c c}
+			\hline
+			\textbf{Etykieta} & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} \\ [0.5ex] 
+			\hline	
+			\hline 
+			słaba & 14 & 14 & 45 & 50 \\
+			średnia & 45 & 50 & 60 & 65  \\
+			duża & 62 & 68 & 80 & 82  \\
+			bardzo duża & 80 & 88 & 95 & 95  \\			
+			\hline
+		\end{tabular}
+		\caption{Przyporządkowane parametry funkcji trapezoidalnej dla atrybutu Siła strzału. }
+		\label{tabelaStrzal}
+	\end{table}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\textwidth]{zmienne/10.png}
+		\caption{Funkcja przynależności (trapezoidalna) dla atrybutu Siła strzału.}
+		\label{wykresStrzal}
+	\end{figure}
+
+
 	
 	\section{Wyniki} % Wyniki
 	
