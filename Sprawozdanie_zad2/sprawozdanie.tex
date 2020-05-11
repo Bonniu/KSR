@@ -80,7 +80,7 @@
 
 	\newpage
 	\section{Opis implementacji} % Opis implementacji
-	Program został stworzony w języku C\#. Graficzny interfejs użytkownika został stworzony przy wykorzystaniu Windows Presentation Foundation. Poniżej przedstawiamy uproszczony diagram UML naszego programu.
+	Program został stworzony w języku C\#. Graficzny interfejs użytkownika został stworzony przy wykorzystaniu Windows Presentation Foundation. W programie wykorzystaliśmy bibliotekę AForge. Poniżej przedstawiamy uproszczony diagram UML naszego programu.
 	
 	\begin{figure}[h!]
 		\centering
@@ -88,6 +88,15 @@
 		\caption{Diagram UML.}
 		\label{uml}
 	\end{figure}
+	
+	\begin{itemize}
+		\item Klasy Atrybut i dziedziczące po niej reprezentują poszczególne kolumny w bazie danych
+		\item CSVReader odpowiada za wczytanie pliku csv z danymi do programu
+		\item FifaDatabse odpowiada za bazę danych, czyli przechowywanie wszystkich rekordów
+		\item FuzzySet to klasa odpowiadająca za zbiór rozmyty
+		\item Klasy TrapezoidFunction, GaussianFunction, TriangularFunction odpowiadają za odpowiednie funkcje przynależności
+		\item FifaPlayer to klasa, która reprezentuje krotkę bazy danych.
+	\end{itemize}
 	
 	\section{Materiały i metody} % Materiały i metody
 	\subsection{Baza danych}
