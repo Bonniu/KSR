@@ -25,6 +25,12 @@
   },
   "frameworks": {
     "netcoreapp3.1": {
+      "dependencies": {
+        "LumenWorksCsvReader": {
+          "target": "Package",
+          "version": "[4.0.0, )"
+        }
+      },
       "imports": [
         "net461",
         "net462",

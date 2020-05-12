@@ -15,3 +15,5 @@ D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\obj\D
 D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\obj\Debug\netcoreapp3.1\Zadanie2_KSR.AssemblyInfo.cs
 D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\obj\Debug\netcoreapp3.1\Zadanie2_KSR.dll
 D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\obj\Debug\netcoreapp3.1\Zadanie2_KSR.pdb
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\bin\Debug\netcoreapp3.1\LumenWorks.Framework.IO.dll
+D:\xd\inf\6 semestr\Komputerowe systemy rozpoznawania\KSR git\Zadanie2_KSR\obj\Debug\netcoreapp3.1\Zadanie2_KSR.csproj.CopyComplete

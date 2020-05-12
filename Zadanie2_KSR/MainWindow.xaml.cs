@@ -16,6 +16,8 @@ namespace Zadanie2_KSR
             Console.WriteLine(fpb.build().ToString());
             InitializeComponent();
             Console.WriteLine("Hello world!");
+            CSVReader cs = new CSVReader();
+            cs.intr();
         }
     }
 }
