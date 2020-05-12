@@ -2,86 +2,90 @@
 {
     public class FifaPlayerBuilder
     {
-        private int age;
-        private int height;
-        private int weight;
-        private int overall;
-        private int value;
-        private int finishing;
-        private int dribbling;
-        private int curve;
-        private int passing;
-        private int sprintSpeed;
-        private int shotPower;
+        private int _age;
+        private int _height;
+        private int _weight;
+        private int _overall;
+        private int _finishing;
+        private int _dribbling;
+        private int _curve;
+        private int _passing;
+        private int _sprintSpeed;
+        private int _shotPower;
 
-        public void addAge(int age)
+        public FifaPlayerBuilder AddAge(int age)
         {
-            this.age = age;
+            _age = age;
+            return this;
         }
 
-        public void addHeight(int height)
+        public FifaPlayerBuilder AddHeight(int height)
         {
-            this.height = height;
+            this._height = height;
+            return this;
         }
 
-        public void addWeight(int weight)
+        public FifaPlayerBuilder AddWeight(int weight)
         {
-            this.weight = weight;
+            this._weight = weight;
+            return this;
         }
 
-        public void addOverall(int overall)
+        public FifaPlayerBuilder AddOverall(int overall)
         {
-            this.overall = overall;
+            this._overall = overall;
+            return this;
         }
 
-        public void addValue(int value)
+        public FifaPlayerBuilder AddFinishing(int finishing)
         {
-            this.value = value;
+            this._finishing = finishing;
+            return this;
         }
 
-        public void addFinishing(int finishing)
+        public FifaPlayerBuilder AddDribbling(int dribbling)
         {
-            this.finishing = finishing;
+            this._dribbling = dribbling;
+            return this;
         }
 
-        public void addDribbling(int dribbling)
+        public FifaPlayerBuilder AddCurve(int curve)
         {
-            this.finishing = dribbling;
+            this._curve = curve;
+            return this;
         }
 
-        public void addCurve(int curve)
+        public FifaPlayerBuilder AddPassing(int passing)
         {
-            this.curve = curve;
+            this._passing = passing;
+            return this;
         }
 
-        public void addPassing(int passing)
+        public FifaPlayerBuilder AddSprintSpeed(int sprintSpeed)
         {
-            this.passing = passing;
+            this._sprintSpeed = sprintSpeed;
+            return this;
         }
 
-        public void addSprintSpeed(int sprintSpeed)
+        public FifaPlayerBuilder AddShotPower(int shotPower)
         {
-            this.sprintSpeed = sprintSpeed;
-        }
-
-        public void addShotPower(int shotPower)
-        {
-            this.shotPower = shotPower;
+            this._shotPower = shotPower;
+            return this;
         }
 
 
-        public FifaPlayer build()
+        public FifaPlayer Build()
         {
-            return new FifaPlayer(age, height, weight, overall, value, finishing, dribbling,
-                curve, passing, sprintSpeed, shotPower);
+            return new FifaPlayer(_age, _height, _weight, _overall, _finishing, _dribbling,
+                _curve, _passing, _sprintSpeed, _shotPower);
         }
 
-        public string ToString()
+        public override string ToString()
         {
-            return "{age: " + age + ", height: " + height + ", weight: " + weight + ", overall: " + overall + ", value: " +
-                   value + ", finishing: " + finishing + ", dribbling: " +
-                   dribbling + ", curve: " + curve + ", passing: " + passing + ", sprintSpeed: " + sprintSpeed +
-                   ", shotPower: " + shotPower + "}";
+            return "{age: " + _age + ", height: " + _height + ", weight: " + _weight + ", overall: " + _overall +
+                   ", finishing: " + _finishing + ", dribbling: " +
+                   _dribbling + ", curve: " + _curve + ", passing: " + _passing + ", sprintSpeed: " + _sprintSpeed +
+                   ", shotPower: " + _shotPower + "}";
         }
     }
 }

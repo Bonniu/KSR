@@ -2,110 +2,92 @@
 {
     public class FifaPlayer
     {
-        private int age;
-        private int height;
-        private int weight;
-        private int overall;
-        private int value;
-        private int finishing;
-        private int dribbling;
-        private int curve;
-        private int passing;
-        private int sprintSpeed;
-        private int shotPower;
+        private readonly int _age;
+        private readonly int _height;
+        private readonly int _weight;
+        private readonly int _overall;
+        private readonly int _finishing;
+        private readonly int _dribbling;
+        private readonly int _curve;
+        private readonly int _passing;
+        private readonly int _sprintSpeed;
+        private readonly int _shotPower;
 
         public FifaPlayer()
         {
         }
 
-        public FifaPlayer(int age, int height, int weight, int overall, int value, int finishing, int dribbling,
+        public FifaPlayer(int age, int height, int weight, int overall, int finishing, int dribbling,
             int curve, int passing, int sprintSpeed, int shotPower)
         {
-            this.age = age;
-            this.height = height;
-            this.weight = weight;
-            this.overall = overall;
-            this.value = value;
-            this.finishing = finishing;
-            this.dribbling = dribbling;
-            this.curve = curve;
-            this.passing = passing;
-            this.sprintSpeed = sprintSpeed;
-            this.shotPower = shotPower;
+            this._age = age;
+            this._height = height;
+            this._weight = weight;
+            this._overall = overall;
+            this._finishing = finishing;
+            this._dribbling = dribbling;
+            this._curve = curve;
+            this._passing = passing;
+            this._sprintSpeed = sprintSpeed;
+            this._shotPower = shotPower;
         }
 
-        public int Age
+        public int GetAge()
         {
-            get => age;
-            set => age = value;
+            return _age;
         }
 
-        public int Height
+        public int GetHeight()
         {
-            get => height;
-            set => height = value;
+            return _height;
         }
 
-        public int Weight
+        public int GetWeight()
         {
-            get => weight;
-            set => weight = value;
+            return _weight;
         }
 
-        public int Overall
+        public int GetOverall()
         {
-            get => overall;
-            set => overall = value;
+            return _overall;
         }
 
-        public int Value
+        public int GetFinishing()
         {
-            get => value;
-            set => this.value = value;
+            return _finishing;
         }
 
-        public int Finishing
+        public int GetDribbling()
         {
-            get => finishing;
-            set => finishing = value;
+            return _dribbling;
         }
 
-        public int Dribbling
+        public int GetCurve()
         {
-            get => dribbling;
-            set => dribbling = value;
+            return _curve;
         }
 
-        public int Curve
+        public int GetPassing()
         {
-            get => curve;
-            set => curve = value;
+            return _passing;
         }
 
-        public int Passing
+        public int GetSprintSpeed()
         {
-            get => passing;
-            set => passing = value;
+            return _sprintSpeed;
         }
 
-        public int SprintSpeed
+        public int GetShotPower()
         {
-            get => sprintSpeed;
-            set => sprintSpeed = value;
+            return _shotPower;
         }
 
-        public int ShotPower
+        public override string ToString()
         {
-            get => shotPower;
-            set => shotPower = value;
-        }
-
-        public string ToString()
-        {
-            return "{age: " + age + ", height: " + height + ", weight: " + weight + ", overall: " + overall + ", value: " +
-                   value + ", finishing: " + finishing + ", dribbling: " +
-                   dribbling + ", curve: " + curve + ", passing: " + passing + ", sprintSpeed: " + sprintSpeed +
-                   ", shotPower: " + shotPower + "}";
+            return "{age: " + _age + ", height: " + _height + ", weight: " + _weight + ", overall: " + _overall +
+                   ", finishing: " + _finishing + ", dribbling: " +
+                   _dribbling + ", curve: " + _curve + ", passing: " + _passing + ", sprintSpeed: " + _sprintSpeed +
+                   ", shotPower: " + _shotPower + "}";
         }
     }
 }

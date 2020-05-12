@@ -10,14 +10,16 @@ namespace Zadanie2_KSR
     {
         public MainWindow()
         {
-            FifaPlayerBuilder fpb = new FifaPlayerBuilder();
-            fpb.addCurve(22);
-            Console.WriteLine(fpb.ToString());
-            Console.WriteLine(fpb.build().ToString());
             InitializeComponent();
             Console.WriteLine("Hello world!");
-            CSVReader cs = new CSVReader();
-            cs.intr();
+
+
+            var cs = new CsvReader();
+            var fifaPlayers = cs.ReadCsvFile();
+            for (int i = 0; i < fifaPlayers.Count; i++)
+            {
+                Console.WriteLine(fifaPlayers[i].ToString());
+            }
         }
     }
 }

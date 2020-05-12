@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
-using LumenWorks.Framework.IO.Csv;
 
 namespace Zadanie2_KSR
 {
-    public class CSVReader
+    public class CsvReader
     {
-        public void intr()
+        public List<FifaPlayer> ReadCsvFile()
         {
             using var reader = new StreamReader(@"..\..\..\data\players_10.csv");
+            var list = new List<FifaPlayer>();
             while (!reader.EndOfStream)
             {
                 var attributes = new List<int>();
@@ -22,17 +21,20 @@ namespace Zadanie2_KSR
                 {
                     attributes.Add(Convert.ToInt32(lineValues[i]));
                 }
-                CreatePlayer(attributes);
+
+                list.Add(CreatePlayer(attributes));
             }
+
+            return list;
         }
 
-        private void CreatePlayer(List<int> values)
+        private FifaPlayer CreatePlayer(List<int> values)
         {
-            for (int i = 0; i < values.Count; i++)
-            {
-                Console.Write(values[i] + " ");
-            }
-            Console.WriteLine("\n");
+            var fifaPlayerBuilder = new FifaPlayerBuilder();
+            var fp = fifaPlayerBuilder.AddAge(values[0]).AddHeight(values[1]).AddWeight(values[2])
+                .AddOverall(values[3]).AddFinishing(values[4]).AddDribbling(values[5]).AddCurve(values[6])
+                .AddPassing(values[7]).AddSprintSpeed(values[8]).AddShotPower(values[9]).Build();
+            return fp;
         }
     }
 }

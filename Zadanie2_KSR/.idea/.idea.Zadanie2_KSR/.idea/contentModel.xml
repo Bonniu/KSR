@@ -7,6 +7,10 @@
       <e p="App.xaml" t="Include" />
       <e p="App.xaml.cs" t="Include" />
       <e p="AssemblyInfo.cs" t="Include" />
+      <e p="Attributes" t="Include">
+        <e p="Attribute.cs" t="Include" />
+        <e p="AttributeWiek.cs" t="Include" />
+      </e>
       <e p="bin" t="ExcludeRecursive" />
       <e p="CSVReader.cs" t="Include" />
       <e p="data" t="Include">
@@ -18,6 +22,12 @@
       <e p="FifaPlayerBuilder.cs" t="Include" />
       <e p="MainWindow.xaml" t="Include" />
       <e p="MainWindow.xaml.cs" t="Include" />
+      <e p="MembershipFunctions" t="Include">
+        <e p="GaussianFunction.cs" t="Include" />
+        <e p="MembershipFunction.cs" t="Include" />
+        <e p="TrapezoidalFunction.cs" t="Include" />
+        <e p="TriangularFunction.cs" t="Include" />
+      </e>
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.1" t="Include">
