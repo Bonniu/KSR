@@ -14,17 +14,20 @@ namespace Zadanie2_KSR
             Console.WriteLine("Hello world!");
 
 
-            var cs = new CsvReader();
-            var fifaPlayers = cs.ReadCsvFile();
-            for (int i = 0; i < fifaPlayers.Count; i++)
+            var fifaPlayers = new CsvReader().ReadCsvFile();
+
+
+            foreach (var t in fifaPlayers)
             {
-                Console.WriteLine(fifaPlayers[i].ToString());
+                Console.WriteLine(t.ToString());
             }
 
-            foreach (var x in Attributes.Attributes.GetAllAgeVariables())
+            foreach (var x in Attributes.Attributes.GetAllVariables())
             {
                 Console.WriteLine(x.ToString());
             }
+
+            
         }
     }
 }

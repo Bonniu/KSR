@@ -26,11 +26,7 @@ namespace Zadanie2_KSR
         {
             return new List<LinguisticVariable>
             {
-                PrawieNikt,
-                Mniejszosc,
-                Polowa,
-                Wiekszosc,
-                PrawieWszyscy
+                PrawieNikt, Mniejszosc, Polowa, Wiekszosc, PrawieWszyscy
             };
         }
     }

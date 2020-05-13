@@ -8,7 +8,7 @@ namespace Zadanie2_KSR.MembershipFunctions
         private readonly double _b;
         private readonly double _c;
 
-        public TriangularFunction(double a, double b, double c, double d)
+        public TriangularFunction(double a, double b, double c)
         {
             _a = a;
             _b = b;

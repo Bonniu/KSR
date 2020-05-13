@@ -6,12 +6,13 @@ namespace Zadanie2_KSR.MembershipFunctions
     {
         private readonly double _avgX;
         private readonly double _width;
-        
-        public GaussianFunction(double a, double b)
+
+        public GaussianFunction(double avgX, double width)
         {
-            _avgX = a;
-            _width = b;
+            _avgX = avgX;
+            _width = width;
         }
+
         public double CountValue(int x)
         {
             var tmpFraction = (x - _avgX) / _width;
