@@ -1,22 +1,35 @@
-﻿namespace Zadanie2_KSR.MembershipFunctions
+﻿using System;
+
+namespace Zadanie2_KSR.MembershipFunctions
 {
-    public class TriangularFunction : MembershipFunction
+    public class TriangularFunction : IMembershipFunction
     {
-        public double CountValue(int a, int b, int c, int x)
+        private readonly double _a;
+        private readonly double _b;
+        private readonly double _c;
+
+        public TriangularFunction(double a, double b, double c, double d)
         {
-            if (x > a && x < b)
+            _a = a;
+            _b = b;
+            _c = c;
+        }
+
+        public double CountValue(int x)
+        {
+            if (x > _a && x < _b)
             {
-                return (double) (x - a) / (b - a);
+                return (x - _a) / (_b - _a);
             }
 
-            if (x == b)
+            if (Math.Abs(x - _b) < 0.00000001)
             {
                 return 1;
             }
 
-            if (x > b && x < c)
+            if (x > _b && x < _c)
             {
-                return (double) (c - x) / (c - b);
+                return (_c - x) / (_c - _b);
             }
 
             return 0;

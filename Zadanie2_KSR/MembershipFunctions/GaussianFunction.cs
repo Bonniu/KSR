@@ -2,11 +2,19 @@
 
 namespace Zadanie2_KSR.MembershipFunctions
 {
-    public class GaussianFunction : MembershipFunction
+    public class GaussianFunction : IMembershipFunction
     {
-        public double CountValue(double avgX, double width, int x)
+        private readonly double _avgX;
+        private readonly double _width;
+        
+        public GaussianFunction(double a, double b)
         {
-            var tmpFraction = (x - avgX) / width;
+            _avgX = a;
+            _width = b;
+        }
+        public double CountValue(int x)
+        {
+            var tmpFraction = (x - _avgX) / _width;
             return Math.Exp(-tmpFraction * tmpFraction);
         }
     }

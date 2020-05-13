@@ -1,21 +1,37 @@
 ﻿namespace Zadanie2_KSR.MembershipFunctions
 {
-    public class TrapezoidalFunction : MembershipFunction
+    public class TrapezoidalFunction : IMembershipFunction
     {
-        public double CountValue(int a, int b, int c, int d, int x)
+        private readonly double _a;
+        private readonly double _b;
+        private readonly double _c;
+        private readonly double _d;
+
+        public TrapezoidalFunction(double a, double b, double c, double d)
         {
-            if (x > a && x < b)
+            _a = a;
+            _b = b;
+            _c = c;
+            _d = d;
+        }
+
+        public double CountValue(int x)
+        {
+            if (x > _a && x < _b)
             {
-                return (double)(x - a) / (b - a);
+                return (x - _a) / (_b - _a);
             }
-            if (x >= b && x <= c)
+
+            if (x >= _b && x <= _c)
             {
                 return 1;
             }
-            if (x > c && x < d)
+
+            if (x > _c && x < _d)
             {
-                return (double)(d - x) / (d - c);
+                return (_d - x) / (_d - _c);
             }
+
             return 0;
         }
     }

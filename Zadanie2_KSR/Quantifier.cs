@@ -1,54 +1,37 @@
-﻿using Zadanie2_KSR.MembershipFunctions;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using Zadanie2_KSR.MembershipFunctions;
 
 namespace Zadanie2_KSR
 {
+    [SuppressMessage("ReSharper", "IdentifierTypo")]
     public class Quantifier
     {
-        private static readonly TrapezoidalFunction Func = new TrapezoidalFunction();
+        public static readonly LinguisticVariable PrawieNikt =
+            new LinguisticVariable("Prawie nikt", "Quantifier", new TrapezoidalFunction(0, 0, 1000, 3000));
 
-        public double PrawieNikt(int x)
-        {
-            const int a = 0;
-            const int b = 0;
-            const int c = 1000;
-            const int d = 3000;
-            return Func.CountValue(a, b, c, d, x);
-        }
+        public static readonly LinguisticVariable Mniejszosc =
+            new LinguisticVariable("Mniejszość", "Quantifier", new TrapezoidalFunction(2000, 3000, 7000, 8000));
 
-        public double Mniejszosc(int x)
-        {
-            const int a = 2000;
-            const int b = 3000;
-            const int c = 7000;
-            const int d = 8000;
-            return Func.CountValue(a, b, c, d, x);
-        }
+        public static readonly LinguisticVariable Polowa =
+            new LinguisticVariable("Połowa", "Quantifier", new TrapezoidalFunction(7500, 8000, 10000, 10500));
 
-        public double Polowa(int x)
-        {
-            const int a = 7500;
-            const int b = 8000;
-            const int c = 10000;
-            const int d = 10500;
-            return Func.CountValue(a, b, c, d, x);
-        }
+        public static readonly LinguisticVariable Wiekszosc =
+            new LinguisticVariable("Wiekszość", "Quantifier", new TrapezoidalFunction(10000, 11000, 15000, 16000));
 
-        public double Większosc(int x)
-        {
-            const int a = 10000;
-            const int b = 11000;
-            const int c = 15000;
-            const int d = 16000;
-            return Func.CountValue(a, b, c, d, x);
-        }
+        public static readonly LinguisticVariable PrawieWszyscy =
+            new LinguisticVariable("Prawie wszyscy", "Quantifier", new TrapezoidalFunction(15000, 16500, 18278, 18278));
 
-        public double PrawieWszyscy(int x)
+        public static List<LinguisticVariable> GetAllQuantifiers()
         {
-            const int a = 15000;
-            const int b = 16500;
-            const int c = 18278;
-            const int d = 18278;
-            return Func.CountValue(a, b, c, d, x);
+            return new List<LinguisticVariable>
+            {
+                PrawieNikt,
+                Mniejszosc,
+                Polowa,
+                Wiekszosc,
+                PrawieWszyscy
+            };
         }
     }
 }

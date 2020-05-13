@@ -20,6 +20,11 @@ namespace Zadanie2_KSR
             {
                 Console.WriteLine(fifaPlayers[i].ToString());
             }
+
+            foreach (var x in Attributes.Attributes.GetAllAgeVariables())
+            {
+                Console.WriteLine(x.ToString());
+            }
         }
     }
 }
