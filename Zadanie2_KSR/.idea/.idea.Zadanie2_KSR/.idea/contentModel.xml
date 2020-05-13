@@ -38,6 +38,7 @@
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
+      <e p="Quantifier.cs" t="Include" />
       <e p="Zadanie2_KSR.csproj" t="IncludeRecursive" />
       <e p="Zadanie2_KSR.sln" t="IncludeFlat" />
     </e>
