@@ -2,6 +2,6 @@
 {
     public interface IMembershipFunction
     {
-        public double CountValue(int x);
+        public double CountValue(double x);
     }
 }

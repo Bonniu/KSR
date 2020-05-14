@@ -15,7 +15,7 @@
             _d = d;
         }
 
-        public double CountValue(int x)
+        public double CountValue(double x)
         {
             if (x > _a && x < _b)
             {

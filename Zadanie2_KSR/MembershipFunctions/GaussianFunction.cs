@@ -13,7 +13,7 @@ namespace Zadanie2_KSR.MembershipFunctions
             _width = width;
         }
 
-        public double CountValue(int x)
+        public double CountValue(double x)
         {
             var tmpFraction = (x - _avgX) / _width;
             return Math.Exp(-tmpFraction * tmpFraction);

@@ -15,7 +15,7 @@ namespace Zadanie2_KSR.MembershipFunctions
             _c = c;
         }
 
-        public double CountValue(int x)
+        public double CountValue(double x)
         {
             if (x > _a && x < _b)
             {
