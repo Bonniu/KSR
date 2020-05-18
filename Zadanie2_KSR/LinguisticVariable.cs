@@ -17,7 +17,7 @@ namespace Zadanie2_KSR
             if (attributeName == "Quantifier")
                 Type = "";
             else if (attributeName == "Age" || attributeName == "Height" ||
-                     AttributeName == "Weight" || AttributeName == "Sprint")
+                     attributeName == "Weight" || attributeName == "Sprint")
                 Type = "are";
             else
             {

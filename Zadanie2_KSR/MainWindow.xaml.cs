@@ -10,6 +10,8 @@ namespace Zadanie2_KSR
     /// </summary>
     public partial class MainWindow : Window
     {
+        private const int M = 18728;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -23,9 +25,8 @@ namespace Zadanie2_KSR
             // {
             //     Console.WriteLine(t.ToString());
             // }
-
             GenerateSentencesOne(fifaPlayers);
-            GenerateSentencesTwo(fifaPlayers);
+            // GenerateSentencesTwo(fifaPlayers);
         }
 
         private void GenerateSentencesOne(List<FifaPlayer> fifaPlayers)
@@ -35,9 +36,9 @@ namespace Zadanie2_KSR
                 foreach (var y in Attributes.GetAllVariables())
                 {
                     var T = CountDegreeOfTruth(fifaPlayers, x, y);
-                    string text = x.Text + " of footballers " + y.Type + " " + y.Text + ". [" + T + "]";
-                    if (T > 0)
-                        Console.WriteLine(text);
+                    string text = x.Text + " of footballers " + y.Type + " " + y.Text;// + ". [" + T + "]";
+                    // if (T > 0)
+                    Console.WriteLine(text);
                 }
             }
         }
@@ -47,8 +48,7 @@ namespace Zadanie2_KSR
             LinguisticVariable summarizer)
         {
             double r = fifaPlayers.Sum(x => summarizer.CountMembership(x));
-
-            return quantifier.MembershipFunction.CountValue(r);
+            return quantifier.MembershipFunction.CountValue(r / M);
         }
 
         private void GenerateSentencesTwo(List<FifaPlayer> fifaPlayers)
@@ -63,8 +63,8 @@ namespace Zadanie2_KSR
                         {
                             var T = CountDegreeOfTruth2(fifaPlayers, q, x, y);
                             string text = q.Text + " of footballers " + x.Type + " " + x.Text + " and " + y.Type + " " +
-                                          y.Text +
-                                          ". [" + T + "]";
+                                          y.Text;//+
+                                          //". [" + T + "]";
                             if (T > 0)
                                 Console.WriteLine(text);
                         }
@@ -78,7 +78,7 @@ namespace Zadanie2_KSR
         {
             double r = fifaPlayers.Sum(x => Math.Min(summarizer1.CountMembership(x), summarizer2.CountMembership(x)));
 
-            return quantifier.MembershipFunction.CountValue(r);
+            return quantifier.MembershipFunction.CountValue(r / M);
         }
     }
 }

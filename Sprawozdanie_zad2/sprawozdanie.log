@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  13 MAY 2020 18:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  18 MAY 2020 10:22
 entering extended mode
 **./sprawozdanie.tex
 (sprawozdanie.tex
@@ -349,116 +349,117 @@ Underfull \vbox (badness 2626) has occurred while \output is active []
  [1
 
 {C:/Users/Radek/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-<./rys/../uml/uml.png, id=132, 643.40375pt x 697.60625pt>
+<./rys/../uml/uml.png, id=132, 624.3325pt x 412.54124pt>
 File: ./rys/../uml/uml.png Graphic file (type png)
 <use ./rys/../uml/uml.png>
 Package pdftex.def Info: ./rys/../uml/uml.png  used on input line 87.
-(pdftex.def)             Requested size: 350.99762pt x 380.5764pt.
-
-Underfull \vbox (badness 1609) has occurred while \output is active []
-
+(pdftex.def)             Requested size: 350.99762pt x 231.93428pt.
  [3 <./rys/../uml/uml.png>]
-<./rys/zmienne/1.png, id=142, 550.30594pt x 300.3722pt>
+<./rys/zmienne/1.png, id=145, 550.30594pt x 300.3722pt>
 File: ./rys/zmienne/1.png Graphic file (type png)
 <use ./rys/zmienne/1.png>
-Package pdftex.def Info: ./rys/zmienne/1.png  used on input line 150.
+Package pdftex.def Info: ./rys/zmienne/1.png  used on input line 152.
 (pdftex.def)             Requested size: 350.99762pt x 191.5913pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[4]
-<./rys/zmienne/2.png, id=160, 539.76656pt x 282.30469pt>
+ [4 <./rys/zmienne/1.png>]
+<./rys/zmienne/2.png, id=162, 539.76656pt x 282.30469pt>
 File: ./rys/zmienne/2.png Graphic file (type png)
 <use ./rys/zmienne/2.png>
-Package pdftex.def Info: ./rys/zmienne/2.png  used on input line 184.
+Package pdftex.def Info: ./rys/zmienne/2.png  used on input line 186.
 (pdftex.def)             Requested size: 350.99762pt x 183.5777pt.
- [5 <./rys/zmienne/1.png> <./rys/zmienne/2.png>]
+ [5 <./rys/zmienne/2.png>]
 <./rys/zmienne/3.png, id=170, 545.78906pt x 286.06876pt>
 File: ./rys/zmienne/3.png Graphic file (type png)
 <use ./rys/zmienne/3.png>
-Package pdftex.def Info: ./rys/zmienne/3.png  used on input line 218.
+Package pdftex.def Info: ./rys/zmienne/3.png  used on input line 220.
 (pdftex.def)             Requested size: 350.99762pt x 183.96948pt.
  [6 <./rys/zmienne/3.png>]
 <./rys/zmienne/4.png, id=178, 548.0475pt x 298.86656pt>
 File: ./rys/zmienne/4.png Graphic file (type png)
 <use ./rys/zmienne/4.png>
-Package pdftex.def Info: ./rys/zmienne/4.png  used on input line 252.
+Package pdftex.def Info: ./rys/zmienne/4.png  used on input line 254.
 (pdftex.def)             Requested size: 350.99762pt x 191.41074pt.
-
-[7 <./rys/zmienne/4.png>]
+ [7 <./rys/zmienne/4.png>]
 <./rys/zmienne/5.png, id=187, 549.55313pt x 297.36093pt>
 File: ./rys/zmienne/5.png Graphic file (type png)
 <use ./rys/zmienne/5.png>
-Package pdftex.def Info: ./rys/zmienne/5.png  used on input line 289.
+Package pdftex.def Info: ./rys/zmienne/5.png  used on input line 291.
 (pdftex.def)             Requested size: 350.99762pt x 189.9292pt.
  [8 <./rys/zmienne/5.png>]
 <./rys/zmienne/6.png, id=195, 551.81157pt x 301.125pt>
 File: ./rys/zmienne/6.png Graphic file (type png)
 <use ./rys/zmienne/6.png>
-Package pdftex.def Info: ./rys/zmienne/6.png  used on input line 326.
+Package pdftex.def Info: ./rys/zmienne/6.png  used on input line 328.
 (pdftex.def)             Requested size: 350.99762pt x 191.54765pt.
  [9 <./rys/zmienne/6.png>]
 <./rys/zmienne/7.png, id=203, 542.77782pt x 284.56313pt>
 File: ./rys/zmienne/7.png Graphic file (type png)
 <use ./rys/zmienne/7.png>
-Package pdftex.def Info: ./rys/zmienne/7.png  used on input line 363.
+Package pdftex.def Info: ./rys/zmienne/7.png  used on input line 365.
 (pdftex.def)             Requested size: 350.99762pt x 184.02594pt.
-
-[10 <./rys/zmienne/7.png>]
+ [10 <./rys/zmienne/7.png>]
 <./rys/zmienne/8.png, id=211, 548.0475pt x 298.11375pt>
 File: ./rys/zmienne/8.png Graphic file (type png)
 <use ./rys/zmienne/8.png>
-Package pdftex.def Info: ./rys/zmienne/8.png  used on input line 398.
+Package pdftex.def Info: ./rys/zmienne/8.png  used on input line 400.
 (pdftex.def)             Requested size: 350.99762pt x 190.9286pt.
  [11 <./rys/zmienne/8.png>]
 <./rys/zmienne/9.png, id=219, 546.54187pt x 295.85532pt>
 File: ./rys/zmienne/9.png Graphic file (type png)
 <use ./rys/zmienne/9.png>
-Package pdftex.def Info: ./rys/zmienne/9.png  used on input line 432.
+Package pdftex.def Info: ./rys/zmienne/9.png  used on input line 434.
 (pdftex.def)             Requested size: 350.99762pt x 190.00584pt.
  [12 <./rys/zmienne/9.png>]
 <./rys/zmienne/10.png, id=227, 548.0475pt x 292.09125pt>
 File: ./rys/zmienne/10.png Graphic file (type png)
 <use ./rys/zmienne/10.png>
-Package pdftex.def Info: ./rys/zmienne/10.png  used on input line 465.
+Package pdftex.def Info: ./rys/zmienne/10.png  used on input line 467.
 (pdftex.def)             Requested size: 350.99762pt x 187.07146pt.
  [13 <./rys/zmienne/10.png>]
-<./rys/kwantyfikator.png, id=236, 616.55344pt x 319.94531pt>
-File: ./rys/kwantyfikator.png Graphic file (type png)
-<use ./rys/kwantyfikator.png>
-Package pdftex.def Info: ./rys/kwantyfikator.png  used on input line 494.
-(pdftex.def)             Requested size: 350.99762pt x 182.14615pt.
- [14 <./rys/kwantyfikator.png>]
-Underfull \hbox (badness 1242) in paragraph at lines 510--511
+<./rys/kwantyfikatorWzgledny.png, id=236, 618.81187pt x 322.95656pt>
+File: ./rys/kwantyfikatorWzgledny.png Graphic file (type png)
+<use ./rys/kwantyfikatorWzgledny.png>
+Package pdftex.def Info: ./rys/kwantyfikatorWzgledny.png  used on input line 49
+6.
+(pdftex.def)             Requested size: 350.99762pt x 183.19026pt.
+ [14 <./rys/kwantyfikatorWzgledny.png>]
+<./rys/zdania1.png, id=244, 279.29344pt x 377.15906pt>
+File: ./rys/zdania1.png Graphic file (type png)
+<use ./rys/zdania1.png>
+Package pdftex.def Info: ./rys/zdania1.png  used on input line 507.
+(pdftex.def)             Requested size: 350.99762pt x 474.00288pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15 <./rys/zdania1.png>]
+Underfull \hbox (badness 1242) in paragraph at lines 520--521
 []\T1/cmr/m/n/10.95 https://pracownik.kul.pl/files/31717/public/Funkcje_przynal
 eznosci.pdf [do-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 511--512
+Underfull \hbox (badness 10000) in paragraph at lines 521--522
 []\T1/cmr/m/n/10.95 http://ii.uwb.edu.pl/rudnicki/wp-content/uploads/2016/02/P0
 7.pdf [do-st¦p
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 513.
-[15]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 513.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 523.
+[16]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 523.
  (sprawozdanie.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 513.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 513.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 523.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 523.
 Package rerunfilecheck Info: File `sprawozdanie.out' has not changed.
-(rerunfilecheck)             Checksum: 13BD6A8EAB4A100798ED3843FD3F9191;1480.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 513.
+(rerunfilecheck)             Checksum: 9A887B4A7AC07E8732B570E1F0668264;1489.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 523.
  ) 
 Here is how much of TeX's memory you used:
- 6927 strings out of 481556
- 101578 string characters out of 2923635
- 366601 words of memory out of 3000000
- 21955 multiletter control sequences out of 15000+200000
+ 6936 strings out of 481556
+ 101775 string characters out of 2923635
+ 365683 words of memory out of 3000000
+ 21961 multiletter control sequences out of 15000+200000
  542114 words of font info for 46 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,11n,32p,926b,342s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,11n,32p,926b,457s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 ecsl1200.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
 ec/dpi600\ecrm1095.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
@@ -476,9 +477,9 @@ sfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on sprawozdanie.pdf (15 pages, 546610 bytes).
+Output written on sprawozdanie.pdf (16 pages, 538139 bytes).
 PDF statistics:
- 634 PDF objects out of 1000 (max. 8388607)
- 80 named destinations out of 1000 (max. 500000)
- 253 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 644 PDF objects out of 1000 (max. 8388607)
+ 82 named destinations out of 1000 (max. 500000)
+ 258 words of extra memory for PDF output out of 10000 (max. 10000000)
 

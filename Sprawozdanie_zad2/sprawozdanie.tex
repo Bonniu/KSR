@@ -90,12 +90,14 @@
 	\end{figure}
 	
 	\begin{itemize}
-		\item Klasy Atrybut i dziedziczące po niej reprezentują poszczególne kolumny w bazie danych
+		\item Klasa Summarizers odpowiada za poszczególne sumaryzatory, np "młody", "wysoki" 
 		\item CSVReader odpowiada za wczytanie pliku csv z danymi do programu
-		\item FifaDatabse odpowiada za bazę danych, czyli przechowywanie wszystkich rekordów
+		\item FifaDatabase odpowiada za bazę danych, czyli przechowywanie wszystkich rekordów
 		\item FuzzySet to klasa odpowiadająca za zbiór rozmyty
 		\item Klasy TrapezoidFunction, GaussianFunction, TriangularFunction odpowiadają za odpowiednie funkcje przynależności
-		\item FifaPlayer to klasa, która reprezentuje krotkę bazy danych.
+		\item FifaPlayer to klasa, która reprezentuje krotkę bazy danych
+		\item Quantifiers jest klasą odpowiedzialną za kwantyfikatory
+		\item LinguisticVariable to klasa reprezentująca zmienną lingwistyczną.
 	\end{itemize}
 	
 	\section{Materiały i metody} % Materiały i metody
@@ -468,9 +470,9 @@
 	\end{figure}
 
 	\newpage
-	\subsection{Kwantyfikator}
+	\subsection{Kwantyfikator względny}
 	
-	Poniżej przedstawiliśmy wartości parametrów oraz wykres funkcji przynależności dla kwantyfikatora. Liczba rekordów w naszej bazie danych wynosi 18278, dlatego wykres zawiera się w wartościach [0, 18278].
+	Poniżej przedstawiliśmy wartości parametrów oraz wykres funkcji przynależności dla kwantyfikatora względnego. Liczba rekordów w naszej bazie danych wynosi 18278, wykres zawiera się w wartościach [0, 1].
 	\begin{table}[h!]
 		\centering
 		\begin{tabular} {c c c c c}
@@ -478,26 +480,34 @@
 			\textbf{Etykieta} & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} \\ [0.5ex] 
 			\hline	
 			\hline 
-			prawie nikt			 & 0 & 0 & 1000 & 3000 \\
-			mniejszość			 & 2000 & 3000 & 7000 & 8000  \\
-			połowa			 & 7500 & 8000 & 10000 & 10500  \\
-			większość & 10000 & 11000 & 15000 & 16000  \\	
-			prawie wszyscy			 & 15000 & 16500 & 18278 & 18278  \\						
-			\hline
+			prawie nikt			 & 0,000 & 0,000 & 0,055 & 0,164 \\
+			mniejszość			 & 0,109 & 0,164 & 0,383 & 0,438  \\
+			połowa				 & 0,410 & 0,438 & 0,547 & 0,574  \\
+			większość 		 	 & 0,547 & 0,602 & 0,821 & 0,875  \\	
+			prawie wszyscy		 & 0,821 & 0,903 & 1,000 & 1,000  \\						
+			\hline			
 		\end{tabular}
-		\caption{Przyporządkowane parametry funkcji trapezoidalnej dla kwantyfikatora. }
-		\label{tabelaKwantyfikator}
+		\caption{Przyporządkowane parametry funkcji trapezoidalnej dla kwantyfikatora względnego. }
+		\label{tabelaKwantyfikatorWzgledny}
 	\end{table}
 	
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.9\textwidth]{kwantyfikator.png}
-		\caption{Funkcja przynależności kwantyfikatora.}
-		\label{kwantyfikator}
+		\includegraphics[width=0.9\textwidth]{kwantyfikatorWzgledny.png}
+		\caption{Funkcja przynależności kwantyfikatora względnego.}
+		\label{kwantyfikatorWzgledny}
 	\end{figure}
 	
 	\newpage
 	\section{Wyniki} % Wyniki
+	
+	Poniżej przedstawiamy przykładowe zdania podsumowaujące bazę danych wygenerowane przez nas program.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\textwidth]{zdania1.png}
+		\caption{Zdania wygenerowane przez program.}
+		\label{zdania}
+	\end{figure}
 	
 	\section{Dyskusja} % Dyskusja
 	

@@ -8,19 +8,19 @@ namespace Zadanie2_KSR
     public class Quantifier
     {
         public static readonly LinguisticVariable PrawieNikt =
-            new LinguisticVariable("Almost none", "Quantifier", new TrapezoidalFunction(0, 0, 1000, 3000));
+            new LinguisticVariable("Almost none", "Quantifier", new TrapezoidalFunction(0, 0, 0.055, 0.164));
 
         public static readonly LinguisticVariable Mniejszosc =
-            new LinguisticVariable("Less", "Quantifier", new TrapezoidalFunction(2000, 3000, 7000, 8000));
+            new LinguisticVariable("Less", "Quantifier", new TrapezoidalFunction(0.109, 0.164, 0.383, 0.438));
 
         public static readonly LinguisticVariable Polowa =
-            new LinguisticVariable("Half", "Quantifier", new TrapezoidalFunction(7500, 8000, 10000, 10500));
+            new LinguisticVariable("Half", "Quantifier", new TrapezoidalFunction(0.410, 0.438, 0.547, 0.574));
 
         public static readonly LinguisticVariable Wiekszosc =
-            new LinguisticVariable("Most", "Quantifier", new TrapezoidalFunction(10000, 11000, 15000, 16000));
+            new LinguisticVariable("Most", "Quantifier", new TrapezoidalFunction(0.547, 0.602, 0.821, 0.875));
 
         public static readonly LinguisticVariable PrawieWszyscy =
-            new LinguisticVariable("Almost all", "Quantifier", new TrapezoidalFunction(15000, 16500, 18278, 18278));
+            new LinguisticVariable("Almost all", "Quantifier", new TrapezoidalFunction(0.821, 0.903, 1, 1));
 
         public static List<LinguisticVariable> GetAllQuantifiers()
         {
