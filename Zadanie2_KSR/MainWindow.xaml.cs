@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.DirectoryServices;
 using System.Windows;
 using Zadanie2_KSR.MembershipFunctions;
 
@@ -12,88 +12,108 @@ namespace Zadanie2_KSR
     public partial class MainWindow : Window
     {
         private const int M = 18728;
+        public readonly List<FifaPlayer> FifaPlayers = new CsvReader().ReadCsvFile();
 
         public MainWindow()
         {
             InitializeComponent();
-            Console.WriteLine("Hello world!");
 
-
-            var fifaPlayers = new CsvReader().ReadCsvFile();
-
-            // List<LinguisticVariable> list = new List<LinguisticVariable>();
-            // foreach (var allFinishingVariable in Attributes.GetAllFinishingVariables()) list.Add(allFinishingVariable);
-            // foreach (var allDribblingVariable in Attributes.GetAllDribblingVariables()) list.Add(allDribblingVariable);
-            List<LinguisticVariable> list = Attributes.GetAllVariables();
-            GenerateSentencesSecond(fifaPlayers, list);
+            //GuiLike();
+            GenerateSentencesSecond(Summarizers.GetAllDribblingVariables(),
+                Quantifier.GetRelativeQuantifiers(),
+                new LinguisticVariable("quite high", "Height", true,
+                    new TrapezoidalFunction(180, 182, 188, 190)));
         }
 
-        private void GenerateSentencesOne(List<FifaPlayer> fifaPlayers)
+        private void GenerateSentencesSecond(List<LinguisticVariable> attributes, List<LinguisticVariable> quantifiers,
+            LinguisticVariable qualifier)
         {
-            foreach (var x in Quantifier.GetAllQuantifiers())
-            {
-                foreach (var y in Attributes.GetAllVariables())
-                {
-                    var T = Measures.DegreeOfTruth(fifaPlayers, x, y);
-                    string text = x.Text + " of footballers " + y.Type + " " + y.Text + ". [" + T + "]";
-                    if (T > 0)
-                        Console.WriteLine(text);
-                }
-            }
-        }
-
-        private void GenerateSentencesSecond(List<FifaPlayer> fifaPlayers, List<LinguisticVariable> attributes)
-        {
-            LinguisticVariable qualifier =
-                new LinguisticVariable("25 years old", "Age", true,
-                    new TriangularFunction(25, 25, 25));
-            foreach (var x in Quantifier.GetAbsoluteQuantifiers())
+            foreach (var q in quantifiers)
             {
                 foreach (var y in attributes)
                 {
-                    var t1 = Measures.DegreeOfTruthSecond(fifaPlayers, x, y, qualifier);
-                    var t2 = Measures.DegreeOfImprecision(fifaPlayers, new List<LinguisticVariable>() {y});
-                    var t3 = Measures.DegreeOfCovering(fifaPlayers, new List<LinguisticVariable>() {y}, qualifier);
-                    var t4 = 1d; //Measures.DegreeOfCovering(fifaPlayers,new List<LinguisticVariable>() {y}, qualifier);
-                    var t5 = 1d; //Measures.DegreeOfCovering(fifaPlayers,new List<LinguisticVariable>() {y}, qualifier);
-                    var t6 = 1d; //Measures.DegreeOfCovering(fifaPlayers,new List<LinguisticVariable>() {y}, qualifier);
-                    string text = x.Text + " of " + qualifier.Text + " footballers " + y.Type + " " + y.Text + ". ";
-                    string measures16 = Math.Round(t1, 3) + " " + Math.Round(t2, 3) + " " + Math.Round(t3, 3) + " " +
-                                        Math.Round(t4, 3) + " " + Math.Round(t5, 3) + " " + Math.Round(t6, 3) + " ";
-                    Console.WriteLine(text + "[" + measures16 + "]");
+                    BuildOneSubjectSentence(q, qualifier, new List<LinguisticVariable>() {y}, null);
+                    //CountMeasures(q, qualifier, new List<LinguisticVariable>() {y}, null);
                 }
             }
         }
 
 
-        /*private void GenerateSentencesTwo(List<FifaPlayer> fifaPlayers)
+        private void BuildOneSubjectSentence(LinguisticVariable quantifier, LinguisticVariable qualifier,
+            List<LinguisticVariable> features, string connector)
         {
-            foreach (var q in Quantifier.GetAllQuantifiers())
+            var startText = quantifier.Text + " of ";
+            if (qualifier == null)
+                startText += " football players ";
+
+            else
+                startText += qualifier.Text + " football players ";
+
+
+            startText += features[0].Type + " " + features[0].Text;
+            for (var i = 1; i < features.Count; i++)
             {
-                foreach (var x in Attributes.GetAllVariables())
-                {
-                    foreach (var y in Attributes.GetAllVariables())
-                    {
-                        if (x.AttributeName != y.AttributeName)
-                        {
-                            var T = CountDegreeOfTruth2(fifaPlayers, q, x, y);
-                            string text = q.Text + " of footballers " + x.Type + " " + x.Text + " and " + y.Type + " " +
-                                          y.Text;//+
-                                          //". [" + T + "]";
-                            if (T > 0)
-                                Console.WriteLine(text);
-                        }
-                    }
-                }
+                startText += connector + features[i].Type + " " + features[i].Text;
             }
+
+            startText += ".";
+            Console.WriteLine(startText);
+            CountMeasures(quantifier, qualifier, features, connector);
         }
 
-        private static double CountDegreeOfTruth2(IEnumerable<FifaPlayer> fifaPlayers, LinguisticVariable quantifier,
-            LinguisticVariable summarizer1, LinguisticVariable summarizer2)
+        private void CountMeasures(LinguisticVariable quantifier, LinguisticVariable qualifier,
+            List<LinguisticVariable> summarizers, string connector)
         {
-            double r = fifaPlayers.Sum(x => Math.Min(summarizer1.CountMembership(x), summarizer2.CountMembership(x)));
+            var t1 = Measures.DegreeOfTruth(FifaPlayers, quantifier, summarizers, qualifier, connector);
+            var t2 = Measures.DegreeOfImprecision(FifaPlayers, summarizers);
+            var t3 = Measures.DegreeOfCovering(FifaPlayers, summarizers, qualifier);
+            var t4 = 1d;
+            var t5 = 1d;
+            var t6 = 1d;
+            var t7 = 1d;
+            var t8 = 1d;
+            var t9 = 1d;
+            var t10 = 1d;
+            var t11 = 1d;
+            //TODO
+            string measures16 = Math.Round(t1, 3) + " " + Math.Round(t2, 3) + " " + Math.Round(t3, 3) + " " +
+                                Math.Round(t4, 3) + " " + Math.Round(t5, 3) + " " + Math.Round(t6, 3) + " " +
+                                Math.Round(t7, 3) + " " + Math.Round(t8, 3) + " " + Math.Round(t9, 3) + " " +
+                                Math.Round(t10, 3) + " " + Math.Round(t11, 3);
 
-            return quantifier.MembershipFunction.CountValue(r / M);
-        }*/
+
+            Console.WriteLine("[" + measures16 + "]");
+        }
+
+        //  ---------------------------------------------------------------- DO TESTÓW -----------------------------
+        private void GuiLike()
+        {
+            // pick quantifier
+            LinguisticVariable quantifier =
+                new LinguisticVariable("About one third", "Quantifier", false,
+                    new TrapezoidalFunction(0.25, 0.28, 0.32, 0.35));
+
+            //pick qualifier or null            
+            LinguisticVariable qualifier = null;
+            qualifier = new LinguisticVariable("about 28 years old", "Age", false,
+                new TriangularFunction(27, 28, 29));
+
+            //pick summarizers
+            const int nrOfS = 4;
+            var summarizers = new List<LinguisticVariable>(nrOfS);
+            foreach (var sum in Summarizers.GetAllVariables())
+            {
+                if (summarizers.Count >= nrOfS)
+                    break;
+                summarizers.Add(sum);
+            }
+
+            // pick AND or OR
+            var connector = " and ";
+            if (nrOfS == 2)
+                connector = " or "; // można zmienić jak nrOfS == 2
+
+            BuildOneSubjectSentence(quantifier, qualifier, summarizers, connector);
+        }
     }
 }

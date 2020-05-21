@@ -8,7 +8,7 @@ using Zadanie2_KSR.MembershipFunctions;
 namespace Zadanie2_KSR
 {
     [SuppressMessage("ReSharper", "IdentifierTypo")]
-    public class Attributes
+    public class Summarizers
     {
         public static readonly LinguisticVariable BardzoMlodyAge =
             new LinguisticVariable("very young", "Age", true, new TrapezoidalFunction(16, 16, 18, 21));

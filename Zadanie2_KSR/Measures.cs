@@ -7,31 +7,60 @@ namespace Zadanie2_KSR
 {
     public class Measures
     {
-        public static double DegreeOfTruth(List<FifaPlayer> fifaPlayers, LinguisticVariable quantifier,
-            LinguisticVariable summarizer)
+        private static double CountMembershipValue(List<LinguisticVariable> list, string connector,
+            FifaPlayer fifaPlayer)
         {
-            double r = fifaPlayers.Sum(x => summarizer.CountMembership(x));
+            //Console.WriteLine(list[0].CountMembership(fifaPlayer));
+            if (connector == null || list.Count == 1)
+                return list[0].CountMembership(fifaPlayer);
+            if (connector.Contains("and"))
+            {
+                double min = 2;
+                foreach (var summarizer in list)
+                {
+                    var t = summarizer.CountMembership(fifaPlayer);
+                    if (t < min)
+                        min = t;
+                }
+                return min;
+            }
+            // if (connector.Contains("or"))
+            double max = -2;
+            foreach (var summarizer in list)
+            {
+                var t = summarizer.CountMembership(fifaPlayer);
+                if (t > max)
+                    max = t;
+            }
+
+            return max;
+        }
+
+        // p. 156  - T1
+        public static double DegreeOfTruth(List<FifaPlayer> fifaPlayers, LinguisticVariable quantifier,
+            List<LinguisticVariable> summarizers, LinguisticVariable qualifier, string connector)
+        {
+            if (qualifier != null)
+            {
+                double d = 0;
+                double u = 0;
+                foreach (var x in fifaPlayers)
+                {
+                    u += Math.Min(qualifier.CountMembership(x), CountMembershipValue(summarizers, connector, x));
+                    d += qualifier.CountMembership(x);
+                }
+
+                return quantifier.QuantifierAbsolute
+                    ? quantifier.MembershipFunction.CountValue(u)
+                    : quantifier.MembershipFunction.CountValue(u / d);
+            }
+
+            var r = fifaPlayers.Sum(x => CountMembershipValue(summarizers, connector, x));
             return quantifier.QuantifierAbsolute
                 ? quantifier.MembershipFunction.CountValue(r)
                 : quantifier.MembershipFunction.CountValue(r / fifaPlayers.Count);
         }
 
-        // p. 156  - T1
-        public static double DegreeOfTruthSecond(List<FifaPlayer> fifaPlayers, LinguisticVariable quantifier,
-            LinguisticVariable summarizer, LinguisticVariable qualifier)
-        {
-            double d = 0;
-            double u = 0;
-            foreach (var x in fifaPlayers)
-            {
-                u += Math.Min(qualifier.CountMembership(x), summarizer.CountMembership(x));
-                d += qualifier.CountMembership(x);
-            }
-
-            return quantifier.QuantifierAbsolute
-                ? quantifier.MembershipFunction.CountValue(u)
-                : quantifier.MembershipFunction.CountValue(u / d);
-        }
 
         // p. 156  - T2
         public static double DegreeOfImprecision(List<FifaPlayer> fifaPlayers, List<LinguisticVariable> summarizers)
@@ -56,7 +85,7 @@ namespace Zadanie2_KSR
                 double sumt = 0;
                 foreach (var fp in fifaPlayers)
                 {
-                    var miS = FuzzySet.CountMembershipAnd(summarizers, fp);
+                    var miS = CountMembershipValue(summarizers, "and", fp);
                     if (miS > 0)
                         sumt++;
                 }
@@ -69,18 +98,15 @@ namespace Zadanie2_KSR
                 double sumt = 0;
                 foreach (var fp in fifaPlayers)
                 {
-                    double miS = FuzzySet.CountMembershipAnd(summarizers, fp);
-                    double miW = FuzzySet.CountMembershipAnd(new List<LinguisticVariable>() {qualifier}, fp);
+                    var miS = CountMembershipValue(summarizers, "and", fp);
+                    var miW = qualifier.CountMembership(fp);
                     if (miW > 0)
                     {
                         sumh++;
                         if (miS > 0)
-                        {
                             sumt++;
-                        }
                     }
                 }
-
                 return sumt / sumh;
             }
         }
