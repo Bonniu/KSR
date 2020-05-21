@@ -21,14 +21,11 @@ namespace Zadanie2_KSR
 
             var fifaPlayers = new CsvReader().ReadCsvFile();
 
-
-            // foreach (var t in fifaPlayers)
-            // {
-            //     Console.WriteLine(t.ToString());
-            // }
-            //GenerateSentencesOne(fifaPlayers);
-            GenerateSentencesSecond(fifaPlayers);
-            // GenerateSentencesTwo(fifaPlayers);
+            // List<LinguisticVariable> list = new List<LinguisticVariable>();
+            // foreach (var allFinishingVariable in Attributes.GetAllFinishingVariables()) list.Add(allFinishingVariable);
+            // foreach (var allDribblingVariable in Attributes.GetAllDribblingVariables()) list.Add(allDribblingVariable);
+            List<LinguisticVariable> list = Attributes.GetAllVariables();
+            GenerateSentencesSecond(fifaPlayers, list);
         }
 
         private void GenerateSentencesOne(List<FifaPlayer> fifaPlayers)
@@ -45,21 +42,25 @@ namespace Zadanie2_KSR
             }
         }
 
-        private void GenerateSentencesSecond(List<FifaPlayer> fifaPlayers)
+        private void GenerateSentencesSecond(List<FifaPlayer> fifaPlayers, List<LinguisticVariable> attributes)
         {
-            List<LinguisticVariable> list = new List<LinguisticVariable>();
-            foreach (var allFinishingVariable in Attributes.GetAllFinishingVariables()) list.Add(allFinishingVariable);
-            foreach (var allDribblingVariable in Attributes.GetAllDribblingVariables()) list.Add(allDribblingVariable);
-            LinguisticVariable qualifier = new LinguisticVariable("25 years old", "Age", true, new TriangularFunction(25, 25, 25));
+            LinguisticVariable qualifier =
+                new LinguisticVariable("25 years old", "Age", true,
+                    new TriangularFunction(25, 25, 25));
             foreach (var x in Quantifier.GetAbsoluteQuantifiers())
             {
-                foreach (var y in Attributes.GetAllVariables())
+                foreach (var y in attributes)
                 {
-                    var T = Measures.DegreeOfTruthSecond(fifaPlayers, x, y, qualifier);
-                    string text = x.Text + " of " + qualifier.Text + " footballers " + y.Type + " " + y.Text + ". [" +
-                                  T + "]";
-                    if (T > 0)
-                        Console.WriteLine(text);
+                    var t1 = Measures.DegreeOfTruthSecond(fifaPlayers, x, y, qualifier);
+                    var t2 = Measures.DegreeOfImprecision(fifaPlayers, new List<LinguisticVariable>() {y});
+                    var t3 = Measures.DegreeOfCovering(fifaPlayers, new List<LinguisticVariable>() {y}, qualifier);
+                    var t4 = 1d; //Measures.DegreeOfCovering(fifaPlayers,new List<LinguisticVariable>() {y}, qualifier);
+                    var t5 = 1d; //Measures.DegreeOfCovering(fifaPlayers,new List<LinguisticVariable>() {y}, qualifier);
+                    var t6 = 1d; //Measures.DegreeOfCovering(fifaPlayers,new List<LinguisticVariable>() {y}, qualifier);
+                    string text = x.Text + " of " + qualifier.Text + " footballers " + y.Type + " " + y.Text + ". ";
+                    string measures16 = Math.Round(t1, 3) + " " + Math.Round(t2, 3) + " " + Math.Round(t3, 3) + " " +
+                                        Math.Round(t4, 3) + " " + Math.Round(t5, 3) + " " + Math.Round(t6, 3) + " ";
+                    Console.WriteLine(text + "[" + measures16 + "]");
                 }
             }
         }

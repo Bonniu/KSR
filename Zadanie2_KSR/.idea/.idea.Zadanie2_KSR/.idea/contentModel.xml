@@ -16,6 +16,7 @@
       </e>
       <e p="FifaPlayer.cs" t="Include" />
       <e p="FifaPlayerBuilder.cs" t="Include" />
+      <e p="FuzzySet.cs" t="Include" />
       <e p="LinguisticVariable.cs" t="Include" />
       <e p="MainWindow.xaml" t="Include" />
       <e p="MainWindow.xaml.cs" t="Include" />
@@ -38,6 +39,7 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="Quantifiers.cs" t="Include" />
       <e p="Summarizers.cs" t="Include" />
+      <e p="ValueGetter.cs" t="Include" />
       <e p="Zadanie2_KSR.csproj" t="IncludeRecursive" />
       <e p="Zadanie2_KSR.sln" t="IncludeFlat" />
     </e>

@@ -37,25 +37,7 @@ namespace Zadanie2_KSR
 
         public double CountMembership(FifaPlayer fp)
         {
-            return MembershipFunction.CountValue(GetValueOfPlayer(fp));
-        }
-
-        private double GetValueOfPlayer(FifaPlayer fp)
-        {
-            return AttributeName switch
-            {
-                "Age" => fp.GetAge(),
-                "Height" => fp.GetHeight(),
-                "Curve" => fp.GetCurve(),
-                "Dribbling" => fp.GetDribbling(),
-                "Sprint" => fp.GetSprintSpeed(),
-                "Finishing" => fp.GetFinishing(),
-                "Overall" => fp.GetOverall(),
-                "LongPassing" => fp.GetPassing(),
-                "Weight" => fp.GetWeight(),
-                "ShotPower" => fp.GetShotPower(),
-                _ => 0
-            };
+            return MembershipFunction.CountValue(ValueGetter.GetValueOfPlayer(fp, AttributeName));
         }
     }
 }
