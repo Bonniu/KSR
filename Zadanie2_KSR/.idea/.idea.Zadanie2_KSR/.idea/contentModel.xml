@@ -19,6 +19,7 @@
       <e p="LinguisticVariable.cs" t="Include" />
       <e p="MainWindow.xaml" t="Include" />
       <e p="MainWindow.xaml.cs" t="Include" />
+      <e p="Measures.cs" t="Include" />
       <e p="MembershipFunctions" t="Include">
         <e p="GaussianFunction.cs" t="Include" />
         <e p="IMembershipFunction.cs" t="Include" />

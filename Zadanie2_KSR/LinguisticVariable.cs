@@ -4,13 +4,14 @@ namespace Zadanie2_KSR
 {
     public class LinguisticVariable
     {
-        public string Text;
-        public string AttributeName;
+        public readonly string Text;
+        public readonly string AttributeName;
+        public readonly bool QuantifierAbsolute;
+        public readonly string Type;
+        public readonly IMembershipFunction MembershipFunction;
 
-        public string Type;
-        public IMembershipFunction MembershipFunction;
-
-        public LinguisticVariable(string text, string attributeName, IMembershipFunction membershipFunction)
+        public LinguisticVariable(string text, string attributeName, bool quantifierAbsolute,
+            IMembershipFunction membershipFunction)
         {
             Text = text;
             AttributeName = attributeName;
@@ -24,6 +25,7 @@ namespace Zadanie2_KSR
                 Type = "have";
             }
 
+            QuantifierAbsolute = quantifierAbsolute;
             MembershipFunction = membershipFunction;
         }
 
