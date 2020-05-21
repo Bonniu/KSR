@@ -58,32 +58,10 @@ namespace Zadanie2_KSR
 
             startText += ".";
             Console.WriteLine(startText);
-            CountMeasures(quantifier, qualifier, features, connector);
+            Measures.CountMeasures(quantifier, qualifier, features, connector, FifaPlayers);
         }
 
-        private void CountMeasures(LinguisticVariable quantifier, LinguisticVariable qualifier,
-            List<LinguisticVariable> summarizers, string connector)
-        {
-            var t1 = Measures.DegreeOfTruth(FifaPlayers, quantifier, summarizers, qualifier, connector);
-            var t2 = Measures.DegreeOfImprecision(FifaPlayers, summarizers);
-            var t3 = Measures.DegreeOfCovering(FifaPlayers, summarizers, qualifier);
-            var t4 = 1d;
-            var t5 = 1d;
-            var t6 = 1d;
-            var t7 = 1d;
-            var t8 = 1d;
-            var t9 = 1d;
-            var t10 = 1d;
-            var t11 = 1d;
-            //TODO
-            string measures16 = Math.Round(t1, 3) + " " + Math.Round(t2, 3) + " " + Math.Round(t3, 3) + " " +
-                                Math.Round(t4, 3) + " " + Math.Round(t5, 3) + " " + Math.Round(t6, 3) + " " +
-                                Math.Round(t7, 3) + " " + Math.Round(t8, 3) + " " + Math.Round(t9, 3) + " " +
-                                Math.Round(t10, 3) + " " + Math.Round(t11, 3);
-
-
-            Console.WriteLine("[" + measures16 + "]");
-        }
+        
 
         //  ---------------------------------------------------------------- DO TESTÓW -----------------------------
         private void GuiLike()

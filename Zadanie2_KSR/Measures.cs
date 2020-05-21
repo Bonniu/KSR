@@ -7,6 +7,42 @@ namespace Zadanie2_KSR
 {
     public class Measures
     {
+        public static double CountMeasures(LinguisticVariable quantifier, LinguisticVariable qualifier,
+            List<LinguisticVariable> summarizers, string connector, List<FifaPlayer> fifaPlayers)
+        {
+            var t1 = DegreeOfTruth(fifaPlayers, quantifier, summarizers, qualifier, connector);
+            var t2 = DegreeOfImprecision(fifaPlayers, summarizers);
+            var t3 = DegreeOfCovering(fifaPlayers, summarizers, qualifier);
+            var t4 = 0d;
+            var t5 = 0d;
+            var t6 = 0d;
+            var t7 = 0d;
+            var t8 = 0d;
+            var t9 = 0d;
+            var t10 = 0d;
+            var t11 = 0d;
+            //TODO
+            string measures16 = Math.Round(t1, 3) + " " + Math.Round(t2, 3) + " " + Math.Round(t3, 3) + " " +
+                                Math.Round(t4, 3) + " " + Math.Round(t5, 3) + " " + Math.Round(t6, 3) + " " +
+                                Math.Round(t7, 3) + " " + Math.Round(t8, 3) + " " + Math.Round(t9, 3) + " " +
+                                Math.Round(t10, 3) + " " + Math.Round(t11, 3);
+
+            var t =
+                0.4 * t1 +
+                0.06 * t2 +
+                0.06 * t3 +
+                0.06 * t4 +
+                0.06 * t5 +
+                0.06 * t6 +
+                0.06 * t7 +
+                0.06 * t8 +
+                0.06 * t9 +
+                0.06 * t10 +
+                0.06 * t11;
+            Console.WriteLine("[" + measures16 + "]" + " T = " + t);
+            return t;
+        }
+
         private static double CountMembershipValue(List<LinguisticVariable> list, string connector,
             FifaPlayer fifaPlayer)
         {
@@ -22,8 +58,10 @@ namespace Zadanie2_KSR
                     if (t < min)
                         min = t;
                 }
+
                 return min;
             }
+
             // if (connector.Contains("or"))
             double max = -2;
             foreach (var summarizer in list)
@@ -60,7 +98,6 @@ namespace Zadanie2_KSR
                 ? quantifier.MembershipFunction.CountValue(r)
                 : quantifier.MembershipFunction.CountValue(r / fifaPlayers.Count);
         }
-
 
         // p. 156  - T2
         public static double DegreeOfImprecision(List<FifaPlayer> fifaPlayers, List<LinguisticVariable> summarizers)
@@ -107,6 +144,7 @@ namespace Zadanie2_KSR
                             sumt++;
                     }
                 }
+
                 return sumt / sumh;
             }
         }
