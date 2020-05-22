@@ -77,6 +77,139 @@
 		\item $\bar{x}$ jest środkiem funkcji,
 		\item $\sigma$ określa szerokość krzywej Gaussowskiej. 
 	\end{itemize}
+	
+	\section{Miary jakości}
+
+	\subsection{Degree of truth}
+\textsl{Degree of truth} to suma przynależności wszystkich rozważanych krotek do podsumowania lingwistycznego.
+	Dla kwantyfikatorów relatywnych:
+	\begin{equation}
+	T_1 = \mu_Q(\frac{r}{m})
+	\end{equation}
+natomiast dla kwantyfikatorów absolutnych
+	\begin{equation}
+	T_1 = \mu_Q(r)
+	\end{equation}
+gdzie 
+	\begin{equation}
+r = \sum_{i=1}^{m} \mu_{S_j} (d_i)
+	\end{equation}
+a $m$ to liczba krotek w bazie danych.
+
+
+	\subsection{Degree of imprecision}
+\textsl{Degree of imprecision} określa stopień precyzyjności sumaryzatora. Dany jest wzorem:
+	\begin{equation}
+T_2 = 1 - \left(\prod_{j=1}^{n} \mathrm{in}(S_j)\right)^{1/n}
+	\end{equation}
+gdzie $in(S_j)$ to stopień rozmycia wyrażony wzorem
+$
+in(s_j) = \frac{|supp(S_j)|}{|supp(X)|}
+$
+a z kolei $supp(\cdot)$ oznacza nośnik zbioru rozmytego.
+
+
+	\subsection{Degree of covering}
+\textsl{Degree of covering} reprezentuje, stopień, w jakim nośnik sumaryzatora pokrywa się z nośnikiem kwalifikatora. Dany jest wzorem:
+	\begin{equation}
+T_3 = \frac{\sum_{i=1}^{m}t_i}{\sum_{i=1}^{m}h_i}
+	\end{equation}
+gdzie dla zdań z kwalifikatorem:
+\[
+\begin{array}{l}
+t_i = \begin{cases}
+1 & \mbox{gdy } \mu_{S}(d_i) > 0 ~ \wedge ~ \mu_{W}(d_i) > 0 \\
+0 & \mbox{w przeciwnym razie.}
+\end{cases} \\
+h_i = \begin{cases}
+1 & \mbox{gdy } \mu_{W}(d_i) > 0 \\
+0 & \mbox{w przeciwnym razie.}
+\end{cases}
+\end{array}\]
+a dla zdań bez kwalifikatora:
+\[
+\begin{array}{l}
+t_i = \begin{cases}
+1 & \mbox{gdy } \mu_{S}(d_i) > 0  \\
+0 & \mbox{w przeciwnym razie.}
+\end{cases} \\
+\end{array}\]
+\[h_1 = 1\]
+
+
+
+	\subsection{Degree of appropriateness}
+\textsl{Degree of appropriateness} definiuje, jak dużo krotek przynależy do sumaryzatora, czyli czy określone podsumowanie jest odpowiednie dla zestawu danych. Dany jest wzorem:
+\begin{equation}
+T_4 = \left| \prod_{j=1}^{n} r_j - T_3\right|
+\end{equation}
+gdzie
+\begin{equation}
+r_j = \frac{\sum_{i=1}^{m} g_{ij}}{m}
+\end{equation}
+natomiast
+$
+g_{ij} = \begin{cases}
+1 & \mbox{gdy } \mu_{S}(d_i) > 0 \\
+0 & \mbox{w przeciwnym wypadku.}
+\end{cases}
+$
+
+
+	\subsection{Length of a summary}
+\textsl{Length of a summary}  określa jakość podsumowania na podstawie złożoności sumaryzatora, czyli im więcej składowych sumaryzatora złożonego, ty niższa wartość tej miary. Dany jest wzorem:
+\begin{equation}
+T_5 = 2 \cdot \left( \frac{1}{2}\right)^{|S|} 
+\end{equation}
+gdzie $|S|$ to liczba zbiorów rozmytych z jakich złożony jest sumaryzator.
+
+
+	\subsection{Degree of quantifier imprecision}
+\textsl{Degree of quantifier imprecision} przedstawia w jakim stopniu precyzyjny jest kwantyfikator. Im mniejszy nośnik zbioru rozmytego  tym wyższa jest jego precyzja. Dany jest wzorem:
+\begin{equation}
+T_6 = 1 - in(Q) = 1 - \frac{supp(Q)}{|\mathcal{X}_Q|}
+\end{equation}
+gdzie $|\mathcal{X}_Q| = 1$ dla kwantyfikatora relatywnego, natomiast dla kwantyfikatora absolutnego $|\mathcal{X}_Q| = m$, czyli liczba krotek w bazie danych.
+
+
+	\subsection{Degree of quantifier cardinality}
+\textsl{Degree of quantifier cardinality} opisuje stopień precyzji kwantyfikatora, im większa kardynalność kwantyfikatora tym jest on mniej precyzyjny. Dany jest wzorem:
+\begin{equation}
+T_7 = 1 - \frac{|Q|}{|\mathcal{X}_Q|}
+\end{equation}
+gdzie $|\cdot| = clm(\cdot)$ - całka z funkcji przynależności zbioru rozmytego (czyli pole pod jego wykresem).
+
+
+	\subsection{Degree of summarizer cardinality}
+\textsl{Degree of summarizer cardinality} opisuje stopień precyzji sumaryzatora, im mniejsza kardynalność kwantyfikatora tym jest on bardziej przecyzyjny. Dany jest wzorem:
+\begin{equation}
+T_8 = 1- \left(\prod_{j=1}^{n} \frac{|S_j|}{|\mathcal{X}_j|}\right)^{\frac{1}{n}}
+\end{equation}
+gdzie $n$ to liczba zbiorów rozmytych z jakich stworzony jest sumaryzator.
+
+
+	\subsection{Degree of qualifier imprecision}
+\textsl{Degree of qualifier imprecision} określa, w jakim stopniu precyzyjny jest kwalifikator. Im szerszy nośnik zbioru rozmytego tym niższa jest jego precyzja. Dany jest wzorem:
+\begin{equation}
+T_9 = 1-\mathrm{in}(W)
+\end{equation}
+gdzie $in(W)$ to stopień rozmycia zbioru rozmytego $W$.
+
+
+	\subsection{Degree of qualifier cardinality}
+\textsl{Degree of qualifier cardinality} opisuje stopień precyzji kwalifikatora, im większa jest kardynalność kwalifikatora, tym jest on mniej precyzyjny. Dany jest wzorem:
+\begin{equation}
+T_{10} = 1-\frac{|W|}{|\mathcal{X}_g|}
+\end{equation}
+
+
+	\subsection{Length of qualifier}
+\textsl{Length of qualifier} wyznacza jakość podsumowania na podstawie złożoności kwalifikatora. Im bardziej złożony kwalifikator, tym jakość podsumowania jest gorsza. Dany jest wzorem:
+\begin{equation}
+T_{11} = 2 \cdot \left(\frac{1}{2}\right)^{|W|}
+\end{equation}
+gdzie $|W|$ to liczba zbiorów rozmytych, z jakich stworzony jest kwalifikator.
+
 
 	\newpage
 	\section{Opis implementacji} % Opis implementacji
