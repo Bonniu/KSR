@@ -38,9 +38,18 @@ namespace Zadanie2_KSR
 
         public double DegreeOfFuzziness(List<FifaPlayer> fifaPlayers)
         {
-            var max = fifaPlayers.Max(player => ValueGetter.GetValueOfPlayer(player, attributeName));
-            var min = fifaPlayers.Min(player => ValueGetter.GetValueOfPlayer(player, attributeName));
-            return SupportValue(fifaPlayers) / (max - min);
+            if (!attributeName.Contains("Quantifier"))
+            {
+                var max = fifaPlayers.Max(player => ValueGetter.GetValueOfPlayer(player, attributeName));
+                var min = fifaPlayers.Min(player => ValueGetter.GetValueOfPlayer(player, attributeName));
+                return SupportValue(fifaPlayers) / (max - min);
+            }
+            // quantifier absolute
+            if (attributeName.Contains("Absolute"))
+                return (membershipFunction.GetMax() - membershipFunction.GetMin()) / fifaPlayers.Count;
+            
+            // quantifier relative
+            return (membershipFunction.GetMax() - membershipFunction.GetMin());
         }
 
         // moze trzeba przeniesc gdzies indziej

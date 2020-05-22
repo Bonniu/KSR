@@ -3,5 +3,7 @@
     public interface IMembershipFunction
     {
         public double CountValue(double x);
+        public double GetMin();
+        public double GetMax();
     }
 }

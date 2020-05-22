@@ -14,9 +14,9 @@ namespace Zadanie2_KSR
             var t2 = DegreeOfImprecision(fifaPlayers, summarizers);
             var t3 = DegreeOfCovering(fifaPlayers, summarizers, qualifier, connector);
             var t4 = DegreeOfAppropriateness(fifaPlayers, summarizers, t3);
-            var t5 = 0d;
-            var t6 = 0d;
-            var t7 = 0d;
+            var t5 = LengthOfASummary(summarizers);
+            var t6 = DegreeOfQuantifierImprecision(quantifier, fifaPlayers);
+            var t7 = DegreeOfQuantifierCardinality(quantifier, fifaPlayers);
             var t8 = 0d;
             var t9 = 0d;
             var t10 = 0d;
@@ -159,6 +159,7 @@ namespace Zadanie2_KSR
             {
                 mul *= CountRforT4(summarizer, fifaPlayers);
             }
+
             return Math.Abs(mul - t3);
         }
 
@@ -174,6 +175,30 @@ namespace Zadanie2_KSR
             }
 
             return sum / fifaPlayers.Count;
+        }
+
+        // T5
+        public static double LengthOfASummary(List<LinguisticVariable> summarizers)
+        {
+            return 2 * Math.Pow(0.5, summarizers.Count);
+        }
+
+        // T6
+        public static double DegreeOfQuantifierImprecision(LinguisticVariable quantifier, List<FifaPlayer> fifaPlayers)
+        {
+            FuzzySet fs;
+            if (quantifier.QuantifierAbsolute)
+                fs = new FuzzySet("Quantifier Absolute", quantifier.MembershipFunction);
+            else
+                fs = new FuzzySet("Quantifier", quantifier.MembershipFunction);
+
+            return 1 - fs.DegreeOfFuzziness(fifaPlayers);
+        }
+        
+        // T7
+        public static double DegreeOfQuantifierCardinality(LinguisticVariable quantifier, List<FifaPlayer> fifaPlayers)
+        {
+            return 0;
         }
     }
 }

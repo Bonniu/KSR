@@ -34,5 +34,15 @@ namespace Zadanie2_KSR.MembershipFunctions
 
             return 0;
         }
+        
+        public double GetMin()
+        {
+            return _a;
+        }
+        
+        public double GetMax()
+        {
+            return _c;
+        }
     }
 }

@@ -1,11 +1,13 @@
-﻿namespace Zadanie2_KSR.MembershipFunctions
+﻿using System;
+
+namespace Zadanie2_KSR.MembershipFunctions
 {
     public class TrapezoidalFunction : IMembershipFunction
     {
-        private readonly double _a;
-        private readonly double _b;
-        private readonly double _c;
-        private readonly double _d;
+        public readonly double _a;
+        public readonly double _b;
+        public readonly double _c;
+        public readonly double _d;
 
         public TrapezoidalFunction(double a, double b, double c, double d)
         {
@@ -33,6 +35,16 @@
             }
 
             return 0;
+        }
+        
+        public double GetMin()
+        {
+            return _a;
+        }
+        
+        public double GetMax()
+        {
+            return _d;
         }
     }
 }

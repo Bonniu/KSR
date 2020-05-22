@@ -18,5 +18,15 @@ namespace Zadanie2_KSR.MembershipFunctions
             var tmpFraction = (x - _avgX) / _width;
             return Math.Exp(-tmpFraction * tmpFraction);
         }
+
+        public double GetMin()
+        {
+            throw new NotImplementedException();
+        }
+        
+        public double GetMax()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
