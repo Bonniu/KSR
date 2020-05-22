@@ -12,8 +12,8 @@ namespace Zadanie2_KSR
         {
             var t1 = DegreeOfTruth(fifaPlayers, quantifier, summarizers, qualifier, connector);
             var t2 = DegreeOfImprecision(fifaPlayers, summarizers);
-            var t3 = DegreeOfCovering(fifaPlayers, summarizers, qualifier);
-            var t4 = 0d;
+            var t3 = DegreeOfCovering(fifaPlayers, summarizers, qualifier, connector);
+            var t4 = DegreeOfAppropriateness(fifaPlayers, summarizers, t3);
             var t5 = 0d;
             var t6 = 0d;
             var t7 = 0d;
@@ -43,6 +43,7 @@ namespace Zadanie2_KSR
             return t;
         }
 
+        // counts value from all Linguistic variables with connector ( f.e. miS(di))
         private static double CountMembershipValue(List<LinguisticVariable> list, string connector,
             FifaPlayer fifaPlayer)
         {
@@ -74,7 +75,7 @@ namespace Zadanie2_KSR
             return max;
         }
 
-        // p. 156  - T1
+        // T1
         public static double DegreeOfTruth(List<FifaPlayer> fifaPlayers, LinguisticVariable quantifier,
             List<LinguisticVariable> summarizers, LinguisticVariable qualifier, string connector)
         {
@@ -99,7 +100,7 @@ namespace Zadanie2_KSR
                 : quantifier.MembershipFunction.CountValue(r / fifaPlayers.Count);
         }
 
-        // p. 156  - T2
+        // T2
         public static double DegreeOfImprecision(List<FifaPlayer> fifaPlayers, List<LinguisticVariable> summarizers)
         {
             double mul = 1;
@@ -112,9 +113,9 @@ namespace Zadanie2_KSR
             return 1 - Math.Pow(mul, (double) 1 / summarizers.Count);
         }
 
-        // p. 157  - T3
+        // T3
         public static double DegreeOfCovering(List<FifaPlayer> fifaPlayers,
-            List<LinguisticVariable> summarizers, LinguisticVariable qualifier)
+            List<LinguisticVariable> summarizers, LinguisticVariable qualifier, string connector)
         {
             if (qualifier == null) // 8.44 8.47 8.48
             {
@@ -122,7 +123,7 @@ namespace Zadanie2_KSR
                 double sumt = 0;
                 foreach (var fp in fifaPlayers)
                 {
-                    var miS = CountMembershipValue(summarizers, "and", fp);
+                    var miS = CountMembershipValue(summarizers, connector, fp);
                     if (miS > 0)
                         sumt++;
                 }
@@ -135,7 +136,7 @@ namespace Zadanie2_KSR
                 double sumt = 0;
                 foreach (var fp in fifaPlayers)
                 {
-                    var miS = CountMembershipValue(summarizers, "and", fp);
+                    var miS = CountMembershipValue(summarizers, connector, fp);
                     var miW = qualifier.CountMembership(fp);
                     if (miW > 0)
                     {
@@ -147,6 +148,32 @@ namespace Zadanie2_KSR
 
                 return sumt / sumh;
             }
+        }
+
+        // T4
+        public static double DegreeOfAppropriateness(List<FifaPlayer> fifaPlayers,
+            List<LinguisticVariable> summarizers, double t3)
+        {
+            double mul = 1;
+            foreach (var summarizer in summarizers)
+            {
+                mul *= CountRforT4(summarizer, fifaPlayers);
+            }
+            return Math.Abs(mul - t3);
+        }
+
+        private static double CountRforT4(LinguisticVariable summarizer,
+            List<FifaPlayer> fifaPlayers)
+        {
+            double sum = 0;
+            foreach (var fp in fifaPlayers)
+            {
+                var miS = summarizer.CountMembership(fp);
+                if (miS > 0)
+                    sum++;
+            }
+
+            return sum / fifaPlayers.Count;
         }
     }
 }

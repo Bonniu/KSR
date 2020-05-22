@@ -3,22 +3,34 @@
 \BOOKMARK [2][-]{subsection.2.1}{Funkcja trapezoidalna}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{Funkcja tr\363jkatna}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.3}{Funkcja Gaussowska}{section.2}% 5
-\BOOKMARK [1][-]{section.3}{Opis implementacji}{}% 6
-\BOOKMARK [1][-]{section.4}{Materia\233y i metody}{}% 7
-\BOOKMARK [2][-]{subsection.4.1}{Baza danych}{section.4}% 8
-\BOOKMARK [2][-]{subsection.4.2}{Zmienne lingwistyczne}{section.4}% 9
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Wiek}{subsection.4.2}% 10
-\BOOKMARK [3][-]{subsubsection.4.2.2}{Wzrost}{subsection.4.2}% 11
-\BOOKMARK [3][-]{subsubsection.4.2.3}{Waga}{subsection.4.2}% 12
-\BOOKMARK [3][-]{subsubsection.4.2.4}{Ocena og\363lna}{subsection.4.2}% 13
-\BOOKMARK [3][-]{subsubsection.4.2.5}{Wykonczenie}{subsection.4.2}% 14
-\BOOKMARK [3][-]{subsubsection.4.2.6}{Dribbling}{subsection.4.2}% 15
-\BOOKMARK [3][-]{subsubsection.4.2.7}{Podkrecenie pi\233ki}{subsection.4.2}% 16
-\BOOKMARK [3][-]{subsubsection.4.2.8}{D\233ugie podania}{subsection.4.2}% 17
-\BOOKMARK [3][-]{subsubsection.4.2.9}{Sprint}{subsection.4.2}% 18
-\BOOKMARK [3][-]{subsubsection.4.2.10}{Si\233a strza\233u}{subsection.4.2}% 19
-\BOOKMARK [2][-]{subsection.4.3}{Kwantyfikator wzgledny}{section.4}% 20
-\BOOKMARK [1][-]{section.5}{Wyniki}{}% 21
-\BOOKMARK [1][-]{section.6}{Dyskusja}{}% 22
-\BOOKMARK [1][-]{section.7}{Wnioski}{}% 23
-\BOOKMARK [1][-]{section*.1}{Literatura}{}% 24
+\BOOKMARK [1][-]{section.3}{Miary jakosci}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Degree of truth}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{Degree of imprecision}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.3}{Degree of covering}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.4}{Degree of appropriateness}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.5}{Length of a summary}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.6}{Degree of quantifier imprecision}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.7}{Degree of quantifier cardinality}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.8}{Degree of summarizer cardinality}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.9}{Degree of qualifier imprecision}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.10}{Degree of qualifier cardinality}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.11}{Length of qualifier}{section.3}% 17
+\BOOKMARK [1][-]{section.4}{Opis implementacji}{}% 18
+\BOOKMARK [1][-]{section.5}{Materia\233y i metody}{}% 19
+\BOOKMARK [2][-]{subsection.5.1}{Baza danych}{section.5}% 20
+\BOOKMARK [2][-]{subsection.5.2}{Zmienne lingwistyczne}{section.5}% 21
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Wiek}{subsection.5.2}% 22
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Wzrost}{subsection.5.2}% 23
+\BOOKMARK [3][-]{subsubsection.5.2.3}{Waga}{subsection.5.2}% 24
+\BOOKMARK [3][-]{subsubsection.5.2.4}{Ocena og\363lna}{subsection.5.2}% 25
+\BOOKMARK [3][-]{subsubsection.5.2.5}{Wykonczenie}{subsection.5.2}% 26
+\BOOKMARK [3][-]{subsubsection.5.2.6}{Dribbling}{subsection.5.2}% 27
+\BOOKMARK [3][-]{subsubsection.5.2.7}{Podkrecenie pi\233ki}{subsection.5.2}% 28
+\BOOKMARK [3][-]{subsubsection.5.2.8}{D\233ugie podania}{subsection.5.2}% 29
+\BOOKMARK [3][-]{subsubsection.5.2.9}{Sprint}{subsection.5.2}% 30
+\BOOKMARK [3][-]{subsubsection.5.2.10}{Si\233a strza\233u}{subsection.5.2}% 31
+\BOOKMARK [2][-]{subsection.5.3}{Kwantyfikator wzgledny}{section.5}% 32
+\BOOKMARK [1][-]{section.6}{Wyniki}{}% 33
+\BOOKMARK [1][-]{section.7}{Dyskusja}{}% 34
+\BOOKMARK [1][-]{section.8}{Wnioski}{}% 35
+\BOOKMARK [1][-]{section*.1}{Literatura}{}% 36
