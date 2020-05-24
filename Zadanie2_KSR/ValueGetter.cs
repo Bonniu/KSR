@@ -1,10 +1,10 @@
 ﻿namespace Zadanie2_KSR
 {
-    public class ValueGetter
+    public static class ValueGetter
     {
-        public static double GetValueOfPlayer(FifaPlayer fp, string AttributeName)
+        public static double GetValueOfPlayer(FifaPlayer fp, string attributeName)
         {
-            return AttributeName switch
+            return attributeName switch
             {
                 "Age" => fp.GetAge(),
                 "Height" => fp.GetHeight(),
