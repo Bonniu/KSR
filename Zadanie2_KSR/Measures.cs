@@ -16,15 +16,15 @@ namespace Zadanie2_KSR
             var t5 = LengthOfASummary(summarizers);
             var t6 = DegreeOfQuantifierImprecision(quantifier, fifaPlayers);
             var t7 = DegreeOfQuantifierCardinality(quantifier, fifaPlayers);
-            var t8 = DegreeOfSummarizerCardinality(summarizers, fifaPlayers);
-            var t9 = 0d;
-            var t10 = 0d;
-            var t11 = 0d;
-            //TODO
-            string measures16 = Math.Round(t1, 3) + " " + Math.Round(t2, 3) + " " + Math.Round(t3, 3) + " " +
-                                Math.Round(t4, 3) + " " + Math.Round(t5, 3) + " " + Math.Round(t6, 3) + " " +
-                                Math.Round(t7, 3) + " " + Math.Round(t8, 3) + " " + Math.Round(t9, 3) + " " +
-                                Math.Round(t10, 3) + " " + Math.Round(t11, 3);
+            var t8 = DegreeOfSummarizerCardinality(summarizers);
+            var t9 = DegreeOfQuantifierCardinality(qualifier);
+            var t10 = DegreeOfQualifierCardinality(qualifier, fifaPlayers);
+            var t11 = LengthOfQualifier(qualifier);
+
+            var measures16 = Math.Round(t1, 3) + " " + Math.Round(t2, 3) + " " + Math.Round(t3, 3) + " " +
+                             Math.Round(t4, 3) + " " + Math.Round(t5, 3) + " " + Math.Round(t6, 3) + " " +
+                             Math.Round(t7, 3) + " " + Math.Round(t8, 3) + " " + Math.Round(t9, 3) + " " +
+                             Math.Round(t10, 3) + " " + Math.Round(t11, 3);
 
             var t =
                 0.4 * t1 +
@@ -202,8 +202,7 @@ namespace Zadanie2_KSR
         }
 
         // T8
-        public static double DegreeOfSummarizerCardinality(List<LinguisticVariable> summarizers,
-            List<FifaPlayer> fifaPlayers)
+        public static double DegreeOfSummarizerCardinality(List<LinguisticVariable> summarizers)
         {
             double mul = 1;
             foreach (var summarizer in summarizers)
@@ -212,7 +211,26 @@ namespace Zadanie2_KSR
                 var x = summarizer.MembershipFunction.GetMax() - summarizer.MembershipFunction.GetMin();
                 mul *= (sj / x);
             }
+
             return 1 - Math.Pow(mul, (double) 1 / summarizers.Count);
+        }
+        
+        // T9
+        public static double DegreeOfQuantifierCardinality(LinguisticVariable qualifier)
+        {
+            return 0;
+        }
+        
+        // T10
+        public static double DegreeOfQualifierCardinality(LinguisticVariable qualifier, List<FifaPlayer> fifaPlayers)
+        {
+            return 0;
+        }
+        
+        // T11
+        public static double LengthOfQualifier(LinguisticVariable qualifier)
+        {
+            return 0;
         }
     }
 }

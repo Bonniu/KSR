@@ -167,7 +167,7 @@ gdzie $|S|$ to liczba zbiorów rozmytych z jakich złożony jest sumaryzator.
 	\subsection{Degree of quantifier imprecision}
 \textsl{Degree of quantifier imprecision} przedstawia w jakim stopniu precyzyjny jest kwantyfikator. Im mniejszy nośnik zbioru rozmytego  tym wyższa jest jego precyzja. Dany jest wzorem:
 \begin{equation}
-T_6 = 1 - in(Q) = 1 - \frac{supp(Q)}{|\mathcal{X}_Q|}
+T_6 = 1 - in(Q) = 1 - \frac{|supp(Q)|}{|\mathcal{X}_Q|}
 \end{equation}
 gdzie $|\mathcal{X}_Q| = 1$ dla kwantyfikatora relatywnego, natomiast dla kwantyfikatora absolutnego $|\mathcal{X}_Q| = m$, czyli liczba krotek w bazie danych.
 
@@ -181,7 +181,7 @@ gdzie $|\cdot| = clm(\cdot)$ - całka z funkcji przynależności zbioru rozmyteg
 
 
 	\subsection{Degree of summarizer cardinality}
-\textsl{Degree of summarizer cardinality} opisuje stopień precyzji sumaryzatora, im mniejsza kardynalność kwantyfikatora tym jest on bardziej przecyzyjny. Dany jest wzorem:
+\textsl{Degree of summarizer cardinality} opisuje stopień precyzji sumaryzatora, im mniejsza kardynalność sumaryzatora tym jest on bardziej przecyzyjny. Dany jest wzorem:
 \begin{equation}
 T_8 = 1- \left(\prod_{j=1}^{n} \frac{|S_j|}{|\mathcal{X}_j|}\right)^{\frac{1}{n}}
 \end{equation}
