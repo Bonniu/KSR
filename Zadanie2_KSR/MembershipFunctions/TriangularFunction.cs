@@ -4,32 +4,32 @@ namespace Zadanie2_KSR.MembershipFunctions
 {
     public class TriangularFunction : IMembershipFunction
     {
-        private readonly double _a;
-        private readonly double _b;
-        private readonly double _c;
+        public readonly double A;
+        public readonly double B;
+        public readonly double C;
 
         public TriangularFunction(double a, double b, double c)
         {
-            _a = a;
-            _b = b;
-            _c = c;
+            A = a;
+            B = b;
+            C = c;
         }
 
         public double CountValue(double x)
         {
-            if (x > _a && x < _b)
+            if (x > A && x < B)
             {
-                return (x - _a) / (_b - _a);
+                return (x - A) / (B - A);
             }
 
-            if (Math.Abs(x - _b) < 0.00000001)
+            if (Math.Abs(x - B) < 0.00000001)
             {
                 return 1;
             }
 
-            if (x > _b && x < _c)
+            if (x > B && x < C)
             {
-                return (_c - x) / (_c - _b);
+                return (C - x) / (C - B);
             }
 
             return 0;
@@ -37,12 +37,12 @@ namespace Zadanie2_KSR.MembershipFunctions
         
         public double GetMin()
         {
-            return _a;
+            return A;
         }
         
         public double GetMax()
         {
-            return _c;
+            return C;
         }
     }
 }

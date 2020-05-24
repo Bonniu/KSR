@@ -4,34 +4,34 @@ namespace Zadanie2_KSR.MembershipFunctions
 {
     public class TrapezoidalFunction : IMembershipFunction
     {
-        public readonly double _a;
-        public readonly double _b;
-        public readonly double _c;
-        public readonly double _d;
+        public readonly double A;
+        public readonly double B;
+        public readonly double C;
+        public readonly double D;
 
         public TrapezoidalFunction(double a, double b, double c, double d)
         {
-            _a = a;
-            _b = b;
-            _c = c;
-            _d = d;
+            A = a;
+            B = b;
+            C = c;
+            D = d;
         }
 
         public double CountValue(double x)
         {
-            if (x > _a && x < _b)
+            if (x > A && x < B)
             {
-                return (x - _a) / (_b - _a);
+                return (x - A) / (B - A);
             }
 
-            if (x >= _b && x <= _c)
+            if (x >= B && x <= C)
             {
                 return 1;
             }
 
-            if (x > _c && x < _d)
+            if (x > C && x < D)
             {
-                return (_d - x) / (_d - _c);
+                return (D - x) / (D - C);
             }
 
             return 0;
@@ -39,12 +39,12 @@ namespace Zadanie2_KSR.MembershipFunctions
         
         public double GetMin()
         {
-            return _a;
+            return A;
         }
         
         public double GetMax()
         {
-            return _d;
+            return D;
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.DirectoryServices;
 using System.Windows;
 using Zadanie2_KSR.MembershipFunctions;
 
@@ -33,7 +32,6 @@ namespace Zadanie2_KSR
                 foreach (var y in attributes)
                 {
                     BuildOneSubjectSentence(q, qualifier, new List<LinguisticVariable>() {y}, null);
-                    //CountMeasures(q, qualifier, new List<LinguisticVariable>() {y}, null);
                 }
             }
         }

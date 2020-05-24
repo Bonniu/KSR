@@ -4,29 +4,29 @@ namespace Zadanie2_KSR.MembershipFunctions
 {
     public class GaussianFunction : IMembershipFunction
     {
-        private readonly double _avgX;
-        private readonly double _width;
+        public readonly double AvgX;
+        public readonly double Width;
 
         public GaussianFunction(double avgX, double width)
         {
-            _avgX = avgX;
-            _width = width;
+            AvgX = avgX;
+            Width = width;
         }
 
         public double CountValue(double x)
         {
-            var tmpFraction = (x - _avgX) / _width;
+            var tmpFraction = (x - AvgX) / Width;
             return Math.Exp(-tmpFraction * tmpFraction);
         }
 
         public double GetMin()
         {
-            throw new NotImplementedException();
+            return int.MinValue;
         }
-        
+
         public double GetMax()
         {
-            throw new NotImplementedException();
+            return int.MaxValue;
         }
     }
 }

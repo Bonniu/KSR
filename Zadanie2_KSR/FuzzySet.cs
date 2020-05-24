@@ -30,26 +30,12 @@ namespace Zadanie2_KSR
 
         public double SupportValue(List<FifaPlayer> fifaPlayers)
         {
-            List<FifaPlayer> supportList = Support(fifaPlayers);
-            var max = supportList.Max(player => ValueGetter.GetValueOfPlayer(player, attributeName));
-            var min = supportList.Min(player => ValueGetter.GetValueOfPlayer(player, attributeName));
-            return max - min;
+            return Support(fifaPlayers).Count;
         }
 
         public double DegreeOfFuzziness(List<FifaPlayer> fifaPlayers)
         {
-            if (!attributeName.Contains("Quantifier"))
-            {
-                var max = fifaPlayers.Max(player => ValueGetter.GetValueOfPlayer(player, attributeName));
-                var min = fifaPlayers.Min(player => ValueGetter.GetValueOfPlayer(player, attributeName));
-                return SupportValue(fifaPlayers) / (max - min);
-            }
-            // quantifier absolute
-            if (attributeName.Contains("Absolute"))
-                return (membershipFunction.GetMax() - membershipFunction.GetMin()) / fifaPlayers.Count;
-            
-            // quantifier relative
-            return (membershipFunction.GetMax() - membershipFunction.GetMin());
+            return SupportValue(fifaPlayers) / fifaPlayers.Count;
         }
 
         // moze trzeba przeniesc gdzies indziej

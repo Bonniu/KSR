@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Data;
 
 namespace Zadanie2_KSR
 {
@@ -88,7 +87,7 @@ namespace Zadanie2_KSR
                     u += Math.Min(qualifier.CountMembership(x), CountMembershipValue(summarizers, connector, x));
                     d += qualifier.CountMembership(x);
                 }
-
+                // Console.WriteLine(u + " " + d + " " + u/d);
                 return quantifier.QuantifierAbsolute
                     ? quantifier.MembershipFunction.CountValue(u)
                     : quantifier.MembershipFunction.CountValue(u / d);
