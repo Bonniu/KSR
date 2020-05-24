@@ -34,15 +34,21 @@ namespace Zadanie2_KSR.MembershipFunctions
 
             return 0;
         }
-        
+
         public double GetMin()
         {
             return A;
         }
-        
+
         public double GetMax()
         {
             return C;
+        }
+
+        public double CountArea()
+        {
+            var a = C - A;
+            return a * 1 / 2;
         }
     }
 }

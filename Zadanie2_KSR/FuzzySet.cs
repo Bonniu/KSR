@@ -35,6 +35,15 @@ namespace Zadanie2_KSR
 
         public double DegreeOfFuzziness(List<FifaPlayer> fifaPlayers)
         {
+            //kwantyfikatory // ????????????????????
+            // quantifier absolute
+            if (attributeName.Contains("Absolute"))
+                return (membershipFunction.GetMax() - membershipFunction.GetMin()) / fifaPlayers.Count;
+
+            if (attributeName.Contains("Quantifier"))
+                return (membershipFunction.GetMax() - membershipFunction.GetMin());
+
+            // sumaryzatory --- raczej git
             return SupportValue(fifaPlayers) / fifaPlayers.Count;
         }
 

@@ -16,7 +16,7 @@ namespace Zadanie2_KSR
             var t5 = LengthOfASummary(summarizers);
             var t6 = DegreeOfQuantifierImprecision(quantifier, fifaPlayers);
             var t7 = DegreeOfQuantifierCardinality(quantifier, fifaPlayers);
-            var t8 = 0d;
+            var t8 = DegreeOfSummarizerCardinality(summarizers, fifaPlayers);
             var t9 = 0d;
             var t10 = 0d;
             var t11 = 0d;
@@ -87,6 +87,7 @@ namespace Zadanie2_KSR
                     u += Math.Min(qualifier.CountMembership(x), CountMembershipValue(summarizers, connector, x));
                     d += qualifier.CountMembership(x);
                 }
+
                 // Console.WriteLine(u + " " + d + " " + u/d);
                 return quantifier.QuantifierAbsolute
                     ? quantifier.MembershipFunction.CountValue(u)
@@ -165,15 +166,15 @@ namespace Zadanie2_KSR
         private static double CountRforT4(LinguisticVariable summarizer,
             List<FifaPlayer> fifaPlayers)
         {
-            double sum = 0;
+            double sumG = 0;
             foreach (var fp in fifaPlayers)
             {
                 var miS = summarizer.CountMembership(fp);
                 if (miS > 0)
-                    sum++;
+                    sumG++;
             }
 
-            return sum / fifaPlayers.Count;
+            return sumG / fifaPlayers.Count;
         }
 
         // T5
@@ -190,14 +191,28 @@ namespace Zadanie2_KSR
                 fs = new FuzzySet("Quantifier Absolute", quantifier.MembershipFunction);
             else
                 fs = new FuzzySet("Quantifier", quantifier.MembershipFunction);
-
             return 1 - fs.DegreeOfFuzziness(fifaPlayers);
         }
-        
+
         // T7
         public static double DegreeOfQuantifierCardinality(LinguisticVariable quantifier, List<FifaPlayer> fifaPlayers)
         {
-            return 0;
+            double x = quantifier.MembershipFunction.CountArea();
+            return 1 - x / fifaPlayers.Count;
+        }
+
+        // T8
+        public static double DegreeOfSummarizerCardinality(List<LinguisticVariable> summarizers,
+            List<FifaPlayer> fifaPlayers)
+        {
+            double mul = 1;
+            foreach (var summarizer in summarizers)
+            {
+                var sj = summarizer.MembershipFunction.CountArea();
+                var x = summarizer.MembershipFunction.GetMax() - summarizer.MembershipFunction.GetMin();
+                mul *= (sj / x);
+            }
+            return 1 - Math.Pow(mul, (double) 1 / summarizers.Count);
         }
     }
 }

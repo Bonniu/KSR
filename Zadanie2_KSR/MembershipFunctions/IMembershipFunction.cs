@@ -5,5 +5,7 @@
         public double CountValue(double x);
         public double GetMin();
         public double GetMax();
+        public double CountArea();
+
     }
 }

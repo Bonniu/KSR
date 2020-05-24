@@ -16,7 +16,6 @@ namespace Zadanie2_KSR
         public MainWindow()
         {
             InitializeComponent();
-
             //GuiLike();
             GenerateSentencesSecond(Summarizers.GetAllDribblingVariables(),
                 Quantifier.GetRelativeQuantifiers(),
