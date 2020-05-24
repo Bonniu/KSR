@@ -46,19 +46,5 @@ namespace Zadanie2_KSR
             // sumaryzatory --- raczej git
             return SupportValue(fifaPlayers) / fifaPlayers.Count;
         }
-
-        // moze trzeba przeniesc gdzies indziej
-        public static double CountMembershipAnd(List<LinguisticVariable> summarisers, FifaPlayer fp)
-        {
-            double min = 1;
-            foreach (var s in summarisers)
-            {
-                double tmp = s.CountMembership(fp);
-                if (tmp < min)
-                    min = tmp;
-            }
-
-            return min;
-        }
     }
 }

@@ -17,9 +17,9 @@ namespace Zadanie2_KSR
             var t6 = DegreeOfQuantifierImprecision(quantifier, fifaPlayers);
             var t7 = DegreeOfQuantifierCardinality(quantifier, fifaPlayers);
             var t8 = DegreeOfSummarizerCardinality(summarizers);
-            var t9 = DegreeOfQuantifierCardinality(qualifier);
+            var t9 = DegreeOfQualifierImprecision(qualifier, fifaPlayers);
             var t10 = DegreeOfQualifierCardinality(qualifier, fifaPlayers);
-            var t11 = LengthOfQualifier(qualifier);
+            var t11 = LengthOfQualifier(new List<LinguisticVariable> {qualifier});
 
             var measures16 = Math.Round(t1, 3) + " " + Math.Round(t2, 3) + " " + Math.Round(t3, 3) + " " +
                              Math.Round(t4, 3) + " " + Math.Round(t5, 3) + " " + Math.Round(t6, 3) + " " +
@@ -78,27 +78,34 @@ namespace Zadanie2_KSR
         public static double DegreeOfTruth(List<FifaPlayer> fifaPlayers, LinguisticVariable quantifier,
             List<LinguisticVariable> summarizers, LinguisticVariable qualifier, string connector)
         {
-            if (qualifier != null)
+            if (qualifier != null) // zdanie z kwalifikatorem
             {
+                // nowa baza D' - strona  150 a.n.
+                var fifaPlayersPrime = fifaPlayers
+                    .Where(player => qualifier.CountMembership(player) > 0)
+                    .ToList();
+
+                // wzór na r
                 double d = 0;
                 double u = 0;
-                foreach (var x in fifaPlayers)
+                foreach (var x in fifaPlayersPrime)
                 {
                     u += Math.Min(qualifier.CountMembership(x), CountMembershipValue(summarizers, connector, x));
                     d += qualifier.CountMembership(x);
                 }
 
-                // Console.WriteLine(u + " " + d + " " + u/d);
                 return quantifier.QuantifierAbsolute
                     ? quantifier.MembershipFunction.CountValue(u)
                     : quantifier.MembershipFunction.CountValue(u / d);
             }
 
+            // zdanie bez kwalifikatora
             var r = fifaPlayers.Sum(x => CountMembershipValue(summarizers, connector, x));
             return quantifier.QuantifierAbsolute
                 ? quantifier.MembershipFunction.CountValue(r)
                 : quantifier.MembershipFunction.CountValue(r / fifaPlayers.Count);
         }
+
 
         // T2
         public static double DegreeOfImprecision(List<FifaPlayer> fifaPlayers, List<LinguisticVariable> summarizers)
@@ -197,7 +204,7 @@ namespace Zadanie2_KSR
         // T7
         public static double DegreeOfQuantifierCardinality(LinguisticVariable quantifier, List<FifaPlayer> fifaPlayers)
         {
-            double x = quantifier.MembershipFunction.CountArea();
+            var x = quantifier.MembershipFunction.CountArea();
             return 1 - x / fifaPlayers.Count;
         }
 
@@ -214,23 +221,29 @@ namespace Zadanie2_KSR
 
             return 1 - Math.Pow(mul, (double) 1 / summarizers.Count);
         }
-        
+
         // T9
-        public static double DegreeOfQuantifierCardinality(LinguisticVariable qualifier)
+        public static double DegreeOfQualifierImprecision(LinguisticVariable qualifier, List<FifaPlayer> fifaPlayers)
         {
-            return 0;
+            // jeżeli będzie lista kwalifikatorów trzeba zmienić
+            var fs = new FuzzySet(qualifier.AttributeName, qualifier.MembershipFunction);
+            return 1 - fs.DegreeOfFuzziness(fifaPlayers);
         }
-        
+
         // T10
         public static double DegreeOfQualifierCardinality(LinguisticVariable qualifier, List<FifaPlayer> fifaPlayers)
         {
-            return 0;
+            // jeżeli będzie lista kwalifikatorów trzeba zmienić
+            var x = qualifier.MembershipFunction.CountArea();
+            return 1 - x / fifaPlayers.Count;
         }
-        
+
         // T11
-        public static double LengthOfQualifier(LinguisticVariable qualifier)
+        public static double LengthOfQualifier(List<LinguisticVariable> qualifiers)
         {
-            return 0;
+            // jeżeli będzie lista kwalifikatorów trzeba zmienić
+            return 2 * Math.Pow(0.5, qualifiers.Count);
+            //return 2 * Math.Pow(0.5, 1);
         }
     }
 }

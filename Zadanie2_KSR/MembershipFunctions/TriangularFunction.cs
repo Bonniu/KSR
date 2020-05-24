@@ -50,5 +50,10 @@ namespace Zadanie2_KSR.MembershipFunctions
             var a = C - A;
             return a * 1 / 2;
         }
+
+        public override string ToString()
+        {
+            return "A: " + A + " B: " + B + " C: " + C + " area: " + CountArea();
+        }
     }
 }
