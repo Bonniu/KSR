@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  22 MAY 2020 17:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  25 MAY 2020 10:29
 entering extended mode
 **./sprawozdanie.tex
 (sprawozdanie.tex
@@ -425,15 +425,12 @@ Package pdftex.def Info: ./rys/kwantyfikatorWzgledny.png  used on input line 62
 9.
 (pdftex.def)             Requested size: 350.99762pt x 183.19026pt.
  [17 <./rys/kwantyfikatorWzgledny.png>]
-<./rys/zdania1.png, id=318, 279.29344pt x 377.15906pt>
+<./rys/zdania1.png, id=318, 510.90875pt x 283.0575pt>
 File: ./rys/zdania1.png Graphic file (type png)
 <use ./rys/zdania1.png>
 Package pdftex.def Info: ./rys/zdania1.png  used on input line 640.
-(pdftex.def)             Requested size: 350.99762pt x 474.00288pt.
+(pdftex.def)             Requested size: 350.99762pt x 194.45901pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18 <./rys/zdania1.png>]
 Underfull \hbox (badness 1242) in paragraph at lines 653--654
 []\T1/cmr/m/n/10.95 https://pracownik.kul.pl/files/31717/public/Funkcje_przynal
 eznosci.pdf [do-
@@ -446,7 +443,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 654--655
  []
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 656.
-[19]
+[18 <./rys/zdania1.png>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 656.
  (sprawozdanie.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 656.
@@ -456,13 +453,13 @@ Package rerunfilecheck Info: File `sprawozdanie.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 656.
  ) 
 Here is how much of TeX's memory you used:
- 6977 strings out of 481556
- 102326 string characters out of 2923635
+ 6976 strings out of 481556
+ 102319 string characters out of 2923635
  366689 words of memory out of 3000000
  21973 multiletter control sequences out of 15000+200000
  542114 words of font info for 46 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,12n,32p,926b,457s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,12n,32p,926b,388s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 ecrm1095.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
 ec/dpi600\ecsl1200.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
@@ -480,9 +477,9 @@ sfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on sprawozdanie.pdf (19 pages, 569597 bytes).
+Output written on sprawozdanie.pdf (18 pages, 576165 bytes).
 PDF statistics:
- 735 PDF objects out of 1000 (max. 8388607)
- 111 named destinations out of 1000 (max. 500000)
+ 730 PDF objects out of 1000 (max. 8388607)
+ 110 named destinations out of 1000 (max. 500000)
  354 words of extra memory for PDF output out of 10000 (max. 10000000)
 
