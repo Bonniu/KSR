@@ -12,6 +12,7 @@
         private int _passing;
         private int _sprintSpeed;
         private int _shotPower;
+        private string _position;
 
         public FifaPlayerBuilder AddAge(int age)
         {
@@ -21,55 +22,61 @@
 
         public FifaPlayerBuilder AddHeight(int height)
         {
-            this._height = height;
+            _height = height;
             return this;
         }
 
         public FifaPlayerBuilder AddWeight(int weight)
         {
-            this._weight = weight;
+            _weight = weight;
             return this;
         }
 
         public FifaPlayerBuilder AddOverall(int overall)
         {
-            this._overall = overall;
+            _overall = overall;
             return this;
         }
 
         public FifaPlayerBuilder AddFinishing(int finishing)
         {
-            this._finishing = finishing;
+            _finishing = finishing;
             return this;
         }
 
         public FifaPlayerBuilder AddDribbling(int dribbling)
         {
-            this._dribbling = dribbling;
+            _dribbling = dribbling;
             return this;
         }
 
         public FifaPlayerBuilder AddCurve(int curve)
         {
-            this._curve = curve;
+            _curve = curve;
             return this;
         }
 
         public FifaPlayerBuilder AddPassing(int passing)
         {
-            this._passing = passing;
+            _passing = passing;
             return this;
         }
 
         public FifaPlayerBuilder AddSprintSpeed(int sprintSpeed)
         {
-            this._sprintSpeed = sprintSpeed;
+            _sprintSpeed = sprintSpeed;
             return this;
         }
 
         public FifaPlayerBuilder AddShotPower(int shotPower)
         {
-            this._shotPower = shotPower;
+            _shotPower = shotPower;
+            return this;
+        }
+
+        public FifaPlayerBuilder AddPosition(string position)
+        {
+            _position = position;
             return this;
         }
 
@@ -77,7 +84,7 @@
         public FifaPlayer Build()
         {
             return new FifaPlayer(_age, _height, _weight, _overall, _finishing, _dribbling,
-                _curve, _passing, _sprintSpeed, _shotPower);
+                _curve, _passing, _sprintSpeed, _shotPower, _position);
         }
 
         public override string ToString()

@@ -12,24 +12,26 @@
         private readonly int _passing;
         private readonly int _sprintSpeed;
         private readonly int _shotPower;
+        private readonly string _position;
 
         public FifaPlayer()
         {
         }
 
         public FifaPlayer(int age, int height, int weight, int overall, int finishing, int dribbling,
-            int curve, int passing, int sprintSpeed, int shotPower)
+            int curve, int passing, int sprintSpeed, int shotPower, string position)
         {
-            this._age = age;
-            this._height = height;
-            this._weight = weight;
-            this._overall = overall;
-            this._finishing = finishing;
-            this._dribbling = dribbling;
-            this._curve = curve;
-            this._passing = passing;
-            this._sprintSpeed = sprintSpeed;
-            this._shotPower = shotPower;
+            _age = age;
+            _height = height;
+            _weight = weight;
+            _overall = overall;
+            _finishing = finishing;
+            _dribbling = dribbling;
+            _curve = curve;
+            _passing = passing;
+            _sprintSpeed = sprintSpeed;
+            _shotPower = shotPower;
+            _position = position;
         }
 
         public int GetAge()
@@ -82,12 +84,17 @@
             return _shotPower;
         }
 
+        public string GetPosition()
+        {
+            return _position;
+        }
+
         public override string ToString()
         {
             return "{age: " + _age + ", height: " + _height + ", weight: " + _weight + ", overall: " + _overall +
                    ", finishing: " + _finishing + ", dribbling: " +
                    _dribbling + ", curve: " + _curve + ", passing: " + _passing + ", sprintSpeed: " + _sprintSpeed +
-                   ", shotPower: " + _shotPower + "}";
+                   ", shotPower: " + _shotPower + ", position: " + _position + "}";
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Zadanie2_KSR
         public MainWindow()
         {
             InitializeComponent();
+            CheckPositions();
             //GuiLike();
             GenerateSentencesSecond(Summarizers.GetAllDribblingVariables(),
                 Quantifier.GetRelativeQuantifiers(),
@@ -58,7 +59,6 @@ namespace Zadanie2_KSR
             Measures.CountMeasures(quantifier, qualifier, features, connector, FifaPlayers);
         }
 
-        
 
         //  ---------------------------------------------------------------- DO TESTÓW -----------------------------
         private void GuiLike()
@@ -89,6 +89,16 @@ namespace Zadanie2_KSR
                 connector = " or "; // można zmienić jak nrOfS == 2
 
             BuildOneSubjectSentence(quantifier, qualifier, summarizers, connector);
+        }
+
+        // sprawdzenie, czy pozycje sa all
+        private void CheckPositions()
+        {
+            var gk = FifaPlayers.FindAll(x => x.GetPosition() == "Goalkeeper").Count;
+            var md = FifaPlayers.FindAll(x => x.GetPosition() == "Midfielder").Count;
+            var df = FifaPlayers.FindAll(x => x.GetPosition() == "Defender").Count;
+            var at = FifaPlayers.FindAll(x => x.GetPosition() == "Attacker").Count;
+            Console.WriteLine(gk + df + md + at == FifaPlayers.Count);
         }
     }
 }
