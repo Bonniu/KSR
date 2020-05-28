@@ -16,15 +16,26 @@ namespace Zadanie2_KSR
         public MainWindow()
         {
             InitializeComponent();
-            CheckPositions();
+            var mss = new MultiSubjectSummaries(FifaPlayers);
+            mss.GenerateSentenceFirst(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders, Quantifier.Less,
+                new List<LinguisticVariable> {Summarizers.AverageFinishing});
+            mss.GenerateSentenceSecond(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders, Quantifier.Less,
+                new List<LinguisticVariable> {Summarizers.AverageFinishing, Summarizers.OldAge},
+                new List<LinguisticVariable> {Summarizers.ShortHeight});
+            mss.GenerateSentenceThird(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders, Quantifier.Less,
+                new List<LinguisticVariable> {Summarizers.AverageFinishing, Summarizers.OldAge},
+                new List<LinguisticVariable> {Summarizers.ShortHeight});
+            mss.GenerateSentenceFourth(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders,
+                new List<LinguisticVariable> {Summarizers.AverageFinishing, Summarizers.OldAge});
             //GuiLike();
-            GenerateSentencesSecond(Summarizers.GetAllDribblingVariables(),
-                Quantifier.GetRelativeQuantifiers(),
-                new LinguisticVariable("quite high", "Height", true,
-                    new TrapezoidalFunction(180, 182, 188, 190)));
+            // GenerateOneSubjectSentences(Summarizers.GetAllDribblingVariables(),
+            //     Quantifier.GetRelativeQuantifiers(),
+            //     new LinguisticVariable("quite high", "Height", true,
+            //         new TrapezoidalFunction(180, 182, 188, 190)));
         }
 
-        private void GenerateSentencesSecond(List<LinguisticVariable> attributes, List<LinguisticVariable> quantifiers,
+        private void GenerateOneSubjectSentences(List<LinguisticVariable> attributes,
+            List<LinguisticVariable> quantifiers,
             LinguisticVariable qualifier)
         {
             foreach (var q in quantifiers)
@@ -43,18 +54,10 @@ namespace Zadanie2_KSR
             var startText = quantifier.Text + " of ";
             if (qualifier == null)
                 startText += " football players ";
-
             else
                 startText += qualifier.Text + " football players ";
 
-
-            startText += features[0].Type + " " + features[0].Text;
-            for (var i = 1; i < features.Count; i++)
-            {
-                startText += connector + features[i].Type + " " + features[i].Text;
-            }
-
-            startText += ".";
+            startText += MultiSubjectSummaries.ConvertListToString(features) + ".";
             Console.WriteLine(startText);
             Measures.CountMeasures(quantifier, qualifier, features, connector, FifaPlayers);
         }
@@ -89,16 +92,6 @@ namespace Zadanie2_KSR
                 connector = " or "; // można zmienić jak nrOfS == 2
 
             BuildOneSubjectSentence(quantifier, qualifier, summarizers, connector);
-        }
-
-        // sprawdzenie, czy pozycje sa all
-        private void CheckPositions()
-        {
-            var gk = FifaPlayers.FindAll(x => x.GetPosition() == "Goalkeeper").Count;
-            var md = FifaPlayers.FindAll(x => x.GetPosition() == "Midfielder").Count;
-            var df = FifaPlayers.FindAll(x => x.GetPosition() == "Defender").Count;
-            var at = FifaPlayers.FindAll(x => x.GetPosition() == "Attacker").Count;
-            Console.WriteLine(gk + df + md + at == FifaPlayers.Count);
         }
     }
 }

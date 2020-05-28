@@ -42,6 +42,12 @@ namespace Zadanie2_KSR
             return t;
         }
 
+
+        public static void CountMeasuresMulti()
+        {
+            
+        }
+
         // counts value from all Linguistic variables with connector ( f.e. miS(di))
         private static double CountMembershipValue(List<LinguisticVariable> list, string connector,
             FifaPlayer fifaPlayer)
