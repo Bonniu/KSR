@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 using Zadanie2_KSR.MembershipFunctions;
 
 namespace Zadanie2_KSR
@@ -15,12 +17,18 @@ namespace Zadanie2_KSR
         public readonly OneSubjectSummaries Oss = new OneSubjectSummaries(FifaPlayers);
         public readonly MultiSubjectSummaries Mss = new MultiSubjectSummaries(FifaPlayers);
 
+        public ObservableCollection<LinguisticVariable> LinguisticVariables;
+
 
         public MainWindow()
         {
             InitializeComponent();
-            MultiSubjectSummariesTests();
-            //GuiLike();
+            InitializeComboBoxes();
+            //GuiQuantifierComboBox_OnSelectedcVariables = new ObservableCollection<LinguisticVariable>(Summarizers.GetAllVariables());
+
+            Mss.GenerateAllFormsSentence(Mss.FifaPlayersAttackers, Mss.FifaPlayersDefenders, Quantifiers.AlmostAll,
+                new List<LinguisticVariable> {Summarizers.AverageFinishing},
+                new List<LinguisticVariable> {Summarizers.ShortHeight});
             Oss.GenerateOneSubjectSentence(Quantifiers.LessThan3000,
                 new List<LinguisticVariable>
                 {
@@ -58,18 +66,61 @@ namespace Zadanie2_KSR
             Oss.GenerateOneSubjectSentence(quantifier, new List<LinguisticVariable> {qualifier}, summarizers);
         }
 
-        private void MultiSubjectSummariesTests()
+        // on click Generate Summaries
+        private void GenerateSummaries_OnClick(object sender, RoutedEventArgs e)
         {
-            Mss.GenerateAllFormsSentence(Mss.FifaPlayersAttackers, Mss.FifaPlayersDefenders, Quantifiers.AlmostAll,
-                new List<LinguisticVariable> {Summarizers.AverageFinishing},
-                new List<LinguisticVariable> {Summarizers.ShortHeight});
+            Console.WriteLine("GIT");
+            Console.WriteLine("+" + HowManyQualifiersComboBox.SelectedItem + "+");
+            Console.WriteLine("+" + HowManySummarizersComboBox.SelectedItem + "+");
+        }
 
-            // var measures = new Measures(Quantifiers.AlmostAll,
-            //     new List<LinguisticVariable> {Summarizers.ShortHeight},
-            //     new List<LinguisticVariable> {Summarizers.AverageFinishing}, Mss.FifaPlayersAttackers,
-            //     Mss.FifaPlayersDefenders, null, 1);
-            // measures.CountMeasuresMultiSubject();
-            
+        private void InitializeComboBoxes()
+        {
+            // Quantifier
+            foreach (var s in Quantifiers.GetAllQuantifiers())
+            {
+                QuantifierComboBox.Items.Add(s.Text);
+            }
+
+            // TypeComboBox 
+            TypeComboBox.Items.Add("Multi Subject");
+            TypeComboBox.Items.Add("One Subject");
+
+            // HowMany ComboBoxes
+            for (var i = 0; i < 5; i++)
+            {
+                HowManyQualifiersComboBox.Items.Add(i + 1);
+                HowManySummarizersComboBox.Items.Add(i + 1);
+            }
+        }
+
+
+        private void QuantifierComboBox_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(QuantifierComboBox.SelectedItem.ToString());
+        }
+
+        private void TypeComboBox_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("+" + TypeComboBox.SelectedItem.ToString() + "+");
+            if (TypeComboBox.SelectedItem.ToString().Contains("Multi Subject"))
+                Console.WriteLine("MULTI");
+            else
+            {
+                Console.WriteLine("SINGLE");
+            }
+        }
+
+        private void HowManyQualifiersComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Console.WriteLine("Qualifiers");
+            Console.WriteLine("+" + HowManyQualifiersComboBox.SelectedItem + "+");
+        }
+
+        private void HowManySummarizersComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Console.WriteLine("Summarizers");
+            Console.WriteLine("+" + HowManySummarizersComboBox.SelectedItem + "+");
         }
     }
 }

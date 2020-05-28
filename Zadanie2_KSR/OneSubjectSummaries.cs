@@ -27,15 +27,15 @@ namespace Zadanie2_KSR
 
 
         public void GenerateOneSubjectSentence(LinguisticVariable quantifier, List<LinguisticVariable> qualifiers,
-            List<LinguisticVariable> features)
+            List<LinguisticVariable> summarizers)
         {
             var startText = quantifier.Text + " of football players";
             if (qualifiers != null)
                 startText += ", which " + ListToStringConverter.ConvertSummarizersToString(qualifiers) + ", ";
 
-            startText += ListToStringConverter.ConvertSummarizersToString(features) + ".";
+            startText += ListToStringConverter.ConvertSummarizersToString(summarizers) + ".";
             Console.WriteLine(startText);
-            var measures = new Measures(quantifier, qualifiers, features, FifaPlayers, null);
+            var measures = new Measures(quantifier, qualifiers, summarizers, FifaPlayers, null);
             measures.CountMeasuresOneSubject();
         }
     }

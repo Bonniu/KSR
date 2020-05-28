@@ -13,11 +13,13 @@
         <e p="players_10.csv" t="Include" />
         <e p="players_10.xlsx" t="Include" />
         <e p="players_104.csv" t="Include" />
+        <e p="players_10_positions.csv" t="Include" />
       </e>
       <e p="FifaPlayer.cs" t="Include" />
       <e p="FifaPlayerBuilder.cs" t="Include" />
       <e p="FuzzySet.cs" t="Include" />
       <e p="LinguisticVariable.cs" t="Include" />
+      <e p="ListToStringConverter.cs" t="Include" />
       <e p="MainWindow.xaml" t="Include" />
       <e p="MainWindow.xaml.cs" t="Include" />
       <e p="Measures.cs" t="Include" />
@@ -27,6 +29,7 @@
         <e p="TrapezoidalFunction.cs" t="Include" />
         <e p="TriangularFunction.cs" t="Include" />
       </e>
+      <e p="MultiSubjectSummaries.cs" t="Include" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.1" t="Include">
@@ -36,8 +39,10 @@
           </e>
         </e>
       </e>
+      <e p="OneSubjectSummaries.cs" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="Quantifiers.cs" t="Include" />
+      <e p="RelayCommand.cs" t="Include" />
       <e p="Summarizers.cs" t="Include" />
       <e p="ValueGetter.cs" t="Include" />
       <e p="Zadanie2_KSR.csproj" t="IncludeRecursive" />
