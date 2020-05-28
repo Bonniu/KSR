@@ -5,7 +5,7 @@ using Zadanie2_KSR.MembershipFunctions;
 namespace Zadanie2_KSR
 {
     [SuppressMessage("ReSharper", "IdentifierTypo")]
-    public class Quantifier
+    public static class Quantifiers
     {
         public static readonly LinguisticVariable AlmostNone =
             new LinguisticVariable("Almost none", "Quantifier", false,

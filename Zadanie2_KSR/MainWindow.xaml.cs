@@ -11,63 +11,31 @@ namespace Zadanie2_KSR
     public partial class MainWindow : Window
     {
         private const int M = 18728;
-        public readonly List<FifaPlayer> FifaPlayers = new CsvReader().ReadCsvFile();
+        public static readonly List<FifaPlayer> FifaPlayers = new CsvReader().ReadCsvFile();
+        public readonly OneSubjectSummaries Oss = new OneSubjectSummaries(FifaPlayers);
+        public readonly MultiSubjectSummaries Mss = new MultiSubjectSummaries(FifaPlayers);
+
 
         public MainWindow()
         {
             InitializeComponent();
-            var mss = new MultiSubjectSummaries(FifaPlayers);
-            mss.GenerateSentenceFirst(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders, Quantifier.Less,
-                new List<LinguisticVariable> {Summarizers.AverageFinishing});
-            mss.GenerateSentenceSecond(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders, Quantifier.Less,
-                new List<LinguisticVariable> {Summarizers.AverageFinishing, Summarizers.OldAge},
-                new List<LinguisticVariable> {Summarizers.ShortHeight});
-            mss.GenerateSentenceThird(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders, Quantifier.Less,
-                new List<LinguisticVariable> {Summarizers.AverageFinishing, Summarizers.OldAge},
-                new List<LinguisticVariable> {Summarizers.ShortHeight});
-            mss.GenerateSentenceFourth(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders,
-                new List<LinguisticVariable> {Summarizers.AverageFinishing, Summarizers.OldAge});
+            MultiSubjectSummariesTests();
             //GuiLike();
-            // GenerateOneSubjectSentences(Summarizers.GetAllDribblingVariables(),
-            //     Quantifier.GetRelativeQuantifiers(),
-            //     new LinguisticVariable("quite high", "Height", true,
-            //         new TrapezoidalFunction(180, 182, 188, 190)));
-        }
-
-        private void GenerateOneSubjectSentences(List<LinguisticVariable> attributes,
-            List<LinguisticVariable> quantifiers,
-            LinguisticVariable qualifier)
-        {
-            foreach (var q in quantifiers)
-            {
-                foreach (var y in attributes)
+            Oss.GenerateOneSubjectSentence(Quantifiers.LessThan3000,
+                new List<LinguisticVariable>
                 {
-                    BuildOneSubjectSentence(q, qualifier, new List<LinguisticVariable>() {y}, null);
-                }
-            }
+                    new LinguisticVariable("quite high", "Height", true,
+                        new TrapezoidalFunction(180, 182, 188, 190))
+                }, new List<LinguisticVariable>
+                    {Summarizers.GoodOverall, Summarizers.AverageSprint});
         }
 
 
-        private void BuildOneSubjectSentence(LinguisticVariable quantifier, LinguisticVariable qualifier,
-            List<LinguisticVariable> features, string connector)
-        {
-            var startText = quantifier.Text + " of ";
-            if (qualifier == null)
-                startText += " football players ";
-            else
-                startText += qualifier.Text + " football players ";
-
-            startText += MultiSubjectSummaries.ConvertListToString(features) + ".";
-            Console.WriteLine(startText);
-            Measures.CountMeasures(quantifier, qualifier, features, connector, FifaPlayers);
-        }
-
-
-        //  ---------------------------------------------------------------- DO TESTÓW -----------------------------
+//  ---------------------------------------------------------------- DO TESTÓW -----------------------------
         private void GuiLike()
         {
             // pick quantifier
-            LinguisticVariable quantifier =
+            var quantifier =
                 new LinguisticVariable("About one third", "Quantifier", false,
                     new TrapezoidalFunction(0.25, 0.28, 0.32, 0.35));
 
@@ -78,6 +46,7 @@ namespace Zadanie2_KSR
 
             //pick summarizers
             const int nrOfS = 4;
+
             var summarizers = new List<LinguisticVariable>(nrOfS);
             foreach (var sum in Summarizers.GetAllVariables())
             {
@@ -86,12 +55,31 @@ namespace Zadanie2_KSR
                 summarizers.Add(sum);
             }
 
-            // pick AND or OR
-            var connector = " and ";
-            if (nrOfS == 2)
-                connector = " or "; // można zmienić jak nrOfS == 2
+            Oss.GenerateOneSubjectSentence(quantifier, new List<LinguisticVariable> {qualifier}, summarizers);
+        }
 
-            BuildOneSubjectSentence(quantifier, qualifier, summarizers, connector);
+        private void MultiSubjectSummariesTests()
+        {
+            var mss = new MultiSubjectSummaries(FifaPlayers);
+            mss.GenerateSentenceFirstForm(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders, Quantifiers.Less,
+                new List<LinguisticVariable> {Summarizers.AverageFinishing});
+            Console.WriteLine(mss.sentence);
+            mss.GenerateSentenceSecondForm(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders, Quantifiers.Less,
+                new List<LinguisticVariable> {Summarizers.AverageFinishing, Summarizers.OldAge},
+                new List<LinguisticVariable> {Summarizers.ShortHeight});
+            Console.WriteLine(mss.sentence);
+            mss.GenerateSentenceThirdForm(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders, Quantifiers.Less,
+                new List<LinguisticVariable> {Summarizers.AverageFinishing, Summarizers.OldAge},
+                new List<LinguisticVariable> {Summarizers.ShortHeight});
+            Console.WriteLine(mss.sentence);
+            mss.GenerateSentenceFourthForm(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders,
+                new List<LinguisticVariable> {Summarizers.AverageFinishing, Summarizers.OldAge});
+            Console.WriteLine(mss.sentence);
+            Console.WriteLine(" --- ");
+
+            mss.GenerateAllFormsSentence(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders, Quantifiers.Less,
+                new List<LinguisticVariable> {Summarizers.AverageFinishing, Summarizers.OldAge},
+                new List<LinguisticVariable> {Summarizers.ShortHeight});
         }
     }
 }
