@@ -22,7 +22,7 @@ namespace Zadanie2_KSR
                     attributes.Add(Convert.ToInt32(lineValues[i]));
                 }
 
-                var position = GetPositionFromString(lineValues[11].Split(" ")[0]);
+                var position = GetPositionFromString(lineValues[10].Split(" ")[0]);
 
                 list.Add(CreatePlayer(attributes, position));
             }

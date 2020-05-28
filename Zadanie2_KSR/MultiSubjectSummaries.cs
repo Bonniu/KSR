@@ -10,7 +10,7 @@ namespace Zadanie2_KSR
         public readonly List<FifaPlayer> FifaPlayersDefenders;
         public readonly List<FifaPlayer> FifaPlayersMidfielders;
         public readonly List<FifaPlayer> FifaPlayersAttackers;
-        public string sentence;
+        public string generatedSentence;
 
         public MultiSubjectSummaries(List<FifaPlayer> fifaPlayers)
         {
@@ -32,7 +32,7 @@ namespace Zadanie2_KSR
             var p2Plural = ConvertToPluralForm(p2[0].GetPosition());
             var text = quantifier.Text + " of " + p1Plural + " in comparision to " + p2Plural + " ";
             text += ListToStringConverter.ConvertSummarizersToString(summarizers) + ".";
-            sentence = text;
+            generatedSentence = text;
             return text;
         }
 
@@ -47,7 +47,7 @@ namespace Zadanie2_KSR
             var text = quantifier.Text + " of " + p1Plural + " in comparision to those " + p2Plural + ", who ";
             text += ListToStringConverter.ConvertSummarizersToString(qualifiers) + ", ";
             text += ListToStringConverter.ConvertSummarizersToString(summarizers) + ".";
-            sentence = text;
+            generatedSentence = text;
             return text;
         }
 
@@ -63,7 +63,7 @@ namespace Zadanie2_KSR
             text += ListToStringConverter.ConvertSummarizersToString(qualifiers) + ", ";
             text += "in comparision to " + p2Plural + ", ";
             text += ListToStringConverter.ConvertSummarizersToString(summarizers) + ".";
-            sentence = text;
+            generatedSentence = text;
             return text;
         }
 
@@ -75,17 +75,26 @@ namespace Zadanie2_KSR
             var p2Plural = ConvertToPluralForm(p2[0].GetPosition());
             var text = "More " + p1Plural + " than " + p2Plural + " ";
             text += ListToStringConverter.ConvertSummarizersToString(summarizers) + ".";
-            sentence = text;
+            generatedSentence = text;
             return text;
         }
 
         public void GenerateAllFormsSentence(List<FifaPlayer> p1, List<FifaPlayer> p2,
             LinguisticVariable quantifier, List<LinguisticVariable> summarizers, List<LinguisticVariable> qualifiers)
         {
+            Measures measures;
             Console.WriteLine(GenerateSentenceFirstForm(p1, p2, quantifier, summarizers));
+            measures = new Measures(quantifier, qualifiers, summarizers, p1, p2, null, 1);
+            measures.CountMeasuresMultiSubject();
             Console.WriteLine(GenerateSentenceSecondForm(p1, p2, quantifier, summarizers, qualifiers));
+            measures = new Measures(quantifier, qualifiers, summarizers, p1, p2, null, 2);
+            measures.CountMeasuresMultiSubject();
             Console.WriteLine(GenerateSentenceThirdForm(p1, p2, quantifier, summarizers, qualifiers));
+            measures = new Measures(quantifier, qualifiers, summarizers, p1, p2, null, 3);
+            measures.CountMeasuresMultiSubject();
             Console.WriteLine(GenerateSentenceFourthForm(p1, p2, summarizers));
+            measures = new Measures(quantifier, qualifiers, summarizers, p1, p2, null, 4);
+            measures.CountMeasuresMultiSubject();
         }
 
         private static string ConvertToPluralForm(string pos)

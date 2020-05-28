@@ -35,7 +35,8 @@ namespace Zadanie2_KSR
 
             startText += ListToStringConverter.ConvertSummarizersToString(features) + ".";
             Console.WriteLine(startText);
-            Measures.CountMeasures(quantifier, qualifiers, features, FifaPlayers);
+            var measures = new Measures(quantifier, qualifiers, features, FifaPlayers, null);
+            measures.CountMeasuresOneSubject();
         }
     }
 }

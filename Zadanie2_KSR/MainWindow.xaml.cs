@@ -60,26 +60,16 @@ namespace Zadanie2_KSR
 
         private void MultiSubjectSummariesTests()
         {
-            var mss = new MultiSubjectSummaries(FifaPlayers);
-            mss.GenerateSentenceFirstForm(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders, Quantifiers.Less,
-                new List<LinguisticVariable> {Summarizers.AverageFinishing});
-            Console.WriteLine(mss.sentence);
-            mss.GenerateSentenceSecondForm(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders, Quantifiers.Less,
-                new List<LinguisticVariable> {Summarizers.AverageFinishing, Summarizers.OldAge},
+            Mss.GenerateAllFormsSentence(Mss.FifaPlayersAttackers, Mss.FifaPlayersDefenders, Quantifiers.AlmostAll,
+                new List<LinguisticVariable> {Summarizers.AverageFinishing},
                 new List<LinguisticVariable> {Summarizers.ShortHeight});
-            Console.WriteLine(mss.sentence);
-            mss.GenerateSentenceThirdForm(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders, Quantifiers.Less,
-                new List<LinguisticVariable> {Summarizers.AverageFinishing, Summarizers.OldAge},
-                new List<LinguisticVariable> {Summarizers.ShortHeight});
-            Console.WriteLine(mss.sentence);
-            mss.GenerateSentenceFourthForm(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders,
-                new List<LinguisticVariable> {Summarizers.AverageFinishing, Summarizers.OldAge});
-            Console.WriteLine(mss.sentence);
-            Console.WriteLine(" --- ");
 
-            mss.GenerateAllFormsSentence(mss.FifaPlayersAttackers, mss.FifaPlayersDefenders, Quantifiers.Less,
-                new List<LinguisticVariable> {Summarizers.AverageFinishing, Summarizers.OldAge},
-                new List<LinguisticVariable> {Summarizers.ShortHeight});
+            // var measures = new Measures(Quantifiers.AlmostAll,
+            //     new List<LinguisticVariable> {Summarizers.ShortHeight},
+            //     new List<LinguisticVariable> {Summarizers.AverageFinishing}, Mss.FifaPlayersAttackers,
+            //     Mss.FifaPlayersDefenders, null, 1);
+            // measures.CountMeasuresMultiSubject();
+            
         }
     }
 }
