@@ -18,9 +18,6 @@ namespace Zadanie2_KSR
         public readonly OneSubjectSummaries Oss = new OneSubjectSummaries(FifaPlayers);
         public readonly MultiSubjectSummaries Mss = new MultiSubjectSummaries(FifaPlayers);
 
-        public ObservableCollection<LinguisticVariable> LinguisticVariables;
-
-
         public MainWindow()
         {
             InitializeComponent();
@@ -70,8 +67,8 @@ namespace Zadanie2_KSR
         // on click Generate Summaries
         private void GenerateSummaries_OnClick(object sender, RoutedEventArgs e)
         {
-            var qualifiers = getQualifiersFromComboBoxes();
-            var summarizers = getSummarizersFromComboBoxes();
+            var qualifiers = GetQualifiersFromComboBoxes();
+            var summarizers = GetSummarizersFromComboBoxes();
             LinguisticVariable quantifier = null;
             if (QuantifierComboBox.SelectedItem != null)
             {
@@ -81,17 +78,23 @@ namespace Zadanie2_KSR
             var type = 1;
             if (TypeComboBox.SelectedItem != null && TypeComboBox.SelectedItem.ToString() == "Multi Subject")
                 type = 2;
-            Console.WriteLine(qualifiers);
-            Console.WriteLine(summarizers);
-            Console.WriteLine(quantifier);
-            Console.WriteLine(type);
+            if (summarizers == null || quantifier == null)
+                Console.WriteLine("ALERT - NIE MA WSZYSTKICH");
+
+            else
+            {
+                Console.WriteLine("Qualifiers: " + qualifiers != null);
+                Console.WriteLine(summarizers);
+                Console.WriteLine(quantifier);
+                Console.WriteLine(type);
+            }
         }
 
-        private List<LinguisticVariable> getQualifiersFromComboBoxes()
+        private List<LinguisticVariable> GetQualifiersFromComboBoxes()
         {
             var list = new List<LinguisticVariable>();
             if (Qualifier1ComboBox.SelectedItem != null)
-                list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) Qualifier2ComboBox.SelectedItem).Content
+                list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) Qualifier1ComboBox.SelectedItem).Content
                     .ToString()));
             if (Qualifier2ComboBox.SelectedItem != null)
                 list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) Qualifier2ComboBox.SelectedItem).Content
@@ -108,11 +111,11 @@ namespace Zadanie2_KSR
             return list.Count != 0 ? list : null;
         }
 
-        private List<LinguisticVariable> getSummarizersFromComboBoxes()
+        private List<LinguisticVariable> GetSummarizersFromComboBoxes()
         {
             var list = new List<LinguisticVariable>();
             if (Summarizer1ComboBox.SelectedItem != null)
-                list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) Summarizer2ComboBox.SelectedItem).Content
+                list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) Summarizer1ComboBox.SelectedItem).Content
                     .ToString()));
             if (Summarizer2ComboBox.SelectedItem != null)
                 list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) Summarizer2ComboBox.SelectedItem).Content
@@ -138,8 +141,8 @@ namespace Zadanie2_KSR
             }
 
             // TypeComboBox 
-            TypeComboBox.Items.Add("Multi Subject");
-            TypeComboBox.Items.Add("One Subject");
+            TypeComboBox.Items.Add("One-subject summaries");
+            TypeComboBox.Items.Add("Two-subject summaries");
 
 
             // Qualifiers and Summarizers ComboBoxes
@@ -155,6 +158,13 @@ namespace Zadanie2_KSR
                 Summarizer3ComboBox.Items.Add(newItem(s));
                 Summarizer4ComboBox.Items.Add(newItem(s));
                 Summarizer5ComboBox.Items.Add(newItem(s));
+            }
+
+            var subjects = new List<string> {"Attackers", "Midfielders", "Defenders", "Goalkeepers"};
+            foreach (var subject in subjects)
+            {
+                P1ComboBox.Items.Add(subject);
+                P2ComboBox.Items.Add(subject);
             }
         }
 
@@ -195,19 +205,41 @@ namespace Zadanie2_KSR
                     return n;
             }
         }
-        
+
+        private void LoadData_OnClick(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("asd");
+        }
+
         private void TypeComboBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            // Console.WriteLine("+" + TypeComboBox.SelectedItem.ToString() + "+");
-            // if (TypeComboBox.SelectedItem.ToString().Contains("Multi Subject"))
-            // {
-            //     Console.WriteLine("MULTI");
-            // }
-            //
-            // else
-            // {
-            //     Console.WriteLine("SINGLE");
-            // }
+            if (TypeComboBox.SelectedItem.ToString().Contains("Two"))
+            {
+                P1ComboBox.Visibility = Visibility.Visible;
+                P1Label.Visibility = Visibility.Visible;
+                P2ComboBox.Visibility = Visibility.Visible;
+                P2Label.Visibility = Visibility.Visible;
+
+                QuantifierComboBox.Items.Clear();
+                foreach (var s in Quantifiers.GetRelativeQuantifiers())
+                {
+                    QuantifierComboBox.Items.Add(s.Text);
+                }
+            }
+
+            else
+            {
+                P1ComboBox.Visibility = Visibility.Hidden;
+                P1Label.Visibility = Visibility.Hidden;
+                P2ComboBox.Visibility = Visibility.Hidden;
+                P2Label.Visibility = Visibility.Hidden;
+
+                QuantifierComboBox.Items.Clear();
+                foreach (var s in Quantifiers.GetAllQuantifiers())
+                {
+                    QuantifierComboBox.Items.Add(s.Text);
+                }
+            }
         }
     }
 }

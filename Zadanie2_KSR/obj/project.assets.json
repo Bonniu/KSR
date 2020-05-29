@@ -55,11 +55,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\Zadanie2_KSR.csproj",
+      "projectUniqueName": "D:\\1studia\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\Zadanie2_KSR.csproj",
       "projectName": "Zadanie2_KSR",
-      "projectPath": "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\Zadanie2_KSR.csproj",
+      "projectPath": "D:\\1studia\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\Zadanie2_KSR.csproj",
       "packagesPath": "C:\\Users\\Radek\\.nuget\\packages\\",
-      "outputPath": "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\obj\\",
+      "outputPath": "D:\\1studia\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Radek\\AppData\\Roaming\\NuGet\\NuGet.Config"
