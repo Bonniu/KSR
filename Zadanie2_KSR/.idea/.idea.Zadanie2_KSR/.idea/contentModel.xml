@@ -42,7 +42,6 @@
       <e p="OneSubjectSummaries.cs" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="Quantifiers.cs" t="Include" />
-      <e p="RelayCommand.cs" t="Include" />
       <e p="Summarizers.cs" t="Include" />
       <e p="ValueGetter.cs" t="Include" />
       <e p="Zadanie2_KSR.csproj" t="IncludeRecursive" />

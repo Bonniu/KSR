@@ -43,7 +43,7 @@ namespace Zadanie2_KSR
         public static readonly LinguisticVariable MoreThan3000 =
             new LinguisticVariable("More than 3000", "Quantifier", true,
                 new TrapezoidalFunction(3000, 3000, 18278, 18278));
-        
+
         public static readonly LinguisticVariable LessThan3000 =
             new LinguisticVariable("Less than 3000", "Quantifier", true,
                 new TrapezoidalFunction(0, 0, 3000, 3000));
@@ -64,6 +64,11 @@ namespace Zadanie2_KSR
             list.AddRange(GetRelativeQuantifiers());
             list.AddRange(GetAbsoluteQuantifiers());
             return list;
+        }
+
+        public static LinguisticVariable GetQuantifierFromString(string text)
+        {
+            return GetAllQuantifiers().Find(x => x.Text == text);
         }
     }
 }

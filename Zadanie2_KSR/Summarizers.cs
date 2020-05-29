@@ -244,5 +244,10 @@ namespace Zadanie2_KSR
             list.AddRange(GetAllShotPowerVariables());
             return list;
         }
+
+        public static LinguisticVariable GetVariableFromString(string text)
+        {
+            return GetAllVariables().Find(x => x.Text == text);
+        }
     }
 }

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zadanie2_KSR"
         mc:Ignorable="d"
-        Title="MainWindow" Height="240" Width="600">
+        Title="MainWindow" Height="600" Width="600"
+        FontFamily="Arial" FontSize="13">
 
 
     <Grid Background="#008833">
@@ -23,31 +24,68 @@
             <RowDefinition Height="60" />
             <RowDefinition Height="60" />
             <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Content="Quantifier" Margin="10,10,0,0" VerticalAlignment="Top"
-               HorizontalAlignment="Center" />
-        <ComboBox Grid.Row="0" Grid.Column="1" Margin="10,12,0,0" Name="QuantifierComboBox" VerticalAlignment="Top"
-                  SelectionChanged="QuantifierComboBox_SelectionChanged" />
+               HorizontalAlignment="Center" FontWeight="Bold" />
+        <ComboBox Grid.Row="0" Grid.Column="1" Margin="10,12,0,0" Name="QuantifierComboBox" VerticalAlignment="Top" />
         <Label Grid.Row="0" Grid.Column="2" Margin="10,10,0,0" Content="Type of sentences" VerticalAlignment="Top"
-               HorizontalAlignment="Center" />
+               HorizontalAlignment="Center" FontWeight="Bold" />
         <ComboBox Grid.Row="0" Grid.Column="3" Margin="10,12,0,0" VerticalAlignment="Top" Name="TypeComboBox"
-                  SelectionChanged="TypeComboBox_SelectionChanged">
-            
-        </ComboBox>
+                  SelectionChanged="TypeComboBox_SelectionChanged" />
 
-        <Label Grid.Row="1" Grid.Column="0" Content="Nr of qualifiers" Margin="10,10,0,0" VerticalAlignment="Top"
-               HorizontalAlignment="Center" />
-        <ComboBox Grid.Row="1" Grid.Column="1" Margin="10,12,0,0" Name="HowManyQualifiersComboBox"
-                  VerticalAlignment="Top"
-                  SelectionChanged="HowManyQualifiersComboBox_SelectionChanged"/>
-        <Label Grid.Row="1" Grid.Column="2" Margin="10,10,0,0" Content="Nr of summarizers" VerticalAlignment="Top"
-               HorizontalAlignment="Center" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Qualifier 1" Margin="10,10,0,0" VerticalAlignment="Top"
+               HorizontalAlignment="Center" FontWeight="Bold" />
+        <ComboBox Grid.Row="1" Grid.Column="1" Margin="10,12,0,0" Name="Qualifier1ComboBox"
+                  VerticalAlignment="Top" />
+        <Label Grid.Row="1" Grid.Column="2" Margin="10,10,0,0" Content="Summarizer 1" VerticalAlignment="Top"
+               HorizontalAlignment="Center" FontWeight="Bold" />
         <ComboBox Grid.Row="1" Grid.Column="3" Margin="10,12,0,0" VerticalAlignment="Top"
-                  Name="HowManySummarizersComboBox" SelectionChanged="HowManySummarizersComboBox_SelectionChanged"/>
-        
-        <Button Grid.Row="2" Grid.Column="2" Margin="10,10,0,0" Content="Generate summaries" Click="GenerateSummaries_OnClick" VerticalAlignment="Top"
-               HorizontalAlignment="Center" />
+                  Name="Summarizer1ComboBox" />
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Qualifier 2" Margin="10,10,0,0" VerticalAlignment="Top"
+               HorizontalAlignment="Center" FontWeight="Bold" />
+        <ComboBox Grid.Row="2" Grid.Column="1" Margin="10,12,0,0" Name="Qualifier2ComboBox"
+                  VerticalAlignment="Top" />
+        <Label Grid.Row="2" Grid.Column="2" Margin="10,10,0,0" Content="Summarizer 2" VerticalAlignment="Top"
+               HorizontalAlignment="Center" FontWeight="Bold" />
+        <ComboBox Grid.Row="2" Grid.Column="3" Margin="10,12,0,0" VerticalAlignment="Top"
+                  Name="Summarizer2ComboBox" />
+
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Qualifier 3" Margin="10,10,0,0" VerticalAlignment="Top"
+               HorizontalAlignment="Center" FontWeight="Bold" />
+        <ComboBox Grid.Row="3" Grid.Column="1" Margin="10,12,0,0" Name="Qualifier3ComboBox"
+                  VerticalAlignment="Top" />
+        <Label Grid.Row="3" Grid.Column="2" Margin="10,10,0,0" Content="Summarizer 3" VerticalAlignment="Top"
+               HorizontalAlignment="Center" FontWeight="Bold" />
+        <ComboBox Grid.Row="3" Grid.Column="3" Margin="10,12,0,0" VerticalAlignment="Top"
+                  Name="Summarizer3ComboBox" />
+
+
+        <Label Grid.Row="4" Grid.Column="0" Content="Qualifier 4" Margin="10,10,0,0" VerticalAlignment="Top"
+               HorizontalAlignment="Center" FontWeight="Bold" />
+        <ComboBox Grid.Row="4" Grid.Column="1" Margin="10,12,0,0" Name="Qualifier4ComboBox"
+                  VerticalAlignment="Top" />
+        <Label Grid.Row="4" Grid.Column="2" Margin="10,10,0,0" Content="Summarizer 4" VerticalAlignment="Top"
+               HorizontalAlignment="Center" FontWeight="Bold" />
+        <ComboBox Grid.Row="4" Grid.Column="3" Margin="10,12,0,0" VerticalAlignment="Top"
+                  Name="Summarizer4ComboBox" />
+
+        <Label Grid.Row="5" Grid.Column="0" Content="Qualifier 5" Margin="10,10,0,0" VerticalAlignment="Top"
+               HorizontalAlignment="Center" FontWeight="Bold" />
+        <ComboBox Grid.Row="5" Grid.Column="1" Margin="10,12,0,0" Name="Qualifier5ComboBox"
+                  VerticalAlignment="Top" />
+        <Label Grid.Row="5" Grid.Column="2" Margin="10,10,0,0" Content="Summarizer 5" VerticalAlignment="Top"
+               HorizontalAlignment="Center" FontWeight="Bold" />
+        <ComboBox Grid.Row="5" Grid.Column="3" Margin="10,12,0,0" VerticalAlignment="Top"
+                  Name="Summarizer5ComboBox" />
+
+
+        <Button Grid.Row="6" Grid.Column="2" Margin="10,10,0,0" Content="Generate summaries"
+                Click="GenerateSummaries_OnClick" VerticalAlignment="Top"
+                HorizontalAlignment="Center" />
 
     </Grid>
 
