@@ -20,104 +20,200 @@
         </Grid.RowDefinitions>
 
 
-        <Grid Background="#338833" Grid.Row="0" Grid.Column="0" Name="MidGrid">
+        <Grid Background="#338833" Grid.Row="0" Grid.Column="0" Name="Left">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="140" />
-                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="107" />
                 <ColumnDefinition Width="140" />
-                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="107" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
+                <!-- 0--><RowDefinition Height="35" /> <!-- quantifier -->
+                <!-- 1--><RowDefinition Height="30" /> <!-- s / w 1-->
+                <!-- 2--><RowDefinition Height="30" /> <!-- s / w 2-->
+                <!-- 3--><RowDefinition Height="30" /> <!-- s / w 3-->
+                <!-- 4--><RowDefinition Height="30" /> <!-- s / w 4-->
+                <!-- 5--><RowDefinition Height="30" /> <!-- s / w 5-->
+                <!-- 6--><RowDefinition Height="35" /> <!-- type of sentence-->
+                <!-- 7--><RowDefinition Height="30" /> <!-- P1 / P2-->
+                <!-- 8--><RowDefinition Height="20" />
+                <!-- 9--><RowDefinition Height="30" /> <!-- Load buttons -->
+                <!--10--><RowDefinition Height="30" /> <!-- load labels-->
+                <!--11--><RowDefinition Height="20" />
+                <!--12--><RowDefinition Height="30" /> <!-- Weights checkbox-->
+                <!--13--><RowDefinition Height="70" /> <!-- wagi grid -->
+                <!--14--><RowDefinition Height="30" /> <!-- generate button -->
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="Quantifier" Margin="10,6,0,0" VerticalAlignment="Top"
-                   HorizontalAlignment="Center" FontWeight="Bold" FontSize="17" />
-            <ComboBox Grid.Row="0" Grid.Column="1" Margin="0,12,0,0" Name="QuantifierComboBox" VerticalAlignment="Top" />
+            <Label Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="10,3,0,0" Content="Type of summaries"
+                   VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="17" />
+            <ComboBox Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="2" Margin="20,9,20,0" VerticalAlignment="Top"
+                      Name="TypeComboBox" SelectionChanged="TypeComboBox_SelectionChanged" />
 
-
-            <Label Grid.Row="1" Grid.Column="0" Content="Qualifier 1" Margin="10,10,0,0" VerticalAlignment="Top"
+            <Label Grid.Row="1" Grid.Column="0" Content="Qualifier 1" Margin="10,3,0,0" VerticalAlignment="Top"
                    HorizontalAlignment="Center" FontWeight="Bold" />
-            <ComboBox Grid.Row="1" Grid.Column="1" Margin="0,12,0,0" Name="Qualifier1ComboBox"
+            <ComboBox Grid.Row="1" Grid.Column="1" Margin="0,5,0,0" Name="Qualifier1ComboBox"
                       VerticalAlignment="Top" />
-            <Label Grid.Row="1" Grid.Column="2" Margin="10,10,0,0" Content="Summarizer 1" VerticalAlignment="Top"
+            <Label Grid.Row="1" Grid.Column="2" Margin="10,3,0,0" Content="Summarizer 1" VerticalAlignment="Top"
                    HorizontalAlignment="Center" FontWeight="Bold" />
-            <ComboBox Grid.Row="1" Grid.Column="3" Margin="0,12,0,0" VerticalAlignment="Top"
+            <ComboBox Grid.Row="1" Grid.Column="3" Margin="0,5,0,0" VerticalAlignment="Top"
                       Name="Summarizer1ComboBox" />
 
-            <Label Grid.Row="2" Grid.Column="0" Content="Qualifier 2" Margin="10,10,0,0" VerticalAlignment="Top"
+            <Label Grid.Row="2" Grid.Column="0" Content="Qualifier 2" Margin="10,3,0,0" VerticalAlignment="Top"
                    HorizontalAlignment="Center" FontWeight="Bold" />
-            <ComboBox Grid.Row="2" Grid.Column="1" Margin="0,12,0,0" Name="Qualifier2ComboBox"
+            <ComboBox Grid.Row="2" Grid.Column="1" Margin="0,5,0,0" Name="Qualifier2ComboBox"
                       VerticalAlignment="Top" />
-            <Label Grid.Row="2" Grid.Column="2" Margin="10,10,0,0" Content="Summarizer 2" VerticalAlignment="Top"
+            <Label Grid.Row="2" Grid.Column="2" Margin="10,3,0,0" Content="Summarizer 2" VerticalAlignment="Top"
                    HorizontalAlignment="Center" FontWeight="Bold" />
-            <ComboBox Grid.Row="2" Grid.Column="3" Margin="0,12,0,0" VerticalAlignment="Top"
+            <ComboBox Grid.Row="2" Grid.Column="3" Margin="0,5,0,0" VerticalAlignment="Top"
                       Name="Summarizer2ComboBox" />
 
 
-            <Label Grid.Row="3" Grid.Column="0" Content="Qualifier 3" Margin="10,10,0,0" VerticalAlignment="Top"
+            <Label Grid.Row="3" Grid.Column="0" Content="Qualifier 3" Margin="10,3,0,0" VerticalAlignment="Top"
                    HorizontalAlignment="Center" FontWeight="Bold" />
-            <ComboBox Grid.Row="3" Grid.Column="1" Margin="0,12,0,0" Name="Qualifier3ComboBox"
+            <ComboBox Grid.Row="3" Grid.Column="1" Margin="0,5,0,0" Name="Qualifier3ComboBox"
                       VerticalAlignment="Top" />
-            <Label Grid.Row="3" Grid.Column="2" Margin="10,10,0,0" Content="Summarizer 3" VerticalAlignment="Top"
+            <Label Grid.Row="3" Grid.Column="2" Margin="10,3,0,0" Content="Summarizer 3" VerticalAlignment="Top"
                    HorizontalAlignment="Center" FontWeight="Bold" />
-            <ComboBox Grid.Row="3" Grid.Column="3" Margin="0,12,0,0" VerticalAlignment="Top"
+            <ComboBox Grid.Row="3" Grid.Column="3" Margin="0,5,0,0" VerticalAlignment="Top"
                       Name="Summarizer3ComboBox" />
 
 
-            <Label Grid.Row="4" Grid.Column="0" Content="Qualifier 4" Margin="10,10,0,0" VerticalAlignment="Top"
+            <Label Grid.Row="4" Grid.Column="0" Content="Qualifier 4" Margin="10,3,0,0" VerticalAlignment="Top"
                    HorizontalAlignment="Center" FontWeight="Bold" />
-            <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,12,0,0" Name="Qualifier4ComboBox"
+            <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,5,0,0" Name="Qualifier4ComboBox"
                       VerticalAlignment="Top" />
-            <Label Grid.Row="4" Grid.Column="2" Margin="10,10,0,0" Content="Summarizer 4" VerticalAlignment="Top"
+            <Label Grid.Row="4" Grid.Column="2" Margin="10,3,0,0" Content="Summarizer 4" VerticalAlignment="Top"
                    HorizontalAlignment="Center" FontWeight="Bold" />
-            <ComboBox Grid.Row="4" Grid.Column="3" Margin="0,12,0,0" VerticalAlignment="Top"
+            <ComboBox Grid.Row="4" Grid.Column="3" Margin="0,5,0,0" VerticalAlignment="Top"
                       Name="Summarizer4ComboBox" />
 
-            <Label Grid.Row="5" Grid.Column="0" Content="Qualifier 5" Margin="10,10,0,0" VerticalAlignment="Top"
+            <Label Grid.Row="5" Grid.Column="0" Content="Qualifier 5" Margin="10,3,0,0" VerticalAlignment="Top"
                    HorizontalAlignment="Center" FontWeight="Bold" />
-            <ComboBox Grid.Row="5" Grid.Column="1" Margin="0,12,0,0" Name="Qualifier5ComboBox"
+            <ComboBox Grid.Row="5" Grid.Column="1" Margin="0,5,0,0" Name="Qualifier5ComboBox"
                       VerticalAlignment="Top" />
-            <Label Grid.Row="5" Grid.Column="2" Margin="10,10,0,0" Content="Summarizer 5" VerticalAlignment="Top"
+            <Label Grid.Row="5" Grid.Column="2" Margin="10,3,0,0" Content="Summarizer 5" VerticalAlignment="Top"
                    HorizontalAlignment="Center" FontWeight="Bold" />
-            <ComboBox Grid.Row="5" Grid.Column="3" Margin="0,12,0,0" VerticalAlignment="Top"
+            <ComboBox Grid.Row="5" Grid.Column="3" Margin="0,5,0,0" VerticalAlignment="Top"
                       Name="Summarizer5ComboBox" />
 
-            <Label Grid.Row="7" Grid.ColumnSpan="2" Grid.Column="0" Margin="0,6,0,0" Content="Type of summaries"
-                   VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="17" />
-            <ComboBox Grid.Row="7" Grid.ColumnSpan="2" Grid.Column="2" Margin="20,12,20,0" VerticalAlignment="Top"
-                      Name="TypeComboBox"
-                      SelectionChanged="TypeComboBox_SelectionChanged" />
+            <Label Grid.Row="6" Grid.Column="1" Content="Quantifier" Margin="10,6,0,0" VerticalAlignment="Top"
+                   HorizontalAlignment="Center" FontWeight="Bold" FontSize="17" />
+            <ComboBox Grid.Row="6" Grid.Column="2" Margin="0,12,0,0" Name="QuantifierComboBox" VerticalAlignment="Top" />
 
-            <Label Grid.Row="8" Grid.Column="0" Name="P1Label" Content="P1" Margin="10,10,0,0" VerticalAlignment="Top"
+            <Label Grid.Row="7" Grid.Column="0" Name="P1Label" Content="P1" Margin="10,3,0,0" VerticalAlignment="Top"
                    HorizontalAlignment="Center" FontWeight="Bold" Visibility="Hidden" />
-            <ComboBox Grid.Row="8" Grid.Column="1" Margin="0,12,0,0" Name="P1ComboBox"
+            <ComboBox Grid.Row="7" Grid.Column="1" Margin="0,5,0,0" Name="P1ComboBox"
                       VerticalAlignment="Top" Visibility="Hidden" />
-            <Label Grid.Row="8" Grid.Column="2" Name="P2Label" Margin="10,10,0,0" Content="P2" VerticalAlignment="Top"
+            <Label Grid.Row="7" Grid.Column="2" Name="P2Label" Margin="10,3,0,0" Content="P2" VerticalAlignment="Top"
                    HorizontalAlignment="Center" FontWeight="Bold" Visibility="Hidden" />
-            <ComboBox Grid.Row="8" Grid.Column="3" Margin="0,12,0,0" VerticalAlignment="Top"
+            <ComboBox Grid.Row="7" Grid.Column="3" Margin="0,5,0,0" VerticalAlignment="Top"
                       Name="P2ComboBox" Visibility="Hidden" />
 
 
-            <Button Grid.Row="9" Grid.ColumnSpan="2" Grid.Column="1" Margin="10,10,0,0"
+            <Label Grid.Row="9" Grid.Column="0" Margin="10,8,0,0" Content="Load from files:" VerticalAlignment="Top"
+                   HorizontalAlignment="Center" FontWeight="Bold" />
+            <Button Grid.Row="9" Grid.Column="1" Margin="10,10,0,0"
+                    Content="Quantifier" Click="LoadDataQuantifier_OnClick" VerticalAlignment="Top"
+                    HorizontalAlignment="Center" FontSize="15" />
+            <Button Grid.Row="9" Grid.Column="2" Margin="10,10,0,0"
+                    Content="Summarizers" Click="LoadDataSummarizers_OnClick" VerticalAlignment="Top"
+                    HorizontalAlignment="Center" FontSize="15" />
+            <Button Grid.Row="9" Grid.Column="3" Margin="10,10,0,0"
+                    Content="Qualifiers" Click="LoadDataQualifiers_OnClick" VerticalAlignment="Top"
+                    HorizontalAlignment="Center" FontSize="15" />
+
+            <Label Grid.Row="10" Grid.Column="0" Margin="10,8,0,0" Content="Loaded items:" VerticalAlignment="Top"
+                   HorizontalAlignment="Center" FontWeight="Bold" />
+            <Label Grid.Row="10" Grid.Column="1" Margin="10,8,0,0" Name="QuantifierLabel" VerticalAlignment="Top"
+                   HorizontalAlignment="Center" FontWeight="Bold" />
+            <Label Grid.Row="10" Grid.Column="2" Margin="10,8,0,0" Name="SummarizersLabel" VerticalAlignment="Top"
+                   HorizontalAlignment="Center" FontWeight="Bold" />
+            <Label Grid.Row="10" Grid.Column="3" Margin="10,8,0,0" Name="QualifiersLabel" VerticalAlignment="Top"
+                   HorizontalAlignment="Center" FontWeight="Bold" />
+
+            <Label Grid.Row="12" Grid.Column="1" VerticalAlignment="Top"
+                   HorizontalAlignment="Center" FontWeight="Bold" FontSize="17" Content="Weights" />
+            <CheckBox Grid.Row="12" Grid.Column="2" VerticalAlignment="Center"
+                      HorizontalAlignment="Left" Name="IfWeights"
+                      IsMouseDirectlyOverChanged="IfWeights_OnFocusableChanged" />
+
+            <Grid Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="4">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="45" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <!-- 0--><RowDefinition Height="30" />
+                    <!-- 1--><RowDefinition Height="35" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Margin="0,4,0,0" Name="T1" Content="T1" VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center" FontWeight="Bold" Visibility="Hidden" />
+                <Label Grid.Row="0" Grid.Column="1" Margin="0,4,0,0" Name="T2" Content="T2" VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center" FontWeight="Bold" Visibility="Hidden" />
+                <Label Grid.Row="0" Grid.Column="2" Margin="0,4,0,0" Name="T3" Content="T3" VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center" FontWeight="Bold" Visibility="Hidden" />
+                <Label Grid.Row="0" Grid.Column="3" Margin="0,4,0,0" Name="T4" Content="T4" VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center" FontWeight="Bold" Visibility="Hidden" />
+                <Label Grid.Row="0" Grid.Column="4" Margin="0,4,0,0" Name="T5" Content="T5" VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center" FontWeight="Bold" Visibility="Hidden" />
+                <Label Grid.Row="0" Grid.Column="5" Margin="0,4,0,0" Name="T6" Content="T6" VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center" FontWeight="Bold" Visibility="Hidden" />
+                <Label Grid.Row="0" Grid.Column="6" Margin="0,4,0,0" Name="T7" Content="T7" VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center" FontWeight="Bold" Visibility="Hidden" />
+                <Label Grid.Row="0" Grid.Column="7" Margin="0,4,0,0" Name="T8" Content="T8" VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center" FontWeight="Bold" Visibility="Hidden" />
+                <Label Grid.Row="0" Grid.Column="8" Margin="0,4,0,0" Name="T9" Content="T9" VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center" FontWeight="Bold" Visibility="Hidden" />
+                <Label Grid.Row="0" Grid.Column="9" Margin="0,4,0,0" Name="T10" Content="T10"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center" FontWeight="Bold" Visibility="Hidden" />
+                <Label Grid.Row="0" Grid.Column="10" Margin="0,4,0,0" Name="T11" Content="T11"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center" FontWeight="Bold" Visibility="Hidden" />
+
+                <TextBox Grid.Row="1" Grid.Column="0" Margin="0,0,0,0" Name="Tb1" Visibility="Hidden"
+                         Width="40" TextAlignment="Center" Height="17" VerticalAlignment="Top" />
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,0" Name="Tb2" Visibility="Hidden"
+                         Width="40" TextAlignment="Center" Height="17" VerticalAlignment="Top" />
+                <TextBox Grid.Row="1" Grid.Column="2" Margin="0,0,0,0" Name="Tb3" Visibility="Hidden"
+                         Width="40" TextAlignment="Center" Height="17" VerticalAlignment="Top" />
+                <TextBox Grid.Row="1" Grid.Column="3" Margin="0,0,0,0" Name="Tb4" Visibility="Hidden"
+                         Width="40" TextAlignment="Center" Height="17" VerticalAlignment="Top" />
+                <TextBox Grid.Row="1" Grid.Column="4" Margin="0,0,0,0" Name="Tb5" Visibility="Hidden"
+                         Width="40" TextAlignment="Center" Height="17" VerticalAlignment="Top" />
+                <TextBox Grid.Row="1" Grid.Column="5" Margin="0,0,0,0" Name="Tb6" Visibility="Hidden"
+                         Width="40" TextAlignment="Center" Height="17" VerticalAlignment="Top" />
+                <TextBox Grid.Row="1" Grid.Column="6" Margin="0,0,0,0" Name="Tb7" Visibility="Hidden"
+                         Width="40" TextAlignment="Center" Height="17" VerticalAlignment="Top" />
+                <TextBox Grid.Row="1" Grid.Column="7" Margin="0,0,0,0" Name="Tb8" Visibility="Hidden"
+                         Width="40" TextAlignment="Center" Height="17" VerticalAlignment="Top" />
+                <TextBox Grid.Row="1" Grid.Column="8" Margin="0,0,0,0" Name="Tb9" Visibility="Hidden"
+                         Width="40" TextAlignment="Center" Height="17" VerticalAlignment="Top" />
+                <TextBox Grid.Row="1" Grid.Column="9" Margin="0,0,0,0" Name="Tb10" Visibility="Hidden"
+                         Width="40" TextAlignment="Center" Height="17" VerticalAlignment="Top" />
+                <TextBox Grid.Row="1" Grid.Column="10" Margin="0,0,0,0" Name="Tb11" Visibility="Hidden"
+                         Width="40" TextAlignment="Center" Height="17" VerticalAlignment="Top" />
+
+            </Grid>
+
+
+            <Button Grid.Row="14" Grid.ColumnSpan="2" Grid.Column="1" Margin="10,10,0,0"
                     Content="Generate summaries"
                     Click="GenerateSummaries_OnClick" VerticalAlignment="Top" HorizontalAlignment="Center"
                     FontSize="15" />
-
-            <Button Grid.Row="10" Grid.ColumnSpan="2" Grid.Column="1" Margin="10,10,0,0"
-                    Content="Load data from files"
-                    Click="LoadData_OnClick" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="15" />
 
 
         </Grid>

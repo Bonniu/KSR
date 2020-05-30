@@ -1,6 +1,6 @@
 ﻿using Zadanie2_KSR.MembershipFunctions;
 
-namespace Zadanie2_KSR
+namespace Zadanie2_KSR.Fuzzy
 {
     public class LinguisticVariable
     {

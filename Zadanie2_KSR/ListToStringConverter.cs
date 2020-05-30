@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Zadanie2_KSR.Fuzzy;
 
 namespace Zadanie2_KSR
 {

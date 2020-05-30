@@ -17,32 +17,33 @@
       </e>
       <e p="FifaPlayer.cs" t="Include" />
       <e p="FifaPlayerBuilder.cs" t="Include" />
-      <e p="FuzzySet.cs" t="Include" />
-      <e p="LinguisticVariable.cs" t="Include" />
+      <e p="Fuzzy" t="Include">
+        <e p="FuzzySet.cs" t="Include" />
+        <e p="LinguisticVariable.cs" t="Include" />
+        <e p="Measures.cs" t="Include" />
+        <e p="MultiSubjectSummaries.cs" t="Include" />
+        <e p="OneSubjectSummaries.cs" t="Include" />
+        <e p="Quantifiers.cs" t="Include" />
+        <e p="Summarizers.cs" t="Include" />
+      </e>
       <e p="ListToStringConverter.cs" t="Include" />
       <e p="MainWindow.xaml" t="Include" />
       <e p="MainWindow.xaml.cs" t="Include" />
-      <e p="Measures.cs" t="Include" />
       <e p="MembershipFunctions" t="Include">
         <e p="GaussianFunction.cs" t="Include" />
         <e p="IMembershipFunction.cs" t="Include" />
         <e p="TrapezoidalFunction.cs" t="Include" />
         <e p="TriangularFunction.cs" t="Include" />
       </e>
-      <e p="MultiSubjectSummaries.cs" t="Include" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.1" t="Include">
-            <e p="App.g.cs" t="Include" />
             <e p="MainWindow.g.cs" t="Include" />
             <e p="Zadanie2_KSR.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
       </e>
-      <e p="OneSubjectSummaries.cs" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
-      <e p="Quantifiers.cs" t="Include" />
-      <e p="Summarizers.cs" t="Include" />
       <e p="ValueGetter.cs" t="Include" />
       <e p="Zadanie2_KSR.csproj" t="IncludeRecursive" />
       <e p="Zadanie2_KSR.sln" t="IncludeFlat" />

@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Zadanie2_KSR.MembershipFunctions;
 
-namespace Zadanie2_KSR
+namespace Zadanie2_KSR.Fuzzy
 {
     [SuppressMessage("ReSharper", "IdentifierTypo")]
     public static class Quantifiers

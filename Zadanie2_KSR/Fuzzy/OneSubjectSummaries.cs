@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Zadanie2_KSR
+namespace Zadanie2_KSR.Fuzzy
 {
     public class OneSubjectSummaries
     {

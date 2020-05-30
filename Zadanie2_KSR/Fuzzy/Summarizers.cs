@@ -5,7 +5,7 @@ using Zadanie2_KSR.MembershipFunctions;
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable StringLiteralTypo
 
-namespace Zadanie2_KSR
+namespace Zadanie2_KSR.Fuzzy
 {
     [SuppressMessage("ReSharper", "IdentifierTypo")]
     public static class Summarizers

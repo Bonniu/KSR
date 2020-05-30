@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace Zadanie2_KSR
+namespace Zadanie2_KSR.Fuzzy
 {
     public class Measures
     {

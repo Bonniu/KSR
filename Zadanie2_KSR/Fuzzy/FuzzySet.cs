@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Zadanie2_KSR.MembershipFunctions;
 
-namespace Zadanie2_KSR
+namespace Zadanie2_KSR.Fuzzy
 {
     public class FuzzySet
     {

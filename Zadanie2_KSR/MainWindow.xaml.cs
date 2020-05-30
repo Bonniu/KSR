@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Zadanie2_KSR.Fuzzy;
 using Zadanie2_KSR.MembershipFunctions;
 
 namespace Zadanie2_KSR
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private const int M = 18728;
@@ -22,7 +20,6 @@ namespace Zadanie2_KSR
         {
             InitializeComponent();
             InitializeComboBoxes();
-            //GuiQuantifierComboBox_OnSelectedcVariables = new ObservableCollection<LinguisticVariable>(Summarizers.GetAllVariables());
 
             Mss.GenerateAllFormsSentence(Mss.FifaPlayersAttackers, Mss.FifaPlayersDefenders, Quantifiers.AlmostAll,
                 new List<LinguisticVariable> {Summarizers.AverageFinishing},
@@ -37,101 +34,7 @@ namespace Zadanie2_KSR
         }
 
 
-//  ---------------------------------------------------------------- DO TESTÓW -----------------------------
-        private void GuiLike()
-        {
-            // pick quantifier
-            var quantifier =
-                new LinguisticVariable("About one third", "Quantifier", false,
-                    new TrapezoidalFunction(0.25, 0.28, 0.32, 0.35));
-
-            //pick qualifier or null            
-            LinguisticVariable qualifier = null;
-            qualifier = new LinguisticVariable("about 28 years old", "Age", false,
-                new TriangularFunction(27, 28, 29));
-
-            //pick summarizers
-            const int nrOfS = 4;
-
-            var summarizers = new List<LinguisticVariable>(nrOfS);
-            foreach (var sum in Summarizers.GetAllVariables())
-            {
-                if (summarizers.Count >= nrOfS)
-                    break;
-                summarizers.Add(sum);
-            }
-
-            Oss.GenerateOneSubjectSentence(quantifier, new List<LinguisticVariable> {qualifier}, summarizers);
-        }
-
-        // on click Generate Summaries
-        private void GenerateSummaries_OnClick(object sender, RoutedEventArgs e)
-        {
-            var qualifiers = GetQualifiersFromComboBoxes();
-            var summarizers = GetSummarizersFromComboBoxes();
-            LinguisticVariable quantifier = null;
-            if (QuantifierComboBox.SelectedItem != null)
-            {
-                quantifier = Quantifiers.GetQuantifierFromString(QuantifierComboBox.SelectedItem.ToString());
-            }
-
-            var type = 1;
-            if (TypeComboBox.SelectedItem != null && TypeComboBox.SelectedItem.ToString() == "Multi Subject")
-                type = 2;
-            if (summarizers == null || quantifier == null)
-                Console.WriteLine("ALERT - NIE MA WSZYSTKICH");
-
-            else
-            {
-                Console.WriteLine("Qualifiers: " + qualifiers != null);
-                Console.WriteLine(summarizers);
-                Console.WriteLine(quantifier);
-                Console.WriteLine(type);
-            }
-        }
-
-        private List<LinguisticVariable> GetQualifiersFromComboBoxes()
-        {
-            var list = new List<LinguisticVariable>();
-            if (Qualifier1ComboBox.SelectedItem != null)
-                list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) Qualifier1ComboBox.SelectedItem).Content
-                    .ToString()));
-            if (Qualifier2ComboBox.SelectedItem != null)
-                list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) Qualifier2ComboBox.SelectedItem).Content
-                    .ToString()));
-            if (Qualifier3ComboBox.SelectedItem != null)
-                list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) Qualifier3ComboBox.SelectedItem).Content
-                    .ToString()));
-            if (Qualifier4ComboBox.SelectedItem != null)
-                list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) Qualifier4ComboBox.SelectedItem).Content
-                    .ToString()));
-            if (Qualifier5ComboBox.SelectedItem != null)
-                list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) Qualifier5ComboBox.SelectedItem).Content
-                    .ToString()));
-            return list.Count != 0 ? list : null;
-        }
-
-        private List<LinguisticVariable> GetSummarizersFromComboBoxes()
-        {
-            var list = new List<LinguisticVariable>();
-            if (Summarizer1ComboBox.SelectedItem != null)
-                list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) Summarizer1ComboBox.SelectedItem).Content
-                    .ToString()));
-            if (Summarizer2ComboBox.SelectedItem != null)
-                list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) Summarizer2ComboBox.SelectedItem).Content
-                    .ToString()));
-            if (Summarizer3ComboBox.SelectedItem != null)
-                list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) Summarizer3ComboBox.SelectedItem).Content
-                    .ToString()));
-            if (Summarizer4ComboBox.SelectedItem != null)
-                list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) Summarizer4ComboBox.SelectedItem).Content
-                    .ToString()));
-            if (Summarizer5ComboBox.SelectedItem != null)
-                list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) Summarizer5ComboBox.SelectedItem).Content
-                    .ToString()));
-            return list.Count != 0 ? list : null;
-        }
-
+        // Combo Boxes ---------------
         private void InitializeComboBoxes()
         {
             // Quantifier
@@ -144,22 +47,17 @@ namespace Zadanie2_KSR
             TypeComboBox.Items.Add("One-subject summaries");
             TypeComboBox.Items.Add("Two-subject summaries");
 
-
             // Qualifiers and Summarizers ComboBoxes
-            foreach (var s in Summarizers.GetAllVariables())
+            var listCb = new List<ComboBox>
             {
-                Qualifier1ComboBox.Items.Add(newItem(s));
-                Qualifier2ComboBox.Items.Add(newItem(s));
-                Qualifier3ComboBox.Items.Add(newItem(s));
-                Qualifier4ComboBox.Items.Add(newItem(s));
-                Qualifier5ComboBox.Items.Add(newItem(s));
-                Summarizer1ComboBox.Items.Add(newItem(s));
-                Summarizer2ComboBox.Items.Add(newItem(s));
-                Summarizer3ComboBox.Items.Add(newItem(s));
-                Summarizer4ComboBox.Items.Add(newItem(s));
-                Summarizer5ComboBox.Items.Add(newItem(s));
-            }
+                Qualifier1ComboBox, Qualifier2ComboBox, Qualifier3ComboBox, Qualifier4ComboBox, Qualifier5ComboBox,
+                Summarizer1ComboBox, Summarizer2ComboBox, Summarizer3ComboBox, Summarizer4ComboBox, Summarizer5ComboBox
+            };
+            foreach (var s in Summarizers.GetAllVariables())
+            foreach (var cb in listCb)
+                cb.Items.Add(NewItem(s));
 
+            // P1 and P2 ComboBoxes
             var subjects = new List<string> {"Attackers", "Midfielders", "Defenders", "Goalkeepers"};
             foreach (var subject in subjects)
             {
@@ -168,7 +66,41 @@ namespace Zadanie2_KSR
             }
         }
 
-        private ComboBoxItem newItem(LinguisticVariable s)
+        [SuppressMessage("ReSharper", "ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator")]
+        private List<LinguisticVariable> GetQualifiersFromComboBoxes()
+        {
+            var listCb = new List<ComboBox>
+                {Qualifier1ComboBox, Qualifier2ComboBox, Qualifier3ComboBox, Qualifier4ComboBox, Qualifier5ComboBox};
+            var list = new List<LinguisticVariable>();
+            foreach (var cb in listCb)
+            {
+                if (cb.SelectedItem != null)
+                    list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) cb.SelectedItem).Content
+                        .ToString()));
+            }
+
+            return list.Count != 0 ? list : null;
+        }
+
+        [SuppressMessage("ReSharper", "ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator")]
+        private List<LinguisticVariable> GetSummarizersFromComboBoxes()
+        {
+            var listCb = new List<ComboBox>
+            {
+                Summarizer1ComboBox, Summarizer2ComboBox, Summarizer3ComboBox, Summarizer4ComboBox, Summarizer5ComboBox
+            };
+            var list = new List<LinguisticVariable>();
+            foreach (var cb in listCb)
+            {
+                if (cb.SelectedItem != null)
+                    list.Add(Summarizers.GetVariableFromString(((ComboBoxItem) cb.SelectedItem).Content
+                        .ToString()));
+            }
+
+            return list.Count != 0 ? list : null;
+        }
+
+        private static ComboBoxItem NewItem(LinguisticVariable s)
         {
             var n = new ComboBoxItem {Content = s.Text};
             switch (s.AttributeName)
@@ -206,11 +138,6 @@ namespace Zadanie2_KSR
             }
         }
 
-        private void LoadData_OnClick(object sender, RoutedEventArgs e)
-        {
-            Console.WriteLine("asd");
-        }
-
         private void TypeComboBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
             if (TypeComboBox.SelectedItem.ToString().Contains("Two"))
@@ -240,6 +167,131 @@ namespace Zadanie2_KSR
                     QuantifierComboBox.Items.Add(s.Text);
                 }
             }
+        }
+
+        // Buttons ----------------
+        private void LoadDataSummarizers_OnClick(object sender, RoutedEventArgs e)
+        {
+            //var summarizers = FileLoader.LoadSummarizers();
+            //SummarizersLabel.Content = summarizers.Count;
+            SummarizersLabel.Content = "True";
+        }
+
+        private void LoadDataQualifiers_OnClick(object sender, RoutedEventArgs e)
+        {
+            //var qualifiers = FileLoader.LoadQualifiers();
+            //QualifiersLabel.Content = qualifiers.Count;
+            QualifiersLabel.Content = "True";
+        }
+
+        private void LoadDataQuantifier_OnClick(object sender, RoutedEventArgs e)
+        {
+            //var qualifier = FileLoader.LoadQualifiers();
+            //QuantifierLabel.Content = (qualifier != null);
+            QualifiersLabel.Content = "True";
+        }
+        //Main Button ----------------------------------------------------
+        private void GenerateSummaries_OnClick(object sender, RoutedEventArgs e)
+        {
+            var qualifiers = GetQualifiersFromComboBoxes();
+
+            var summarizers = GetSummarizersFromComboBoxes();
+
+            List<double> weights = null;
+            if (IfWeights.IsChecked != null && (bool) IfWeights.IsChecked)
+                weights = GetWeightsFromTextBoxes();
+
+            LinguisticVariable quantifier = null;
+            if (QuantifierComboBox.SelectedItem != null)
+                quantifier = Quantifiers.GetQuantifierFromString(QuantifierComboBox.SelectedItem.ToString());
+
+
+            var type = 1;
+            if (TypeComboBox.SelectedItem != null && TypeComboBox.SelectedItem.ToString() == "Multi Subject")
+                type = 2;
+
+            //checks and generate
+            if (summarizers == null || quantifier == null)
+                Console.WriteLine("ALERT - NIE MA WSZYSTKICH");
+            else
+            {
+                Console.WriteLine("Qualifiers: " + qualifiers != null);
+                Console.WriteLine(summarizers);
+                Console.WriteLine(quantifier);
+                Console.WriteLine(type);
+                Console.WriteLine(weights);
+            }
+        }
+
+        // others ------------
+        private void IfWeights_OnFocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            var weightBoxes = new List<TextBox> {Tb1, Tb2, Tb3, Tb4, Tb5, Tb6, Tb7, Tb8, Tb9, Tb10, Tb11};
+            var labelsWeights = new List<Label> {T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11};
+            if (IfWeights.IsChecked != null && (bool) IfWeights.IsChecked)
+            {
+                foreach (var tb in weightBoxes)
+                    tb.Visibility = Visibility.Hidden;
+                foreach (var lw in labelsWeights)
+                    lw.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                foreach (var tb in weightBoxes)
+                    tb.Visibility = Visibility.Visible;
+                foreach (var lw in labelsWeights)
+                    lw.Visibility = Visibility.Visible;
+            }
+        }
+
+        private List<double> GetWeightsFromTextBoxes()
+        {
+            var weightBoxes = new List<TextBox> {Tb1, Tb2, Tb3, Tb4, Tb5, Tb6, Tb7, Tb8, Tb9, Tb10, Tb11};
+            var list = new List<double>();
+            var sum = 0d;
+            foreach (var weight in weightBoxes)
+            {
+                try
+                {
+                    var number = double.Parse(weight.Text.Replace(".", ","));
+                    sum += number;
+                    list.Add(number);
+                }
+                catch (Exception)
+                {
+                    // ignored
+                }
+            }
+
+            return list.Count == 11 && Math.Abs(sum - 1) < 0.00001 ? list : null;
+        }
+
+
+//  ---------------------------------------------------------------- DO TESTÓW -----------------------------
+        private void GuiLike()
+        {
+            // pick quantifier
+            var quantifier =
+                new LinguisticVariable("About one third", "Quantifier", false,
+                    new TrapezoidalFunction(0.25, 0.28, 0.32, 0.35));
+
+            //pick qualifiers or null            
+            LinguisticVariable qualifier = null;
+            qualifier = new LinguisticVariable("about 28 years old", "Age", false,
+                new TriangularFunction(27, 28, 29));
+
+            //pick summarizers
+            const int nrOfS = 4;
+
+            var summarizers = new List<LinguisticVariable>(nrOfS);
+            foreach (var sum in Summarizers.GetAllVariables())
+            {
+                if (summarizers.Count >= nrOfS)
+                    break;
+                summarizers.Add(sum);
+            }
+
+            Oss.GenerateOneSubjectSentence(quantifier, new List<LinguisticVariable> {qualifier}, summarizers);
         }
     }
 }
