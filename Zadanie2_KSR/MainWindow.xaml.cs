@@ -21,16 +21,12 @@ namespace Zadanie2_KSR
             InitializeComponent();
             InitializeComboBoxes();
 
-            Mss.GenerateAllFormsSentence(Mss.FifaPlayersAttackers, Mss.FifaPlayersDefenders, Quantifiers.AlmostAll,
-                new List<LinguisticVariable> {Summarizers.AverageFinishing},
-                new List<LinguisticVariable> {Summarizers.ShortHeight});
-            Oss.GenerateOneSubjectSentence(Quantifiers.LessThan3000,
-                new List<LinguisticVariable>
-                {
-                    new LinguisticVariable("quite high", "Height", true,
-                        new TrapezoidalFunction(180, 182, 188, 190))
-                }, new List<LinguisticVariable>
-                    {Summarizers.GoodOverall, Summarizers.AverageSprint});
+            // Mss.GenerateAllFormsSentence(Mss.FifaPlayersAttackers, Mss.FifaPlayersDefenders, Quantifiers.AlmostAll,
+            //     new List<LinguisticVariable> {Summarizers.AverageFinishing},
+            //     new List<LinguisticVariable> {Summarizers.ShortHeight});
+
+            // Oss.GenerateOneSubjectSentences(Summarizers.GetAllFinishingVariables(), Quantifiers.LessThan3000
+            //     , null, null);
         }
 
 
@@ -190,6 +186,7 @@ namespace Zadanie2_KSR
             //QuantifierLabel.Content = (qualifier != null);
             QualifiersLabel.Content = "True";
         }
+
         //Main Button ----------------------------------------------------
         private void GenerateSummaries_OnClick(object sender, RoutedEventArgs e)
         {
@@ -215,15 +212,34 @@ namespace Zadanie2_KSR
                 Console.WriteLine("ALERT - NIE MA WSZYSTKICH");
             else
             {
-                Console.WriteLine("Qualifiers: " + qualifiers != null);
-                Console.WriteLine(summarizers);
-                Console.WriteLine(quantifier);
-                Console.WriteLine(type);
-                Console.WriteLine(weights);
+                var results = new List<List<string>>();
+                if (type == 1)
+                    results = Oss.GenerateOneSubjectSentences(summarizers, quantifier, qualifiers, weights);
+                PrintResults(results);
+                //else
+                //Mss.GenerateTwoSubjectsSentences(summarizers, quantifier, qualifiers, weights);
+                // Console.WriteLine("Qualifiers: " + qualifiers != null);
+                // Console.WriteLine(summarizers);
+                // Console.WriteLine(quantifier);
+                // Console.WriteLine(type);
+                // Console.WriteLine(weights);
             }
         }
 
         // others ------------
+        private void PrintResults(List<List<string>> results)
+        {
+            foreach (var sentence in results)
+            {
+                foreach (var s in sentence)
+                {
+                    Console.Write(s + " ");
+                }
+
+                Console.WriteLine();
+            }
+
+        }
         private void IfWeights_OnFocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             var weightBoxes = new List<TextBox> {Tb1, Tb2, Tb3, Tb4, Tb5, Tb6, Tb7, Tb8, Tb9, Tb10, Tb11};
@@ -264,34 +280,6 @@ namespace Zadanie2_KSR
             }
 
             return list.Count == 11 && Math.Abs(sum - 1) < 0.00001 ? list : null;
-        }
-
-
-//  ---------------------------------------------------------------- DO TESTÓW -----------------------------
-        private void GuiLike()
-        {
-            // pick quantifier
-            var quantifier =
-                new LinguisticVariable("About one third", "Quantifier", false,
-                    new TrapezoidalFunction(0.25, 0.28, 0.32, 0.35));
-
-            //pick qualifiers or null            
-            LinguisticVariable qualifier = null;
-            qualifier = new LinguisticVariable("about 28 years old", "Age", false,
-                new TriangularFunction(27, 28, 29));
-
-            //pick summarizers
-            const int nrOfS = 4;
-
-            var summarizers = new List<LinguisticVariable>(nrOfS);
-            foreach (var sum in Summarizers.GetAllVariables())
-            {
-                if (summarizers.Count >= nrOfS)
-                    break;
-                summarizers.Add(sum);
-            }
-
-            Oss.GenerateOneSubjectSentence(quantifier, new List<LinguisticVariable> {qualifier}, summarizers);
         }
     }
 }

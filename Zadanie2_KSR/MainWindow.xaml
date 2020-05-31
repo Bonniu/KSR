@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
 
 
-        <Grid Background="#338833" Grid.Row="0" Grid.Column="0" Name="Left">
+        <Grid Background="#338833" Grid.Row="0" Grid.Column="0" Name="LeftGrid">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="140" />
