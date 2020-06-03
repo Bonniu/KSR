@@ -13,7 +13,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="520" />
-            <ColumnDefinition Width="600" />
+            <ColumnDefinition Width="630" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="600" />
@@ -29,13 +29,13 @@
                 <ColumnDefinition Width="107" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <!-- 0--><RowDefinition Height="35" /> <!-- quantifier -->
+                <!-- 0--><RowDefinition Height="35" /> <!-- type of sentence -->
                 <!-- 1--><RowDefinition Height="30" /> <!-- s / w 1-->
                 <!-- 2--><RowDefinition Height="30" /> <!-- s / w 2-->
                 <!-- 3--><RowDefinition Height="30" /> <!-- s / w 3-->
                 <!-- 4--><RowDefinition Height="30" /> <!-- s / w 4-->
                 <!-- 5--><RowDefinition Height="30" /> <!-- s / w 5-->
-                <!-- 6--><RowDefinition Height="35" /> <!-- type of sentence-->
+                <!-- 6--><RowDefinition Height="35" /> <!-- quantifier-->
                 <!-- 7--><RowDefinition Height="30" /> <!-- P1 / P2-->
                 <!-- 8--><RowDefinition Height="20" />
                 <!-- 9--><RowDefinition Height="30" /> <!-- Load buttons -->
@@ -98,9 +98,9 @@
             <ComboBox Grid.Row="5" Grid.Column="3" Margin="0,5,0,0" VerticalAlignment="Top"
                       Name="Summarizer5ComboBox" />
 
-            <Label Grid.Row="6" Grid.Column="1" Content="Quantifier" Margin="10,6,0,0" VerticalAlignment="Top"
-                   HorizontalAlignment="Center" FontWeight="Bold" FontSize="17" />
-            <ComboBox Grid.Row="6" Grid.Column="2" Margin="0,12,0,0" Name="QuantifierComboBox" VerticalAlignment="Top" />
+            <!-- <Label Grid.Row="6" Grid.Column="1" Content="Quantifier" Margin="10,6,0,0" VerticalAlignment="Top" -->
+            <!--        HorizontalAlignment="Center" FontWeight="Bold" FontSize="17" /> -->
+            <!-- <ComboBox Grid.Row="6" Grid.Column="2" Margin="0,12,0,0" Name="QuantifierComboBox" VerticalAlignment="Top" /> -->
 
             <Label Grid.Row="7" Grid.Column="0" Name="P1Label" Content="P1" Margin="10,3,0,0" VerticalAlignment="Top"
                    HorizontalAlignment="Center" FontWeight="Bold" Visibility="Hidden" />
@@ -115,7 +115,7 @@
             <Label Grid.Row="9" Grid.Column="0" Margin="10,8,0,0" Content="Load from files:" VerticalAlignment="Top"
                    HorizontalAlignment="Center" FontWeight="Bold" />
             <Button Grid.Row="9" Grid.Column="1" Margin="10,10,0,0"
-                    Content="Quantifier" Click="LoadDataQuantifier_OnClick" VerticalAlignment="Top"
+                    Content="Quantifiers" Click="LoadDataQuantifiers_OnClick" VerticalAlignment="Top"
                     HorizontalAlignment="Center" FontSize="15" />
             <Button Grid.Row="9" Grid.Column="2" Margin="10,10,0,0"
                     Content="Summarizers" Click="LoadDataSummarizers_OnClick" VerticalAlignment="Top"
@@ -215,11 +215,21 @@
                     Click="GenerateSummaries_OnClick" VerticalAlignment="Top" HorizontalAlignment="Center"
                     FontSize="15" />
 
+            <Button Grid.Row="14" Grid.Column="0" Margin="10,10,0,0"
+                    Content="Reset"
+                    Click="Reset_OnClick" VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="15" />
+
 
         </Grid>
 
 
+        <Grid Background="#008833" Grid.Row="0" Grid.Column="1" Name="RightGrid" >
+               
+               <DataGrid Height="500" Width="600" HorizontalAlignment="Left" Margin="12,21,0,0"   
+                         Name="DataG" VerticalAlignment="Top" RowHeight="25" />
+               
+        </Grid>
+
     </Grid>
-
-
 </Window>

@@ -1,0 +1,2 @@
+very young;Age;false;trapezoidal;14;14;17;18
+quite high;Height;false;triangular;188;190;192

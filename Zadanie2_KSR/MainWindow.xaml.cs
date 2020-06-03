@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Zadanie2_KSR.Fuzzy;
-using Zadanie2_KSR.MembershipFunctions;
 
 namespace Zadanie2_KSR
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
-        private const int M = 18728;
         public static readonly List<FifaPlayer> FifaPlayers = new CsvReader().ReadCsvFile();
         public readonly OneSubjectSummaries Oss = new OneSubjectSummaries(FifaPlayers);
         public readonly MultiSubjectSummaries Mss = new MultiSubjectSummaries(FifaPlayers);
+        private List<LinguisticVariable> _qualifiers;
+        private List<LinguisticVariable> _quantifiers;
+        private List<LinguisticVariable> _summarizers;
 
         public MainWindow()
         {
@@ -33,15 +35,10 @@ namespace Zadanie2_KSR
         // Combo Boxes ---------------
         private void InitializeComboBoxes()
         {
-            // Quantifier
-            foreach (var s in Quantifiers.GetAllQuantifiers())
-            {
-                QuantifierComboBox.Items.Add(s.Text);
-            }
-
             // TypeComboBox 
             TypeComboBox.Items.Add("One-subject summaries");
             TypeComboBox.Items.Add("Two-subject summaries");
+            TypeComboBox.SelectedIndex = 0;
 
             // Qualifiers and Summarizers ComboBoxes
             var listCb = new List<ComboBox>
@@ -49,12 +46,15 @@ namespace Zadanie2_KSR
                 Qualifier1ComboBox, Qualifier2ComboBox, Qualifier3ComboBox, Qualifier4ComboBox, Qualifier5ComboBox,
                 Summarizer1ComboBox, Summarizer2ComboBox, Summarizer3ComboBox, Summarizer4ComboBox, Summarizer5ComboBox
             };
+            foreach (var cb in listCb)
+                cb.Items.Clear();
             foreach (var s in Summarizers.GetAllVariables())
             foreach (var cb in listCb)
                 cb.Items.Add(NewItem(s));
 
             // P1 and P2 ComboBoxes
             var subjects = new List<string> {"Attackers", "Midfielders", "Defenders", "Goalkeepers"};
+            P1ComboBox.Items.Clear();
             foreach (var subject in subjects)
             {
                 P1ComboBox.Items.Add(subject);
@@ -129,6 +129,8 @@ namespace Zadanie2_KSR
                     n.Background = Brushes.PaleGreen;
                     return n;
                 case "ShotPower":
+                    n.Background = Brushes.LightSteelBlue;
+                    return n;
                 default:
                     return n;
             }
@@ -143,11 +145,11 @@ namespace Zadanie2_KSR
                 P2ComboBox.Visibility = Visibility.Visible;
                 P2Label.Visibility = Visibility.Visible;
 
-                QuantifierComboBox.Items.Clear();
-                foreach (var s in Quantifiers.GetRelativeQuantifiers())
-                {
-                    QuantifierComboBox.Items.Add(s.Text);
-                }
+                // QuantifierComboBox.Items.Clear();
+                // foreach (var s in Quantifiers.GetRelativeQuantifiers())
+                // {
+                //     QuantifierComboBox.Items.Add(s.Text);
+                // }
             }
 
             else
@@ -157,65 +159,128 @@ namespace Zadanie2_KSR
                 P2ComboBox.Visibility = Visibility.Hidden;
                 P2Label.Visibility = Visibility.Hidden;
 
-                QuantifierComboBox.Items.Clear();
-                foreach (var s in Quantifiers.GetAllQuantifiers())
-                {
-                    QuantifierComboBox.Items.Add(s.Text);
-                }
+                // QuantifierComboBox.Items.Clear();
+                // foreach (var s in Quantifiers.GetAllQuantifiers())
+                // {
+                //     QuantifierComboBox.Items.Add(s.Text);
+                // }
             }
         }
 
         // Buttons ----------------
         private void LoadDataSummarizers_OnClick(object sender, RoutedEventArgs e)
         {
-            //var summarizers = FileLoader.LoadSummarizers();
-            //SummarizersLabel.Content = summarizers.Count;
-            SummarizersLabel.Content = "True";
+            var loadedSummarizers = FileLoader.LoadDataFromFile("summarizers.txt");
+            if (loadedSummarizers != null)
+                SummarizersLabel.Content = loadedSummarizers.Count;
+            else
+                SummarizersLabel.Content = "0";
+            _summarizers = loadedSummarizers;
         }
 
         private void LoadDataQualifiers_OnClick(object sender, RoutedEventArgs e)
         {
-            //var qualifiers = FileLoader.LoadQualifiers();
-            //QualifiersLabel.Content = qualifiers.Count;
-            QualifiersLabel.Content = "True";
+            var loadedQualifiers = FileLoader.LoadDataFromFile("qualifiers.txt");
+            if (loadedQualifiers != null)
+                QualifiersLabel.Content = loadedQualifiers.Count;
+            else
+                QualifiersLabel.Content = "0";
+            _qualifiers = loadedQualifiers;
         }
 
-        private void LoadDataQuantifier_OnClick(object sender, RoutedEventArgs e)
+        private void FillGridView(List<List<string>> results)
         {
-            //var qualifier = FileLoader.LoadQualifiers();
-            //QuantifierLabel.Content = (qualifier != null);
-            QualifiersLabel.Content = "True";
+            List<GridItem> list = new List<GridItem>();
+            foreach (var result in results)
+            {
+                list.Add(new GridItem()
+                {
+                    Sentence = result[0],
+                    T1 = result[1],
+                    T2 = result[2],
+                    T3 = result[3],
+                    T4 = result[4],
+                    T5 = result[5],
+                    T6 = result[6],
+                    T7 = result[7],
+                    T8 = result[8],
+                    T9 = result[9],
+                    T10 = result[10],
+                    T11 = result[11],
+                    T = result[12]
+                });
+            }
+            DataG.ItemsSource = list;
         }
+
+        private void LoadDataQuantifiers_OnClick(object sender, RoutedEventArgs e)
+        {
+            var loadedQuantifiers = FileLoader.LoadDataFromFile("quantifiers.txt");
+            if (loadedQuantifiers != null)
+                QuantifierLabel.Content = loadedQuantifiers.Count;
+            else
+                QuantifierLabel.Content = "0";
+            _quantifiers = loadedQuantifiers;
+        }
+
+        private void Reset_OnClick(object sender, RoutedEventArgs e)
+        {
+            QuantifierLabel.Content = "";
+            QualifiersLabel.Content = "";
+            SummarizersLabel.Content = "";
+            _qualifiers = null;
+            _quantifiers = null;
+            _summarizers = null;
+            TypeComboBox.SelectedIndex = 0;
+            P1ComboBox.SelectedIndex = -1;
+            P2ComboBox.SelectedIndex = -1;
+            var weightBoxes = new List<TextBox> {Tb1, Tb2, Tb3, Tb4, Tb5, Tb6, Tb7, Tb8, Tb9, Tb10, Tb11};
+            foreach (var tb in weightBoxes)
+            {
+                tb.Text = "";
+            }
+
+            var listCb = new List<ComboBox>
+            {
+                Qualifier1ComboBox, Qualifier2ComboBox, Qualifier3ComboBox, Qualifier4ComboBox, Qualifier5ComboBox,
+                Summarizer1ComboBox, Summarizer2ComboBox, Summarizer3ComboBox, Summarizer4ComboBox, Summarizer5ComboBox
+            };
+            foreach (var cb in listCb)
+            {
+                cb.SelectedIndex = -1;
+            }
+        }
+
 
         //Main Button ----------------------------------------------------
+
+
         private void GenerateSummaries_OnClick(object sender, RoutedEventArgs e)
         {
-            var qualifiers = GetQualifiersFromComboBoxes();
-
-            var summarizers = GetSummarizersFromComboBoxes();
+            var list = GetQws();
+            var quantifiersToUse = list[0];
+            var qualifiersToUse = list[1];
+            var summarizersToUse = list[2];
 
             List<double> weights = null;
             if (IfWeights.IsChecked != null && (bool) IfWeights.IsChecked)
                 weights = GetWeightsFromTextBoxes();
-
-            LinguisticVariable quantifier = null;
-            if (QuantifierComboBox.SelectedItem != null)
-                quantifier = Quantifiers.GetQuantifierFromString(QuantifierComboBox.SelectedItem.ToString());
-
 
             var type = 1;
             if (TypeComboBox.SelectedItem != null && TypeComboBox.SelectedItem.ToString() == "Multi Subject")
                 type = 2;
 
             //checks and generate
-            if (summarizers == null || quantifier == null)
+            if (summarizersToUse == null || quantifiersToUse == null)
                 Console.WriteLine("ALERT - NIE MA WSZYSTKICH");
             else
             {
                 var results = new List<List<string>>();
                 if (type == 1)
-                    results = Oss.GenerateOneSubjectSentences(summarizers, quantifier, qualifiers, weights);
+                    results = Oss.GenerateOneSubjectSentences(summarizersToUse, quantifiersToUse, qualifiersToUse,
+                        weights);
                 PrintResults(results);
+                FillGridView(results);
                 //else
                 //Mss.GenerateTwoSubjectsSentences(summarizers, quantifier, qualifiers, weights);
                 // Console.WriteLine("Qualifiers: " + qualifiers != null);
@@ -226,7 +291,53 @@ namespace Zadanie2_KSR
             }
         }
 
+
         // others ------------
+        private List<List<LinguisticVariable>> GetQws()
+        {
+            List<LinguisticVariable> quantifiersToUse;
+            if (DecideWhichItemsUse(QuantifierLabel))
+            {
+                quantifiersToUse = _quantifiers;
+            }
+            else if (TypeComboBox.SelectedItem.ToString().Contains("Two"))
+            {
+                quantifiersToUse = Quantifiers.GetRelativeQuantifiers();
+            }
+            else
+            {
+                quantifiersToUse = Quantifiers.GetAllQuantifiers();
+            }
+
+            var qualifiersToUse = DecideWhichItemsUse(QualifiersLabel)
+                ? _qualifiers
+                : GetQualifiersFromComboBoxes();
+            var summarizersToUse = DecideWhichItemsUse(SummarizersLabel)
+                ? _summarizers
+                : GetSummarizersFromComboBoxes();
+            return new List<List<LinguisticVariable>> {quantifiersToUse, qualifiersToUse, summarizersToUse};
+        }
+
+        private static bool DecideWhichItemsUse(ContentControl label)
+        {
+            if (label?.Content == null)
+            {
+                return false;
+            }
+
+            if (label.Content.ToString().Contains("0"))
+            {
+                return false;
+            }
+
+            if (label.Content.ToString().Equals(""))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private void PrintResults(List<List<string>> results)
         {
             foreach (var sentence in results)
@@ -238,8 +349,8 @@ namespace Zadanie2_KSR
 
                 Console.WriteLine();
             }
-
         }
+
         private void IfWeights_OnFocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             var weightBoxes = new List<TextBox> {Tb1, Tb2, Tb3, Tb4, Tb5, Tb6, Tb7, Tb8, Tb9, Tb10, Tb11};

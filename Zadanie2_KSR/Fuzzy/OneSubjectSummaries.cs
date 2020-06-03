@@ -14,7 +14,7 @@ namespace Zadanie2_KSR.Fuzzy
         }
 
         public List<List<string>> GenerateOneSubjectSentences(List<LinguisticVariable> summarizers,
-            LinguisticVariable quantifier, List<LinguisticVariable> qualifiers, List<double> weights)
+            List<LinguisticVariable> quantifiers, List<LinguisticVariable> qualifiers, List<double> weights)
         {
             var allSentences = new List<List<string>>();
             List<string> indexesQualifiers = null;
@@ -22,18 +22,21 @@ namespace Zadanie2_KSR.Fuzzy
                 indexesQualifiers = GetIndexes(qualifiers.Count);
 
             var indexesSummarizers = GetIndexes(summarizers.Count);
-            for (var s = 0; s < indexesSummarizers.Count; s++)
+            foreach (var quantifier in quantifiers)
             {
-                var oneSentenceSummarizers = GetElementsFromIndex(indexesSummarizers[s], summarizers);
-                if (indexesQualifiers == null)
-                    allSentences.Add(GenerateOneSubjectSentence(quantifier, null, oneSentenceSummarizers, weights));
-                else
+                for (var s = 0; s < indexesSummarizers.Count; s++)
                 {
-                    for (int w = 0; w < indexesQualifiers.Count; w++)
+                    var oneSentenceSummarizers = GetElementsFromIndex(indexesSummarizers[s], summarizers);
+                    if (indexesQualifiers == null)
+                        allSentences.Add(GenerateOneSubjectSentence(quantifier, null, oneSentenceSummarizers, weights));
+                    else
                     {
-                        var oneSentenceQualifiers = GetElementsFromIndex(indexesQualifiers[w], qualifiers);
-                        allSentences.Add(GenerateOneSubjectSentence(quantifier, oneSentenceQualifiers,
-                            oneSentenceSummarizers, weights));
+                        for (int w = 0; w < indexesQualifiers.Count; w++)
+                        {
+                            var oneSentenceQualifiers = GetElementsFromIndex(indexesQualifiers[w], qualifiers);
+                            allSentences.Add(GenerateOneSubjectSentence(quantifier, oneSentenceQualifiers,
+                                oneSentenceSummarizers, weights));
+                        }
                     }
                 }
             }
@@ -67,7 +70,7 @@ namespace Zadanie2_KSR.Fuzzy
             return returnList;
         }
 
-        // 0 - sentence, 1-11 - t1-t11 , 12 - sumT
+        // 0 - Sentence, 1-11 - t1-t11 , 12 - sumT
         public List<string> GenerateOneSubjectSentence(LinguisticVariable quantifier,
             List<LinguisticVariable> qualifiers,
             List<LinguisticVariable> summarizers, List<double> weights)

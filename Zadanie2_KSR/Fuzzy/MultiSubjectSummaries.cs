@@ -97,6 +97,12 @@ namespace Zadanie2_KSR.Fuzzy
             measures.CountMeasuresMultiSubject();
         }
 
+        public void GenerateAllFormsSentences(List<FifaPlayer> p1, List<FifaPlayer> p2,
+            LinguisticVariable quantifier, List<LinguisticVariable> summarizers, List<LinguisticVariable> qualifiers)
+        {
+            
+        }
+
         private static string ConvertToPluralForm(string pos)
         {
             return pos.Substring(0, 1).ToLower() + pos.Substring(1) + "s";
