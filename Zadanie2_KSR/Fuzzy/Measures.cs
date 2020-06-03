@@ -191,13 +191,13 @@ namespace Zadanie2_KSR.Fuzzy
                     return quantifier.MembershipFunction.CountValue(upperCase1 / lowerCase1);
                 case 2:
                     var sumP2W = p2.Sum(x =>
-                        Math.Max(CountMembershipValue(summarizers, x), CountMembershipValue(qualifiers, x)));
+                        Math.Min(CountMembershipValue(summarizers, x), CountMembershipValue(qualifiers, x)));
                     var upperCase2 = sumP1 / mp1;
                     var lowerCase2 = sumP1 / mp1 + sumP2W / mp2;
                     return quantifier.MembershipFunction.CountValue(upperCase2 / lowerCase2);
                 case 3:
                     var sumP1W = p1.Sum(x =>
-                        Math.Max(CountMembershipValue(summarizers, x), CountMembershipValue(qualifiers, x)));
+                        Math.Min(CountMembershipValue(summarizers, x), CountMembershipValue(qualifiers, x)));
                     var upperCase3 = sumP1W / mp1;
                     var lowerCase3 = sumP1W / mp1 + sumP2 / mp2;
                     return quantifier.MembershipFunction.CountValue(upperCase3 / lowerCase3);
