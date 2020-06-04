@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "D:\\1studia\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\Zadanie2_KSR.csproj",
+    "projectUniqueName": "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\Zadanie2_KSR.csproj",
     "projectName": "Zadanie2_KSR",
-    "projectPath": "D:\\1studia\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\Zadanie2_KSR.csproj",
-    "outputPath": "D:\\1studia\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\obj\\",
+    "projectPath": "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\Zadanie2_KSR.csproj",
+    "outputPath": "D:\\xd\\inf\\6 semestr\\Komputerowe systemy rozpoznawania\\KSR git\\Zadanie2_KSR\\obj\\",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netcoreapp3.1"

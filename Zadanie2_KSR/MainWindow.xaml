@@ -9,7 +9,7 @@
         FontFamily="Arial" FontSize="13" ResizeMode="CanMinimize">
 
 
-    <Grid Background="#008833" Name="MainGrid">
+    <Grid Background="#40F97E" Name="MainGrid">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="520" />
@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
 
 
-        <Grid Background="#338833" Grid.Row="0" Grid.Column="0" Name="LeftGrid">
+        <Grid Background="#40F97E" Grid.Row="0" Grid.Column="0" Name="LeftGrid">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="140" />
@@ -211,12 +211,12 @@
 
 
             <Button Grid.Row="14" Grid.ColumnSpan="2" Grid.Column="1" Margin="10,10,0,0"
-                    Content="Generate summaries"
+                    Content="Generate summaries" Background="CornflowerBlue"
                     Click="GenerateSummaries_OnClick" VerticalAlignment="Top" HorizontalAlignment="Center"
                     FontSize="15" />
 
             <Button Grid.Row="14" Grid.Column="0" Margin="10,10,0,0"
-                    Content="Reset"
+                    Content="Reset" Background="Tomato"
                     Click="Reset_OnClick" VerticalAlignment="Top" HorizontalAlignment="Center"
                     FontSize="15" />
 
@@ -224,7 +224,7 @@
         </Grid>
 
 
-        <Grid Background="#008833" Grid.Row="0" Grid.Column="1" Name="RightGrid" >
+        <Grid Background="#828584" Grid.Row="0" Grid.Column="1" Name="RightGrid" >
                
                <DataGrid Height="500" Width="600" HorizontalAlignment="Left" Margin="12,21,0,0"   
                          Name="DataG" VerticalAlignment="Top" RowHeight="25" />

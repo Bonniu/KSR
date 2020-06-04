@@ -21,18 +21,41 @@ namespace Zadanie2_KSR.MembershipFunctions
 
         public double GetMin()
         {
+            for (int x = -100000; x < 100000; x++)
+            {
+                if (CountValue(x) > 0.0001)
+                {
+                    Console.WriteLine(x);
+                    return x;
+                }
+            }
+
             return int.MinValue;
         }
 
         public double GetMax()
         {
+            for (int x = 100000; x > -100000; x--)
+            {
+                if (CountValue(x) > 0.0001)
+                {
+                    Console.WriteLine(x);
+                    return x;
+                }
+            }
+
             return int.MaxValue;
         }
 
         public double CountArea()
         {
-            // ????????????????????????????????
-            return Math.Sqrt(Math.PI);
+            double odchylenie = 0.1;
+            return Math.Sqrt(Math.PI / 2 * odchylenie);
+        }
+
+        public override string ToString()
+        {
+            return "AvgX: " + AvgX + " Width: " + Width + " area: " + CountArea();
         }
     }
 }

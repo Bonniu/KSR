@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -210,6 +212,7 @@ namespace Zadanie2_KSR
                     T = result[12]
                 });
             }
+
             DataG.ItemsSource = list;
         }
 
@@ -267,7 +270,8 @@ namespace Zadanie2_KSR
                 weights = GetWeightsFromTextBoxes();
 
             var type = 1;
-            if (TypeComboBox.SelectedItem != null && TypeComboBox.SelectedItem.ToString() == "Multi Subject")
+            Console.WriteLine(TypeComboBox.SelectedItem.ToString());
+            if (TypeComboBox.SelectedItem != null && TypeComboBox.SelectedItem.ToString().Contains("Two"))
                 type = 2;
 
             //checks and generate
@@ -277,12 +281,30 @@ namespace Zadanie2_KSR
             {
                 var results = new List<List<string>>();
                 if (type == 1)
+                {
                     results = Oss.GenerateOneSubjectSentences(summarizersToUse, quantifiersToUse, qualifiersToUse,
                         weights);
+                }
+                else
+                {
+                    results = Mss.GenerateAllFormsSentences(P1ComboBox.Text, P2ComboBox.Text,
+                        quantifiersToUse, summarizersToUse, qualifiersToUse);
+                    var resultsWithoutDuplicates = new List<List<string>> { };
+                    foreach (var x in results.Distinct())
+                    {
+                        if (!resultsWithoutDuplicates.Exists(t => t[0].Equals(x[0])))
+                            resultsWithoutDuplicates.Add(x);
+                    }
+
+                    Console.WriteLine(resultsWithoutDuplicates.Count);
+                    Console.WriteLine(results.Count);
+                    results = resultsWithoutDuplicates;
+                }
+
                 PrintResults(results);
                 FillGridView(results);
-                //else
-                //Mss.GenerateTwoSubjectsSentences(summarizers, quantifier, qualifiers, weights);
+
+
                 // Console.WriteLine("Qualifiers: " + qualifiers != null);
                 // Console.WriteLine(summarizers);
                 // Console.WriteLine(quantifier);
