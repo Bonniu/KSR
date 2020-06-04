@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -24,13 +22,6 @@ namespace Zadanie2_KSR
         {
             InitializeComponent();
             InitializeComboBoxes();
-
-            // Mss.GenerateAllFormsSentence(Mss.FifaPlayersAttackers, Mss.FifaPlayersDefenders, Quantifiers.AlmostAll,
-            //     new List<LinguisticVariable> {Summarizers.AverageFinishing},
-            //     new List<LinguisticVariable> {Summarizers.ShortHeight});
-
-            // Oss.GenerateOneSubjectSentences(Summarizers.GetAllFinishingVariables(), Quantifiers.LessThan3000
-            //     , null, null);
         }
 
 
@@ -146,12 +137,6 @@ namespace Zadanie2_KSR
                 P1Label.Visibility = Visibility.Visible;
                 P2ComboBox.Visibility = Visibility.Visible;
                 P2Label.Visibility = Visibility.Visible;
-
-                // QuantifierComboBox.Items.Clear();
-                // foreach (var s in Quantifiers.GetRelativeQuantifiers())
-                // {
-                //     QuantifierComboBox.Items.Add(s.Text);
-                // }
             }
 
             else
@@ -160,12 +145,6 @@ namespace Zadanie2_KSR
                 P1Label.Visibility = Visibility.Hidden;
                 P2ComboBox.Visibility = Visibility.Hidden;
                 P2Label.Visibility = Visibility.Hidden;
-
-                // QuantifierComboBox.Items.Clear();
-                // foreach (var s in Quantifiers.GetAllQuantifiers())
-                // {
-                //     QuantifierComboBox.Items.Add(s.Text);
-                // }
             }
         }
 
@@ -279,7 +258,7 @@ namespace Zadanie2_KSR
                 Console.WriteLine("ALERT - NIE MA WSZYSTKICH");
             else
             {
-                var results = new List<List<string>>();
+                List<List<string>> results;
                 if (type == 1)
                 {
                     results = Oss.GenerateOneSubjectSentences(summarizersToUse, quantifiersToUse, qualifiersToUse,
@@ -289,27 +268,17 @@ namespace Zadanie2_KSR
                 {
                     results = Mss.GenerateAllFormsSentences(P1ComboBox.Text, P2ComboBox.Text,
                         quantifiersToUse, summarizersToUse, qualifiersToUse);
-                    var resultsWithoutDuplicates = new List<List<string>> { };
+                    var resultsWithoutDuplicates = new List<List<string>>();
                     foreach (var x in results.Distinct())
                     {
                         if (!resultsWithoutDuplicates.Exists(t => t[0].Equals(x[0])))
                             resultsWithoutDuplicates.Add(x);
                     }
-
-                    Console.WriteLine(resultsWithoutDuplicates.Count);
-                    Console.WriteLine(results.Count);
                     results = resultsWithoutDuplicates;
                 }
 
                 PrintResults(results);
                 FillGridView(results);
-
-
-                // Console.WriteLine("Qualifiers: " + qualifiers != null);
-                // Console.WriteLine(summarizers);
-                // Console.WriteLine(quantifier);
-                // Console.WriteLine(type);
-                // Console.WriteLine(weights);
             }
         }
 
