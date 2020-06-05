@@ -286,12 +286,20 @@ namespace Zadanie2_KSR
         // others ------------
         private List<List<LinguisticVariable>> GetQws()
         {
+            var qualifiersToUse = DecideWhichItemsUse(QualifiersLabel)
+                ? _qualifiers
+                : GetQualifiersFromComboBoxes();
+            
+            var summarizersToUse = DecideWhichItemsUse(SummarizersLabel)
+                ? _summarizers
+                : GetSummarizersFromComboBoxes();
+            
             List<LinguisticVariable> quantifiersToUse;
             if (DecideWhichItemsUse(QuantifierLabel))
             {
                 quantifiersToUse = _quantifiers;
             }
-            else if (TypeComboBox.SelectedItem.ToString().Contains("Two"))
+            else if (TypeComboBox.SelectedItem.ToString().Contains("Two") || qualifiersToUse != null)
             {
                 quantifiersToUse = Quantifiers.GetRelativeQuantifiers();
             }
@@ -300,12 +308,8 @@ namespace Zadanie2_KSR
                 quantifiersToUse = Quantifiers.GetAllQuantifiers();
             }
 
-            var qualifiersToUse = DecideWhichItemsUse(QualifiersLabel)
-                ? _qualifiers
-                : GetQualifiersFromComboBoxes();
-            var summarizersToUse = DecideWhichItemsUse(SummarizersLabel)
-                ? _summarizers
-                : GetSummarizersFromComboBoxes();
+            
+            
             return new List<List<LinguisticVariable>> {quantifiersToUse, qualifiersToUse, summarizersToUse};
         }
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  25 MAY 2020 10:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  5 JUN 2020 13:21
 entering extended mode
 **./sprawozdanie.tex
 (sprawozdanie.tex
@@ -253,54 +253,63 @@ Package graphics Info: Driver file: pdftex.def on input line 105.
 \Gin@req@height=\dimen149
 \Gin@req@width=\dimen150
 )
+("C:\Program Files\MiKTeX 2.9\tex/latex/was\upgreek.sty"
+Package: upgreek 2003/02/12 v2.0 (WaS)
+Package upgreek Info: Using Euler Roman for upright Greek on input line 31.
+\symugrf@m=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `ugrf@m' in version `bold'
+(Font)                  U/eur/m/n --> U/eur/b/n on input line 38.
+)
+\c@defin=\count197
+
 ("C:\Program Files\MiKTeX 2.9\tex/latex/etoolbox\etoolbox.sty"
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count197
+\etb@tempcnta=\count198
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count198
+\l__kernel_color_stack_int=\count199
 \l__pdf_internal_box=\box47
 )
 (sprawozdanie.aux)
 \openout1 = `sprawozdanie.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 36.
 LaTeX Font Info:    Trying to load font information for OT4+cmr on input line 3
-5.
+6.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/polski\ot4cmr.fd"
 File: ot4cmr.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
 
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count199
+\scratchcounter=\count266
 \scratchdimen=\dimen151
 \scratchbox=\box48
-\nofMPsegments=\count266
-\nofMParguments=\count267
+\nofMPsegments=\count267
+\nofMParguments=\count268
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count268
+\MPscratchCnt=\count269
 \MPscratchDim=\dimen152
-\MPnumerator=\count269
-\makeMPintoPDFobject=\count270
+\MPnumerator=\count270
+\makeMPintoPDFobject=\count271
 \everyMPtoPDFconversion=\toks23
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf-base.sty"
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -308,7 +317,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 )
 \AtBeginShipoutBox=\box49
-Package hyperref Info: Link coloring OFF on input line 35.
+Package hyperref Info: Link coloring OFF on input line 36.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -319,167 +328,194 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/gettitlestring\gettitlestring.sty"
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count271
+\c@section@level=\count272
 )
-LaTeX Info: Redefining \ref on input line 35.
-LaTeX Info: Redefining \pageref on input line 35.
-LaTeX Info: Redefining \nameref on input line 35.
+LaTeX Info: Redefining \ref on input line 36.
+LaTeX Info: Redefining \pageref on input line 36.
+LaTeX Info: Redefining \nameref on input line 36.
 
 (sprawozdanie.out) (sprawozdanie.out)
 \@outlinefile=\write3
 \openout3 = `sprawozdanie.out'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 
  []
 
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
-7.
+8.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-Underfull \vbox (badness 2626) has occurred while \output is active []
-
- [1
+) [1
 
 {C:/Users/Radek/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] [4]
- [5]
-<./rys/../uml/uml.png, id=207, 624.3325pt x 412.54124pt>
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 237.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 249.
+
+[5]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 267.
+
+[6]
+<./rys/../uml/uml.png, id=277, 624.3325pt x 412.54124pt>
 File: ./rys/../uml/uml.png Graphic file (type png)
 <use ./rys/../uml/uml.png>
-Package pdftex.def Info: ./rys/../uml/uml.png  used on input line 220.
+Package pdftex.def Info: ./rys/../uml/uml.png  used on input line 280.
 (pdftex.def)             Requested size: 350.99762pt x 231.93428pt.
-
-[6 <./rys/../uml/uml.png>]
-<./rys/zmienne/1.png, id=219, 550.30594pt x 300.3722pt>
+ [7 <./rys/../uml/uml.png>]
+<./rys/zmienne/1.png, id=292, 550.30594pt x 300.3722pt>
 File: ./rys/zmienne/1.png Graphic file (type png)
 <use ./rys/zmienne/1.png>
-Package pdftex.def Info: ./rys/zmienne/1.png  used on input line 285.
+Package pdftex.def Info: ./rys/zmienne/1.png  used on input line 344.
 (pdftex.def)             Requested size: 350.99762pt x 191.5913pt.
- [7 <./rys/zmienne/1.png>]
-<./rys/zmienne/2.png, id=237, 539.76656pt x 282.30469pt>
+ [8 <./rys/zmienne/1.png>]
+<./rys/zmienne/2.png, id=307, 539.76656pt x 282.30469pt>
 File: ./rys/zmienne/2.png Graphic file (type png)
 <use ./rys/zmienne/2.png>
-Package pdftex.def Info: ./rys/zmienne/2.png  used on input line 319.
+Package pdftex.def Info: ./rys/zmienne/2.png  used on input line 378.
 (pdftex.def)             Requested size: 350.99762pt x 183.5777pt.
- [8 <./rys/zmienne/2.png>]
-<./rys/zmienne/3.png, id=245, 545.78906pt x 286.06876pt>
+ [9 <./rys/zmienne/2.png>]
+<./rys/zmienne/3.png, id=315, 545.78906pt x 286.06876pt>
 File: ./rys/zmienne/3.png Graphic file (type png)
 <use ./rys/zmienne/3.png>
-Package pdftex.def Info: ./rys/zmienne/3.png  used on input line 353.
+Package pdftex.def Info: ./rys/zmienne/3.png  used on input line 412.
 (pdftex.def)             Requested size: 350.99762pt x 183.96948pt.
-
-[9 <./rys/zmienne/3.png>]
-<./rys/zmienne/4.png, id=253, 548.0475pt x 298.86656pt>
+ [10 <./rys/zmienne/3.png>]
+<./rys/zmienne/4.png, id=323, 548.0475pt x 298.86656pt>
 File: ./rys/zmienne/4.png Graphic file (type png)
 <use ./rys/zmienne/4.png>
-Package pdftex.def Info: ./rys/zmienne/4.png  used on input line 387.
+Package pdftex.def Info: ./rys/zmienne/4.png  used on input line 446.
 (pdftex.def)             Requested size: 350.99762pt x 191.41074pt.
- [10 <./rys/zmienne/4.png>]
-<./rys/zmienne/5.png, id=261, 549.55313pt x 297.36093pt>
+ [11 <./rys/zmienne/4.png>]
+<./rys/zmienne/5.png, id=331, 549.55313pt x 297.36093pt>
 File: ./rys/zmienne/5.png Graphic file (type png)
 <use ./rys/zmienne/5.png>
-Package pdftex.def Info: ./rys/zmienne/5.png  used on input line 424.
+Package pdftex.def Info: ./rys/zmienne/5.png  used on input line 483.
 (pdftex.def)             Requested size: 350.99762pt x 189.9292pt.
- [11 <./rys/zmienne/5.png>]
-<./rys/zmienne/6.png, id=269, 551.81157pt x 301.125pt>
+ [12 <./rys/zmienne/5.png>]
+<./rys/zmienne/6.png, id=339, 551.81157pt x 301.125pt>
 File: ./rys/zmienne/6.png Graphic file (type png)
 <use ./rys/zmienne/6.png>
-Package pdftex.def Info: ./rys/zmienne/6.png  used on input line 461.
+Package pdftex.def Info: ./rys/zmienne/6.png  used on input line 520.
 (pdftex.def)             Requested size: 350.99762pt x 191.54765pt.
-[12 <./rys/zmienne/6.png>]
-<./rys/zmienne/7.png, id=277, 542.77782pt x 284.56313pt>
+ [13 <./rys/zmienne/6.png>]
+<./rys/zmienne/7.png, id=348, 542.77782pt x 284.56313pt>
 File: ./rys/zmienne/7.png Graphic file (type png)
 <use ./rys/zmienne/7.png>
-Package pdftex.def Info: ./rys/zmienne/7.png  used on input line 498.
+Package pdftex.def Info: ./rys/zmienne/7.png  used on input line 557.
 (pdftex.def)             Requested size: 350.99762pt x 184.02594pt.
- [13 <./rys/zmienne/7.png>]
-<./rys/zmienne/8.png, id=286, 548.0475pt x 298.11375pt>
+ [14 <./rys/zmienne/7.png>]
+<./rys/zmienne/8.png, id=356, 548.0475pt x 298.11375pt>
 File: ./rys/zmienne/8.png Graphic file (type png)
 <use ./rys/zmienne/8.png>
-Package pdftex.def Info: ./rys/zmienne/8.png  used on input line 533.
+Package pdftex.def Info: ./rys/zmienne/8.png  used on input line 592.
 (pdftex.def)             Requested size: 350.99762pt x 190.9286pt.
- [14 <./rys/zmienne/8.png>]
-<./rys/zmienne/9.png, id=294, 546.54187pt x 295.85532pt>
+ [15 <./rys/zmienne/8.png>]
+<./rys/zmienne/9.png, id=364, 546.54187pt x 295.85532pt>
 File: ./rys/zmienne/9.png Graphic file (type png)
 <use ./rys/zmienne/9.png>
-Package pdftex.def Info: ./rys/zmienne/9.png  used on input line 567.
+Package pdftex.def Info: ./rys/zmienne/9.png  used on input line 626.
 (pdftex.def)             Requested size: 350.99762pt x 190.00584pt.
- [15 <./rys/zmienne/9.png>]
-<./rys/zmienne/10.png, id=302, 548.0475pt x 292.09125pt>
+ [16 <./rys/zmienne/9.png>]
+<./rys/zmienne/10.png, id=372, 548.0475pt x 292.09125pt>
 File: ./rys/zmienne/10.png Graphic file (type png)
 <use ./rys/zmienne/10.png>
-Package pdftex.def Info: ./rys/zmienne/10.png  used on input line 600.
+Package pdftex.def Info: ./rys/zmienne/10.png  used on input line 659.
 (pdftex.def)             Requested size: 350.99762pt x 187.07146pt.
- [16 <./rys/zmienne/10.png>]
-<./rys/kwantyfikatorWzgledny.png, id=310, 618.81187pt x 322.95656pt>
+ [17 <./rys/zmienne/10.png>]
+<./rys/kwantyfikatorWzgledny.png, id=380, 618.81187pt x 322.95656pt>
 File: ./rys/kwantyfikatorWzgledny.png Graphic file (type png)
 <use ./rys/kwantyfikatorWzgledny.png>
-Package pdftex.def Info: ./rys/kwantyfikatorWzgledny.png  used on input line 62
-9.
+Package pdftex.def Info: ./rys/kwantyfikatorWzgledny.png  used on input line 68
+8.
 (pdftex.def)             Requested size: 350.99762pt x 183.19026pt.
- [17 <./rys/kwantyfikatorWzgledny.png>]
-<./rys/zdania1.png, id=318, 510.90875pt x 283.0575pt>
-File: ./rys/zdania1.png Graphic file (type png)
-<use ./rys/zdania1.png>
-Package pdftex.def Info: ./rys/zdania1.png  used on input line 640.
-(pdftex.def)             Requested size: 350.99762pt x 194.45901pt.
+ [18 <./rys/kwantyfikatorWzgledny.png>]
+Underfull \hbox (badness 1852) in paragraph at lines 741--745
+\T1/cmr/m/n/10.95 wa-nia lin-gwi-stycz-ne. [on-li-ne] [do-st¦p 04.06.2020] http
+://cejsh.icm.edu.pl/
+ []
 
-Underfull \hbox (badness 1242) in paragraph at lines 653--654
+
+Underfull \hbox (badness 10000) in paragraph at lines 741--745
+\T1/cmr/m/n/10.95 cejsh/element/bwmeta1.element.desklight-48b6e678-8bdb-4a2b-ab
+79-
+ []
+
+
+Underfull \hbox (badness 1571) in paragraph at lines 745--747
+[]\T1/cmr/m/n/10.95 Tre±¢ za-da-nia 2. [on-li-ne] [do-st¦p 04.06.2020] https://
+ftims.edu.p.lodz.pl/
+ []
+
+[19]
+Underfull \hbox (badness 1242) in paragraph at lines 748--749
 []\T1/cmr/m/n/10.95 https://pracownik.kul.pl/files/31717/public/Funkcje_przynal
 eznosci.pdf [do-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 654--655
+Underfull \hbox (badness 10000) in paragraph at lines 749--750
 []\T1/cmr/m/n/10.95 http://ii.uwb.edu.pl/rudnicki/wp-content/uploads/2016/02/P0
 7.pdf [do-st¦p
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 656.
-[18 <./rys/zdania1.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 656.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 751.
+[20]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 751.
  (sprawozdanie.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 656.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 656.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 751.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 751.
 Package rerunfilecheck Info: File `sprawozdanie.out' has not changed.
-(rerunfilecheck)             Checksum: B9FD0FCAC85F1817E213525E7F85A378;2365.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 656.
+(rerunfilecheck)             Checksum: B3EDAE849B9E4BAFF054DABE01E8DC11;3801.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 751.
  ) 
 Here is how much of TeX's memory you used:
- 6976 strings out of 481556
- 102319 string characters out of 2923635
- 366689 words of memory out of 3000000
- 21973 multiletter control sequences out of 15000+200000
- 542114 words of font info for 46 fonts, out of 3000000 for 9000
+ 7125 strings out of 481556
+ 103981 string characters out of 2923635
+ 367016 words of memory out of 3000000
+ 22087 multiletter control sequences out of 15000+200000
+ 543647 words of font info for 50 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,12n,32p,926b,388s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,12n,32p,926b,457s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 ecrm1095.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
 ec/dpi600\ecsl1200.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts
-/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk> <C:\Users\Radek\AppData\Local\MiKTeX
-\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\Radek\AppData\Lo
-cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Radek\
-AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on sprawozdanie.pdf (18 pages, 576165 bytes).
+/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts
+/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Radek\AppData\Local\MiKTeX
+\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk> <C:\Users\Radek\AppData\Lo
+cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\Radek\
+AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Us
+ers\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.
+pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eurm10.pfb>
+Output written on sprawozdanie.pdf (20 pages, 600300 bytes).
 PDF statistics:
- 730 PDF objects out of 1000 (max. 8388607)
- 110 named destinations out of 1000 (max. 500000)
- 354 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 868 PDF objects out of 1000 (max. 8388607)
+ 139 named destinations out of 1000 (max. 500000)
+ 445 words of extra memory for PDF output out of 10000 (max. 10000000)
 

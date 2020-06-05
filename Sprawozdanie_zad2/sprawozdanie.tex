@@ -7,8 +7,9 @@
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{upgreek}
 \graphicspath{ {./rys/} }
-
+\newtheorem{defin}{Definicja}
 \usepackage{etoolbox}
 \let\bbordermatrix\bordermatrix
 \patchcmd{\bbordermatrix}{8.75}{4.75}{}{}
@@ -36,9 +37,22 @@
 	\maketitle
 	
 	\section{Cel} % Cel
-	
+	Celem zadania jest stworzenie aplikacji desktopowej, która ma za zadanie generować pewną ilość podsumowań lingwistycznych dla danej bazy danych. Aplikacja musiała umożliwić automatyczne generowanie podsumowań lingwistycznych służących do tworzenia wiadomości tekstowych na podstawie dużej bazy danych (ponad 10 tyś rekordów). \cite{tresc}
 	
 	\section{Wprowadzenie} % Wprowadzenie
+	W ramach projektu zajmowaliśmy się analizą działania lingwistycznych podsumowań baz danych na zbiorach rozmytych. Definicja zbioru rozmytego jest istotna w naszym zadaniu i brzmi następująco:
+	\begin{defin}
+		\label{rozmyty}
+		Niech $\mathcal{X}$ będzie zbiorem, który jest "zbiorem zwykłym". Wówczas zbiorem rozmytym opisanym na $\mathcal{X}$ nazywamy każdy taki zbiór postaci:
+		\begin{equation}
+		A = \{\langle x,\, \mu_A(x)\rangle : x \in \mathcal{X} \}, 
+		\end{equation}
+		gdzie $\mu_A: \mathcal{X} \to [0,1]$ nazywamy funkcją przynależności do zbioru rozmytego A. Jego wartość $x \in \mathcal{X}$ jest określany jako stopień przynależności x do A.
+	\end{defin}
+
+	Funkcja przynależności określa, w jakim stopniu element x przynależy do zbioru. W zbiorach rozmytych są to wartości z przedziału [0,1]. W naszym programie wykorzystujemy 3 funkcje przynależności: trapezoidalna, trójkątna oraz gaussowska.
+
+
 	
 	\subsection{Funkcja trapezoidalna}
 	Funkcja trapezoidalna przyjmuje 4 parametry a, b, c, d, dla których spełniony jest warunek a $\leq$ b $\leq$ c $\leq$ d. Jej wzór jest następujący \cite{anbook}: 
@@ -79,14 +93,13 @@
 	\end{itemize}
 	
 	\section{Miary jakości}
-
-	\subsection{Degree of truth}
-\textsl{Degree of truth} to suma przynależności wszystkich rozważanych krotek do podsumowania lingwistycznego.
-	Dla kwantyfikatorów relatywnych:
+	\subsection{Miary jakości dla zdań jednopodmiotowych}
+	\subsubsection{Degree of truth}
+\textsl{Degree of truth} to suma przynależności wszystkich rozważanych krotek do podsumowania lingwistycznego. Dla zdań jednopodmiotowych bez kwalifikatora oraz kwantyfikatorów relatywnych wzór wygląda następująco:
 	\begin{equation}
 	T_1 = \mu_Q(\frac{r}{m})
 	\end{equation}
-natomiast dla kwantyfikatorów absolutnych
+natomiast zdań jednopodmiotowych bez kwalifikatora oraz kwantyfikatorów absolutnych:
 	\begin{equation}
 	T_1 = \mu_Q(r)
 	\end{equation}
@@ -96,20 +109,28 @@ r = \sum_{i=1}^{m} \mu_{S} (d_i)
 	\end{equation}
 a $m$ to liczba krotek w bazie danych.
 
+Dla zdań jednopodmiotowych z kwalifikatorem kwantyfikator może być tylko względny, a wzór wygląda następująco:
+\begin{equation}
+T_1 = \mu_Q(r)
+\end{equation}
+gdzie 
+\begin{equation}
+r = \frac{\sum_{i=1}^{m} (\mu_{S} (d_i) \land \mu_{W} (d_i))}{\sum_{i=1}^{m} \mu_{W} (d_i)}
+\end{equation}
 
-	\subsection{Degree of imprecision}
+	\subsubsection{Degree of imprecision}
 \textsl{Degree of imprecision} określa stopień precyzyjności sumaryzatora. Dany jest wzorem:
 	\begin{equation}
 T_2 = 1 - \left(\prod_{j=1}^{n} \mathrm{in}(S_j)\right)^{1/n}
 	\end{equation}
 gdzie $in(S_j)$ to stopień rozmycia wyrażony wzorem
 $
-in(s_j) = \frac{|supp(S_j)|}{|supp(X)|}
+in(s_j) = \frac{|supp(S_j)|}{|X|}
 $
 a z kolei $supp(\cdot)$ oznacza nośnik zbioru rozmytego.
 
 
-	\subsection{Degree of covering}
+	\subsubsection{Degree of covering}
 \textsl{Degree of covering} reprezentuje, stopień, w jakim nośnik sumaryzatora pokrywa się z nośnikiem kwalifikatora. Dany jest wzorem:
 	\begin{equation}
 T_3 = \frac{\sum_{i=1}^{m}t_i}{\sum_{i=1}^{m}h_i}
@@ -138,7 +159,7 @@ t_i = \begin{cases}
 
 
 
-	\subsection{Degree of appropriateness}
+	\subsubsection{Degree of appropriateness}
 \textsl{Degree of appropriateness} definiuje, jak dużo krotek przynależy do sumaryzatora, czyli czy określone podsumowanie jest odpowiednie dla zestawu danych. Dany jest wzorem:
 \begin{equation}
 T_4 = \left| \prod_{j=1}^{n} r_j - T_3\right|
@@ -156,7 +177,7 @@ g_{ij} = \begin{cases}
 $
 
 
-	\subsection{Length of a summary}
+	\subsubsection{Length of a summary}
 \textsl{Length of a summary}  określa jakość podsumowania na podstawie złożoności sumaryzatora, czyli im więcej składowych sumaryzatora złożonego, ty niższa wartość tej miary. Dany jest wzorem:
 \begin{equation}
 T_5 = 2 \cdot \left( \frac{1}{2}\right)^{|S|} 
@@ -164,7 +185,7 @@ T_5 = 2 \cdot \left( \frac{1}{2}\right)^{|S|}
 gdzie $|S|$ to liczba zbiorów rozmytych z jakich złożony jest sumaryzator.
 
 
-	\subsection{Degree of quantifier imprecision}
+	\subsubsection{Degree of quantifier imprecision}
 \textsl{Degree of quantifier imprecision} przedstawia w jakim stopniu precyzyjny jest kwantyfikator. Im mniejszy nośnik zbioru rozmytego  tym wyższa jest jego precyzja. Dany jest wzorem:
 \begin{equation}
 T_6 = 1 - in(Q) = 1 - \frac{|supp(Q)|}{|\mathcal{X}_Q|}
@@ -172,7 +193,7 @@ T_6 = 1 - in(Q) = 1 - \frac{|supp(Q)|}{|\mathcal{X}_Q|}
 gdzie $|\mathcal{X}_Q| = 1$ dla kwantyfikatora relatywnego, natomiast dla kwantyfikatora absolutnego $|\mathcal{X}_Q| = m$, czyli liczba krotek w bazie danych.
 
 
-	\subsection{Degree of quantifier cardinality}
+	\subsubsection{Degree of quantifier cardinality}
 \textsl{Degree of quantifier cardinality} opisuje stopień precyzji kwantyfikatora, im większa kardynalność kwantyfikatora tym jest on mniej precyzyjny. Dany jest wzorem:
 \begin{equation}
 T_7 = 1 - \frac{|Q|}{|\mathcal{X}_Q|}
@@ -180,7 +201,7 @@ T_7 = 1 - \frac{|Q|}{|\mathcal{X}_Q|}
 gdzie $|\cdot| = clm(\cdot)$ - całka z funkcji przynależności zbioru rozmytego (czyli pole pod jego wykresem).
 
 
-	\subsection{Degree of summarizer cardinality}
+	\subsubsection{Degree of summarizer cardinality}
 \textsl{Degree of summarizer cardinality} opisuje stopień precyzji sumaryzatora, im mniejsza kardynalność sumaryzatora tym jest on bardziej przecyzyjny. Dany jest wzorem:
 \begin{equation}
 T_8 = 1- \left(\prod_{j=1}^{n} \frac{|S_j|}{|\mathcal{X}_j|}\right)^{\frac{1}{n}}
@@ -188,32 +209,71 @@ T_8 = 1- \left(\prod_{j=1}^{n} \frac{|S_j|}{|\mathcal{X}_j|}\right)^{\frac{1}{n}
 gdzie $n$ to liczba zbiorów rozmytych z jakich stworzony jest sumaryzator.
 
 
-	\subsection{Degree of qualifier imprecision}
+	\subsubsection{Degree of qualifier imprecision}
 \textsl{Degree of qualifier imprecision} określa, w jakim stopniu precyzyjny jest kwalifikator. Im szerszy nośnik zbioru rozmytego tym niższa jest jego precyzja. Dany jest wzorem:
 \begin{equation}
-T_9 = 1-\mathrm{in}(W)
+T_{9} = 1 - \left(\prod_{j=1}^{x} in(W_{gj})\right)^{\frac{1}{x}}
 \end{equation}
-gdzie $in(W)$ to stopień rozmycia zbioru rozmytego $W$.
+gdzie $in(W_{gj})$ to stopień rozmycia zbioru rozmytego $W_{gj}$.
 
 
-	\subsection{Degree of qualifier cardinality}
+	\subsubsection{Degree of qualifier cardinality}
 \textsl{Degree of qualifier cardinality} opisuje stopień precyzji kwalifikatora, im większa jest kardynalność kwalifikatora, tym jest on mniej precyzyjny. Dany jest wzorem:
 \begin{equation}
-T_{10} = 1-\frac{|W|}{|\mathcal{X}_g|}
+T_{10} = 1- \left(\prod_{j=1}^{x} \frac{|W_{gj}|}{|\mathcal{X}_{gj}|}\right)^{\frac{1}{x}}
 \end{equation}
 
 
-	\subsection{Length of qualifier}
+	\subsubsection{Length of qualifier}
 \textsl{Length of qualifier} wyznacza jakość podsumowania na podstawie złożoności kwalifikatora. Im bardziej złożony kwalifikator, tym jakość podsumowania jest gorsza. Dany jest wzorem:
 \begin{equation}
 T_{11} = 2 \cdot \left(\frac{1}{2}\right)^{|W|}
 \end{equation}
 gdzie $|W|$ to liczba zbiorów rozmytych, z jakich stworzony jest kwalifikator.
 
+\subsection{Miary jakości dla zdań wielopodmiotowych}
+Dla zdań wielopodmiotowych liczymy tylko stopień prawdziwości, czyli miarę $T_1$.
+
+\subsubsection{Degree of truth dla zdań wielopodmiotowych w pierwszej formie \cite{anarticle30}} 
+\begin{equation}
+T_{1_1} = \left(\frac{\frac{1}{M_1} \Upsigma-count(S_{P1})}
+				{\frac{1}{M_1} \Upsigma-count(S_{P1}) + \frac{1}{M_2} \Upsigma-count(S_{P2})}\right)
+\end{equation}
+gdzie 
+\begin{itemize}
+	\item $\Upsigma-count(S_{P1}) = \sum_{i=1}^{m} \{\mu_{S}(d_i) : d_i \in^* P_1\}$
+	\item $\Upsigma-count(S_{P2}) = \sum_{i=1}^{m} \{\mu_{S}(d_i) : d_i \in^* P_2\}$
+	\item $M_1$ to liczba krotek reprezentujących podmiot $P_1$
+	\item $M_2$ to liczba krotek reprezentujących podmiot $P_2$
+\end{itemize}
+\subsubsection{Degree of truth dla zdań wielopodmiotowych w drugiej formie \cite{anbookpl}} 
+\begin{equation}
+T_{1_2} = \left(\frac{\frac{1}{M_1} \Upsigma-count(S_{P1})}
+				{\frac{1}{M_1} \Upsigma-count(S_{P1}) + \frac{1}{M_2} \Upsigma-count(S_{P2} \cap W )}\right)
+\end{equation}
+gdzie 
+\begin{itemize}
+	\item  $\Upsigma-count(S_{P2} \cap W ) = \sum_{i=1}^{m} \{min(\mu_{S1}(d_i), \mu_{W}(d_i)) : d_i \in^* P_2 \}  $
+\end{itemize}
+\subsubsection{Degree of truth dla zdań wielopodmiotowych w trzeciej formie \cite{anbookpl}} 
+\begin{equation}
+T_{1_3} = \left(\frac{\frac{1}{M_1} \Upsigma-count(S_{P1} \cap W)}
+				{\frac{1}{M_1} \Upsigma-count(S_{P1} \cap W) + \frac{1}{M_2} \Upsigma-count(S_{P2} )}\right)
+\end{equation}
+gdzie 
+\begin{itemize}
+	\item  $\Upsigma-count(S_{P1} \cap W ) = \sum_{i=1}^{m} \{min(\mu_{S1}(d_i), \mu_{W}(d_i)) : d_i \in^* P_1 \}  $
+\end{itemize}
+\subsubsection{Degree of truth dla zdań wielopodmiotowych w czwartej formie \cite{anarticle30}} 
+\begin{equation}
+T_{1_3} = \left(\frac{\Upsigma-count(S_{P1})}
+			{\Upsigma-count(S_{P1}) + \Upsigma-count(S_{P2})}\right)
+\end{equation}
+
 
 	\newpage
 	\section{Opis implementacji} % Opis implementacji
-	Program został stworzony w języku C\#. Graficzny interfejs użytkownika został stworzony przy wykorzystaniu Windows Presentation Foundation. W programie wykorzystaliśmy bibliotekę AForge. Poniżej przedstawiamy uproszczony diagram UML naszego programu.
+	Program został stworzony w języku C\#. Graficzny interfejs użytkownika został stworzony przy wykorzystaniu Windows Presentation Foundation. Poniżej przedstawiamy uproszczony diagram UML naszego programu.
 	
 	\begin{figure}[h!]
 		\centering
@@ -223,13 +283,12 @@ gdzie $|W|$ to liczba zbiorów rozmytych, z jakich stworzony jest kwalifikator.
 	\end{figure}
 	
 	\begin{itemize}
-		\item Klasa Summarizers odpowiada za poszczególne sumaryzatory, np "młody", "wysoki" 
+		\item Klasa Summarizers przechowuje poszczególne sumaryzatory, np "młody", "wysoki" 
+		\item Quantifiers jest klasą odpowiedzialną za kwantyfikatory relatywne oraz absolutne
 		\item CSVReader odpowiada za wczytanie pliku csv z danymi do programu
-		\item FifaDatabase odpowiada za bazę danych, czyli przechowywanie wszystkich rekordów
 		\item FuzzySet to klasa odpowiadająca za zbiór rozmyty
 		\item Klasy TrapezoidFunction, GaussianFunction, TriangularFunction odpowiadają za odpowiednie funkcje przynależności
 		\item FifaPlayer to klasa, która reprezentuje krotkę bazy danych
-		\item Quantifiers jest klasą odpowiedzialną za kwantyfikatory
 		\item LinguisticVariable to klasa reprezentująca zmienną lingwistyczną.
 	\end{itemize}
 	
@@ -630,17 +689,45 @@ gdzie $|W|$ to liczba zbiorów rozmytych, z jakich stworzony jest kwalifikator.
 		\caption{Funkcja przynależności kwantyfikatora względnego.}
 		\label{kwantyfikatorWzgledny}
 	\end{figure}
-	
-	\newpage
-	\section{Wyniki} % Wyniki
-	
-	Poniżej przedstawiamy przykładowe zdania podsumowaujące bazę danych wygenerowane przez nas program.
-	\begin{figure}[h!]
+
+	\subsection{Kwantyfikator absolutny}
+	\begin{table}[h!]
 		\centering
-		\includegraphics[width=0.9\textwidth]{zdania1.png}
-		\caption{Zdania wygenerowane przez program.}
-		\label{zdania}
-	\end{figure}
+		\begin{tabular} {c c c c c}
+			\hline
+			\textbf{Etykieta} & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} \\ [0.5ex] 
+			\hline	
+			\hline 
+			Około 1000			 & 900 & 960 & 1040 & 1100 \\
+			Więcej niż 3000			 & 0,109 & 0,164 & 0,383 & 0,438  \\
+			Mniej niż 3000				 & 0 & 0 & 2990 & 3010  \\
+			Około 500 		 	 & 450 & 480 & 520 & 550  \\	
+			Około 100		 & 80 & 90 & 110 & 120  \\						
+			\hline			
+		\end{tabular}
+		\caption{Przyporządkowane parametry funkcji trapezoidalnej dla kwantyfikatora absolutnego. }
+		\label{tabelaKwantyfikatorAbsolutny}
+	\end{table}
+	
+	\subsection{Przeprowadzone eksperymenty}
+	Eksperymenty, jakie zdecydowaliśmy przedstawić są następujące:
+	\begin{enumerate}
+		\item Porównanie miar jakości dla różnych kwantyfikatorów w zdaniach jednopodmiotowych.
+		\item Porównanie podsumowań z kwalifikatorem oraz bez (zdania jednopodmiotowe w formie pierwszej i drugiej).
+		\item Porównanie podsumowań z sumaryzatorem oraz złączeniem kilku sumaryzatorów
+		\item Porównanie miary degree of truth dla różnych typów zdań wielopodmiotowych.
+	\end{enumerate}
+
+	\section{Wyniki} % Wyniki
+	\subsection{Porównanie miar jakości dla różnych kwantyfikatorów}
+	s
+	\subsection{Porównanie podsumowań z kwalifikatorem oraz bez}
+	s
+	\subsection{Porównanie podsumowań z sumaryzatorem oraz złączeniem kilku sumaryzatorów}
+	s
+	\subsection{Porównanie miary degree of truth dla różnych typów zdań wielopodmiotowych}
+	s
+
 	
 	\section{Dyskusja} % Dyskusja
 	
@@ -650,7 +737,14 @@ gdzie $|W|$ to liczba zbiorów rozmytych, z jakich stworzony jest kwalifikator.
 	
 	\begin{thebibliography} {0}
 		\bibitem{anbook} Niewiadomski, Adam. Methods for the Linguistic Summarization of Data: Applications of Fuzzy Sets and Their Extensions. Akademicka Oficyna Wydawnicza EXIT. Warszawa, 2008. ISBN 978-83-60434-40-6
-		\bibitem{baza} https://www.kaggle.com/stefanoleone992/fifa-20-complete-player-dataset 
+		\bibitem{anbookpl} Niewiadomski, Adam. Zbiory rozmyte typu 2. Zastosowania w reprezentowaniu informacji. Akademicka Oficyna Wydawnicza EXIT. Warszawa, 2019. ISBN 978-83-7837-595-1
+		\bibitem{anarticle30} Pozyskiwanie wiedzy z relacyjnych baz danych: wielopodmiotowe podsumowania lingwistyczne. [online]  [dostęp 04.06.2020]
+		http://cejsh.icm.edu.pl/
+		cejsh/element/bwmeta1.element.desklight-48b6e678-8bdb-4a2b-ab79-
+		77a76631b2e5/c/30.pdf
+		\bibitem{tresc} Treść zadania 2. [online] [dostęp 04.06.2020] https://ftims.edu.p.lodz.pl/
+		pluginfile.php/132360/mod\_resource/content/6/ksr-projekt2-2019.pdf
+		\bibitem{baza} Źródło bazy danych zawodników z gry FIFA 20. [online] [dostęp 04.06.2020] https://www.kaggle.com/stefanoleone992/fifa-20-complete-player-dataset
 		\bibitem{kul} https://pracownik.kul.pl/files/31717/public/Funkcje\_przynaleznosci.pdf [dostęp 07.05.2020]
 		\bibitem{funkcje} http://ii.uwb.edu.pl/rudnicki/wp-content/uploads/2016/02/P07.pdf [dostęp 08.05.2020]
 	\end{thebibliography}

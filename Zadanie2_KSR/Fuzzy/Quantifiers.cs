@@ -42,18 +42,26 @@ namespace Zadanie2_KSR.Fuzzy
 
         public static readonly LinguisticVariable MoreThan3000 =
             new LinguisticVariable("More than 3000", "Quantifier", true,
-                new TrapezoidalFunction(3000, 3000, 18278, 18278));
+                new TrapezoidalFunction(2990, 3010, 18278, 18278));
 
         public static readonly LinguisticVariable LessThan3000 =
             new LinguisticVariable("Less than 3000", "Quantifier", true,
-                new TrapezoidalFunction(0, 0, 3000, 3000));
+                new TrapezoidalFunction(0, 0, 2990, 3010));
+        
+        public static readonly LinguisticVariable Around500 =
+            new LinguisticVariable("Around 500", "Quantifier", true,
+                new TrapezoidalFunction(450, 480, 520, 550));
+        
+        public static readonly LinguisticVariable Around100 =
+            new LinguisticVariable("Around 100", "Quantifier", true,
+                new TrapezoidalFunction(80, 90, 110, 120));
 
 
         public static List<LinguisticVariable> GetAbsoluteQuantifiers()
         {
             return new List<LinguisticVariable>
             {
-                About1000, MoreThan3000, LessThan3000
+                About1000, MoreThan3000, LessThan3000, Around500, Around100
             };
         }
 
@@ -64,11 +72,6 @@ namespace Zadanie2_KSR.Fuzzy
             list.AddRange(GetRelativeQuantifiers());
             list.AddRange(GetAbsoluteQuantifiers());
             return list;
-        }
-
-        public static LinguisticVariable GetQuantifierFromString(string text)
-        {
-            return GetAllQuantifiers().Find(x => x.Text == text);
         }
     }
 }
