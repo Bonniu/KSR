@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Security.Cryptography;
 using Zadanie2_KSR.MembershipFunctions;
 
 namespace Zadanie2_KSR.Fuzzy
@@ -42,7 +43,19 @@ namespace Zadanie2_KSR.Fuzzy
                 return (membershipFunction.GetMax() - membershipFunction.GetMin());
 
             // sumaryzatory --- raczej git
-            return SupportValue(fifaPlayers) / fifaPlayers.Count;
+            double X = 0;
+            double min = 444444;
+            double max = -2;
+            foreach (var x in fifaPlayers)
+            {
+                if (ValueGetter.GetValueOfPlayer(x, attributeName) >= max)
+                    max = ValueGetter.GetValueOfPlayer(x, attributeName);
+                if (ValueGetter.GetValueOfPlayer(x, attributeName) <= min)
+                    min = ValueGetter.GetValueOfPlayer(x, attributeName);
+            }
+
+            X = max - min;
+            return (membershipFunction.GetMax() - membershipFunction.GetMin()) / X;
         }
     }
 }
