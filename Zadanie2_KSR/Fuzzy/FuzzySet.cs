@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using Zadanie2_KSR.MembershipFunctions;
 
@@ -14,22 +15,10 @@ namespace Zadanie2_KSR.Fuzzy
             this.attributeName = attributeName;
             this.membershipFunction = membershipFunction;
         }
-
-        public List<FifaPlayer> Support(List<FifaPlayer> fifaPlayers)
+        
+        public double SupportValue()
         {
-            List<FifaPlayer> list = new List<FifaPlayer>();
-            foreach (var fp in fifaPlayers)
-            {
-                if (membershipFunction.CountValue(ValueGetter.GetValueOfPlayer(fp, attributeName)) > 0)
-                    list.Add(fp);
-            }
-
-            return list;
-        }
-
-        public double SupportValue(List<FifaPlayer> fifaPlayers)
-        {
-            return Support(fifaPlayers).Count;
+            return membershipFunction.GetMax() - membershipFunction.GetMin();
         }
 
         public double DegreeOfFuzziness(List<FifaPlayer> fifaPlayers)
@@ -43,7 +32,6 @@ namespace Zadanie2_KSR.Fuzzy
                 return (membershipFunction.GetMax() - membershipFunction.GetMin());
 
             // sumaryzatory --- raczej git
-            double X = 0;
             double min = 444444;
             double max = -2;
             foreach (var x in fifaPlayers)
@@ -53,9 +41,9 @@ namespace Zadanie2_KSR.Fuzzy
                 if (ValueGetter.GetValueOfPlayer(x, attributeName) <= min)
                     min = ValueGetter.GetValueOfPlayer(x, attributeName);
             }
-
-            X = max - min;
-            return (membershipFunction.GetMax() - membershipFunction.GetMin()) / X;
+            Console.WriteLine(min);
+            Console.WriteLine(max);
+            return SupportValue() / (max - min);
         }
     }
 }

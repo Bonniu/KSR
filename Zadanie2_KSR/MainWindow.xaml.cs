@@ -169,6 +169,16 @@ namespace Zadanie2_KSR
             _qualifiers = loadedQualifiers;
         }
 
+        private void LoadDataQuantifiers_OnClick(object sender, RoutedEventArgs e)
+        {
+            var loadedQuantifiers = FileLoader.LoadDataFromFile("quantifiers.txt");
+            if (loadedQuantifiers != null)
+                QuantifierLabel.Content = loadedQuantifiers.Count;
+            else
+                QuantifierLabel.Content = "0";
+            _quantifiers = loadedQuantifiers;
+        }
+        
         private void FillGridView(List<List<string>> results)
         {
             List<GridItem> list = new List<GridItem>();
@@ -193,16 +203,6 @@ namespace Zadanie2_KSR
             }
 
             DataG.ItemsSource = list;
-        }
-
-        private void LoadDataQuantifiers_OnClick(object sender, RoutedEventArgs e)
-        {
-            var loadedQuantifiers = FileLoader.LoadDataFromFile("quantifiers.txt");
-            if (loadedQuantifiers != null)
-                QuantifierLabel.Content = loadedQuantifiers.Count;
-            else
-                QuantifierLabel.Content = "0";
-            _quantifiers = loadedQuantifiers;
         }
 
         private void Reset_OnClick(object sender, RoutedEventArgs e)
@@ -249,7 +249,6 @@ namespace Zadanie2_KSR
                 weights = GetWeightsFromTextBoxes();
 
             var type = 1;
-            Console.WriteLine(TypeComboBox.SelectedItem.ToString());
             if (TypeComboBox.SelectedItem != null && TypeComboBox.SelectedItem.ToString().Contains("Two"))
                 type = 2;
 

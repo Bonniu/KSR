@@ -275,7 +275,9 @@ namespace Zadanie2_KSR.Fuzzy
         public static double DegreeOfQuantifierCardinality(LinguisticVariable quantifier, List<FifaPlayer> fifaPlayers)
         {
             var x = quantifier.MembershipFunction.CountArea();
-            return 1 - x / fifaPlayers.Count;
+            if (quantifier.QuantifierAbsolute)
+                return 1 - x / fifaPlayers.Count;
+            return 1 - x;
         }
 
         // T8

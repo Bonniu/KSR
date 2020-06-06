@@ -19,17 +19,17 @@ namespace Zadanie2_KSR.Fuzzy
             var allSentences = new List<List<string>>();
             List<string> indexesQualifiers = null;
             if (qualifiers != null)
-                indexesQualifiers = GetIndexes(qualifiers.Count);
+                indexesQualifiers = GetIndexes(qualifiers.Count); // wszystkie kombinacje połączeń
 
-            var indexesSummarizers = GetIndexes(summarizers.Count);
+            var indexesSummarizers = GetIndexes(summarizers.Count); // wszystkie kombinacje połączeń
             foreach (var quantifier in quantifiers)
             {
                 for (var s = 0; s < indexesSummarizers.Count; s++)
                 {
                     var oneSentenceSummarizers = GetElementsFromIndex(indexesSummarizers[s], summarizers);
-                    if (indexesQualifiers == null)
+                    if (indexesQualifiers == null) // pierwsza forma 
                         allSentences.Add(GenerateOneSubjectSentence(quantifier, null, oneSentenceSummarizers, weights));
-                    else
+                    else // druga forma 
                     {
                         for (int w = 0; w < indexesQualifiers.Count; w++)
                         {
@@ -71,6 +71,7 @@ namespace Zadanie2_KSR.Fuzzy
         }
 
         // 0 - Sentence, 1-11 - t1-t11 , 12 - sumT
+        // tworzy zdanie i wylicza T1-T11
         public List<string> GenerateOneSubjectSentence(LinguisticVariable quantifier,
             List<LinguisticVariable> qualifiers,
             List<LinguisticVariable> summarizers, List<double> weights)
