@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  5 JUN 2020 13:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  7 JUN 2020 00:19
 entering extended mode
 **./sprawozdanie.tex
 (sprawozdanie.tex
@@ -374,126 +374,187 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\@ifnextchar' on input line 267.
 
 [6]
-<./rys/../uml/uml.png, id=277, 624.3325pt x 412.54124pt>
+<./rys/../uml/uml.png, id=301, 624.3325pt x 412.54124pt>
 File: ./rys/../uml/uml.png Graphic file (type png)
 <use ./rys/../uml/uml.png>
 Package pdftex.def Info: ./rys/../uml/uml.png  used on input line 280.
 (pdftex.def)             Requested size: 350.99762pt x 231.93428pt.
  [7 <./rys/../uml/uml.png>]
-<./rys/zmienne/1.png, id=292, 550.30594pt x 300.3722pt>
+<./rys/zmienne/1.png, id=316, 550.30594pt x 300.3722pt>
 File: ./rys/zmienne/1.png Graphic file (type png)
 <use ./rys/zmienne/1.png>
 Package pdftex.def Info: ./rys/zmienne/1.png  used on input line 344.
 (pdftex.def)             Requested size: 350.99762pt x 191.5913pt.
  [8 <./rys/zmienne/1.png>]
-<./rys/zmienne/2.png, id=307, 539.76656pt x 282.30469pt>
+<./rys/zmienne/2.png, id=331, 539.76656pt x 282.30469pt>
 File: ./rys/zmienne/2.png Graphic file (type png)
 <use ./rys/zmienne/2.png>
 Package pdftex.def Info: ./rys/zmienne/2.png  used on input line 378.
 (pdftex.def)             Requested size: 350.99762pt x 183.5777pt.
  [9 <./rys/zmienne/2.png>]
-<./rys/zmienne/3.png, id=315, 545.78906pt x 286.06876pt>
+<./rys/zmienne/3.png, id=339, 545.78906pt x 286.06876pt>
 File: ./rys/zmienne/3.png Graphic file (type png)
 <use ./rys/zmienne/3.png>
 Package pdftex.def Info: ./rys/zmienne/3.png  used on input line 412.
 (pdftex.def)             Requested size: 350.99762pt x 183.96948pt.
  [10 <./rys/zmienne/3.png>]
-<./rys/zmienne/4.png, id=323, 548.0475pt x 298.86656pt>
+<./rys/zmienne/4.png, id=347, 548.0475pt x 298.86656pt>
 File: ./rys/zmienne/4.png Graphic file (type png)
 <use ./rys/zmienne/4.png>
 Package pdftex.def Info: ./rys/zmienne/4.png  used on input line 446.
 (pdftex.def)             Requested size: 350.99762pt x 191.41074pt.
  [11 <./rys/zmienne/4.png>]
-<./rys/zmienne/5.png, id=331, 549.55313pt x 297.36093pt>
+<./rys/zmienne/5.png, id=355, 549.55313pt x 297.36093pt>
 File: ./rys/zmienne/5.png Graphic file (type png)
 <use ./rys/zmienne/5.png>
 Package pdftex.def Info: ./rys/zmienne/5.png  used on input line 483.
 (pdftex.def)             Requested size: 350.99762pt x 189.9292pt.
  [12 <./rys/zmienne/5.png>]
-<./rys/zmienne/6.png, id=339, 551.81157pt x 301.125pt>
+<./rys/zmienne/6.png, id=363, 551.81157pt x 301.125pt>
 File: ./rys/zmienne/6.png Graphic file (type png)
 <use ./rys/zmienne/6.png>
 Package pdftex.def Info: ./rys/zmienne/6.png  used on input line 520.
 (pdftex.def)             Requested size: 350.99762pt x 191.54765pt.
  [13 <./rys/zmienne/6.png>]
-<./rys/zmienne/7.png, id=348, 542.77782pt x 284.56313pt>
+<./rys/zmienne/7.png, id=372, 542.77782pt x 284.56313pt>
 File: ./rys/zmienne/7.png Graphic file (type png)
 <use ./rys/zmienne/7.png>
 Package pdftex.def Info: ./rys/zmienne/7.png  used on input line 557.
 (pdftex.def)             Requested size: 350.99762pt x 184.02594pt.
  [14 <./rys/zmienne/7.png>]
-<./rys/zmienne/8.png, id=356, 548.0475pt x 298.11375pt>
+<./rys/zmienne/8.png, id=380, 548.0475pt x 298.11375pt>
 File: ./rys/zmienne/8.png Graphic file (type png)
 <use ./rys/zmienne/8.png>
 Package pdftex.def Info: ./rys/zmienne/8.png  used on input line 592.
 (pdftex.def)             Requested size: 350.99762pt x 190.9286pt.
  [15 <./rys/zmienne/8.png>]
-<./rys/zmienne/9.png, id=364, 546.54187pt x 295.85532pt>
+<./rys/zmienne/9.png, id=388, 546.54187pt x 295.85532pt>
 File: ./rys/zmienne/9.png Graphic file (type png)
 <use ./rys/zmienne/9.png>
 Package pdftex.def Info: ./rys/zmienne/9.png  used on input line 626.
 (pdftex.def)             Requested size: 350.99762pt x 190.00584pt.
  [16 <./rys/zmienne/9.png>]
-<./rys/zmienne/10.png, id=372, 548.0475pt x 292.09125pt>
+<./rys/zmienne/10.png, id=396, 548.0475pt x 292.09125pt>
 File: ./rys/zmienne/10.png Graphic file (type png)
 <use ./rys/zmienne/10.png>
 Package pdftex.def Info: ./rys/zmienne/10.png  used on input line 659.
 (pdftex.def)             Requested size: 350.99762pt x 187.07146pt.
  [17 <./rys/zmienne/10.png>]
-<./rys/kwantyfikatorWzgledny.png, id=380, 618.81187pt x 322.95656pt>
+<./rys/kwantyfikatorWzgledny.png, id=404, 618.81187pt x 322.95656pt>
 File: ./rys/kwantyfikatorWzgledny.png Graphic file (type png)
 <use ./rys/kwantyfikatorWzgledny.png>
 Package pdftex.def Info: ./rys/kwantyfikatorWzgledny.png  used on input line 68
 8.
 (pdftex.def)             Requested size: 350.99762pt x 183.19026pt.
  [18 <./rys/kwantyfikatorWzgledny.png>]
-Underfull \hbox (badness 1852) in paragraph at lines 741--745
+<./rys/ex/1.png, id=413, 540.51938pt x 295.85532pt>
+File: ./rys/ex/1.png Graphic file (type png)
+<use ./rys/ex/1.png>
+Package pdftex.def Info: ./rys/ex/1.png  used on input line 729.
+(pdftex.def)             Requested size: 350.99762pt x 192.1231pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[19 <./rys/ex/1.png>]
+<./rys/ex/1b.png, id=425, 563.10374pt x 297.36093pt>
+File: ./rys/ex/1b.png Graphic file (type png)
+<use ./rys/ex/1b.png>
+Package pdftex.def Info: ./rys/ex/1b.png  used on input line 762.
+(pdftex.def)             Requested size: 350.99762pt x 185.35555pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[20 <./rys/ex/1b.png>]
+<./rys/ex/2a.png, id=434, 554.07pt x 251.43938pt>
+File: ./rys/ex/2a.png Graphic file (type png)
+<use ./rys/ex/2a.png>
+Package pdftex.def Info: ./rys/ex/2a.png  used on input line 793.
+(pdftex.def)             Requested size: 350.99762pt x 159.2824pt.
+<./rys/ex/2b.png, id=435, 618.05907pt x 238.64156pt>
+File: ./rys/ex/2b.png Graphic file (type png)
+<use ./rys/ex/2b.png>
+Package pdftex.def Info: ./rys/ex/2b.png  used on input line 819.
+(pdftex.def)             Requested size: 350.99762pt x 135.52821pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[21 <./rys/ex/2a.png>]
+<./rys/ex/3a.png, id=444, 543.53062pt x 324.46219pt>
+File: ./rys/ex/3a.png Graphic file (type png)
+<use ./rys/ex/3a.png>
+Package pdftex.def Info: ./rys/ex/3a.png  used on input line 854.
+(pdftex.def)             Requested size: 350.99762pt x 209.5364pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[22 <./rys/ex/2b.png>]
+<./rys/ex/4.png, id=453, 481.8pt x 243.15843pt>
+File: ./rys/ex/4.png Graphic file (type png)
+<use ./rys/ex/4.png>
+Package pdftex.def Info: ./rys/ex/4.png  used on input line 900.
+(pdftex.def)             Requested size: 350.99762pt x 177.14798pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \vbox (badness 7595) has occurred while \output is active []
+
+ [23 <./rys/ex/3a.png>] [24 <./rys/ex/4.png>]
+Underfull \hbox (badness 1852) in paragraph at lines 945--949
 \T1/cmr/m/n/10.95 wa-nia lin-gwi-stycz-ne. [on-li-ne] [do-st¦p 04.06.2020] http
 ://cejsh.icm.edu.pl/
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 741--745
+Underfull \hbox (badness 10000) in paragraph at lines 945--949
 \T1/cmr/m/n/10.95 cejsh/element/bwmeta1.element.desklight-48b6e678-8bdb-4a2b-ab
 79-
  []
 
 
-Underfull \hbox (badness 1571) in paragraph at lines 745--747
+Underfull \hbox (badness 1571) in paragraph at lines 949--951
 []\T1/cmr/m/n/10.95 Tre±¢ za-da-nia 2. [on-li-ne] [do-st¦p 04.06.2020] https://
 ftims.edu.p.lodz.pl/
  []
 
-[19]
-Underfull \hbox (badness 1242) in paragraph at lines 748--749
+
+Underfull \hbox (badness 1242) in paragraph at lines 952--953
 []\T1/cmr/m/n/10.95 https://pracownik.kul.pl/files/31717/public/Funkcje_przynal
 eznosci.pdf [do-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 749--750
+Underfull \hbox (badness 10000) in paragraph at lines 953--954
 []\T1/cmr/m/n/10.95 http://ii.uwb.edu.pl/rudnicki/wp-content/uploads/2016/02/P0
 7.pdf [do-st¦p
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 751.
-[20]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 751.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 955.
+[25]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 955.
  (sprawozdanie.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 751.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 751.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 955.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 955.
 Package rerunfilecheck Info: File `sprawozdanie.out' has not changed.
-(rerunfilecheck)             Checksum: B3EDAE849B9E4BAFF054DABE01E8DC11;3801.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 751.
+(rerunfilecheck)             Checksum: B2EE316812C96110E07DB6C7B400EF63;4560.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 955.
  ) 
 Here is how much of TeX's memory you used:
- 7125 strings out of 481556
- 103981 string characters out of 2923635
- 367016 words of memory out of 3000000
- 22087 multiletter control sequences out of 15000+200000
- 543647 words of font info for 50 fonts, out of 3000000 for 9000
+ 7210 strings out of 481556
+ 105104 string characters out of 2923635
+ 369364 words of memory out of 3000000
+ 22139 multiletter control sequences out of 15000+200000
+ 544770 words of font info for 54 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,12n,32p,926b,457s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,12n,32p,926b,461s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 ecrm1095.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
 ec/dpi600\ecsl1200.pk> <C:\Users\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
@@ -504,18 +565,19 @@ cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\Radek\
 AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Us
 ers\Radek\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.
 pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eurm10.pfb>
-Output written on sprawozdanie.pdf (20 pages, 600300 bytes).
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eurm10.pfb>
+Output written on sprawozdanie.pdf (25 pages, 729987 bytes).
 PDF statistics:
- 868 PDF objects out of 1000 (max. 8388607)
- 139 named destinations out of 1000 (max. 500000)
- 445 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 957 PDF objects out of 1000 (max. 8388607)
+ 166 named destinations out of 1000 (max. 500000)
+ 523 words of extra memory for PDF output out of 10000 (max. 10000000)
 

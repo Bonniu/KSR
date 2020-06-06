@@ -10,9 +10,6 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="CSVReader.cs" t="Include" />
       <e p="data" t="Include">
-        <e p="players_10.csv" t="Include" />
-        <e p="players_10.xlsx" t="Include" />
-        <e p="players_104.csv" t="Include" />
         <e p="players_10_positions.csv" t="Include" />
       </e>
       <e p="FifaPlayer.cs" t="Include" />
@@ -21,14 +18,15 @@
       <e p="Fuzzy" t="Include">
         <e p="FuzzySet.cs" t="Include" />
         <e p="LinguisticVariable.cs" t="Include" />
+        <e p="ListToStringConverter.cs" t="Include" />
         <e p="Measures.cs" t="Include" />
         <e p="MultiSubjectSummaries.cs" t="Include" />
         <e p="OneSubjectSummaries.cs" t="Include" />
         <e p="Quantifiers.cs" t="Include" />
         <e p="Summarizers.cs" t="Include" />
       </e>
+      <e p="generated_sentences.txt" t="Include" />
       <e p="GridItem.cs" t="Include" />
-      <e p="ListToStringConverter.cs" t="Include" />
       <e p="load_data" t="Include">
         <e p="qualifiers.txt" t="Include" />
         <e p="quantifiers.txt" t="Include" />

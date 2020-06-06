@@ -1,0 +1,12 @@
+More defenders than defenders are very young. 0.5 - - - - - - - - - - 0.5 
+More defenders than defenders are quite high. 0.5 - - - - - - - - - - 0.5 
+More defenders than defenders are very young and are quite high. 0.5 - - - - - - - - - - 0.5 
+Almost half of defenders in comparision to defenders are very young. 1 - - - - - - - - - - 1 
+Almost half of defenders in comparision to those defenders, who are very young, are very young. 1 - - - - - - - - - - 1 
+Almost half of those defenders, who are very young, in comparision to defenders, are very young. 1 - - - - - - - - - - 1 
+Almost half of defenders in comparision to defenders are quite high. 1 - - - - - - - - - - 1 
+Almost half of defenders in comparision to those defenders, who are very young, are quite high. 0 - - - - - - - - - - 0 
+Almost half of those defenders, who are very young, in comparision to defenders, are quite high. 0 - - - - - - - - - - 0 
+Almost half of defenders in comparision to defenders are very young and are quite high. 1 - - - - - - - - - - 1 
+Almost half of defenders in comparision to those defenders, who are very young, are very young and are quite high. 1 - - - - - - - - - - 1 
+Almost half of those defenders, who are very young, in comparision to defenders, are very young and are quite high. 1 - - - - - - - - - - 1 

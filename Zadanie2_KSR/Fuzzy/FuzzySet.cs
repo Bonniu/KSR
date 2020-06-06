@@ -41,8 +41,6 @@ namespace Zadanie2_KSR.Fuzzy
                 if (ValueGetter.GetValueOfPlayer(x, attributeName) <= min)
                     min = ValueGetter.GetValueOfPlayer(x, attributeName);
             }
-            Console.WriteLine(min);
-            Console.WriteLine(max);
             return SupportValue() / (max - min);
         }
     }

@@ -275,9 +275,8 @@ namespace Zadanie2_KSR
                     }
                     results = resultsWithoutDuplicates;
                 }
-
-                PrintResults(results);
                 FillGridView(results);
+                SaveResultsToFile(results);
             }
         }
 
@@ -345,6 +344,22 @@ namespace Zadanie2_KSR
             }
         }
 
+        private void SaveResultsToFile(List<List<string>> results)
+        {
+            var toSave = "";
+            foreach (var sentence in results)
+            {
+                var text = "";
+                foreach (var t in sentence)
+                {
+                    text += t + " ";
+                }
+                text += "\n";
+                toSave += (text);
+            }
+
+            System.IO.File.WriteAllText("..\\..\\..\\generated_sentences.txt", toSave);
+        }
         private void IfWeights_OnFocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             var weightBoxes = new List<TextBox> {Tb1, Tb2, Tb3, Tb4, Tb5, Tb6, Tb7, Tb8, Tb9, Tb10, Tb11};

@@ -25,7 +25,6 @@ namespace Zadanie2_KSR.MembershipFunctions
             {
                 if (CountValue(x) > 0.0001)
                 {
-                    Console.WriteLine(x);
                     return x;
                 }
             }
@@ -39,7 +38,6 @@ namespace Zadanie2_KSR.MembershipFunctions
             {
                 if (CountValue(x) > 0.0001)
                 {
-                    Console.WriteLine(x);
                     return x;
                 }
             }

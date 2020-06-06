@@ -46,7 +46,6 @@ namespace Zadanie2_KSR
                     }
 
                     list.Add(lv);
-                    Console.WriteLine(lv);
                 }
                 catch (IndexOutOfRangeException)
                 {
