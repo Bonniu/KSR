@@ -728,7 +728,7 @@ T_{1_3} = \left(\frac{\Upsigma-count(S_{P1})}
 		\centering
 		\includegraphics[width=0.9\textwidth]{ex/1.png}
 		\caption{Porównanie miar jakości T1, T6 i T7 w zależności od różnych kwantyfikatorów w zdaniu jednopodmiotowym w pierwszej formie.}
-		\label{wyniki1}
+		\label{wykresex1a}
 	\end{figure}
 \begin{table}[h!]
 	\centering
@@ -761,7 +761,7 @@ T_{1_3} = \left(\frac{\Upsigma-count(S_{P1})}
 		\centering
 		\includegraphics[width=0.9\textwidth]{ex/1b.png}
 		\caption{Porównanie miar jakości T1, T6 i T7 w zależności od różnych kwantyfikatorów w zdaniu jednopodmiotowym w drugiej formie.}
-		\label{wyniki1b}
+		\label{wykresex1b}
 	\end{figure}
 	
 	\begin{table}[h!]
@@ -792,7 +792,7 @@ T_{1_3} = \left(\frac{\Upsigma-count(S_{P1})}
 		\centering
 		\includegraphics[width=0.9\textwidth]{ex/2a.png}
 		\caption{Porównanie miar jakości T1, T3 i T4 w zależności od obecności kwalifikatora, sumaryzator złożony z jednej etykiety.}
-		\label{wyniki2a}
+		\label{wykresex2a}
 	\end{figure}
 	
 	\begin{table}[h!]
@@ -808,7 +808,7 @@ T_{1_3} = \left(\frac{\Upsigma-count(S_{P1})}
 			\hline			
 		\end{tabular}
 		\caption{Miary $T_1$, $T_3$ oraz $T_4$ w zależności od obecności kwalifikatora. }
-		\label{tabelaex2}
+		\label{tabelaex2a}
 	\end{table}
 
 	W drugim przypadku, kwantyfikatorem była etykieta "Almost none", sumaryzatorem etykiety "slow and bad finishing", a kwalifikatorem "weak curve". Wartości miar jakości $T_2$ oraz $T_5 - T_8$ były stałe i wynosiły: $T_2 = 0.692, T_5 = 0.5, T_6 = 0.836, T_7 = 0,890$ oraz $T_8 = 0.245$. Miary $T_9$ - $T_{11}$ zależą od kwalifikatora, więc nie były brane pod uwagę w porównaniu.	
@@ -818,7 +818,7 @@ T_{1_3} = \left(\frac{\Upsigma-count(S_{P1})}
 		\centering
 		\includegraphics[width=0.9\textwidth]{ex/2b.png}
 		\caption{Porównanie miar jakości T1, T3 i T4 w zależności od obecności kwalifikatora, sumaryzator złożony z dwóch etykiet.}
-		\label{wyniki2b}
+		\label{wykresex2b}
 	\end{figure}
 	
 	\begin{table}[h!]
@@ -842,18 +842,18 @@ T_{1_3} = \left(\frac{\Upsigma-count(S_{P1})}
 	W tej sekcji pokażemy porównanie 3 różnych zdań ze stałym kwantyfikatorem oraz kwalifikatorem. 
 	Wybrane przez nas sumaryzatory wyglądały następująco:
 	\begin{itemize}
-		\item Average finishing
-		\item Average shot power
-		\item Average finishing AND average shot power
+		\item $S_1$ - Average finishing
+		\item $S_2$ - Average shot power
+		\item $S_3$ - Average finishing AND average shot power
 	\end{itemize}
 
-	Podobnie, jak w poprzednich sekcjach, niektóre z miar jakości miały stałe wartości i wynosiły: $ T_6 = 0.671, T_7 = 0.726$  oraz $T_9 = T_{10} = T{11} = 0$ - brak kwalifikatora.
+	Podobnie, jak w poprzednich sekcjach, niektóre z miar jakości miały stałe wartości i wynosiły: $ T_6 = 0.671, T_7 = 0.726$  oraz $T_9 = T_{10} = T_{11} = 0$ - brak kwalifikatora.
 
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.9\textwidth]{ex/3a.png}
 		\caption{Porównanie miar jakości w zależności od sumaryzatora.}
-		\label{wyniki3a}
+		\label{wykresex3a}
 	\end{figure}
 	
 	\begin{table}[h!]
@@ -899,7 +899,7 @@ T_{1_3} = \left(\frac{\Upsigma-count(S_{P1})}
 		\centering
 		\includegraphics[width=0.9\textwidth]{ex/4.png}
 		\caption{Wykres porównujący miary Degree of Truth w zależności od formy podsumowania wielopodmiotowego.}
-		\label{wyniki4}
+		\label{wykresex4a}
 	\end{figure}
 	
 	\begin{table}[h!]
@@ -916,29 +916,50 @@ T_{1_3} = \left(\frac{\Upsigma-count(S_{P1})}
 			\hline			
 		\end{tabular}
 		\caption{Porównanie miary Degree of Truth w zależności od formy podsumowania wielopodmiotowego. }
-		\label{tabelaex4}
+		\label{tabelaex4a}
 	\end{table}
 	
 	\section{Dyskusja} % Dyskusja
-	\subsection{Porównanie miar jakości dla różnych kwantyfikatorów w zdaniach jednopodmiotowych}
+	\subsection{Wpływ kwantyfikatora na miary jakości w zdaniach jednopodmiotowych}
+	Wartość miary $T_1$ była różna od 0 tylko dla dwóch kwantyfikatorów na wykresie \ref{wykresex1a} oraz tylko dla jednego na wykresie \ref{wykresex1b}. Tam, gdzie wartość wynosiła 1, wiemy, że to podsumowanie jest dopasowane do danego kwantyfikatora. 
 	
-	\subsection{Porównanie podsumowań z kwalifikatorem oraz bez (zdania jednopodmiotowe w formie pierwszej i drugiej)}
+	W przypadku miar $T_6$ oraz $T_7$, które opisują nieprecyzyjność oraz liczność kwantyfikatora, wartości oscylowały w okolicach wartości 0.8, czyli dosyć wysokie wartości. Dla pierwszego przypadku, tylko dla kwantyfikatora \textsl{More than 3000} wartość tych miar była bardzo niska i wyniosła ok. 0,164. 
+	
+	Pozostałe miary, tj. $T_2 - T_5, T_8 - T_{11}$ nie zmieniały swoich wartości, gdyż te miary nie zależą od wybranego kwantyfikatora.
+	
+	\subsection{Wpływ kwalifikatora na miary jakości w zdaniach jednopodmiotowych}
+	W tym eksperymencie widać znaczącą różnicę miary $T_1$ w pierwszym przykładzie - dla zdania z kwalifikatorem wartość $T_1$ wyniosła 1, a dla zdania bez kwalifikatora - 0. Również miary $T_3$ oraz $T_4$ znacznie się od siebie różniły.
+	
+	W drugim przykładzie, wszystkie miary $T_1$, $T_3$ oraz $T_4$ miały bardzo podobne wartości. $T_1 = 1$, natomiast $T_3$ oraz $T_4$ były bliskie 0.
+	
+	Miary pozostałe, które nie zostały uwzględnione w wynikach były stałe, gdyż nie zależały od wyboru kwalifikatora, natomiast miary $T_9 - T_{11}$ nie były badane, gdyż bez kwalifikatora nie da się ich obliczyć.
 	
 	\subsection{Porównanie podsumowań z sumaryzatorem oraz złączeniem kilku sumaryzatorów}
+	W tym badaniu największą różnicę możemy zauważyć dla miary $T_1$ - dla sumaryzatora "average shot power" wartość wyniosła 1, natomiast dla sumaryzatora "average finishing" oraz ich złączenia wyniki były bliskie wartości 0.2. 
+	
+	Miara $T_2$, określająca precyzyjność sumaryzatora największą wartość osiągnęła dla sumaryzatora $S_2$, lecz złączenie dwóch sumaryzatorów ($S_3$) dało lepszy wynik niż sumaryzator $S_1$. 
+	
+	Wartości miary $T_3$ były bardzo podobne dla sumaryzatorów $S_1$ i $S_2$, lecz dla ich złączenia wartość drastycznie spadła. Wartość miary $T_4$ jest bliska zeru dla wszystkich sumaryzatorów.	
+	 
+	Wartość miary $T_5$ spadła z wartości 1 dla pojedynczych sumaryzatorów do wartości 0.5 dla ich złączenia, gdyż ta miara jest zależna od ilości zbiorów rozmytych, na które składa się sumaryzator.
+	
+	Miara $T_8$ dla wszystkich sumaryzatorów zawsze wyniosła około 0.2.
 	
 	\subsection{Porównanie miary degree of truth dla różnych typów zdań wielopodmiotowych}
 	
+	W przypadku podsumowań wielopodmiotowych, liczymy tylko miarę Degree of Truth. Jak można zauważyć na wykresie \ref{wykresex4a} oraz tabeli \ref{tabelaex4a}, wartości dla pierwszej i drugiej formy wyniosły 1, ale dla 3 formy już ok. 0.21. Dla 4 formy wynik wyniósł ok. 0.79.
+	
 	\section{Wnioski}
 	\begin{itemize}
-		\item w1
-		\item w2
-		\item w3
-		\item w4
-		\item w5
-		\item w6
+		\item Lingwistyczne podsumowania baz danych znacznie przyspieszają analizę danych z wieloma atrybutami poprzez generowanie informacji zrozumiałych dla człowieka. 
+		\item Im większa ilość krotek w bazie, tym lepsze będą podsumowania bazy danych.
+		\item Najlepiej jest dobrać więcej wąskich przedziałów funkcji przynależności, tak, aby można było uzyskać najlepsze wyniki.
+		\item Miara $T_1$ jest najważniejsza w porównaniu wygenerowanych podsumowań, lecz lepiej jest porównać również wyniki innych miar jakości
+		\item Etykiety powinny się na siebie nakładać, aby uniknąć pustych obszarów w dziedzinie.
+		\item Część z wygenerowanych przez program komunikatów była do przewidzenia przed wygenerowaniem podsumowań. Teraz jednak możemy stwierdzić to za pomocą formalnej i statystycznej miary.
 	\end{itemize}
 
-	
+	\newpage
 	\begin{thebibliography} {0}
 		\bibitem{anbook} Niewiadomski, Adam. Methods for the Linguistic Summarization of Data: Applications of Fuzzy Sets and Their Extensions. Akademicka Oficyna Wydawnicza EXIT. Warszawa, 2008. ISBN 978-83-60434-40-6
 		\bibitem{anbookpl} Niewiadomski, Adam. Zbiory rozmyte typu 2. Zastosowania w reprezentowaniu informacji. Akademicka Oficyna Wydawnicza EXIT. Warszawa, 2019. ISBN 978-83-7837-595-1
