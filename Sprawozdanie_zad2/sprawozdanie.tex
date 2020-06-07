@@ -43,18 +43,79 @@
 	W ramach projektu zajmowaliśmy się analizą działania lingwistycznych podsumowań baz danych na zbiorach rozmytych. Definicja zbioru rozmytego jest istotna w naszym zadaniu i brzmi następująco:
 	\begin{defin}
 		\label{rozmyty}
-		Niech $\mathcal{X}$ będzie zbiorem, który jest "zbiorem zwykłym". Wówczas zbiorem rozmytym opisanym na $\mathcal{X}$ nazywamy każdy taki zbiór postaci:
+		Zbiór rozmyty A opisany na przestrzeni rozważań $\mathcal{X}$ jest zdefiniowany jako:
 		\begin{equation}
 		A = \{\langle x,\, \mu_A(x)\rangle : x \in \mathcal{X} \}, 
 		\end{equation}
-		gdzie $\mu_A: \mathcal{X} \to [0,1]$ nazywamy funkcją przynależności do zbioru rozmytego A. Jego wartość $x \in \mathcal{X}$ jest określany jako stopień przynależności x do A.
+		gdzie $\mu_A: \mathcal{X} \to [0,1]$ nazywamy funkcją przynależności do zbioru rozmytego A. Jego wartość $x \in \mathcal{X}$ jest określany jako stopień przynależności x do A. \cite{anbook}
 	\end{defin}
 
-	Funkcja przynależności określa, w jakim stopniu element x przynależy do zbioru. W zbiorach rozmytych są to wartości z przedziału [0,1]. W naszym programie wykorzystujemy 3 funkcje przynależności: trapezoidalna, trójkątna oraz gaussowska.
-
-
+	Funkcja przynależności określa, w jakim stopniu element x przynależy do zbioru. W zbiorach rozmytych są to wartości z przedziału [0,1]. 
 	
-	\subsection{Funkcja trapezoidalna}
+	Aby wygenerować podsumowania lingwistyczne bazy danych korzystamy z podsumowań lingwistycznych jednopodmiotowych w pierwszej i drugiej formie oraz wielopodmiotowych w pierwszych cztereach formach.
+	
+	\subsection{Podsumowania jednopodmiotowe w pierwszej formie  \cite{anbook}}
+	Podsumowanie lingwistyczne jednopodmiotowe w pierwszej formie ma postać:
+	\begin{equation}
+	Q\:P\:jest\:S_j\:[T]
+	\end{equation}
+	gdzie
+	\begin{itemize}
+		\item Q - kwantyfikator absolutny lub względny, reprezentowany przez zbiór rozmyty
+		\item P - podmiot podsumowania
+		\item $S_j$ - sumaryzator reprezentowany przez zbiór rozmyty
+		\item T - miara jakości dla podsumowania.
+	\end{itemize}
+
+	Ponadto, takie podsumowanie może mieć również postać ze złożonym sumaryzatorem:
+	\begin{equation}
+	Q\:P\:jest\:S_1\:AND\:S_2\:AND\ldots\:AND\:S_n[T]
+	\end{equation}
+	
+	\subsection{Podsumowania jednopodmiotowe w drugiej formie \cite{anbook}}	
+	Podsumowanie lingwistyczne jednopodmiotowe w pierwszej formie ma postać:
+	\begin{equation}
+	Q \: P \: \hbox{będących} \: W \: jest\:S_j\:[T]
+	\end{equation}
+	gdzie
+	\begin{itemize}
+		\item W - kwalifikator wyrażony zbiorem rozmytym.
+	\end{itemize}
+
+	Podobnie, jak w przypadku zdań jednopodmiotowych w pierwszej formie, kwalifikator moze być złożony z kilku zbiorów rozmytych oraz jednocześnie sumaryzator.
+	\subsection{Podsumowania wielopodmiotowe \cite{anbookpl}}
+	W podsumowaniach wielopodmiotowych przyjmuje się następujące oznaczenia:
+	\begin{itemize}
+		\item $P_1$, $P_2$ - podmioty podsumowań reprezentowane przez rozłączne podzbiory $\mathcal{D}_1$, $\mathcal{D}_2$ w $\mathcal{D}$
+		\item $M_1$, $M_2$ - liczby obiektów w $P_1$, $P_2$
+		\item Q - względny kwantyfikator lingwistyczny
+		\item S i W - odpowiednio sumaryzator i kwalifikator lingwistyczny 
+	\end{itemize} 
+	
+	Pierwsza postać podsumowań wielopodmiotowych ma postać:
+	\begin{equation}
+	Q \: P_1 \hbox{ w porównaniu do }P_2 \: jest\:S.
+	\end{equation}
+    
+	Druga postać podsumowań wielopodmiotowych ma postać:
+	\begin{equation}
+	Q \: P_1 \hbox{ w porównaniu do tych } P_2,\hbox{ które są W, jest S.}
+	\end{equation}
+
+	Trzecia postać podsumowań wielopodmiotowych ma postać:
+	\begin{equation}
+	Q \:  P_1, \hbox{ które są W, w porównaniu do } P_2,\hbox{  jest S. }
+	\end{equation}
+	
+	Czwarta postać podsumowań wielopodmiotowych ma postać:
+	\begin{equation}
+	\hbox{Więcej $P_1$ niż $P_2$ jest S. }
+	\end{equation}
+	
+	\subsection{Funkcje prynależności}
+	W naszym programie wykorzystujemy 3 funkcje przynależności: trapezoidalna, trójkątna oraz gaussowska.
+	
+	\subsubsection{Funkcja trapezoidalna}
 	Funkcja trapezoidalna przyjmuje 4 parametry a, b, c, d, dla których spełniony jest warunek a $\leq$ b $\leq$ c $\leq$ d. Jej wzór jest następujący \cite{anbook}: 
 	
 	\begin{equation}
@@ -67,7 +128,7 @@
 	\end{equation}
 	
 	
-	\subsection{Funkcja trójkątna}
+	\subsubsection{Funkcja trójkątna}
 	Funkcja trójkątna jest szczególnym przypadkiem funkcji trapezoidalnej. Przyjmuje ona trzy parametry a, b, c, dla których zachodzi warunek a $\leq$ b $\leq$ c. Te parametry określają punkty ,,załamania'' tej funkcji. Jej wzór jest następujący \cite{funkcje}: 
 	\begin{equation}
 	\mu_A(x) = \begin{cases}
@@ -81,7 +142,7 @@
 	
 	
 	
-	\subsection{Funkcja Gaussowska} 
+	\subsubsection{Funkcja Gaussowska} 
 	Funkcja Gaussowska jest definiowana przez 2 parametry które określają środek funkcji oraz jej szerokość. Wzór jest następujący \cite{kul}:
 	\begin{equation}
 		\mu_A(x) = e^{(-(\frac{x - \bar{x}}{\sigma})^2)}
