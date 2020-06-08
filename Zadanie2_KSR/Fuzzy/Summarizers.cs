@@ -51,16 +51,16 @@ namespace Zadanie2_KSR.Fuzzy
         }
 
         public static readonly LinguisticVariable VeryThinWeight =
-            new LinguisticVariable("very thin", "Weight", true, new GaussianFunction(50, 8));
+            new LinguisticVariable("very thin", "Weight", true, new GaussianFunction(50, 8, 50, 110));
 
         public static readonly LinguisticVariable ThinWeight =
-            new LinguisticVariable("thin", "Weight", true, new GaussianFunction(70, 8));
+            new LinguisticVariable("thin", "Weight", true, new GaussianFunction(70, 8, 50, 110));
 
         public static readonly LinguisticVariable AverageWeight =
-            new LinguisticVariable("average (weight)", "Weight", true, new GaussianFunction(90, 8));
+            new LinguisticVariable("average (weight)", "Weight", true, new GaussianFunction(90, 8, 50, 110));
 
         public static readonly LinguisticVariable ThickWeight =
-            new LinguisticVariable("thick", "Weight", true, new GaussianFunction(110, 8));
+            new LinguisticVariable("thick", "Weight", true, new GaussianFunction(110, 8, 50, 110));
 
         public static List<LinguisticVariable> GetAllWeightVariables()
         {

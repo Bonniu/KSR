@@ -1,12 +1,10 @@
-More defenders than defenders are very young. 0.5 - - - - - - - - - - 0.5 
-More defenders than defenders are quite high. 0.5 - - - - - - - - - - 0.5 
-More defenders than defenders are very young and are quite high. 0.5 - - - - - - - - - - 0.5 
-Almost half of defenders in comparision to defenders are very young. 1 - - - - - - - - - - 1 
-Almost half of defenders in comparision to those defenders, who are very young, are very young. 1 - - - - - - - - - - 1 
-Almost half of those defenders, who are very young, in comparision to defenders, are very young. 1 - - - - - - - - - - 1 
-Almost half of defenders in comparision to defenders are quite high. 1 - - - - - - - - - - 1 
-Almost half of defenders in comparision to those defenders, who are very young, are quite high. 0 - - - - - - - - - - 0 
-Almost half of those defenders, who are very young, in comparision to defenders, are quite high. 0 - - - - - - - - - - 0 
-Almost half of defenders in comparision to defenders are very young and are quite high. 1 - - - - - - - - - - 1 
-Almost half of defenders in comparision to those defenders, who are very young, are very young and are quite high. 1 - - - - - - - - - - 1 
-Almost half of those defenders, who are very young, in comparision to defenders, are very young and are quite high. 1 - - - - - - - - - - 1 
+Almost none of football players are very thin. 1 0.2 1 0 1 0.836 0.89 0.963 0 0 0 0.6933744326863681 
+Less of football players are very thin. 0 0.2 1 0 1 0.671 0.726 0.963 0 0 0 0.27360443268636814 
+Half of football players are very thin. 0 0.2 1 0 1 0.836 0.863 0.963 0 0 0 0.29175443268636814 
+Most of football players are very thin. 0 0.2 1 0 1 0.672 0.726 0.963 0 0 0 0.2736944326863681 
+Almost all of football players are very thin. 0 0.2 1 0 1 0.821 0.862 0.963 0 0 0 0.2907644326863681 
+About 1000 of football players are very thin. 0 0.2 1 0 1 0.989 0.992 0.963 0 0 0 0.3086683368334302 
+More than 3000 of football players are very thin. 0 0.2 1 0 1 0.164 0.164 0.963 0 0 0 0.20944741550724566 
+Less than 3000 of football players are very thin. 1 0.2 1 0 1 0.835 0.836 0.963 0 0 0 0.6900557971682589 
+Around 500 of football players are very thin. 0 0.2 1 0 1 0.995 0.996 0.963 0 0 0 0.30922638475989916 
+Around 100 of football players are very thin. 0 0.2 1 0 1 0.998 0.998 0.963 0 0 0 0.3095546482460574 

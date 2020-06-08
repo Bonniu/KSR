@@ -81,7 +81,6 @@ namespace Zadanie2_KSR.Fuzzy
                 startText += ", which " + ListToStringConverter.ConvertSummarizersToString(qualifiers) + ", ";
 
             startText += ListToStringConverter.ConvertSummarizersToString(summarizers) + ".";
-
             var returnList = new List<string> {startText};
             var measures = new Measures(quantifier, qualifiers, summarizers, _fifaPlayers, weights);
             foreach (var m in measures.CountMeasuresOneSubject())

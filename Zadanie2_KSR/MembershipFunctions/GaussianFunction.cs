@@ -6,13 +6,24 @@ namespace Zadanie2_KSR.MembershipFunctions
     {
         public readonly double AvgX;
         public readonly double Width;
+        public readonly double X1;
+        public readonly double X2;
+
+        public GaussianFunction(double avgX, double width, double x1, double x2)
+        {
+            AvgX = avgX;
+            Width = width;
+            X1 = x1;
+            X2 = x2;
+        }
 
         public GaussianFunction(double avgX, double width)
         {
             AvgX = avgX;
             Width = width;
+            X1 = 0;
+            X2 = 100;
         }
-
         public double CountValue(double x)
         {
             var tmpFraction = (x - AvgX) / Width;
@@ -47,8 +58,9 @@ namespace Zadanie2_KSR.MembershipFunctions
 
         public double CountArea()
         {
-            double odchylenie = 0.1;
-            return Math.Sqrt(Math.PI / 2 * odchylenie);
+            if(Math.Abs(AvgX - X1) < 0.01 || Math.Abs(AvgX - X2) < 0.01)
+                return Math.Sqrt(Math.PI / 2 * Width) / 2;
+            return Math.Sqrt(Math.PI / 2 * Width);
         }
 
         public override string ToString()
