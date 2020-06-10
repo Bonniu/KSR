@@ -37,11 +37,11 @@ namespace Zadanie1_KSR
             Console.WriteLine("Normalizing vectors...");
             NormalizeVectors(list, keyWords);
 
-            KNN knn = new KNN(20, 50, 50, list, new ChebyshewMetric());
+            KNN knn = new KNN(2, 50, 50, list, new EuclideanMetric());
             Console.WriteLine("Classifying...");
             knn.Classify();
             knn.PrintAllProperties();
-            knn.PrintMatrix();
+            //knn.PrintMatrix();
             knn.PrintAccPreRecAllClasses();
 
             // for (int k = 2; k < 26; k++)
